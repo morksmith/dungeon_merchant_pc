@@ -53,4 +53,11 @@ public class ScrollingWindow : MonoBehaviour
             step = 0;
         }
     }
+    public void SetWindow(int i)
+    {
+        CurrentWindow = i;
+        startPos = Rect.anchoredPosition;
+        targetPos = WindowPositions[CurrentWindow];
+        step = 0;
+    }
 }

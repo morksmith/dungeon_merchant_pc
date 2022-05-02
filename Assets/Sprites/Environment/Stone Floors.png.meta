@@ -216,6 +216,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1660,6 +1661,71 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Stone Floors_6: -2813783526498128377
+      Stone Floors_4: -3878444213199230014
+      Stone Floors_31: -1557521798708018462
+      Stone Floors_19: -1676815342270857772
+      Stone Floors_22: 7725697082900292066
+      Stone Floors_38: -3302503542170058148
+      Stone Floors_12: 8871816636317353251
+      Stone Floors_42: -8117723270241476470
+      Stone Floors_18: 8569396249781145926
+      Stone Floors_39: -7196530229141371280
+      Stone Floors_61: -4356026990265281846
+      Stone Floors_10: 5249719773374487247
+      Stone Floors_11: 8655122006177185581
+      Stone Floors_23: 6002567612673769321
+      Stone Floors_2: -3787568177958442167
+      Stone Floors_40: 5891690360794768444
+      Stone Floors_16: 3319636616464582286
+      Stone Floors_28: 1783590041347304909
+      Stone Floors_15: -7136645238642910009
+      Stone Floors_37: 352971282379598781
+      Stone Floors_60: 8454519747091647243
+      Stone Floors_44: -2957714859547524670
+      Stone Floors_58: -8418696727939600938
+      Stone Floors_47: 4314902908374740184
+      Stone Floors_53: -843706692267198946
+      Stone Floors_54: -1537989242059331288
+      Stone Floors_27: -2954774389303427382
+      Stone Floors_33: 7927198185079510238
+      Stone Floors_21: -4052987849627757921
+      Stone Floors_32: -5825219561390897895
+      Stone Floors_41: -8735516566465101331
+      Stone Floors_43: -297875542151862493
+      Stone Floors_62: 2263141541105428788
+      Stone Floors_48: -4537196363317560314
+      Stone Floors_35: 6209452857078347335
+      Stone Floors_30: -6373621382556227667
+      Stone Floors_25: 2037741116066256130
+      Stone Floors_46: -1592467070584213991
+      Stone Floors_9: -6165210897036638602
+      Stone Floors_34: -8987020434250011970
+      Stone Floors_26: -2847402247675047670
+      Stone Floors_1: 7046710092597050486
+      Stone Floors_5: -8394769835910743347
+      Stone Floors_59: -5715228492904072439
+      Stone Floors_50: -3793320518365791508
+      Stone Floors_45: 4844434588205626331
+      Stone Floors_55: 3553938686298780245
+      Stone Floors_7: -2687966528194189519
+      Stone Floors_14: -6131121366602604345
+      Stone Floors_0: -8876838578130963072
+      Stone Floors_13: 5972236026998142844
+      Stone Floors_20: -4641168765993318225
+      Stone Floors_57: -2302626764604251812
+      Stone Floors_3: -8115672189085724490
+      Stone Floors_17: 7273224621068061501
+      Stone Floors_29: 4934111071414679031
+      Stone Floors_36: 2918924112516828866
+      Stone Floors_49: 768109959627313306
+      Stone Floors_51: 6948780200926028436
+      Stone Floors_24: -8839389114250375738
+      Stone Floors_52: -5807635284479206698
+      Stone Floors_63: 5658485673942388055
+      Stone Floors_56: 3960515427983283108
+      Stone Floors_8: -2905084015799914443
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
