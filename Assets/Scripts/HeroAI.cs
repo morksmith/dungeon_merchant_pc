@@ -135,4 +135,9 @@ public class HeroAI : MonoBehaviour
         }
         step = 0;
     }
+
+    public void TakeDamage(float i)
+    {
+        Stats.HP -= i;
+    }
 }
