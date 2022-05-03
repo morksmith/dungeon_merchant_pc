@@ -78,6 +78,8 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
+                    agent.SetDestination(hero.position);
+                    agent.isStopped = false;
                     step = 0;
                 }
             }
@@ -93,6 +95,7 @@ public class Enemy : MonoBehaviour
                 if (dist < Range)
                 {
                     Attack();
+                    agent.isStopped = true;
                     step = 0;
                 }
                 step = 0;

@@ -148,7 +148,7 @@ MonoBehaviour:
   HP: 10
   Damage: 1
   XP: 10
-  Range: 1.1
+  Range: 1.2
   AgroRange: 5
   State: 0
   UpdateTime: 1
@@ -161,7 +161,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5916711133184510307}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Speed: 1
   m_Acceleration: 100
   avoidancePriority: 50

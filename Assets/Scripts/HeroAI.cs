@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class HeroAI : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class HeroAI : MonoBehaviour
     public float UpdateTime = 1;
     public Vector3 TargetPos;
     public bool LevelCleared = false;
+    public GameObject FloatingNumber;
 
 
     private float step;
@@ -125,6 +127,8 @@ public class HeroAI : MonoBehaviour
         if(CurrentTarget.GetComponent<Enemy>().HP > Stats.Damage)
         {
             CurrentTarget.GetComponent<Enemy>().TakeDamage(Stats.Damage);
+            var newNumber = Instantiate(FloatingNumber, CurrentTarget.position, Quaternion.Euler(Vector3.forward));
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + Stats.Damage;
         }
         else
         {
@@ -139,5 +143,7 @@ public class HeroAI : MonoBehaviour
     public void TakeDamage(float i)
     {
         Stats.HP -= i;
+        var newNumber = Instantiate(FloatingNumber, transform.position, Quaternion.Euler(Vector3.forward));
+        newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + i;
     }
 }
