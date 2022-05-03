@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Item : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class Item : MonoBehaviour
                 Selling = false;
                 Sold = true;
                 CollectButton.SetActive(true);
+                CollectButton.GetComponentInChildren<TextMeshProUGUI>().text = "SOLD\n" + Price + "G";
             }
             SellSlider.value = sellTimer / SellTime;
         }

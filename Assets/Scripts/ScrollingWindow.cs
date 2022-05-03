@@ -28,7 +28,6 @@ public class ScrollingWindow : MonoBehaviour
         {
             step += Time.deltaTime;
             var dist = Mathf.Clamp01(step / ScrollSpeed);
-            Debug.Log(dist);
             Rect.anchoredPosition = Vector2.Lerp(startPos, targetPos, dist);
         }
     }

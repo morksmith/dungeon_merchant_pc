@@ -90,7 +90,7 @@ public class HeroAI : MonoBehaviour
 
     public void LookForEnemies()
     {
-        var dist = 999;
+        float dist = 999;
         enemies = GameObject.FindObjectsOfType<Enemy>();
         if(enemies.Length > 0)
         {
@@ -102,6 +102,7 @@ public class HeroAI : MonoBehaviour
                     TargetPos = CurrentTarget.position;
                     State = HeroState.Moving;
                     Agent.isStopped = false;
+                    dist = Vector2.Distance(transform.position, enemies[i].transform.position);
 
                 }
             }
