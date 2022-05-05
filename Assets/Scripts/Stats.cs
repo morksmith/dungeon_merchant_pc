@@ -13,7 +13,16 @@ public class Stats : MonoBehaviour
         Mage,
         Rogue
     }
+    public enum HeroState
+    {
+        Idle,
+        Questing,
+        Training,
+        Dead
+    }
+    public HeroState State;
     public HeroClass Class;
+    public HeroManager Manager;
     public Sprite HeroSprite;
     public float Level;
     public float MaxHP;
@@ -22,12 +31,15 @@ public class Stats : MonoBehaviour
     public float XP;
     public float Damage;
     public float Range;
-    public float Accuracy = 80;
     public float Discovery = 1;
     public float SkillPoints = 0;
     public float GoldHeld;
     public float LootHeld;
 
+    private void Start()
+    {
+        Manager = GameObject.FindObjectOfType<HeroManager>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -47,5 +59,10 @@ public class Stats : MonoBehaviour
         MaxHP += 10;
         Damage++;
         HP = MaxHP;
+    }
+
+    public void SelectHero()
+    {
+        Manager.SelectHero(this);
     }
 }

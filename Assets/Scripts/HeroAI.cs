@@ -16,6 +16,7 @@ public class HeroAI : MonoBehaviour
     }
     public HeroState State;
     public bool Active = false;
+    public bool Waiting = true;
     public Stats Stats;
     public Transform CurrentTarget;
     public NavMeshAgent Agent;
@@ -39,6 +40,10 @@ public class HeroAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Waiting == true)
+        {
+            return;
+        }
         if (!Active)
         {
             activeTimer += Time.deltaTime;
@@ -179,6 +184,7 @@ public class HeroAI : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log("Hero Died");
         CurrentTarget = null;
         Stats.HP = Stats.MaxHP;
         Stats.XP = 0;

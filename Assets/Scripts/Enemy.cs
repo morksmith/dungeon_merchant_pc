@@ -127,7 +127,7 @@ public class Enemy : MonoBehaviour
 
     public void Attack()
     {
-        if (hero.GetComponent<Stats>().HP > Damage)
+        if (hero.GetComponent<HeroAI>().Stats.HP > Damage)
         {
             hero.GetComponent<HeroAI>().TakeDamage(Damage);
             Debug.Log("Hero Takes " + Damage + " Damage!");

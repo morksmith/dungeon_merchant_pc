@@ -6,6 +6,8 @@ using TMPro;
 
 public class DungeonManager : MonoBehaviour
 {
+    public bool Running = false;
+    public GameObject HeroUI;
     public float CurrentTime;
     public float Minutes;
     public float Hours;
@@ -26,18 +28,22 @@ public class DungeonManager : MonoBehaviour
     public Sprite[] TypeSprites;
     public float MaxTime = 1440;
     public Slider TimeSlider;
+    public Image HeroImage;
     public TextMeshProUGUI TimeText;
     public TextMeshProUGUI DungeonText;
     public TextMeshProUGUI HeroLevel;
     public TextMeshProUGUI GoldText;
     public TextMeshProUGUI LootText;
     public Stats CurrentHeroStats;
+    public HeroAI CurrentHeroAI;
     public Slider HeroHP;
     public Slider HeroXP;
     public EnemySpawner[] EnemySpawners;
     // Start is called before the first frame update
     void Start()
     {
+        
+       
         EnemySpawners = GameObject.FindObjectsOfType<EnemySpawner>();
         EnemyCount = Random.Range(1, 4);
         NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
@@ -81,8 +87,8 @@ public class DungeonManager : MonoBehaviour
         {
             SpawnTypes[i] = Random.Range(0, 4);
         }
-        SetEnemyTypes();
-        SpawnEnemies();
+
+        
 
 
     }
@@ -90,7 +96,12 @@ public class DungeonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(CurrentTime < MaxTime)
+        if (!Running)
+        {
+            HeroUI.SetActive(false);
+            return;
+        }
+        if (CurrentTime < MaxTime)
         {
             CurrentTime += Time.deltaTime * 6;
         }
@@ -114,8 +125,8 @@ public class DungeonManager : MonoBehaviour
         HeroHP.value = CurrentHeroStats.HP / CurrentHeroStats.MaxHP;
         HeroXP.value = CurrentHeroStats.XP / CurrentHeroStats.MaxXP;
 
-        DungeonText.text = "LEVEL:" + Level;
-        HeroLevel.text = "LEVEL:" + CurrentHeroStats.Level;
+        DungeonText.text = Level.ToString();
+        HeroLevel.text = "LVL:" + CurrentHeroStats.Level;
         GoldText.text = CurrentHeroStats.GoldHeld.ToString();
         LootText.text = CurrentHeroStats.LootHeld.ToString();
 
@@ -208,5 +219,16 @@ public class DungeonManager : MonoBehaviour
         SpawnTypes[3] = Random.Range(0, 4);
         SetEnemyTypes();
         CurrentTime = 0;
+    }
+
+    public void StartDungeon(int i)
+    {
+        HeroUI.SetActive(true);        
+        Running = true;
+        CurrentHeroAI.Waiting = false;        
+        HeroImage.sprite = CurrentHeroStats.HeroSprite;
+        SetEnemyTypes();
+        SpawnEnemies();
+        Level = i;
     }
 }

@@ -43,6 +43,7 @@ public class Item : MonoBehaviour
         if (Selling)
         {
             SellSlider.gameObject.SetActive(true);
+            GetComponent<Button>().interactable = false;
             if(sellTimer < SellTime)
             {
                 sellTimer += Time.deltaTime;
