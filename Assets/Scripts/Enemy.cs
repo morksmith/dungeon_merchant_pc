@@ -5,12 +5,14 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    public int Level = 1;
     public float MaxHP;
     public float HP;
     public float Damage;
     public float XP;
     public float Range = 1;
     public float AgroRange = 5;
+    public float Gold;
     public enum CurrentState
     {
         Idle,
@@ -20,7 +22,7 @@ public class Enemy : MonoBehaviour
     }
     public CurrentState State;
     public float UpdateTime;
-
+    private float dist;
     private float step;
     private Transform hero;
     private NavMeshAgent agent;
@@ -30,13 +32,27 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         hero = GameObject.FindObjectOfType<HeroAI>().transform;
         step = 0;
+        MaxHP = MaxHP + (Level * 5);
+        Damage = Damage + (Level * 2);
+        XP = MaxHP + Damage;
+        HP = MaxHP;
+        Gold = Random.Range(Level, XP);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        var dist = Vector3.Distance(transform.position, hero.position);
-        if(State == CurrentState.Idle)
+        if(hero != null)
+        {
+            dist = Vector3.Distance(transform.position, hero.position);
+        }
+        else
+        {
+            State = CurrentState.Idle;
+        }
+        
+        if(State == CurrentState.Idle && hero != null)
         {
             if(step < UpdateTime)
             {
@@ -86,6 +102,7 @@ public class Enemy : MonoBehaviour
         }
         if (State == CurrentState.Attacking)
         {
+            
             if (step < UpdateTime)
             {
                 step += Time.deltaTime;
@@ -95,7 +112,7 @@ public class Enemy : MonoBehaviour
                 if (dist < Range)
                 {
                     Attack();
-                    agent.isStopped = true;
+                    //agent.isStopped = true;
                     step = 0;
                 }
                 step = 0;
@@ -117,8 +134,8 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Destroy(hero.gameObject);
             State = CurrentState.Idle;
+            hero.GetComponent<HeroAI>().Die();            
             step = 0;
         }
         step = 0;

@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8037566401934420007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8037566401934420006}
+  - component: {fileID: 8037566401934420004}
+  m_Layer: 0
+  m_Name: Enemy Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8037566401934420006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8037566401934420007}
+  m_LocalRotation: {x: -0.5000001, y: -0.49999988, z: 0.5000003, w: 0.49999973}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
+--- !u!114 &8037566401934420004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8037566401934420007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cca3a3db5f35b948bd309f0795e9d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BeastEnemies:
+  - {fileID: 5595090466670866878, guid: 600d1319f5966604db99a076bd252bd1, type: 3}
+  - {fileID: 8221280178286470798, guid: 09b513fa5016e3b4b980da4ef0931864, type: 3}
+  - {fileID: 9146592978747616070, guid: b487c5dccb6e02447832a129effface0, type: 3}
+  - {fileID: 6921176596069772371, guid: 5450042e10d79a34fb92ac91254df9d8, type: 3}
+  - {fileID: 8221280178286470798, guid: 09b513fa5016e3b4b980da4ef0931864, type: 3}
+  - {fileID: 8221280178286470798, guid: 09b513fa5016e3b4b980da4ef0931864, type: 3}
+  - {fileID: 8221280178286470798, guid: 09b513fa5016e3b4b980da4ef0931864, type: 3}
+  - {fileID: 5595090466670866878, guid: 600d1319f5966604db99a076bd252bd1, type: 3}
+  - {fileID: 5595090466670866878, guid: 600d1319f5966604db99a076bd252bd1, type: 3}
+  - {fileID: 6921176596069772371, guid: 5450042e10d79a34fb92ac91254df9d8, type: 3}
+  GhostEnemies:
+  - {fileID: 4758602533575085104, guid: a3946e3ff5bd1364c9107ea5b4b6f267, type: 3}
+  - {fileID: 1504555293826749720, guid: aeb4610e7ff80fa4ab6f6412f9d350b9, type: 3}
+  - {fileID: 3477691704985470731, guid: 7804e2b0dd60b694da385f40b484434e, type: 3}
+  - {fileID: 4370772687059277906, guid: 5e3279fe337089f4fb36e00ba04b4a2b, type: 3}
+  - {fileID: 3477691704985470731, guid: 7804e2b0dd60b694da385f40b484434e, type: 3}
+  - {fileID: 3477691704985470731, guid: 7804e2b0dd60b694da385f40b484434e, type: 3}
+  - {fileID: 3477691704985470731, guid: 7804e2b0dd60b694da385f40b484434e, type: 3}
+  - {fileID: 4370772687059277906, guid: 5e3279fe337089f4fb36e00ba04b4a2b, type: 3}
+  - {fileID: 4370772687059277906, guid: 5e3279fe337089f4fb36e00ba04b4a2b, type: 3}
+  - {fileID: 1504555293826749720, guid: aeb4610e7ff80fa4ab6f6412f9d350b9, type: 3}
+  SkeletonEnemies:
+  - {fileID: 449359920579107470, guid: 739940fe516acc0429731262300f0d64, type: 3}
+  - {fileID: 7806476540196669289, guid: 6a02b77e1c2bda44eaf963c181b7440c, type: 3}
+  - {fileID: 3940264996851345666, guid: b5caf19cad5b4214c833d155ce94ef98, type: 3}
+  - {fileID: 5413201207142214907, guid: e48dc750fee070944ac7dfabc1dfedba, type: 3}
+  - {fileID: 3940264996851345666, guid: b5caf19cad5b4214c833d155ce94ef98, type: 3}
+  - {fileID: 3940264996851345666, guid: b5caf19cad5b4214c833d155ce94ef98, type: 3}
+  - {fileID: 3940264996851345666, guid: b5caf19cad5b4214c833d155ce94ef98, type: 3}
+  - {fileID: 7806476540196669289, guid: 6a02b77e1c2bda44eaf963c181b7440c, type: 3}
+  - {fileID: 7806476540196669289, guid: 6a02b77e1c2bda44eaf963c181b7440c, type: 3}
+  - {fileID: 5413201207142214907, guid: e48dc750fee070944ac7dfabc1dfedba, type: 3}
+  DemonEnemies:
+  - {fileID: 3126134823098710033, guid: cebb339bf7ccb3240b8d79154092fe7d, type: 3}
+  - {fileID: 6926028125602197106, guid: e811e7eff052e5f4fbcabe4d9a1e2ee0, type: 3}
+  - {fileID: 5317212362348956709, guid: a893c2ca0b375794d8f2447ffe774193, type: 3}
+  - {fileID: 7663292273214566581, guid: f9bd03dd2153ba6478b757125484966b, type: 3}
+  - {fileID: 3126134823098710033, guid: cebb339bf7ccb3240b8d79154092fe7d, type: 3}
+  - {fileID: 3126134823098710033, guid: cebb339bf7ccb3240b8d79154092fe7d, type: 3}
+  - {fileID: 3126134823098710033, guid: cebb339bf7ccb3240b8d79154092fe7d, type: 3}
+  - {fileID: 7663292273214566581, guid: f9bd03dd2153ba6478b757125484966b, type: 3}
+  - {fileID: 7663292273214566581, guid: f9bd03dd2153ba6478b757125484966b, type: 3}
+  - {fileID: 5317212362348956709, guid: a893c2ca0b375794d8f2447ffe774193, type: 3}

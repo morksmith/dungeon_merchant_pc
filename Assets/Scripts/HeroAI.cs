@@ -15,6 +15,7 @@ public class HeroAI : MonoBehaviour
         Dead
     }
     public HeroState State;
+    public bool Active = false;
     public Stats Stats;
     public Transform CurrentTarget;
     public NavMeshAgent Agent;
@@ -22,20 +23,33 @@ public class HeroAI : MonoBehaviour
     public Vector3 TargetPos;
     public bool LevelCleared = false;
     public GameObject FloatingNumber;
-
-
+    public DungeonManager DM;
+    private float activeTimer;
     private float step;
     private Enemy[] enemies;
     private Transform exit;
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = DM.HeroStartPosition;
+
         exit = GameObject.FindObjectOfType<Exit>().transform;
-        LookForEnemies();
+        
     }
     // Update is called once per frame
     void Update()
     {
+        if (!Active)
+        {
+            activeTimer += Time.deltaTime;
+            if (activeTimer > UpdateTime)
+            {
+                LookForEnemies();
+                Active = true;
+                activeTimer = 0;
+            }
+        }
+        
         if(State == HeroState.Idle)
         {
             if(step < UpdateTime)
@@ -72,7 +86,14 @@ public class HeroAI : MonoBehaviour
                 {
                     if(Vector2.Distance(transform.position, TargetPos) < 0.1f)
                     {
-                        Debug.Log("Hero Exited the Level");
+                        CurrentTarget = null;
+                        transform.position = DM.HeroStartPosition;
+                        TargetPos = transform.position;
+                        Agent.SetDestination(transform.position);
+                        Debug.Log(DM.HeroStartPosition);
+                        Debug.Log(transform.position);
+                        DM.NewLevel(DM.Level + 1);
+                        State = HeroState.Idle;
                     }
                 }
             }
@@ -124,6 +145,10 @@ public class HeroAI : MonoBehaviour
 
     public void Attack()
     {
+        if(CurrentTarget == null)
+        {
+            return;
+        }
         if(CurrentTarget.GetComponent<Enemy>().HP > Stats.Damage)
         {
             CurrentTarget.GetComponent<Enemy>().TakeDamage(Stats.Damage);
@@ -132,6 +157,9 @@ public class HeroAI : MonoBehaviour
         }
         else
         {
+            Stats.XP += CurrentTarget.GetComponent<Enemy>().XP;
+            var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery);
+            Stats.GoldHeld += GoldFound;
             Destroy(CurrentTarget.gameObject);
             CurrentTarget = null;
             State = HeroState.Idle;
@@ -145,5 +173,26 @@ public class HeroAI : MonoBehaviour
         Stats.HP -= i;
         var newNumber = Instantiate(FloatingNumber, transform.position, Quaternion.Euler(Vector3.forward));
         newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + i;
+        newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
+
     }
+
+    public void Die()
+    {
+        CurrentTarget = null;
+        Stats.HP = Stats.MaxHP;
+        Stats.XP = 0;
+        Stats.GoldHeld = 0;
+        Stats.LootHeld = 0;
+        transform.position = DM.HeroStartPosition;
+        TargetPos = transform.position;
+        Agent.SetDestination(transform.position);
+        Debug.Log(DM.HeroStartPosition);
+        Debug.Log(transform.position);
+        DM.NewLevel(1);
+        State = HeroState.Idle;
+
+    }
+
+
 }

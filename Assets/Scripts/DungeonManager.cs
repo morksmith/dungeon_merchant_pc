@@ -3,20 +3,88 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class DungeonManager : MonoBehaviour
 {
     public float CurrentTime;
     public float Minutes;
     public float Hours;
+    public int Level = 1;
+    public int EnemyCount = 1;
+    public int NextCount;
+    public Vector3 HeroStartPosition;
+    public Slider EnemyCountSlider;
+    public Slider EnemyStrengthSlider;
+    public Sprite UpSprite;
+    public Sprite DownSprite;
+    public Image CountTrendIcon;
+    public Image StrengthTrendIcon;
+    public int EnemyStrength = 1;
+    public int NextStrength;
+    public int[] SpawnTypes;
+    public Image[] SpawnIcons;
+    public Sprite[] TypeSprites;
     public float MaxTime = 1440;
     public Slider TimeSlider;
     public TextMeshProUGUI TimeText;
+    public TextMeshProUGUI DungeonText;
+    public TextMeshProUGUI HeroLevel;
+    public TextMeshProUGUI GoldText;
+    public TextMeshProUGUI LootText;
+    public Stats CurrentHeroStats;
+    public Slider HeroHP;
+    public Slider HeroXP;
+    public EnemySpawner[] EnemySpawners;
     // Start is called before the first frame update
     void Start()
     {
-        
+        EnemySpawners = GameObject.FindObjectsOfType<EnemySpawner>();
+        EnemyCount = Random.Range(1, 4);
+        NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
+        EnemyCountSlider.value = EnemyCount * 0.333f + 0.04f;
+        if(NextCount == EnemyCount)
+        {
+            CountTrendIcon.enabled = false;
+        }
+        else
+        {
+            CountTrendIcon.enabled = true;
+            if (NextCount > EnemyCount)
+            {
+                CountTrendIcon.sprite = UpSprite;
+            }
+            else
+            {
+                CountTrendIcon.sprite = DownSprite;
+            }
+        }
+        EnemyStrength = Random.Range(1, 4);
+        NextStrength = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
+        EnemyStrengthSlider.value = EnemyStrength * 0.333f + 0.04f;
+        if (NextStrength == EnemyStrength)
+        {
+            StrengthTrendIcon.enabled = false;
+        }
+        else
+        {
+            StrengthTrendIcon.enabled = true;
+            if (NextStrength > EnemyStrength)
+            {
+                StrengthTrendIcon.sprite = UpSprite;
+            }
+            else
+            {
+                StrengthTrendIcon.sprite = DownSprite;
+            }
+        }
+        foreach(int i in SpawnTypes)
+        {
+            SpawnTypes[i] = Random.Range(0, 4);
+        }
+        SetEnemyTypes();
+        SpawnEnemies();
+
+
     }
 
     // Update is called once per frame
@@ -24,11 +92,11 @@ public class DungeonManager : MonoBehaviour
     {
         if(CurrentTime < MaxTime)
         {
-            CurrentTime += Time.deltaTime * 4;
+            CurrentTime += Time.deltaTime * 6;
         }
         else
         {
-            CurrentTime = 0;
+            CycleDungeon();
         }
         
         Hours = (CurrentTime / 60) % 24;
@@ -43,7 +111,102 @@ public class DungeonManager : MonoBehaviour
         TimeText.text = hourDisplay + ":" + minuteDisplay;
         TimeSlider.value = CurrentTime / MaxTime;
 
+        HeroHP.value = CurrentHeroStats.HP / CurrentHeroStats.MaxHP;
+        HeroXP.value = CurrentHeroStats.XP / CurrentHeroStats.MaxXP;
+
+        DungeonText.text = "LEVEL:" + Level;
+        HeroLevel.text = "LEVEL:" + CurrentHeroStats.Level;
+        GoldText.text = CurrentHeroStats.GoldHeld.ToString();
+        LootText.text = CurrentHeroStats.LootHeld.ToString();
 
 
+
+    }
+
+    public void SetEnemyTypes()
+    {
+        for(var i = 0; i < SpawnIcons.Length; i++)
+        {
+            SpawnIcons[i].sprite = TypeSprites[SpawnTypes[i]];
+        }
+    }
+
+    public void SpawnEnemies()
+    {
+        
+        for(var i = 0; i < EnemyCount*2; i++)
+        {
+            if(i < 2)
+            {
+                EnemySpawners[i].SpawnEnemy(SpawnTypes[0], Level + EnemyStrength);
+            }
+            else if(i < 4)
+            {
+                EnemySpawners[i].SpawnEnemy(SpawnTypes[1], Level + EnemyStrength);
+            }
+            else
+            {
+                EnemySpawners[i].SpawnEnemy(SpawnTypes[2], Level + EnemyStrength);
+            }
+        }
+    }
+
+    public void NewLevel(int i)
+    {
+        var currentEnemies = GameObject.FindObjectsOfType<Enemy>();
+        foreach(Enemy x in currentEnemies)
+        {
+            Destroy(x.gameObject);
+        }
+        Level = i;
+        SpawnEnemies();
+    }
+
+    public void CycleDungeon()
+    {
+        EnemyCount = NextCount;
+        NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
+        EnemyCountSlider.value = EnemyCount * 0.333f + 0.04f;
+        if (NextCount == EnemyCount)
+        {
+            CountTrendIcon.enabled = false;
+        }
+        else
+        {
+            CountTrendIcon.enabled = true;
+            if (NextCount > EnemyCount)
+            {
+                CountTrendIcon.sprite = UpSprite;
+            }
+            else
+            {
+                CountTrendIcon.sprite = DownSprite;
+            }
+        }
+        EnemyStrength = NextStrength;
+        NextStrength = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
+        EnemyStrengthSlider.value = EnemyStrength * 0.333f + 0.04f;
+        if (NextStrength == EnemyStrength)
+        {
+            StrengthTrendIcon.enabled = false;
+        }
+        else
+        {
+            StrengthTrendIcon.enabled = true;
+            if (NextStrength > EnemyStrength)
+            {
+                StrengthTrendIcon.sprite = UpSprite;
+            }
+            else
+            {
+                StrengthTrendIcon.sprite = DownSprite;
+            }
+        }
+        SpawnTypes[0] = SpawnTypes[1];
+        SpawnTypes[1] = SpawnTypes[2];
+        SpawnTypes[2] = SpawnTypes[3];
+        SpawnTypes[3] = Random.Range(0, 4);
+        SetEnemyTypes();
+        CurrentTime = 0;
     }
 }
