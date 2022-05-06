@@ -65,4 +65,7 @@ public class Stats : MonoBehaviour
     {
         Manager.SelectHero(this);
     }
+
+   
+
 }

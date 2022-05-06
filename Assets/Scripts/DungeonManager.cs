@@ -13,6 +13,7 @@ public class DungeonManager : MonoBehaviour
     public float Hours;
     public int Level = 1;
     public int EnemyCount = 1;
+    public float GoldBonus = 1;
     public int NextCount;
     public Vector3 HeroStartPosition;
     public Slider EnemyCountSlider;
@@ -39,13 +40,22 @@ public class DungeonManager : MonoBehaviour
     public Slider HeroHP;
     public Slider HeroXP;
     public EnemySpawner[] EnemySpawners;
+    public bool DungeonCompleted = false;
+    public Menu DungeonCompleteMenu;
+    public TextMeshProUGUI CompleteTitle;
+    public TextMeshProUGUI CompleteText;
+    public GameObject RIPButton;
+    public GameObject CompleteButtons;
+    public Image CompleteImage;
+    public Sprite DeadSprite;
+    public Sprite CompleteSprite;
     // Start is called before the first frame update
     void Start()
     {
         
        
         EnemySpawners = GameObject.FindObjectsOfType<EnemySpawner>();
-        EnemyCount = Random.Range(1, 4);
+        EnemyCount = 2;
         NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
         EnemyCountSlider.value = EnemyCount * 0.333f + 0.04f;
         if(NextCount == EnemyCount)
@@ -64,7 +74,7 @@ public class DungeonManager : MonoBehaviour
                 CountTrendIcon.sprite = DownSprite;
             }
         }
-        EnemyStrength = Random.Range(1, 4);
+        EnemyStrength = 1;
         NextStrength = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
         EnemyStrengthSlider.value = EnemyStrength * 0.333f + 0.04f;
         if (NextStrength == EnemyStrength)
@@ -223,12 +233,52 @@ public class DungeonManager : MonoBehaviour
 
     public void StartDungeon(int i)
     {
-        HeroUI.SetActive(true);        
+        var currentEnemies = GameObject.FindObjectsOfType<Enemy>();
+        foreach (Enemy x in currentEnemies)
+        {
+            Destroy(x.gameObject);
+        }
+        DungeonCompleted = false;
+        HeroUI.SetActive(true);
         Running = true;
         CurrentHeroAI.Waiting = false;        
         HeroImage.sprite = CurrentHeroStats.HeroSprite;
         SetEnemyTypes();
         SpawnEnemies();
         Level = i;
+    }
+
+    public void NextDungeonLevel()
+    {
+        Level++;
+        DungeonCompleted = false;
+        GoldBonus *= 1.5f;
+        HeroUI.SetActive(true);
+        Running = true;
+        CurrentHeroAI.Waiting = false;
+        HeroImage.sprite = CurrentHeroStats.HeroSprite;
+        SetEnemyTypes();
+        SpawnEnemies();
+    }
+
+    public void DungeonComplete()
+    {
+        DungeonCompleteMenu.Activate();
+        if (DungeonCompleted)
+        {
+            CompleteTitle.text = "DUNGEON COMPLETE!";
+            CompleteText.text = "Return home or continue for 1.5x gold discovery?";
+            CompleteImage.sprite = CompleteSprite;
+            CompleteButtons.SetActive(true);
+            RIPButton.SetActive(false);
+        }
+        else
+        {
+            CompleteTitle.text = CurrentHeroStats.HeroName + " DIED!";
+            CompleteText.text = "All gold and loot collected by the hero is lost!";
+            CompleteImage.sprite = DeadSprite;
+            CompleteButtons.SetActive(false);
+            RIPButton.SetActive(true);
+        }
     }
 }

@@ -590,7 +590,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_22
+      name: Floor Icon
       rect:
         serializedVersion: 2
         x: 96
@@ -611,7 +611,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_23
+      name: Exit Icon
       rect:
         serializedVersion: 2
         x: 112
@@ -632,7 +632,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_24
+      name: Box Icon
       rect:
         serializedVersion: 2
         x: 0
@@ -653,7 +653,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_25
+      name: Left Button
       rect:
         serializedVersion: 2
         x: 16
@@ -674,7 +674,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_26
+      name: Right Button
       rect:
         serializedVersion: 2
         x: 32
@@ -1486,12 +1486,9 @@ TextureImporter:
       UI Icons_51: -1745310925
       UI Icons_34: -1771915823
       UI Icons_45: -1327362712
-      UI Icons_22: -1144174766
       UI Icons_35: 2073385100
-      UI Icons_25: 1857169760
-      UI Icons_26: 1275068342
-      UI Icons_49: -811662599
       Demon Icon: 1740618757
+      UI Icons_49: -811662599
       UI Icons_39: -1832430684
       UI Icons_42: -2037247765
       UI Icons_33: -1706774531
@@ -1500,6 +1497,7 @@ TextureImporter:
       UI Icons_50: -477135976
       Ring Icon: -509072803
       Bar: 1343421656
+      Left Button: 1857169760
       Beast Icon: -1647127367
       Down Icon: -1241161481
       Enemy Icon: -533737630
@@ -1512,6 +1510,7 @@ TextureImporter:
       UI Icons_53: 1137604696
       UI Icons_58: -1467690362
       UI Icons_56: -1981332245
+      Floor Icon: -1144174766
       UI Icons_30: -996191103
       UI Icons_40: 1331171362
       UI Icons_37: 173537716
@@ -1524,7 +1523,7 @@ TextureImporter:
       UI Icons_62: -1372708085
       Hand Icon: 617925880
       Clock Icon: -1257581251
-      UI Icons_23: -1344064781
+      Box Icon: -576844939
       UI Icons_28: 913576190
       UI Icons_27: 587968469
       Up Icon: 443786278
@@ -1535,6 +1534,7 @@ TextureImporter:
       Helm Icon: 1673620574
       UI Icons_57: -1047018790
       Skeleton Icon: 1849497218
+      Exit Icon: -1344064781
       UI Icons_31: -1760440644
       Ghost Icon: -1435565532
       Panel: -1146225180
@@ -1544,7 +1544,7 @@ TextureImporter:
       Weapon Icon: 146824655
       Boots Icon: 759780696
       UI Icons_29: -1282459064
-      UI Icons_24: -576844939
+      Right Button: 1275068342
       UI Icons_38: 1858758798
   spritePackingTag: 
   pSDRemoveMatte: 0

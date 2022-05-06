@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1697211788159581743, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: HP
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1697211788159581743, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: Class
@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1697211788159581743, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: MaxHP
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1697211788159581743, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: Range
@@ -25,7 +25,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1697211788159581743, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: Damage
-      value: 4
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697211788159581743, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
+      propertyPath: HeroName
+      value: Deadly Lady
       objectReference: {fileID: 0}
     - target: {fileID: 1697211788159581743, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: HeroSprite

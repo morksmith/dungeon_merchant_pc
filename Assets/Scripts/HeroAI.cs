@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
+using UnityEngine.UI;
 
 public class HeroAI : MonoBehaviour
 {
@@ -23,7 +24,9 @@ public class HeroAI : MonoBehaviour
     public float UpdateTime = 1;
     public Vector3 TargetPos;
     public bool LevelCleared = false;
+    public SpriteRenderer HeroSprite;
     public GameObject FloatingNumber;
+    public HeroManager Manager;
     public DungeonManager DM;
     private float activeTimer;
     private float step;
@@ -54,8 +57,18 @@ public class HeroAI : MonoBehaviour
                 activeTimer = 0;
             }
         }
-        
-        if(State == HeroState.Idle)
+
+        HeroSprite.sortingOrder = 20 - Mathf.FloorToInt(transform.position.z);
+        if (Agent.destination.x < transform.position.x)
+        {
+            HeroSprite.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            HeroSprite.transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        if (State == HeroState.Idle)
         {
             if(step < UpdateTime)
             {
@@ -91,14 +104,20 @@ public class HeroAI : MonoBehaviour
                 {
                     if(Vector2.Distance(transform.position, TargetPos) < 0.1f)
                     {
+
+                        Manager.MaxDungeonFloor++;
+                        Manager.CheckFloorButtons();
+                        Active = false;
+                        Waiting = true;
+                        LevelCleared = false;
                         CurrentTarget = null;
-                        transform.position = DM.HeroStartPosition;
-                        TargetPos = transform.position;
-                        Agent.SetDestination(transform.position);
-                        Debug.Log(DM.HeroStartPosition);
-                        Debug.Log(transform.position);
-                        DM.NewLevel(DM.Level + 1);
+                        Agent.Warp(DM.HeroStartPosition);
+                        Agent.isStopped = true;
+                        Waiting = true;
+                        DM.Running = false;
                         State = HeroState.Idle;
+                        DM.DungeonCompleted = true;
+                        DM.DungeonComplete();
                     }
                 }
             }
@@ -163,7 +182,7 @@ public class HeroAI : MonoBehaviour
         else
         {
             Stats.XP += CurrentTarget.GetComponent<Enemy>().XP;
-            var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery);
+            var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
             Stats.GoldHeld += GoldFound;
             Destroy(CurrentTarget.gameObject);
             CurrentTarget = null;
@@ -184,21 +203,23 @@ public class HeroAI : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Hero Died");
+        Active = false;
+        Waiting = true;
+        LevelCleared = false;
         CurrentTarget = null;
-        Stats.HP = Stats.MaxHP;
+        Agent.isStopped = true;
+        Agent.Warp(DM.HeroStartPosition);
+        Waiting = true;
+        DM.Running = false;
+        State = HeroState.Dead;
+        Stats.HP = 0;
         Stats.XP = 0;
-        Stats.GoldHeld = 0;
-        Stats.LootHeld = 0;
-        transform.position = DM.HeroStartPosition;
-        TargetPos = transform.position;
-        Agent.SetDestination(transform.position);
-        Debug.Log(DM.HeroStartPosition);
-        Debug.Log(transform.position);
-        DM.NewLevel(1);
-        State = HeroState.Idle;
+        DM.DungeonCompleted = false;
+        DM.DungeonComplete();
 
     }
+
+    
 
 
 }

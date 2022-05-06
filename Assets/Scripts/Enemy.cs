@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     private float dist;
     private float step;
     private Transform hero;
+    public SpriteRenderer EnemySprite;
     private NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
@@ -43,7 +44,17 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hero != null)
+        EnemySprite.sortingOrder = 20 - Mathf.FloorToInt(transform.position.z);
+        if(agent.destination.x > transform.position.x)
+        {
+            EnemySprite.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            EnemySprite.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (hero != null)
         {
             dist = Vector3.Distance(transform.position, hero.position);
         }
@@ -135,7 +146,8 @@ public class Enemy : MonoBehaviour
         else
         {
             State = CurrentState.Idle;
-            hero.GetComponent<HeroAI>().Die();            
+            hero.GetComponent<HeroAI>().Die();
+            hero = null;
             step = 0;
         }
         step = 0;

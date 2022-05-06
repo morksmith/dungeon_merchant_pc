@@ -154,6 +154,7 @@ MonoBehaviour:
   Gold: 0
   State: 0
   UpdateTime: 1
+  EnemySprite: {fileID: 5916711132773978798}
 --- !u!195 &8812822999085308338
 NavMeshAgent:
   m_ObjectHideFlags: 0
