@@ -19570,6 +19570,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rogue
       objectReference: {fileID: 0}
+    - target: {fileID: 7620771674580001431, guid: 64f3c763975c2e2479c11b5814f5730f, type: 3}
+      propertyPath: HP
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64f3c763975c2e2479c11b5814f5730f, type: 3}
 --- !u!224 &205827837338029451 stripped

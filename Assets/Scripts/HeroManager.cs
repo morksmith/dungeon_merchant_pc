@@ -50,11 +50,11 @@ public class HeroManager : MonoBehaviour
         }
         else if(SelectedHero.State == Stats.HeroState.Idle)
         {
-            HeroInfoText.text = s.HeroName + "\n Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n DMG:" + s.Damage;
+            HeroInfoText.text = s.HeroName + "\n Level " + s.Level + "  " + s.Class + "\n HP:" + s.MaxHP + "\n DMG:" + s.Damage;
         }
 
         HeroNameText.text = s.HeroName;
-        QuestText.text = "Level " + s.Level + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Discovery:" + s.Discovery + "x";
+        QuestText.text = "Level " + s.Level + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Discovery: x" + s.Discovery;
         HeroSprite.sprite = s.HeroSprite;
 
     }
