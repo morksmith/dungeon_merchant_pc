@@ -46,6 +46,7 @@ public class DungeonManager : MonoBehaviour
     public TextMeshProUGUI CompleteText;
     public TextMeshProUGUI GoldCollectedText;
     public TextMeshProUGUI LootCollectedText;
+    public TextMeshProUGUI GoldMultiplierText;
     public GameObject RIPButton;
     public GameObject CompleteButtons;
     public Image CompleteImage;
@@ -189,6 +190,9 @@ public class DungeonManager : MonoBehaviour
             Destroy(x.gameObject);
         }
         Level = i;
+        var bonusText = GoldBonus.ToString("F1");
+        GoldMultiplierText.text = "x" + bonusText;
+        DungeonText.text = Level.ToString();
         SpawnEnemies();
     }
 
@@ -248,21 +252,29 @@ public class DungeonManager : MonoBehaviour
             Destroy(x.gameObject);
         }
         DungeonCompleted = false;
+        GoldBonus = 1;
+        GoldMultiplierText.text = GoldBonus + "x";
         HeroUI.SetActive(true);
         Running = true;
         CurrentHeroAI.Waiting = false;        
         HeroImage.sprite = CurrentHeroStats.HeroSprite;
         CurrentHeroAI.Agent.Warp(HeroStartPosition);
+        Level = i;
         SetEnemyTypes();
         SpawnEnemies();
-        Level = i;
+        
     }
 
     public void NextDungeonLevel()
     {
         Level++;
+        CurrentHeroAI.Manager.MaxDungeonFloor++;
+        CurrentHeroAI.Manager.CheckFloorButtons();
         DungeonCompleted = false;
         GoldBonus *= 1.5f;
+        GoldBonus = Mathf.Clamp(GoldBonus, 1, 10);
+        var bonusText = GoldBonus.ToString("F1");
+        GoldMultiplierText.text = "x" + bonusText;
         HeroUI.SetActive(true);
         Running = true;
         CurrentHeroAI.Waiting = false;

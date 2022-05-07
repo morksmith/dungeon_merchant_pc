@@ -105,8 +105,7 @@ public class HeroAI : MonoBehaviour
                     if(Vector2.Distance(transform.position, TargetPos) < 0.1f)
                     {
 
-                        Manager.MaxDungeonFloor++;
-                        Manager.CheckFloorButtons();
+                        
                         Active = false;
                         Waiting = true;
                         LevelCleared = false;

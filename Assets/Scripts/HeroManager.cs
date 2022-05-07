@@ -133,8 +133,11 @@ public class HeroManager : MonoBehaviour
         SelectedHero.HP = SelectedHero.MaxHP;
         CurrentQuestingHero = null;
         SelectedHero.State = Stats.HeroState.Idle;
+        DM.Level = 1;
+        DM.GoldBonus = 1;
         DM.CurrentHeroAI.Agent.Warp(DM.HeroStartPosition);
         DM.CurrentHeroStats = null;
+        DM.NewLevel(1);
         SelectHero(SelectedHero);
         SelectedHero.SelectHero();
 
@@ -145,8 +148,11 @@ public class HeroManager : MonoBehaviour
         CurrentQuestingHero = null;
         SelectedHero.GoldHeld = 0;
         SelectedHero.State = Stats.HeroState.Dead;
+        DM.Level = 1;
+        DM.GoldBonus = 1;
         DM.CurrentHeroAI.Agent.Warp(DM.HeroStartPosition);
         DM.CurrentHeroStats = null;
+        DM.NewLevel(1);
         SelectHero(SelectedHero);
         SelectedHero.SelectHero();
     }

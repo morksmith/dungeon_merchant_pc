@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -27,18 +28,23 @@ public class Enemy : MonoBehaviour
     private float step;
     public Transform Hero;
     public SpriteRenderer EnemySprite;
+    public Slider HPSlider;
     private NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        Hero = GameObject.FindObjectOfType<HeroAI>().transform;
+        if(GameObject.FindObjectOfType<HeroAI>()!= null)
+        {
+            Hero = GameObject.FindObjectOfType<HeroAI>().transform;
+        }
         step = 0;
         MaxHP = MaxHP + (Level * 5);
         Damage = Damage + (Level * 2);
         XP = MaxHP + Damage;
         HP = MaxHP;
-        Gold = Random.Range(Level, XP);
+        Gold = Random.Range(Level, MaxHP);
+        HPSlider.value = 1;
 
     }
 
@@ -136,7 +142,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float i)
     {
         
-                   HP -= i;
+        HP -= i;
+        HPSlider.value = HP / MaxHP;
                 
     }
 

@@ -99,8 +99,7 @@ public class Stats : MonoBehaviour
     {
         HP = 0;
         XP = 0;
-        GoldHeld = 0;
-        LootHeld = 0;
+        
         State = HeroState.Dead;
     }
 
