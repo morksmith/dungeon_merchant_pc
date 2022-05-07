@@ -19,6 +19,7 @@ public class HeroManager : MonoBehaviour
     public Button NextFloor;
     public Button PreviousFloor;
     public TextMeshProUGUI SelectedFloorText;
+    public StockManager Stock;
     public Menu QuestMenu;
 
     // Start is called before the first frame update
@@ -50,11 +51,11 @@ public class HeroManager : MonoBehaviour
         }
         else if(SelectedHero.State == Stats.HeroState.Idle)
         {
-            HeroInfoText.text = s.HeroName + "\n Level " + s.Level + "  " + s.Class + "\n HP:" + s.MaxHP + "\n DMG:" + s.Damage;
+            HeroInfoText.text = s.HeroName + "\n"+ s.Class + "\n HP:" + s.MaxHP + "\n DMG:" + s.Damage + "\n GOLD:x" + s.Discovery;
         }
 
         HeroNameText.text = s.HeroName;
-        QuestText.text = "Level " + s.Level + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Discovery: x" + s.Discovery;
+        QuestText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Gold Drop:x" + s.Discovery;
         HeroSprite.sprite = s.HeroSprite;
 
     }
@@ -67,6 +68,7 @@ public class HeroManager : MonoBehaviour
         SelectedHero.State = Stats.HeroState.Questing;
         HeroInfoText.text = SelectedHero.HeroName + " is on a Quest!";
         CurrentQuestingHero = SelectedHero.gameObject;
+        SelectedHero.SelectHero();
     }
 
     public void SendOnQuest()
@@ -77,7 +79,11 @@ public class HeroManager : MonoBehaviour
         }
         else
         {
-            QuestMenu.Activate();
+            if(SelectedHero.State == Stats.HeroState.Idle)
+            {
+                QuestMenu.Activate();                
+            }
+
         }
     }
 
@@ -120,11 +126,33 @@ public class HeroManager : MonoBehaviour
     }
     public void ReturnHero()
     {
+        
+        Stock.CollectGold(SelectedHero.GoldHeld);
+        SelectedHero.GoldHeld = 0;
+        SelectedHero.LootHeld = 0;
+        SelectedHero.HP = SelectedHero.MaxHP;
+        CurrentQuestingHero = null;
+        SelectedHero.State = Stats.HeroState.Idle;
+        DM.CurrentHeroAI.Agent.Warp(DM.HeroStartPosition);
+        DM.CurrentHeroStats = null;
+        SelectHero(SelectedHero);
+        SelectedHero.SelectHero();
+
+    }
+    public void RIPHero()
+    {
         SelectedFloor = 1;
         CurrentQuestingHero = null;
-        if(SelectedHero.State == Stats.HeroState.Questing)
-        {
-            SelectedHero.State = Stats.HeroState.Idle;
-        }
+        SelectedHero.GoldHeld = 0;
+        SelectedHero.State = Stats.HeroState.Dead;
+        DM.CurrentHeroAI.Agent.Warp(DM.HeroStartPosition);
+        DM.CurrentHeroStats = null;
+        SelectHero(SelectedHero);
+        SelectedHero.SelectHero();
+    }
+    public void DeleteHero()
+    {
+        Destroy(SelectedHero.gameObject);
+        SelectedHero = null;
     }
 }

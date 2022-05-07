@@ -111,7 +111,6 @@ public class HeroAI : MonoBehaviour
                         Waiting = true;
                         LevelCleared = false;
                         CurrentTarget = null;
-                        Agent.Warp(DM.HeroStartPosition);
                         Agent.isStopped = true;
                         Waiting = true;
                         DM.Running = false;
@@ -173,13 +172,22 @@ public class HeroAI : MonoBehaviour
         {
             return;
         }
-        if(CurrentTarget.GetComponent<Enemy>().HP > Stats.Damage)
+        if (Stats.DamageType == CurrentTarget.GetComponent<Enemy>().DamageWeakness)
         {
-            CurrentTarget.GetComponent<Enemy>().TakeDamage(Stats.Damage);
+            var dmg = Mathf.CeilToInt(Stats.Damage * 1.5f);
+            CurrentTarget.GetComponent<Enemy>().TakeDamage(dmg);
             var newNumber = Instantiate(FloatingNumber, CurrentTarget.position, Quaternion.Euler(Vector3.forward));
-            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + Stats.Damage;
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + dmg;
         }
         else
+        {
+            var dmg = Stats.Damage;
+            CurrentTarget.GetComponent<Enemy>().TakeDamage(dmg);
+            var newNumber = Instantiate(FloatingNumber, CurrentTarget.position, Quaternion.Euler(Vector3.forward));
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + dmg;
+        }
+        if (CurrentTarget.GetComponent<Enemy>().HP <= 0)
         {
             Stats.XP += CurrentTarget.GetComponent<Enemy>().XP;
             var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
@@ -188,16 +196,27 @@ public class HeroAI : MonoBehaviour
             CurrentTarget = null;
             State = HeroState.Idle;
             step = 0;
+
+
         }
         step = 0;
     }
 
-    public void TakeDamage(float i)
+    public void TakeDamage(float i, Enemy e)
     {
-        Stats.HP -= i;
-        var newNumber = Instantiate(FloatingNumber, transform.position, Quaternion.Euler(Vector3.forward));
-        newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + i;
-        newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
+        if(Stats.HP > i)
+        {
+            Stats.HP -= i;
+            var newNumber = Instantiate(FloatingNumber, transform.position, Quaternion.Euler(Vector3.forward));
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + i;
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            e.Hero = null;
+            Die();
+        }
+       
 
     }
 
@@ -208,12 +227,10 @@ public class HeroAI : MonoBehaviour
         LevelCleared = false;
         CurrentTarget = null;
         Agent.isStopped = true;
-        Agent.Warp(DM.HeroStartPosition);
         Waiting = true;
         DM.Running = false;
         State = HeroState.Dead;
-        Stats.HP = 0;
-        Stats.XP = 0;
+        Stats.Die();
         DM.DungeonCompleted = false;
         DM.DungeonComplete();
 

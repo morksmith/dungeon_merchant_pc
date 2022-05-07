@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: HeroName
       value: Boris the Blade
       objectReference: {fileID: 0}
+    - target: {fileID: 1697211788159581743, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
+      propertyPath: DamageType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4953946753732833217, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

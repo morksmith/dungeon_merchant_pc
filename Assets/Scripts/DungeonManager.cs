@@ -44,6 +44,8 @@ public class DungeonManager : MonoBehaviour
     public Menu DungeonCompleteMenu;
     public TextMeshProUGUI CompleteTitle;
     public TextMeshProUGUI CompleteText;
+    public TextMeshProUGUI GoldCollectedText;
+    public TextMeshProUGUI LootCollectedText;
     public GameObject RIPButton;
     public GameObject CompleteButtons;
     public Image CompleteImage;
@@ -97,6 +99,7 @@ public class DungeonManager : MonoBehaviour
         {
             SpawnTypes[i] = Random.Range(0, 4);
         }
+        SetEnemyTypes();
 
         
 
@@ -106,11 +109,6 @@ public class DungeonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Running)
-        {
-            HeroUI.SetActive(false);
-            return;
-        }
         if (CurrentTime < MaxTime)
         {
             CurrentTime += Time.deltaTime * 6;
@@ -119,9 +117,9 @@ public class DungeonManager : MonoBehaviour
         {
             CycleDungeon();
         }
-        
+
         Hours = (CurrentTime / 60) % 24;
-        Minutes = (CurrentTime  % 60);
+        Minutes = (CurrentTime % 60);
 
         Hours = Mathf.FloorToInt(Hours);
         Minutes = Mathf.FloorToInt(Minutes);
@@ -132,15 +130,26 @@ public class DungeonManager : MonoBehaviour
         TimeText.text = hourDisplay + ":" + minuteDisplay;
         TimeSlider.value = CurrentTime / MaxTime;
 
-        HeroHP.value = CurrentHeroStats.HP / CurrentHeroStats.MaxHP;
-        HeroXP.value = CurrentHeroStats.XP / CurrentHeroStats.MaxXP;
+        if (CurrentHeroStats != null)
+        {
+            CurrentHeroAI.gameObject.SetActive(true);
+            HeroHP.value = CurrentHeroStats.HP / CurrentHeroStats.MaxHP;
+            HeroXP.value = CurrentHeroStats.XP / CurrentHeroStats.MaxXP;
+            HeroLevel.text = CurrentHeroStats.Level.ToString();
+            GoldText.text = CurrentHeroStats.GoldHeld.ToString();
+            LootText.text = CurrentHeroStats.LootHeld.ToString();
+        }
+        else
+        {
+            HeroUI.SetActive(false);
+            CurrentHeroAI.gameObject.SetActive(false);
+        }
 
+        if (!Running)
+        {
+            return;
+        }
         DungeonText.text = Level.ToString();
-        HeroLevel.text = "LVL:" + CurrentHeroStats.Level;
-        GoldText.text = CurrentHeroStats.GoldHeld.ToString();
-        LootText.text = CurrentHeroStats.LootHeld.ToString();
-
-
 
     }
 
@@ -243,6 +252,7 @@ public class DungeonManager : MonoBehaviour
         Running = true;
         CurrentHeroAI.Waiting = false;        
         HeroImage.sprite = CurrentHeroStats.HeroSprite;
+        CurrentHeroAI.Agent.Warp(HeroStartPosition);
         SetEnemyTypes();
         SpawnEnemies();
         Level = i;
@@ -257,6 +267,7 @@ public class DungeonManager : MonoBehaviour
         Running = true;
         CurrentHeroAI.Waiting = false;
         HeroImage.sprite = CurrentHeroStats.HeroSprite;
+        CurrentHeroAI.Agent.Warp(HeroStartPosition);
         SetEnemyTypes();
         SpawnEnemies();
     }
@@ -266,8 +277,10 @@ public class DungeonManager : MonoBehaviour
         DungeonCompleteMenu.Activate();
         if (DungeonCompleted)
         {
-            CompleteTitle.text = "DUNGEON COMPLETE!";
+            CompleteTitle.text = "LEVEL COMPLETE!";
             CompleteText.text = "Return home or continue for 1.5x gold discovery?";
+            GoldCollectedText.text = CurrentHeroStats.GoldHeld.ToString();
+            LootCollectedText.text = CurrentHeroStats.LootHeld.ToString();
             CompleteImage.sprite = CompleteSprite;
             CompleteButtons.SetActive(true);
             RIPButton.SetActive(false);

@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float MaxHP;
     public float HP;
     public float Damage;
+    public int DamageWeakness;
     public float XP;
     public float Range = 1;
     public float AgroRange = 5;
@@ -24,14 +25,14 @@ public class Enemy : MonoBehaviour
     public float UpdateTime;
     private float dist;
     private float step;
-    private Transform hero;
+    public Transform Hero;
     public SpriteRenderer EnemySprite;
     private NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        hero = GameObject.FindObjectOfType<HeroAI>().transform;
+        Hero = GameObject.FindObjectOfType<HeroAI>().transform;
         step = 0;
         MaxHP = MaxHP + (Level * 5);
         Damage = Damage + (Level * 2);
@@ -54,102 +55,95 @@ public class Enemy : MonoBehaviour
             EnemySprite.transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        if (hero != null)
+        if (Hero == null)
         {
-            dist = Vector3.Distance(transform.position, hero.position);
+            State = CurrentState.Idle;
+           
         }
         else
         {
-            State = CurrentState.Idle;
-        }
-        
-        if(State == CurrentState.Idle && hero != null)
-        {
-            if(step < UpdateTime)
+            dist = Vector3.Distance(transform.position, Hero.position);
+            if (State == CurrentState.Idle)
             {
-                step += Time.deltaTime;
-                
-            }
-            else
-            {
-                if(dist < AgroRange)
+                if (step < UpdateTime)
                 {
-                    State = CurrentState.Moving;
-                    agent.SetDestination(hero.position);
-                    agent.isStopped = false;
-                    step = 0;
-                }
-                if(dist < Range)
-                {
-                    State = CurrentState.Attacking;
-                    agent.isStopped = true;
-                    step = 0;
-                }
-                step = 0;
-            }
-        }
-        if(State == CurrentState.Moving)
-        {
-            if (step < UpdateTime)
-            {
-                step += Time.deltaTime;
-
-            }
-            else
-            {
-                if (dist < Range)
-                {
-                    State = CurrentState.Attacking;
-                    agent.isStopped = true;
-                    step = 0;
+                    step += Time.deltaTime;
                 }
                 else
                 {
-                    agent.SetDestination(hero.position);
-                    agent.isStopped = false;
+                    if (dist < AgroRange)
+                    {
+                        State = CurrentState.Moving;
+                        agent.SetDestination(Hero.position);
+                        agent.isStopped = false;
+                        step = 0;
+                    }
+                    if (dist < Range)
+                    {
+                        State = CurrentState.Attacking;
+                        agent.isStopped = true;
+                        step = 0;
+                    }
                     step = 0;
                 }
             }
-        }
-        if (State == CurrentState.Attacking)
-        {
-            
-            if (step < UpdateTime)
+            if (State == CurrentState.Moving)
             {
-                step += Time.deltaTime;
-            }
-            else
-            {
-                if (dist < Range)
+                if (step < UpdateTime)
                 {
-                    Attack();
-                    //agent.isStopped = true;
+                    step += Time.deltaTime;
+
+                }
+                else
+                {
+                    if (dist < Range)
+                    {
+                        State = CurrentState.Attacking;
+                        agent.isStopped = true;
+                        step = 0;
+                    }
+                    else
+                    {
+                        agent.SetDestination(Hero.position);
+                        agent.isStopped = false;
+                        step = 0;
+                    }
+                }
+            }
+            if (State == CurrentState.Attacking)
+            {
+
+                if (step < UpdateTime)
+                {
+                    step += Time.deltaTime;
+                }
+                else
+                {
+                    if (dist < Range)
+                    {
+                        Attack();
+                        //agent.isStopped = true;
+                        step = 0;
+                    }
                     step = 0;
                 }
-                step = 0;
             }
         }
+        
+        
     }
 
     public void TakeDamage(float i)
     {
-        HP -= i;
+        
+                   HP -= i;
+                
     }
 
     public void Attack()
     {
-        if (hero.GetComponent<HeroAI>().Stats.HP > Damage)
-        {
-            hero.GetComponent<HeroAI>().TakeDamage(Damage);
-            Debug.Log("Hero Takes " + Damage + " Damage!");
-        }
-        else
-        {
-            State = CurrentState.Idle;
-            hero.GetComponent<HeroAI>().Die();
-            hero = null;
-            step = 0;
-        }
+        Hero.GetComponent<HeroAI>().TakeDamage(Damage, this);
+        Debug.Log("Hero Takes " + Damage + " Damage!");
         step = 0;
     }
 }
