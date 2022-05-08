@@ -641,7 +641,7 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1519,12 +1519,13 @@ TextureImporter:
       UI Icons_60: 854319678
       UI Icons_47: -779969718
       UI Icons_36: -2059341422
+      Box Icon: -576844939
       UI Icons_46: 1305928266
-      UI Icons_62: -1372708085
       Hand Icon: 617925880
       Clock Icon: -1257581251
-      Box Icon: -576844939
+      Right Button: 1275068342
       UI Icons_28: 913576190
+      UI Icons_62: -1372708085
       UI Icons_27: 587968469
       Up Icon: 443786278
       UI Icons_48: 1905295711
@@ -1544,7 +1545,6 @@ TextureImporter:
       Weapon Icon: 146824655
       Boots Icon: 759780696
       UI Icons_29: -1282459064
-      Right Button: 1275068342
       UI Icons_38: 1858758798
   spritePackingTag: 
   pSDRemoveMatte: 0

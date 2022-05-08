@@ -22,7 +22,6 @@ public class StockManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Gold = PlayerPrefs.GetFloat("Gold");
         GoldText.text = Gold + "G";
     }
 
@@ -66,7 +65,6 @@ public class StockManager : MonoBehaviour
     {
         Gold += i;
         GoldText.text = Gold + "G";
-        PlayerPrefs.SetFloat("Gold", Gold);
     }
 
     public void UpdatePrices()

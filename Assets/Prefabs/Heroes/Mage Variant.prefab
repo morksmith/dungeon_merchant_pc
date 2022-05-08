@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1697211788159581743, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: Damage
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1697211788159581743, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: HeroName

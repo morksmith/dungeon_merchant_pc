@@ -455,7 +455,7 @@ MonoBehaviour:
   Damage: 1
   DamageWeakness: 0
   XP: 10
-  Range: 1.2
+  Range: 1.3
   AgroRange: 5
   Gold: 0
   State: 0

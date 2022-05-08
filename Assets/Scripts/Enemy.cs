@@ -39,9 +39,9 @@ public class Enemy : MonoBehaviour
             Hero = GameObject.FindObjectOfType<HeroAI>().transform;
         }
         step = 0;
-        MaxHP = MaxHP + (Level * 5);
-        Damage = Damage + (Level * 2);
-        XP = MaxHP + Damage;
+        MaxHP = MaxHP + (Level * 10);
+        Damage = Damage + (Level * 3);
+        XP = MaxHP + Level;
         HP = MaxHP;
         Gold = Random.Range(Level, MaxHP);
         HPSlider.value = 1;

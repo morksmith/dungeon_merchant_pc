@@ -30,6 +30,7 @@ public class DungeonManager : MonoBehaviour
     public float MaxTime = 1440;
     public Slider TimeSlider;
     public Image HeroImage;
+    public SpriteRenderer HeroSprite;
     public TextMeshProUGUI TimeText;
     public TextMeshProUGUI DungeonText;
     public TextMeshProUGUI HeroLevel;
@@ -58,7 +59,7 @@ public class DungeonManager : MonoBehaviour
         
        
         EnemySpawners = GameObject.FindObjectsOfType<EnemySpawner>();
-        EnemyCount = 2;
+        EnemyCount = 1;
         NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
         EnemyCountSlider.value = EnemyCount * 0.333f + 0.04f;
         if(NextCount == EnemyCount)
@@ -258,6 +259,7 @@ public class DungeonManager : MonoBehaviour
         Running = true;
         CurrentHeroAI.Waiting = false;        
         HeroImage.sprite = CurrentHeroStats.HeroSprite;
+        HeroSprite.sprite = CurrentHeroStats.HeroSprite;
         CurrentHeroAI.Agent.Warp(HeroStartPosition);
         Level = i;
         SetEnemyTypes();
@@ -268,8 +270,11 @@ public class DungeonManager : MonoBehaviour
     public void NextDungeonLevel()
     {
         Level++;
-        CurrentHeroAI.Manager.MaxDungeonFloor++;
-        CurrentHeroAI.Manager.CheckFloorButtons();
+        if(Level > CurrentHeroAI.Manager.MaxDungeonFloor)
+        {
+            CurrentHeroAI.Manager.MaxDungeonFloor++;
+            CurrentHeroAI.Manager.CheckFloorButtons();
+        }
         DungeonCompleted = false;
         GoldBonus *= 1.5f;
         GoldBonus = Mathf.Clamp(GoldBonus, 1, 10);

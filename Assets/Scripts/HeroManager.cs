@@ -12,15 +12,21 @@ public class HeroManager : MonoBehaviour
     public TextMeshProUGUI HeroInfoText;
     public TextMeshProUGUI HeroNameText;
     public TextMeshProUGUI QuestText;
+    public TextMeshProUGUI EquipText;
     public Image HeroSprite;
     public DungeonManager DM;
     public int MaxDungeonFloor = 1;
     public int SelectedFloor = 1;
     public Button NextFloor;
     public Button PreviousFloor;
+    public Button GoButton;
     public TextMeshProUGUI SelectedFloorText;
+    public TextMeshProUGUI DeployCostText;
     public StockManager Stock;
     public Menu QuestMenu;
+    public Menu EquipMenu;
+    public Image EquipHeroImage;
+    public int DeployCost = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -51,17 +57,18 @@ public class HeroManager : MonoBehaviour
         }
         else if(SelectedHero.State == Stats.HeroState.Idle)
         {
-            HeroInfoText.text = s.HeroName + "\n"+ s.Class + "\n HP:" + s.MaxHP + "\n DMG:" + s.Damage + "\n GOLD:x" + s.Discovery;
+            HeroInfoText.text = s.HeroName + "\n"+ s.Class + "\n HP:" + s.MaxHP + "\n DMG:" + s.Damage + "\n RNG:" + Mathf.FloorToInt(s.Range) + "\n GOLD:x" + s.Discovery;
         }
 
         HeroNameText.text = s.HeroName;
-        QuestText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Gold Drop:x" + s.Discovery;
+        QuestText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;
         HeroSprite.sprite = s.HeroSprite;
 
     }
 
     public void StartDungeon()
     {
+        Stock.CollectGold(-DeployCost);
         DM.CurrentHeroStats = SelectedHero;
         DM.CurrentHeroAI.Stats = SelectedHero;
         DM.StartDungeon(SelectedFloor);
@@ -69,6 +76,8 @@ public class HeroManager : MonoBehaviour
         HeroInfoText.text = SelectedHero.HeroName + " is on a Quest!";
         CurrentQuestingHero = SelectedHero.gameObject;
         SelectedHero.SelectHero();
+        SelectedFloor = 1;
+        CheckFloorButtons();
     }
 
     public void SendOnQuest()
@@ -92,6 +101,7 @@ public class HeroManager : MonoBehaviour
         if (SelectedFloor == 1)
         {
             PreviousFloor.interactable = false;
+            DeployCost = 0;
         }
         else
         {
@@ -105,6 +115,15 @@ public class HeroManager : MonoBehaviour
         {
             NextFloor.interactable = false;
         }
+        if(Stock.Gold >= DeployCost)
+        {
+            GoButton.interactable = true;
+        }
+        else
+        {
+            GoButton.interactable = false;
+        }
+        DeployCostText.text = "-" + DeployCost + "G";
         SelectedFloorText.text = SelectedFloor.ToString();
     }
 
@@ -113,6 +132,7 @@ public class HeroManager : MonoBehaviour
         if(SelectedFloor < MaxDungeonFloor)
         {
             SelectedFloor++;
+            DeployCost += 100;
         }
         CheckFloorButtons();
     }
@@ -121,6 +141,7 @@ public class HeroManager : MonoBehaviour
         if (SelectedFloor > 1)
         {
             SelectedFloor--;
+            DeployCost -= 100;
         }
         CheckFloorButtons();
     }
@@ -160,5 +181,12 @@ public class HeroManager : MonoBehaviour
     {
         Destroy(SelectedHero.gameObject);
         SelectedHero = null;
+    }
+    public void OpenEquipMenu()
+    {
+        var s = SelectedHero;
+        EquipMenu.Activate();
+        EquipText.text = s.HeroName + "\n Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;
+        EquipHeroImage.sprite = s.HeroSprite;
     }
 }

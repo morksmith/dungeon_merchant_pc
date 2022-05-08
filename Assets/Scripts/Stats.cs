@@ -63,7 +63,7 @@ public class Stats : MonoBehaviour
     {
         Level++;
         XP = XP - MaxXP;
-        MaxXP *= 1.5f;
+        MaxXP *= 1.8f;
         MaxXP = Mathf.CeilToInt(MaxXP);
         SkillPoints += 1;
         MaxHP += 10;
