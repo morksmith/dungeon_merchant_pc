@@ -123,7 +123,7 @@ public class HeroManager : MonoBehaviour
         {
             GoButton.interactable = false;
         }
-        DeployCostText.text = "-" + DeployCost + "G";
+        DeployCostText.text = DeployCost + "G";
         SelectedFloorText.text = SelectedFloor.ToString();
     }
 
@@ -132,7 +132,7 @@ public class HeroManager : MonoBehaviour
         if(SelectedFloor < MaxDungeonFloor)
         {
             SelectedFloor++;
-            DeployCost += 100;
+            DeployCost += 50;
         }
         CheckFloorButtons();
     }
@@ -141,7 +141,7 @@ public class HeroManager : MonoBehaviour
         if (SelectedFloor > 1)
         {
             SelectedFloor--;
-            DeployCost -= 100;
+            DeployCost -= 50;
         }
         CheckFloorButtons();
     }
