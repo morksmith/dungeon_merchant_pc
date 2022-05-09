@@ -7,6 +7,7 @@ using TMPro;
 public class Item : MonoBehaviour
 {
     public string ItemName;
+    public Image ItemSprite;
     public float Price;
     public enum ItemType
     {
@@ -40,6 +41,7 @@ public class Item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Selling)
         {
             SellSlider.gameObject.SetActive(true);

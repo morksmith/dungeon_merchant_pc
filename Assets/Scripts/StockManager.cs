@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class StockManager : MonoBehaviour
 {
     public float Gold;
+    public Transform ItemBox;
     public Item CurrentItem;
+    public Item DraggedItem;
     public TextMeshProUGUI ItemInfoText;
     public TextMeshProUGUI GoldText;
     public Transform StockList;
@@ -28,7 +32,59 @@ public class StockManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(DraggedItem != null)
+        {
+            ItemBox.gameObject.SetActive(true);
+            ItemBox.GetComponent<Image>().sprite = DraggedItem.ItemSprite.sprite;
+        }
+        else
+        {
+            ItemBox.gameObject.SetActive(false);
+
+        }
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+                    eventDataCurrentPosition.position = touch.position;
+                    List<RaycastResult> results = new List<RaycastResult>();
+                    EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+                    if (results.Count > 0)
+                    {
+                        if(results[0].gameObject.GetComponent<Item>() != null)
+                        {
+                            DraggedItem = results[0].gameObject.GetComponent<Item>();
+                        }
+                    }
+                    break;
+
+                case TouchPhase.Moved:
+                    ItemBox.position = touch.position;
+                    break;
+
+                case TouchPhase.Ended:
+                    eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+                    eventDataCurrentPosition.position = touch.position;
+                    results = new List<RaycastResult>();
+                    EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+                    if (results.Count > 0)
+                    {
+                        Debug.Log("dropped on" + results[0].gameObject.name);
+                        if (results[0].gameObject.GetComponent<EquipmentSlot>() != null)
+                        {
+                            Debug.Log("Dropped on Equipment Slot");
+                            DraggedItem.gameObject.transform.parent = results[0].gameObject.transform;
+                            DraggedItem.transform.position = results[0].gameObject.transform.position;
+                        }
+                    }
+                    DraggedItem = null;
+                    break;
+            }
+        }
     }
 
     public void SellItem()

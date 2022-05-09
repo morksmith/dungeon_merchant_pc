@@ -188,7 +188,20 @@ public class HeroAI : MonoBehaviour
         }
         if (CurrentTarget.GetComponent<Enemy>().HP <= 0)
         {
+            if (CurrentTarget.GetComponent<Enemy>().XP + Stats.XP > Stats.MaxXP)
+            {
+                var newNumber = Instantiate(FloatingNumber, CurrentTarget.position - Vector3.forward * 0.5f, Quaternion.Euler(Vector3.forward));
+                newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+                newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "LEVEL UP!";
+            }
+            else
+            {
+                var newNumber = Instantiate(FloatingNumber, CurrentTarget.position - Vector3.forward, Quaternion.Euler(Vector3.forward));
+                newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+                newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + CurrentTarget.GetComponent<Enemy>().XP + "XP";
+            }
             Stats.XP += CurrentTarget.GetComponent<Enemy>().XP;
+            
             var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
             Stats.GoldHeld += GoldFound;
             Destroy(CurrentTarget.gameObject);

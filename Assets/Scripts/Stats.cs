@@ -61,6 +61,7 @@ public class Stats : MonoBehaviour
 
     public void LevelUp()
     {
+
         Level++;
         XP = XP - MaxXP;
         MaxXP *= 1.8f;
