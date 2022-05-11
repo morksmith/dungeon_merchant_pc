@@ -9,13 +9,6 @@ public class Item : MonoBehaviour
     public string ItemName;
     public Image ItemSprite;
     public float Price;
-    public enum ItemType
-    {
-        Weapon,
-        Armour,
-        Consumable,
-        Ring
-    }
     public ItemType Type;
     public GameObject CollectButton;
     public float SellTime;
@@ -31,10 +24,7 @@ public class Item : MonoBehaviour
     void Start()
     {
         stockMan = GameObject.FindObjectOfType<StockManager>();
-        if(Type == ItemType.Weapon)
-        {
-            Price = GetComponent<Weapon>().Price;
-        }
+       
         SellTime = Price;
     }
 

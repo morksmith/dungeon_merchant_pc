@@ -581,6 +581,7 @@ GameObject:
   - component: {fileID: 4953946753732833216}
   - component: {fileID: 4953946753732833222}
   - component: {fileID: 1697211788159581743}
+  - component: {fileID: 74628224255133610}
   m_Layer: 5
   m_Name: Hero
   m_TagString: Untagged
@@ -721,6 +722,7 @@ MonoBehaviour:
   HeroName: Name
   State: 0
   Class: 0
+  DamageType: 0
   Manager: {fileID: 0}
   HeroSprite: {fileID: -1279543771, guid: da11d586838438344a9338826fcdcee8, type: 3}
   XPSlider: {fileID: 7213991343457528749}
@@ -739,6 +741,19 @@ MonoBehaviour:
   SkillPoints: 0
   GoldHeld: 0
   LootHeld: 0
+--- !u!114 &74628224255133610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953946753732833218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb86283d82843c6419ab2f59576ea1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
 --- !u!1 &5397266640810068614
 GameObject:
   m_ObjectHideFlags: 0

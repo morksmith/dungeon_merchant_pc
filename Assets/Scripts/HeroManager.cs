@@ -184,6 +184,11 @@ public class HeroManager : MonoBehaviour
     }
     public void OpenEquipMenu()
     {
+        if(SelectedHero.State != Stats.HeroState.Idle)
+        {
+            HeroInfoText.text = "Cannot Equip this Hero";
+            return;
+        }
         var s = SelectedHero;
         EquipMenu.Activate();
         EquipText.text = s.HeroName + "\n Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;

@@ -104,6 +104,16 @@ public class Stats : MonoBehaviour
         State = HeroState.Dead;
     }
 
+    public void EquipWeapon(Weapon w)
+    {
+        Damage += w.Damage;
+    }
+
+    public void UnequipWeapon(Weapon w)
+    {
+        Damage -= w.Damage;
+    }
+
    
 
 }
