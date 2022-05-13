@@ -11,6 +11,7 @@ public class Item : MonoBehaviour
     public float Price;
     public ItemType Type;
     public GameObject CollectButton;
+    public float DamageType;
     public float SellTime;
     public bool Locked;
     public bool Equipped;

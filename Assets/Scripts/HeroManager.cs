@@ -12,7 +12,7 @@ public class HeroManager : MonoBehaviour
     public TextMeshProUGUI HeroInfoText;
     public TextMeshProUGUI HeroNameText;
     public TextMeshProUGUI QuestText;
-    public TextMeshProUGUI EquipText;
+    public EquipMenu EquipScreen;
     public Image HeroSprite;
     public DungeonManager DM;
     public int MaxDungeonFloor = 1;
@@ -43,6 +43,11 @@ public class HeroManager : MonoBehaviour
     public void SelectHero(Stats s)
     {
         SelectedHero = s;
+        s.Selected = true;
+        if(s.WeaponItem != null)
+        {
+            s.WeaponItem.gameObject.SetActive(true);
+        }
         if(SelectedHero.State == Stats.HeroState.Dead)
         {
             HeroInfoText.text = s.HeroName + " IS DEAD!";
@@ -63,6 +68,19 @@ public class HeroManager : MonoBehaviour
         HeroNameText.text = s.HeroName;
         QuestText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;
         HeroSprite.sprite = s.HeroSprite;
+        var heroes = GameObject.FindObjectsOfType<Stats>();
+        for(var i = 0; i < heroes.Length; i ++)
+        {
+            if(heroes[i] != s)
+            {
+                heroes[i].Selected = false;
+                if(heroes[i].WeaponItem != null)
+                {
+                    heroes[i].WeaponItem.gameObject.SetActive(false);
+                }
+            }
+            
+        }
 
     }
 
@@ -189,9 +207,10 @@ public class HeroManager : MonoBehaviour
             HeroInfoText.text = "Cannot Equip this Hero";
             return;
         }
-        var s = SelectedHero;
         EquipMenu.Activate();
-        EquipText.text = s.HeroName + "\n Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;
-        EquipHeroImage.sprite = s.HeroSprite;
+        EquipScreen.UpdateEquipMenu(SelectedHero);
+        
     }
+
+    
 }

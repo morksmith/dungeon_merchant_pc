@@ -83,15 +83,42 @@ public class StockManager : MonoBehaviour
 
                         if (results[0].gameObject.GetComponent<EquipmentSlot>() != null)
                         {
-                            Debug.Log("dropped on" + results[0].gameObject.name);
                             if (results[0].gameObject.GetComponent<EquipmentSlot>().Type.Type == DraggedItem.Type.Type)
                             {
-                                Debug.Log("Dropped on Equipment Slot");
-                                DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform);
-                                DraggedItem.transform.position = results[0].gameObject.transform.position;
-                                DraggedItem.Equipped = true;
-                                Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
-                                Hero.OpenEquipMenu();
+                                if (results[0].gameObject.GetComponent<EquipmentSlot>().WeaponSlot)
+                                {
+                                    if (DraggedItem.GetComponent<Weapon>())
+                                    {
+                                        if(DraggedItem.DamageType == results[0].gameObject.GetComponent<EquipmentSlot>().DamageType)
+                                        {
+                                            Debug.Log("Dropped on Equipment Slot");
+                                            DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform);
+                                            DraggedItem.transform.position = results[0].gameObject.transform.position;
+                                            DraggedItem.Equipped = true;
+                                            Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
+                                            Hero.OpenEquipMenu();
+                                        }
+                                        else
+                                        {
+                                            Debug.Log("Wrong Weapon Type");
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    Debug.Log("Dropped on Equipment Slot");
+                                    DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform);
+                                    DraggedItem.transform.position = results[0].gameObject.transform.position;
+                                    DraggedItem.Equipped = true;
+                                    Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
+                                    Hero.OpenEquipMenu();
+                                    Debug.Log("Equipped Weapon");
+                                }
+                                
+                            }
+                            else
+                            {
+                                Debug.Log("Wrong Item Type");
                             }
                         }
                         if (results[0].gameObject.GetComponent<DropZone>() != null)
@@ -109,15 +136,38 @@ public class StockManager : MonoBehaviour
                         if (results[0].gameObject.GetComponent<Item>() != null)
                         {
                             if((results[0].gameObject.GetComponent<Item>().Equipped && results[0].gameObject.GetComponent<Item>().Type.Type == DraggedItem.Type.Type) && results[0].gameObject.GetComponent<Item>() != DraggedItem)
-                            Debug.Log("Replaced Item");
-                            DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
-                            DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
-                            DraggedItem.Equipped = true;
-                            results[0].gameObject.GetComponent<Item>().Equipped = false;
-                            results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
-                            Hero.SelectedHero.UnequipWeapon(results[0].gameObject.GetComponent<Weapon>());
-                            Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
-                            Hero.OpenEquipMenu();
+                            {
+                                
+                                if (DraggedItem.GetComponent<Weapon>())
+                                {
+                                    if (DraggedItem.DamageType == results[0].gameObject.GetComponent<Item>().DamageType)
+                                    {
+                                        Debug.Log("Dropped on Equipment Slot");
+                                        DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform);
+                                        DraggedItem.transform.position = results[0].gameObject.transform.position;
+                                        DraggedItem.Equipped = true;
+                                        Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
+                                        Hero.OpenEquipMenu();
+                                    }
+                                    else
+                                    {
+                                        Debug.Log("Wrong Weapon Type");
+                                    }
+                                }
+                                
+                                else
+                                {
+                                    Debug.Log("Replaced Item");
+                                    DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
+                                    DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
+                                    DraggedItem.Equipped = true;
+                                    results[0].gameObject.GetComponent<Item>().Equipped = false;
+                                    results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
+                                    Hero.SelectedHero.UnequipWeapon(results[0].gameObject.GetComponent<Weapon>());
+                                    Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
+                                    Hero.OpenEquipMenu();
+                                }
+                            }                  
 
                         }
 
@@ -137,7 +187,7 @@ public class StockManager : MonoBehaviour
         {
             if(ShopList.childCount < ShopSlots)
             {
-                CurrentItem.transform.parent = ShopList;
+                CurrentItem.transform.SetParent(ShopList);
                 CurrentItem.Selling = true;
             }
             else

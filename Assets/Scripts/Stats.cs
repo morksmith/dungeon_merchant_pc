@@ -24,6 +24,12 @@ public class Stats : MonoBehaviour
     }
     public HeroState State;
     public HeroClass Class;
+    public Item WeaponItem;
+    public Item HelmItem;
+    public Item ArmourItem;
+    public Item BootsItem;
+    public Item RingItem;
+    public Item ConsumableItem;
     public int DamageType;
     public HeroManager Manager;
     public Sprite HeroSprite;
@@ -32,6 +38,7 @@ public class Stats : MonoBehaviour
     public GameObject DeadText;
     public GameObject QuestText;
     public GameObject LevelUI;
+    public bool Selected;
     public float Level;
     public float MaxHP;
     public float HP;
@@ -107,11 +114,13 @@ public class Stats : MonoBehaviour
     public void EquipWeapon(Weapon w)
     {
         Damage += w.Damage;
+        WeaponItem = w.gameObject.GetComponent<Item>();
     }
 
     public void UnequipWeapon(Weapon w)
     {
         Damage -= w.Damage;
+        WeaponItem = null;
     }
 
    

@@ -338,7 +338,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon Icon
+      name: Sword Icon
       rect:
         serializedVersion: 2
         x: 32
@@ -695,7 +695,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_27
+      name: Club Icon
       rect:
         serializedVersion: 2
         x: 48
@@ -716,7 +716,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_28
+      name: Bow Icon
       rect:
         serializedVersion: 2
         x: 64
@@ -737,7 +737,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_29
+      name: Wand Icon
       rect:
         serializedVersion: 2
         x: 80
@@ -1486,6 +1486,7 @@ TextureImporter:
       UI Icons_51: -1745310925
       UI Icons_34: -1771915823
       UI Icons_45: -1327362712
+      Sword Icon: 146824655
       UI Icons_35: 2073385100
       Demon Icon: 1740618757
       UI Icons_49: -811662599
@@ -1505,6 +1506,7 @@ TextureImporter:
       UI Icons_55: 904229183
       Double Down Icon: -1113570038
       UI Icons_41: -654184327
+      Wand Icon: -1282459064
       UI Icons_32: 814697313
       UI Icons_44: -2105886311
       UI Icons_53: 1137604696
@@ -1517,6 +1519,7 @@ TextureImporter:
       Strength Icon: 1673536445
       Armour Icon: -1486367166
       UI Icons_60: 854319678
+      Club Icon: 587968469
       UI Icons_47: -779969718
       UI Icons_36: -2059341422
       Box Icon: -576844939
@@ -1524,9 +1527,7 @@ TextureImporter:
       Hand Icon: 617925880
       Clock Icon: -1257581251
       Right Button: 1275068342
-      UI Icons_28: 913576190
       UI Icons_62: -1372708085
-      UI Icons_27: 587968469
       Up Icon: 443786278
       UI Icons_48: 1905295711
       UI Icons_63: 206034143
@@ -1542,9 +1543,8 @@ TextureImporter:
       Gold Icon: -764562705
       Button: 1052764457
       UI Icons_54: -2046292516
-      Weapon Icon: 146824655
+      Bow Icon: 913576190
       Boots Icon: 759780696
-      UI Icons_29: -1282459064
       UI Icons_38: 1858758798
   spritePackingTag: 
   pSDRemoveMatte: 0
