@@ -8,6 +8,7 @@ public class DungeonManager : MonoBehaviour
 {
     public bool Running = false;
     public GameObject HeroUI;
+    public StockManager Stock;
     public float CurrentTime;
     public float Minutes;
     public float Hours;
@@ -103,7 +104,9 @@ public class DungeonManager : MonoBehaviour
         }
         SetEnemyTypes();
 
-        
+
+
+        Stock.UpdatePrices();
 
 
     }
@@ -157,10 +160,36 @@ public class DungeonManager : MonoBehaviour
 
     public void SetEnemyTypes()
     {
-        for(var i = 0; i < SpawnIcons.Length; i++)
+        var beasts = 0;
+        var ghosts = 0;
+        var demons = 0;
+        var skellys = 0;
+        for (var i = 0; i < SpawnIcons.Length; i++)
         {
             SpawnIcons[i].sprite = TypeSprites[SpawnTypes[i]];
+            if(SpawnTypes[i] == 0 && i < 3)
+            {
+                beasts++;
+            }
+            if (SpawnTypes[i] == 1 && i < 3)
+            {
+                ghosts++;
+            }
+            if (SpawnTypes[i] == 2 && i < 3)
+            {
+                demons++;
+            }
+            if (SpawnTypes[i] == 3 && i < 3)
+            {
+                skellys++;
+            }
         }
+
+        Debug.Log("Beasts:" + beasts + " Ghosts:" + ghosts + " Demons:" + demons + " Skellys:" + skellys);
+        Stock.CalculateWeaponPrices(beasts, ghosts, demons, skellys);
+
+        
+
     }
 
     public void SpawnEnemies()
@@ -243,6 +272,7 @@ public class DungeonManager : MonoBehaviour
         SpawnTypes[3] = Random.Range(0, 4);
         SetEnemyTypes();
         CurrentTime = 0;
+
     }
 
     public void StartDungeon(int i)
