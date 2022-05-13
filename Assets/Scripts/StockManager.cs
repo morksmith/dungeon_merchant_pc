@@ -221,6 +221,45 @@ public class StockManager : MonoBehaviour
         GoldText.text = Gold + "G";
     }
 
+    public void CalculateArmourAndPotions(float a, float p)
+    {
+        if(a == 0)
+        {
+            ArmourPrice = 0.5f;
+        }
+        if (a == 1)
+        {
+            ArmourPrice = 1;
+        }
+        if(a == 2)
+        {
+            ArmourPrice = 1.5f;
+        }
+        if(a == 3)
+        {
+            ArmourPrice = 2;
+        }
+
+        if (p == 0)
+        {
+            PotionPrice = 0.5f;
+        }
+        if (p == 1)
+        {
+            PotionPrice = 1;
+        }
+        if (p == 2)
+        {
+            PotionPrice = 1.5f;
+        }
+        if (p == 3)
+        {
+            PotionPrice = 2;
+        }
+
+        UpdatePrices();
+    }
+
     public void CalculateWeaponPrices(float b, float g, float d, float s)
     {
         if(b == 0)
@@ -319,7 +358,10 @@ public class StockManager : MonoBehaviour
                     AllItems[i].UpdatePrice(ClubPrice);
                 }
             }
+            
         }
         
     }
+
+    
 }
