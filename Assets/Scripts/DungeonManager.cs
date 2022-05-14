@@ -60,7 +60,7 @@ public class DungeonManager : MonoBehaviour
         
        
         EnemySpawners = GameObject.FindObjectsOfType<EnemySpawner>();
-        EnemyCount = 2;
+        EnemyCount = 1;
         NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
         EnemyCountSlider.value = EnemyCount * 0.333f + 0.04f;
         if(NextCount == EnemyCount)

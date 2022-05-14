@@ -59,7 +59,7 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(XP >= MaxXP)
+        if (XP >= MaxXP)
         {
             LevelUp();
         }
@@ -83,13 +83,13 @@ public class Stats : MonoBehaviour
     public void SelectHero()
     {
         Manager.SelectHero(this);
-        if(State == HeroState.Dead)
+        if (State == HeroState.Dead)
         {
             DeadText.SetActive(true);
             QuestText.SetActive(false);
             LevelUI.SetActive(false);
         }
-        else if(State == HeroState.Questing)
+        else if (State == HeroState.Questing)
         {
             DeadText.SetActive(false);
             QuestText.SetActive(true);
@@ -107,7 +107,7 @@ public class Stats : MonoBehaviour
     {
         HP = 0;
         XP = 0;
-        
+
         State = HeroState.Dead;
     }
 
@@ -123,6 +123,17 @@ public class Stats : MonoBehaviour
         WeaponItem = null;
     }
 
+    public void RemoveItems()
+    {
+        if(WeaponItem != null)
+        {
+            Destroy(WeaponItem.gameObject);
+        }
+        if (ArmourItem != null)
+        {
+            Destroy(ArmourItem.gameObject);
+        }
+    }
    
 
 }

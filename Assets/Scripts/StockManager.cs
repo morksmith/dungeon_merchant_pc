@@ -66,6 +66,7 @@ public class StockManager : MonoBehaviour
                         if (results[0].gameObject.GetComponent<Item>() != null)
                         {
                             DraggedItem = results[0].gameObject.GetComponent<Item>();
+                            SelectItem(results[0].gameObject.GetComponent<Item>());
                         }
                     }              
                     
@@ -99,6 +100,12 @@ public class StockManager : MonoBehaviour
                                             DraggedItem.EquipItem();
                                             Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
                                             Hero.OpenEquipMenu();
+                                            Hero.SelectedHero.SelectHero();
+                                            Hero.SelectHero(Hero.SelectedHero);
+                                            CurrentItem = null;
+                                            ItemInfoText.text = "SELECT AN ITEM";
+                                            ItemInfoText.color = Color.white;
+
                                         }
                                         else
                                         {
@@ -108,15 +115,21 @@ public class StockManager : MonoBehaviour
                                 }
                                 else
                                 {
-                                    Debug.Log("Dropped on Equipment Slot");
                                     DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform);
                                     DraggedItem.transform.position = results[0].gameObject.transform.position;
                                     DraggedItem.EquipItem();
                                     Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
                                     Hero.OpenEquipMenu();
                                     Debug.Log("Equipped Weapon");
+                                    Hero.SelectedHero.SelectHero();
+                                    Hero.SelectHero(Hero.SelectedHero);
+                                    CurrentItem = null;
+                                    ItemInfoText.text = "SELECT AN ITEM";
+                                    ItemInfoText.color = Color.white;
+
+
                                 }
-                                
+
                             }
                             else
                             {
@@ -128,12 +141,17 @@ public class StockManager : MonoBehaviour
                             if (DraggedItem.Equipped)
                             {
                                 Hero.SelectedHero.UnequipWeapon(DraggedItem.GetComponent<Weapon>());
+                                Hero.SelectHero(Hero.SelectedHero);
                                 Hero.OpenEquipMenu();
                             }
                             Debug.Log("Item Returned to Stock");
                             DraggedItem.gameObject.transform.SetParent(StockList);
                             DraggedItem.transform.position = new Vector3(0, 0, 0);
                             DraggedItem.StockItem();
+                            if(Hero.SelectedHero != null)
+                            {
+                                Hero.SelectedHero.SelectHero();
+                            }
                         }
                         if (results[0].gameObject.GetComponent<Item>() != null)
                         {
@@ -144,12 +162,20 @@ public class StockManager : MonoBehaviour
                                 {
                                     if (DraggedItem.DamageType == results[0].gameObject.GetComponent<Item>().DamageType)
                                     {
-                                        Debug.Log("Dropped on Equipment Slot");
-                                        DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform);
-                                        DraggedItem.transform.position = results[0].gameObject.transform.position;
+                                        Debug.Log("Replaced Item");
+                                        DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
+                                        DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
                                         DraggedItem.EquipItem();
+                                        results[0].gameObject.GetComponent<Item>().StockItem();
+                                        results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
+                                        Hero.SelectedHero.UnequipWeapon(results[0].gameObject.GetComponent<Weapon>());
                                         Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
                                         Hero.OpenEquipMenu();
+                                        Hero.SelectedHero.SelectHero();
+                                        Hero.SelectHero(Hero.SelectedHero);
+                                        CurrentItem = null;
+                                        ItemInfoText.text = "SELECT AN ITEM";
+                                        ItemInfoText.color = Color.white;
                                     }
                                     else
                                     {
@@ -159,15 +185,8 @@ public class StockManager : MonoBehaviour
                                 
                                 else
                                 {
-                                    Debug.Log("Replaced Item");
-                                    DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
-                                    DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
-                                    DraggedItem.EquipItem();
-                                    results[0].gameObject.GetComponent<Item>().Equipped = false;
-                                    results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
-                                    Hero.SelectedHero.UnequipWeapon(results[0].gameObject.GetComponent<Weapon>());
-                                    Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
-                                    Hero.OpenEquipMenu();
+                                    
+
                                 }
                             }                  
 
@@ -189,30 +208,87 @@ public class StockManager : MonoBehaviour
         {
             if(ShopList.childCount < ShopSlots)
             {
-                CurrentItem.transform.SetParent(ShopList);
-                CurrentItem.Selling = true;
+                
+                if (!CurrentItem.Equipped)
+                {
+                    CurrentItem.transform.SetParent(ShopList);
+                    CurrentItem.Selling = true;
+                    CurrentItem = null;
+                    ItemInfoText.text = "SELECT AN ITEM";
+                    ItemInfoText.color = Color.white;
+                }
+                else
+                {
+                    Debug.Log("Cannot sell equipped item");
+                    CurrentItem = null;
+                    ItemInfoText.text = "CANNOT SELL EQUIPPED ITEM";
+                    ItemInfoText.color = Color.white;
+                }
             }
             else
             {
                 Debug.Log("No available slots in shop");
+                ItemInfoText.color = Color.white;
             }
+
 
         }
         else
         {
             Debug.Log("No Item selected");
+            CurrentItem = null;
+            ItemInfoText.text = "SELECT AN ITEM";
+            ItemInfoText.color = Color.white;
         }
-        CurrentItem = null;
-        ItemInfoText.text = "SELECT AN ITEM";
+
+       
     }
 
     public void SelectItem(Item i)
     {
         CurrentItem = i;
-        if(i.GetComponent<Weapon>() != null)
+        if (i.GetComponent<Weapon>() != null)
+        ItemInfoText.color = Color.white;
         {
-            ItemInfoText.text = i.GetComponent<Weapon>().WeaponName + "\n\n DMG: " + i.GetComponent<Weapon>().Damage + "\n\n" + i.Price +"G"; 
+            ItemInfoText.text = i.GetComponent<Weapon>().WeaponName + " (" + i.GetComponent<Weapon>().Level +")" + "\nDMG: " + i.GetComponent<Weapon>().Damage + "\n" + i.Price + "G";
+            if(Hero.SelectedHero != null)
+            {
+                if(CurrentItem.GetComponent<Weapon>()!= null)
+                {
+                    if (Hero.SelectedHero.DamageType == CurrentItem.DamageType)
+                    {
+                        if (Hero.SelectedHero.WeaponItem != null)
+                        {
+                            if (CurrentItem.GetComponent<Weapon>().Damage > Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
+                            {
+                                ItemInfoText.color = Color.yellow;
+                            }
+                            else if (CurrentItem.GetComponent<Weapon>().Damage < Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
+                            {
+                                ItemInfoText.color = Color.red;
+                            }
+                            else if (CurrentItem.GetComponent<Weapon>().Damage == Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
+                            {
+                                ItemInfoText.color = Color.white;
+                            }
+                        }
+                        else
+                        {
+                            ItemInfoText.color = Color.yellow;
+                        }
+
+                    }
+                    else
+                    {
+                        ItemInfoText.color = Color.white;
+                    }
+                    
+                }
+               
+            }
+            
         }
+
     }
 
     public void CollectGold(float i)
@@ -347,11 +423,11 @@ public class StockManager : MonoBehaviour
                 }
                 else if (AllItems[i].DamageType == 1)
                 {
-                    AllItems[i].UpdatePrice(BowPrice);
+                    AllItems[i].UpdatePrice(WandPrice);
                 }
                 else if (AllItems[i].DamageType == 2)
                 {
-                    AllItems[i].UpdatePrice(WandPrice);
+                    AllItems[i].UpdatePrice(BowPrice);
                 }
                 else if (AllItems[i].DamageType == 3)
                 {

@@ -27,7 +27,8 @@ public class HeroManager : MonoBehaviour
     public Menu EquipMenu;
     public Image EquipHeroImage;
     public int DeployCost = 0;
-
+    public Stats[] AllHeroes;
+    public int CurrentHero;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,9 +66,7 @@ public class HeroManager : MonoBehaviour
             HeroInfoText.text = s.HeroName + "\n"+ s.Class + "\n HP:" + s.MaxHP + "\n DMG:" + s.Damage + "\n RNG:" + Mathf.FloorToInt(s.Range) + "\n GOLD:x" + s.Discovery;
         }
 
-        HeroNameText.text = s.HeroName;
-        QuestText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;
-        HeroSprite.sprite = s.HeroSprite;
+        UpdateQuestMenu(SelectedHero);
         var heroes = GameObject.FindObjectsOfType<Stats>();
         for(var i = 0; i < heroes.Length; i ++)
         {
@@ -100,6 +99,11 @@ public class HeroManager : MonoBehaviour
 
     public void SendOnQuest()
     {
+        if(SelectedHero == null)
+        {
+            HeroInfoText.text = "No hero selected!";
+            return;
+        }
         if(CurrentQuestingHero != null)
         {
             HeroInfoText.text = "A Hero is already on a Quest!";
@@ -183,6 +187,7 @@ public class HeroManager : MonoBehaviour
     }
     public void RIPHero()
     {
+        SelectHero(CurrentQuestingHero.GetComponent<Stats>());
         SelectedFloor = 1;
         CurrentQuestingHero = null;
         SelectedHero.GoldHeld = 0;
@@ -192,6 +197,7 @@ public class HeroManager : MonoBehaviour
         DM.CurrentHeroAI.Agent.Warp(DM.HeroStartPosition);
         DM.CurrentHeroStats = null;
         DM.NewLevel(1);
+        SelectedHero.RemoveItems();
         SelectHero(SelectedHero);
         SelectedHero.SelectHero();
     }
@@ -202,6 +208,11 @@ public class HeroManager : MonoBehaviour
     }
     public void OpenEquipMenu()
     {
+        if(SelectedHero == null)
+        {
+            HeroInfoText.text = "SELECT A HERO";
+            return;
+        }
         if(SelectedHero.State != Stats.HeroState.Idle)
         {
             HeroInfoText.text = "Cannot Equip this Hero";
@@ -212,5 +223,66 @@ public class HeroManager : MonoBehaviour
         
     }
 
-    
+    public void UpdateQuestMenu(Stats s)
+    {
+        AllHeroes = GameObject.FindObjectsOfType<Stats>();
+        for (var i = 0; i < AllHeroes.Length; i++)
+        {
+            if (AllHeroes[i] == s)
+            {
+                CurrentHero = i;
+            }
+        }
+        HeroNameText.text = s.HeroName;
+        QuestText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;
+        HeroSprite.sprite = s.HeroSprite;
+    }
+
+    public void NextHero()
+    {
+        if(AllHeroes.Length == 0)
+        {
+            CurrentHero = 0;
+        }
+        else
+        {
+            if (CurrentHero < AllHeroes.Length - 1)
+            {
+                CurrentHero++;
+            }
+            else
+            {
+                CurrentHero = 0;
+            }
+        }
+        
+        SelectHero(AllHeroes[CurrentHero]);
+        AllHeroes[CurrentHero].SelectHero();
+        UpdateQuestMenu(AllHeroes[CurrentHero]);
+
+    }
+    public void PreviousHero()
+    {
+        if (AllHeroes.Length == 0)
+        {
+            CurrentHero = 0;
+        }
+        else
+        {
+            if (CurrentHero > 0)
+            {
+                CurrentHero--;
+            }
+            else
+            {
+                CurrentHero = AllHeroes.Length - 1;
+            }
+        }
+        SelectHero(AllHeroes[CurrentHero]);
+        AllHeroes[CurrentHero].SelectHero();
+        UpdateQuestMenu(AllHeroes[CurrentHero]);
+
+    }
+
+
 }

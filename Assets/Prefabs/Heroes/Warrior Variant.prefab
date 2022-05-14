@@ -111,5 +111,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4953946753732833222, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.41037738
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953946753732833222, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.8549341
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953946753732833222, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
