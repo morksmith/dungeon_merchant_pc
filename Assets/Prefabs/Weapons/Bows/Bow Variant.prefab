@@ -112,6 +112,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820006, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
+      propertyPath: Damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352416218070820006, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: WeaponName
       value: Bow
       objectReference: {fileID: 0}

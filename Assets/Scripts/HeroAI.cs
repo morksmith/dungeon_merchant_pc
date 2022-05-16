@@ -52,7 +52,8 @@ public class HeroAI : MonoBehaviour
             activeTimer += Time.deltaTime;
             if (activeTimer > UpdateTime)
             {
-                LookForEnemies();
+                exit = GameObject.FindObjectOfType<Exit>().transform;
+                LookForEnemies();                
                 Active = true;
                 activeTimer = 0;
             }
@@ -205,6 +206,7 @@ public class HeroAI : MonoBehaviour
             if(lootChance <= Stats.LootFind)
             {
                 Stats.LootHeld++;
+                Stats.ChestLevels.Add(DM.Level);
                 var newNumber = Instantiate(FloatingNumber, CurrentTarget.position - Vector3.forward * 1.5f, Quaternion.Euler(Vector3.forward));
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "Loot Found!";

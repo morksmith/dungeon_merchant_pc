@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class StockManager : MonoBehaviour
 {
     public float Gold;
+    public ItemGenerator Generator;
     public Transform ItemBox;
     public Item[] AllItems;
     public Item CurrentItem;
@@ -17,6 +18,10 @@ public class StockManager : MonoBehaviour
     public Transform StockList;
     public Transform ShopList;
     public GameObject StockDropZone;
+    public GameObject ChestPrefab;
+    public GameObject WeaponPrefab;
+    public GameObject ArmourPrefab;
+    public GameObject ConsumablePrefab;
     public HeroManager Hero;
     public List<Item> ItemList;
     public float SwordPrice = 1.5f;
@@ -456,6 +461,50 @@ public class StockManager : MonoBehaviour
             
         }
         
+    }
+
+    public void AddChest(int d, int l)
+    {
+        var newChest = Instantiate(ChestPrefab, StockList);
+        var c = newChest.GetComponent<Chest>();
+        var t = Random.Range(0, 5);
+        if (t < 3)
+        {
+            if (d == 0)
+            {
+                c.Type = Chest.ChestType.Armour;
+            }
+            else if (d == 1)
+            {
+                c.Type = Chest.ChestType.Consumable;
+            }
+            else if (d == 2)
+            {
+                c.PickRandom();
+            }
+            else if (d == 3)
+            {
+                c.Type = Chest.ChestType.Weapon;
+            }
+        }
+        c.Level = l;
+    }
+
+    public void CreateItem(int t, int l)
+    {
+        if(t == 0)
+        {
+            Generator.GenerateArmour(l);
+        }
+        else if (t == 1)
+        {
+            Generator.GenerateWeapon(l);
+        }
+        else if (t == 3)
+        {
+            Generator.GenerateConsumable();
+        }
+
     }
 
     

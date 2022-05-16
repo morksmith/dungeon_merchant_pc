@@ -54,6 +54,7 @@ public class DungeonManager : MonoBehaviour
     public Image CompleteImage;
     public Sprite DeadSprite;
     public Sprite CompleteSprite;
+    public List<GameObject> DungeonLayouts;
     // Start is called before the first frame update
     void Start()
     {
@@ -223,6 +224,9 @@ public class DungeonManager : MonoBehaviour
         var bonusText = GoldBonus.ToString("F1");
         GoldMultiplierText.text = "x" + bonusText;
         DungeonText.text = Level.ToString();
+        
+        
+        GenerateLayout();
         SpawnEnemies();
     }
 
@@ -292,6 +296,7 @@ public class DungeonManager : MonoBehaviour
         HeroSprite.sprite = CurrentHeroStats.HeroSprite;
         CurrentHeroAI.Agent.Warp(HeroStartPosition);
         Level = i;
+        GenerateLayout();
         SetEnemyTypes();
         SpawnEnemies();
         
@@ -315,6 +320,7 @@ public class DungeonManager : MonoBehaviour
         CurrentHeroAI.Waiting = false;
         HeroImage.sprite = CurrentHeroStats.HeroSprite;
         CurrentHeroAI.Agent.Warp(HeroStartPosition);
+        GenerateLayout();
         SetEnemyTypes();
         SpawnEnemies();
     }
@@ -340,5 +346,15 @@ public class DungeonManager : MonoBehaviour
             CompleteButtons.SetActive(false);
             RIPButton.SetActive(true);
         }
+    }
+
+    public void GenerateLayout()
+    {
+        for (var l = 0; l < DungeonLayouts.Count; l++)
+        {
+            DungeonLayouts[l].SetActive(false);
+        }
+        var layout = Random.Range(0, DungeonLayouts.Count);
+        DungeonLayouts[layout].SetActive(true);
     }
 }

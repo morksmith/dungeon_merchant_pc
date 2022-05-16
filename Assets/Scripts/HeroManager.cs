@@ -177,6 +177,11 @@ public class HeroManager : MonoBehaviour
     {
         var s = CurrentQuestingHero.GetComponent<Stats>();
         Stock.CollectGold(s.GoldHeld);
+        for(var c = 0; c<s.ChestLevels.Count; c++)
+        {
+            Stock.AddChest(s.DamageType, s.ChestLevels[c]);
+        }
+        s.ChestLevels.Clear();
         s.GoldHeld = 0;
         s.LootHeld = 0;
         s.HP = s.MaxHP;

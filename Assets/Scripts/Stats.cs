@@ -51,6 +51,7 @@ public class Stats : MonoBehaviour
     public float SkillPoints = 0;
     public float GoldHeld;
     public float LootHeld;
+    public List<int> ChestLevels;
 
     private void Start()
     {
