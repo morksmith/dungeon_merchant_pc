@@ -758,7 +758,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_30
+      name: Chest Icon
       rect:
         serializedVersion: 2
         x: 96
@@ -1513,7 +1513,6 @@ TextureImporter:
       UI Icons_58: -1467690362
       UI Icons_56: -1981332245
       Floor Icon: -1144174766
-      UI Icons_30: -996191103
       UI Icons_40: 1331171362
       UI Icons_37: 173537716
       Strength Icon: 1673536445
@@ -1534,6 +1533,7 @@ TextureImporter:
       Double Up Icon: -404003206
       Loot Icon: 900783781
       Helm Icon: 1673620574
+      Chest Icon: -996191103
       UI Icons_57: -1047018790
       Skeleton Icon: 1849497218
       Exit Icon: -1344064781

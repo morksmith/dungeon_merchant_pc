@@ -44,18 +44,6 @@ public class StockManager : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                    
-                    break;
-
-                case TouchPhase.Moved:
-                    if(DraggedItem != null)
-                    {
-                        StockDropZone.SetActive(true);
-                        ItemBox.gameObject.SetActive(true);
-                        ItemBox.position = touch.position;
-                        ItemBox.GetComponent<Image>().sprite = DraggedItem.ItemSprite.sprite;
-                        break;
-                    }
 
                     PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
                     eventDataCurrentPosition.position = touch.position;
@@ -68,8 +56,29 @@ public class StockManager : MonoBehaviour
                             DraggedItem = results[0].gameObject.GetComponent<Item>();
                             SelectItem(results[0].gameObject.GetComponent<Item>());
                         }
-                    }              
+                        else
+                        {
+                            DraggedItem = null;
+                            StockDropZone.SetActive(false);
+                            ItemBox.gameObject.SetActive(false);
+                            break;
+                        }
+                    }
+                    break;
+
+                case TouchPhase.Moved:
                     
+                    
+
+                    
+                    if (DraggedItem != null)
+                    {
+                        StockDropZone.SetActive(true);
+                        ItemBox.gameObject.SetActive(true);
+                        ItemBox.position = touch.position;
+                        ItemBox.GetComponent<Image>().sprite = DraggedItem.ItemSprite.sprite;
+                        break;
+                    }
                     break;
 
                 case TouchPhase.Ended:
@@ -90,7 +99,7 @@ public class StockManager : MonoBehaviour
                             {
                                 if (results[0].gameObject.GetComponent<EquipmentSlot>().WeaponSlot)
                                 {
-                                    if (DraggedItem.GetComponent<Weapon>())
+                                    if (DraggedItem.GetComponent<Weapon>()!= null)
                                     {
                                         if(DraggedItem.DamageType == results[0].gameObject.GetComponent<EquipmentSlot>().DamageType)
                                         {
@@ -248,47 +257,57 @@ public class StockManager : MonoBehaviour
     {
         CurrentItem = i;
         if (i.GetComponent<Weapon>() != null)
-        ItemInfoText.color = Color.white;
         {
-            ItemInfoText.text = i.GetComponent<Weapon>().WeaponName + " (" + i.GetComponent<Weapon>().Level +")" + "\nDMG: " + i.GetComponent<Weapon>().Damage + "\n" + i.Price + "G";
-            if(Hero.SelectedHero != null)
+            ItemInfoText.color = Color.white;
             {
-                if(CurrentItem.GetComponent<Weapon>()!= null)
+                ItemInfoText.text = i.GetComponent<Weapon>().WeaponName + " (" + i.GetComponent<Weapon>().Level + ")" + "\nDMG: " + i.GetComponent<Weapon>().Damage + "\n" + i.Price + "G";
+                if (Hero.SelectedHero != null)
                 {
-                    if (Hero.SelectedHero.DamageType == CurrentItem.DamageType)
+                    if (CurrentItem.GetComponent<Weapon>() != null)
                     {
-                        if (Hero.SelectedHero.WeaponItem != null)
+                        if (Hero.SelectedHero.DamageType == CurrentItem.DamageType)
                         {
-                            if (CurrentItem.GetComponent<Weapon>().Damage > Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
+                            if (Hero.SelectedHero.WeaponItem != null)
+                            {
+                                if (CurrentItem.GetComponent<Weapon>().Damage > Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
+                                {
+                                    ItemInfoText.color = Color.yellow;
+                                }
+                                else if (CurrentItem.GetComponent<Weapon>().Damage < Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
+                                {
+                                    ItemInfoText.color = Color.red;
+                                }
+                                else if (CurrentItem.GetComponent<Weapon>().Damage == Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
+                                {
+                                    ItemInfoText.color = Color.white;
+                                }
+                            }
+                            else
                             {
                                 ItemInfoText.color = Color.yellow;
                             }
-                            else if (CurrentItem.GetComponent<Weapon>().Damage < Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
-                            {
-                                ItemInfoText.color = Color.red;
-                            }
-                            else if (CurrentItem.GetComponent<Weapon>().Damage == Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
-                            {
-                                ItemInfoText.color = Color.white;
-                            }
+
                         }
                         else
                         {
-                            ItemInfoText.color = Color.yellow;
+                            ItemInfoText.color = Color.white;
                         }
 
                     }
-                    else
-                    {
-                        ItemInfoText.color = Color.white;
-                    }
-                    
-                }
-               
-            }
-            
-        }
 
+                }
+
+            }
+        }
+        
+
+    }
+
+    public void DeselectItems()
+    {
+        CurrentItem = null;
+        ItemInfoText.text = "SELECT AN ITEM";
+        ItemInfoText.color = Color.white;
     }
 
     public void CollectGold(float i)

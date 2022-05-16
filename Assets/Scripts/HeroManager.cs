@@ -95,6 +95,8 @@ public class HeroManager : MonoBehaviour
         SelectedHero.SelectHero();
         SelectedFloor = 1;
         CheckFloorButtons();
+        Stock.DeselectItems();
+        DeselectHero();
     }
 
     public void SendOnQuest()
@@ -116,6 +118,8 @@ public class HeroManager : MonoBehaviour
             }
 
         }
+        
+
     }
 
     public void CheckFloorButtons()
@@ -282,6 +286,11 @@ public class HeroManager : MonoBehaviour
         AllHeroes[CurrentHero].SelectHero();
         UpdateQuestMenu(AllHeroes[CurrentHero]);
 
+    }
+
+    public void DeselectHero()
+    {
+        SelectedHero = null;
     }
 
 

@@ -80,10 +80,7 @@ public class EquipMenu : MonoBehaviour
         Heroes.SelectHero(AllHeroes[CurrentHero]);
         AllHeroes[CurrentHero].SelectHero();
         UpdateEquipMenu(AllHeroes[CurrentHero]);
-        if (Stock.CurrentItem != null)
-        {
-            Stock.SelectItem(Stock.CurrentItem);
-        }
+        
 
     }
 

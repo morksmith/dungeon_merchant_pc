@@ -107,8 +107,9 @@ public class Stats : MonoBehaviour
     {
         HP = 0;
         XP = 0;
-
+        RemoveItems();
         State = HeroState.Dead;
+
     }
 
     public void EquipWeapon(Weapon w)
