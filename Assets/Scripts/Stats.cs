@@ -47,6 +47,7 @@ public class Stats : MonoBehaviour
     public float Damage;
     public float Range;
     public float Discovery = 1;
+    public float LootFind = 1;
     public float SkillPoints = 0;
     public float GoldHeld;
     public float LootHeld;

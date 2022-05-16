@@ -22,6 +22,7 @@ public class HeroManager : MonoBehaviour
     public Button GoButton;
     public TextMeshProUGUI SelectedFloorText;
     public TextMeshProUGUI DeployCostText;
+    public GameObject QuestBlocker;
     public StockManager Stock;
     public Menu QuestMenu;
     public Menu EquipMenu;
@@ -78,6 +79,7 @@ public class HeroManager : MonoBehaviour
                     heroes[i].WeaponItem.gameObject.SetActive(false);
                 }
             }
+            
             
         }
 
@@ -173,37 +175,39 @@ public class HeroManager : MonoBehaviour
     }
     public void ReturnHero()
     {
-        
-        Stock.CollectGold(SelectedHero.GoldHeld);
-        SelectedHero.GoldHeld = 0;
-        SelectedHero.LootHeld = 0;
-        SelectedHero.HP = SelectedHero.MaxHP;
-        CurrentQuestingHero = null;
-        SelectedHero.State = Stats.HeroState.Idle;
+        var s = CurrentQuestingHero.GetComponent<Stats>();
+        Stock.CollectGold(s.GoldHeld);
+        s.GoldHeld = 0;
+        s.LootHeld = 0;
+        s.HP = s.MaxHP;
+        s.State = Stats.HeroState.Idle;
+        SelectHero(s);
+        s.SelectHero();
+        CurrentQuestingHero = null;        
         DM.Level = 1;
         DM.GoldBonus = 1;
         DM.CurrentHeroAI.Agent.Warp(DM.HeroStartPosition);
         DM.CurrentHeroStats = null;
         DM.NewLevel(1);
-        SelectHero(SelectedHero);
-        SelectedHero.SelectHero();
+        
 
     }
     public void RIPHero()
     {
-        SelectHero(CurrentQuestingHero.GetComponent<Stats>());
+        var s = CurrentQuestingHero.GetComponent<Stats>();
+        SelectHero(s);
+        s.SelectHero();
         SelectedFloor = 1;
+        s.GoldHeld = 0;
+        s.State = Stats.HeroState.Dead;
+        Destroy(s.gameObject);
         CurrentQuestingHero = null;
-        SelectedHero.GoldHeld = 0;
-        SelectedHero.State = Stats.HeroState.Dead;
         DM.Level = 1;
         DM.GoldBonus = 1;
         DM.CurrentHeroAI.Agent.Warp(DM.HeroStartPosition);
         DM.CurrentHeroStats = null;
         DM.NewLevel(1);
-        SelectedHero.RemoveItems();
-        SelectHero(SelectedHero);
-        SelectedHero.SelectHero();
+        
     }
     public void DeleteHero()
     {
@@ -236,6 +240,14 @@ public class HeroManager : MonoBehaviour
             {
                 CurrentHero = i;
             }
+        }
+        if(AllHeroes[CurrentHero].State == Stats.HeroState.Questing)
+        {
+            QuestBlocker.SetActive(true);
+        }
+        else
+        {
+            QuestBlocker.SetActive(false);
         }
         HeroNameText.text = s.HeroName;
         QuestText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;

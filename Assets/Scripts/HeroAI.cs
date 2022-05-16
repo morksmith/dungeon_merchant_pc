@@ -201,8 +201,8 @@ public class HeroAI : MonoBehaviour
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + CurrentTarget.GetComponent<Enemy>().XP + "XP";
             }
             Stats.XP += CurrentTarget.GetComponent<Enemy>().XP;
-            var lootChance = Random.Range(0, 4);
-            if(lootChance == 1)
+            var lootChance = Random.Range(0, 10);
+            if(lootChance <= Stats.LootFind)
             {
                 Stats.LootHeld++;
                 var newNumber = Instantiate(FloatingNumber, CurrentTarget.position - Vector3.forward * 1.5f, Quaternion.Euler(Vector3.forward));

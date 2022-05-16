@@ -14,6 +14,7 @@ public class EquipMenu : MonoBehaviour
     public List<Sprite> WeaponSprites;
     public TextMeshProUGUI HeroInfoText;
     public EquipmentSlot WeaponSlot;
+    public GameObject EquipBlock;
     public Stats[] AllHeroes;
 
     public void UpdateEquipMenu(Stats s)
@@ -25,6 +26,14 @@ public class EquipMenu : MonoBehaviour
             {
                 CurrentHero = i;
             }
+        }
+        if(AllHeroes[CurrentHero].State == Stats.HeroState.Questing)
+        {
+            EquipBlock.SetActive(true);
+        }
+        else
+        {
+            EquipBlock.SetActive(false);
         }
         WeaponImage.sprite = WeaponSprites[s.DamageType];
         WeaponSlot.DamageType = s.DamageType;
