@@ -26,9 +26,11 @@ public class Item : MonoBehaviour
     public bool Equipped;
     public bool Selling;
     public bool Sold;
+    public bool Merchant;
     public Slider SellSlider;
 
     private StockManager stockMan;
+    private MerchantMenu merch;
     private float sellTimer;
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,7 @@ public class Item : MonoBehaviour
             BasePrice = gameObject.GetComponent<Weapon>().Damage * 8;
         }
         stockMan = GameObject.FindObjectOfType<StockManager>();
+        merch = GameObject.FindObjectOfType<MerchantMenu>();
         PriceText.text = Price + "G";
         Price = Mathf.CeilToInt(BasePrice * PriceScale);
         SellTime = Price;
@@ -72,7 +75,14 @@ public class Item : MonoBehaviour
 
     public void SelectItem()
     {
-        stockMan.SelectItem(this);
+        if (Merchant)
+        {
+            merch.SelectItem(this);
+        }
+        else
+        {
+            stockMan.SelectItem(this);
+        }
 
     }
     public void CollectGold()
