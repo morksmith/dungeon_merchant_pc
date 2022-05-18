@@ -498,7 +498,7 @@ public class StockManager : MonoBehaviour
         }
         else if (t == 1)
         {
-            Generator.GenerateWeapon(l);
+            Generator.GenerateWeapon(l, false);
         }
         else if (t == 3)
         {

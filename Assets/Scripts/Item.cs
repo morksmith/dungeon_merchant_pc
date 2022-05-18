@@ -37,13 +37,14 @@ public class Item : MonoBehaviour
     {
         if (gameObject.GetComponent<Weapon>())
         {
-            BasePrice = gameObject.GetComponent<Weapon>().Damage * 8;
+            BasePrice = gameObject.GetComponent<Weapon>().Damage * 3;
         }
         stockMan = GameObject.FindObjectOfType<StockManager>();
         merch = GameObject.FindObjectOfType<MerchantMenu>();
-        PriceText.text = Price + "G";
         Price = Mathf.CeilToInt(BasePrice * PriceScale);
+        PriceText.text = Price + "G";
         SellTime = Price;
+        stockMan.UpdatePrices();
     }
 
     // Update is called once per frame
@@ -129,7 +130,11 @@ public class Item : MonoBehaviour
             DemandIcon.gameObject.SetActive(true);
         }
         Price = Mathf.CeilToInt(BasePrice * PriceScale);
-        PriceText.text = Price + "G";
+        if (Merchant)
+        {
+            Price = Mathf.CeilToInt(Price * 0.8f);
+        }
+        PriceText.text = Price + "G";        
         SellTime = Price;
     }
 }

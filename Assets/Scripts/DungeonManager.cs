@@ -117,7 +117,7 @@ public class DungeonManager : MonoBehaviour
     {
         if (CurrentTime < MaxTime)
         {
-            CurrentTime += Time.deltaTime * 6;
+            CurrentTime += Time.deltaTime * 12;
         }
         else
         {
