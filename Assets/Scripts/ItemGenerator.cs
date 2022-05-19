@@ -52,7 +52,7 @@ public class ItemGenerator : MonoBehaviour
     {
         Debug.Log("Created New Sword");
         var pick = Random.Range(0, SwordPrefabs.Count);
-        var newSword = Instantiate(SwordPrefabs[pick], transform);
+        var newSword = Instantiate(SwordPrefabs[pick], StockList);
         newSword.GetComponent<Weapon>().Level = l;
         if (merch)
         {
@@ -60,10 +60,7 @@ public class ItemGenerator : MonoBehaviour
             newSword.GetComponent<Item>().Merchant = true;
 
         }
-        else
-        {
-            newSword.transform.SetParent(StockList);
-        }
+       
 
     }
 
@@ -71,7 +68,7 @@ public class ItemGenerator : MonoBehaviour
     {
         Debug.Log("Created New Club");
         var pick = Random.Range(0, ClubPrefabs.Count);
-        var newClub = Instantiate(ClubPrefabs[pick], transform);
+        var newClub = Instantiate(ClubPrefabs[pick], StockList);
         newClub.GetComponent<Weapon>().Level = l;
         if(merch)
         {
@@ -79,17 +76,13 @@ public class ItemGenerator : MonoBehaviour
             newClub.GetComponent<Item>().Merchant = true;
 
         }
-        else
-        {
-            newClub.transform.SetParent(StockList);
-        }
-
+       
     }
     public void CreateBow(int l, bool merch)
     {
         Debug.Log("Created New Bow");
         var pick = Random.Range(0, BowPrefabs.Count);
-        var newBow = Instantiate(BowPrefabs[pick], transform);
+        var newBow = Instantiate(BowPrefabs[pick], StockList);
         newBow.GetComponent<Weapon>().Level = l;
         if (merch)
         {
@@ -97,16 +90,13 @@ public class ItemGenerator : MonoBehaviour
             newBow.GetComponent<Item>().Merchant = true;
 
         }
-        else
-        {
-            newBow.transform.SetParent(StockList);
-        }
+       
     }
     public void CreateWand(int l, bool merch)
     {
         Debug.Log("Created New Wand");
         var pick = Random.Range(0, WandPrefabs.Count);
-        var newWand = Instantiate(WandPrefabs[pick], transform);
+        var newWand = Instantiate(WandPrefabs[pick], StockList);
         newWand.GetComponent<Weapon>().Level = l;
         if (merch)
         {
@@ -114,10 +104,7 @@ public class ItemGenerator : MonoBehaviour
             newWand.GetComponent<Item>().Merchant = true;
 
         }
-        else
-        {
-            newWand.transform.SetParent(StockList);
-        }
+       
     }
 
 }

@@ -439,25 +439,29 @@ public class StockManager : MonoBehaviour
         AllItems = GameObject.FindObjectsOfType<Item>();
         for(var i = 0; i < AllItems.Length; i++)
         {
-            if (AllItems[i].gameObject.GetComponent<Weapon>())
+            if (!AllItems[i].Selling)
             {
-                if(AllItems[i].DamageType == 0)
+                if (AllItems[i].gameObject.GetComponent<Weapon>())
                 {
-                    AllItems[i].UpdatePrice(SwordPrice);
-                }
-                else if (AllItems[i].DamageType == 1)
-                {
-                    AllItems[i].UpdatePrice(WandPrice);
-                }
-                else if (AllItems[i].DamageType == 2)
-                {
-                    AllItems[i].UpdatePrice(BowPrice);
-                }
-                else if (AllItems[i].DamageType == 3)
-                {
-                    AllItems[i].UpdatePrice(ClubPrice);
+                    if (AllItems[i].DamageType == 0)
+                    {
+                        AllItems[i].UpdatePrice(SwordPrice);
+                    }
+                    else if (AllItems[i].DamageType == 1)
+                    {
+                        AllItems[i].UpdatePrice(WandPrice);
+                    }
+                    else if (AllItems[i].DamageType == 2)
+                    {
+                        AllItems[i].UpdatePrice(BowPrice);
+                    }
+                    else if (AllItems[i].DamageType == 3)
+                    {
+                        AllItems[i].UpdatePrice(ClubPrice);
+                    }
                 }
             }
+            
             
         }
         
