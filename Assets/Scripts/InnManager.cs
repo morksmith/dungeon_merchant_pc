@@ -26,7 +26,11 @@ public class InnManager : MonoBehaviour
     }
     public void NewMerchant()
     {
-        Merchant.NewItems(HeroManager.MaxDungeonFloor);
+        var merchLevel = Stock.MaxProfit / 100;
+        merchLevel = Mathf.CeilToInt(merchLevel);
+        int merchInt = (int)merchLevel;
+        Debug.Log(merchLevel + ">" + merchInt);
+        Merchant.NewItems(merchInt);
         Merchant.GetComponent<Menu>().DeActivate();
 
     }

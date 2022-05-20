@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class StockManager : MonoBehaviour
 {
     public float Gold;
+    public float MaxProfit;
     public ItemGenerator Generator;
     public Transform ItemBox;
     public Item[] AllItems;
@@ -319,6 +320,10 @@ public class StockManager : MonoBehaviour
     {
         Gold += i;
         GoldText.text = Gold + "G";
+        if(Gold > MaxProfit)
+        {
+            MaxProfit = Gold;
+        }
     }
 
     public void CalculateArmourAndPotions(float a, float p)

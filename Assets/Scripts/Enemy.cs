@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
             Hero = GameObject.FindObjectOfType<HeroAI>().transform;
         }
         step = 0;
-        MaxHP = MaxHP + (Level * 8);
+        MaxHP = MaxHP + (Level * 10);
         Damage = Damage + (Level * 2);
         XP = MaxHP + Level;
         HP = MaxHP;

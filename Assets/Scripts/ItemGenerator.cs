@@ -35,6 +35,7 @@ public class ItemGenerator : MonoBehaviour
         {
             CreateWand(l, merch);
         }
+        Stock.UpdatePrices();
 
     }
 
