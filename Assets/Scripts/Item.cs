@@ -130,10 +130,6 @@ public class Item : MonoBehaviour
             DemandIcon.gameObject.SetActive(true);
         }
         Price = Mathf.CeilToInt(BasePrice * PriceScale);
-        if (Merchant)
-        {
-            Price = Mathf.CeilToInt(Price * 0.8f);
-        }
         PriceText.text = Price + "G";        
         SellTime = Price;
     }

@@ -202,7 +202,7 @@ public class HeroAI : MonoBehaviour
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + CurrentTarget.GetComponent<Enemy>().XP + "XP";
             }
             Stats.XP += CurrentTarget.GetComponent<Enemy>().XP;
-            var lootChance = Random.Range(0, 10);
+            var lootChance = Random.Range(0, 13);
             if(lootChance <= Stats.LootFind)
             {
                 Stats.LootHeld++;

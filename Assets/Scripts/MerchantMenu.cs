@@ -55,7 +55,7 @@ public class MerchantMenu : MonoBehaviour
     {
         RemoveItems();
         var itemLevel = Random.Range(1, l + 1);
-        for(var i = 0; i <6; i++)
+        for(var i = 0; i <4; i++)
         {
             Generator.GenerateWeapon(itemLevel, true);
         }

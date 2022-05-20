@@ -179,7 +179,8 @@ public class HeroManager : MonoBehaviour
         Stock.CollectGold(s.GoldHeld);
         for(var c = 0; c<s.ChestLevels.Count; c++)
         {
-            Stock.AddChest(s.DamageType, s.ChestLevels[c]);
+            //CHANGE THIS TO DAMAGE TYPE ONCE ARMOUR AND CONSUMABLES HAVE BEEN ADDED!!!
+            Stock.AddChest(3, s.ChestLevels[c]);
         }
         s.ChestLevels.Clear();
         s.GoldHeld = 0;
