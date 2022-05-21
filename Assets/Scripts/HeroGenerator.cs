@@ -17,7 +17,7 @@ public class HeroGenerator : MonoBehaviour
 
     public List<GameObject> HeroPrefabs;
     public Transform HeroParent;
-
+    public HireMenu HireScreen;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
@@ -27,7 +27,7 @@ public class HeroGenerator : MonoBehaviour
     }
     private void Start()
     {
-        CreateHero();
+
     }
     public void CreateHero()
     {
@@ -66,7 +66,7 @@ public class HeroGenerator : MonoBehaviour
         }
 
         newHero.GetComponent<Stats>().Level = Random.Range(1, 3);
-        
+        HireScreen.UpdateHeroInfo(newHero.gameObject.transform);
 
     }
 }

@@ -10,9 +10,9 @@ public class InnManager : MonoBehaviour
     public float MerchantTime = 120;
     public float HeroTime = 140;
     public MerchantMenu Merchant;
+    public HireMenu Hire;
     private float merchantTimer;
     private float heroTimer;
-
     private void Update()
     {
         heroTimer += Time.deltaTime;
@@ -22,6 +22,11 @@ public class InnManager : MonoBehaviour
         {
             NewMerchant();
             merchantTimer = 0;
+        }
+        if (heroTimer > HeroTime)
+        {
+            NewHero();
+            heroTimer = 0;
         }
     }
     public void NewMerchant()
@@ -33,5 +38,9 @@ public class InnManager : MonoBehaviour
         Merchant.NewItems(merchInt);
         Merchant.GetComponent<Menu>().DeActivate();
 
+    }
+    public void NewHero()
+    {
+        Hire.NewHero();
     }
 }

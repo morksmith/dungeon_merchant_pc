@@ -17,6 +17,7 @@ public class Stats : MonoBehaviour
     }
     public enum HeroState
     {
+        NotHired,
         Idle,
         Questing,
         Training,
@@ -84,6 +85,10 @@ public class Stats : MonoBehaviour
 
     public void SelectHero()
     {
+        if(State == HeroState.NotHired)
+        {
+            return;
+        }
         Manager.SelectHero(this);
         if (State == HeroState.Dead)
         {
