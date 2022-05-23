@@ -38,6 +38,7 @@ public class DungeonManager : MonoBehaviour
     public TextMeshProUGUI HeroLevel;
     public TextMeshProUGUI GoldText;
     public TextMeshProUGUI LootText;
+    public TextMeshProUGUI LevelText;
     public Stats CurrentHeroStats;
     public HeroAI CurrentHeroAI;
     public Slider HeroHP;
@@ -128,19 +129,7 @@ public class DungeonManager : MonoBehaviour
         {
             CycleDungeon();
         }
-        if(sleepTimer < SleepTime)
-        {
-            sleepTimer += Time.deltaTime;
-            SleepButton.interactable = false;
-            SleepSlider.gameObject.SetActive(true);
-            SleepSlider.value = sleepTimer / SleepTime;
-        }
-        else
-        {
-            SleepButton.interactable = true;
-            SleepSlider.gameObject.SetActive(false);
-
-        }
+        
 
         Hours = (CurrentTime / 60) % 24;
         Minutes = (CurrentTime % 60);
@@ -172,9 +161,24 @@ public class DungeonManager : MonoBehaviour
 
         if (!Running)
         {
+            if (sleepTimer < SleepTime)
+            {
+                sleepTimer += Time.deltaTime;
+                SleepButton.interactable = false;
+                SleepSlider.gameObject.SetActive(true);
+                SleepSlider.value = sleepTimer / SleepTime;
+            }
+            else
+            {
+                SleepButton.interactable = true;
+                SleepSlider.gameObject.SetActive(false);
+
+            }
             return;
+
         }
         DungeonText.text = Level.ToString();
+
 
     }
 
@@ -356,6 +360,7 @@ public class DungeonManager : MonoBehaviour
             CompleteText.text = "Return home or continue for 1.2x gold discovery?";
             GoldCollectedText.text = CurrentHeroStats.GoldHeld.ToString();
             LootCollectedText.text = CurrentHeroStats.LootHeld.ToString();
+            LevelText.text = Level.ToString();
             CompleteImage.sprite = CompleteSprite;
             CompleteButtons.SetActive(true);
             RIPButton.SetActive(false);

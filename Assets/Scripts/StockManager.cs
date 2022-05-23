@@ -167,6 +167,7 @@ public class StockManager : MonoBehaviour
                             {
                                 Hero.SelectedHero.SelectHero();
                             }
+                            UpdatePrices();
                         }
                         if (results[0].gameObject.GetComponent<Item>() != null)
                         {

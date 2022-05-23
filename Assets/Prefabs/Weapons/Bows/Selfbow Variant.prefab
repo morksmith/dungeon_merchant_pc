@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6658173324766119508
+--- !u!1001 &7644529578069592175
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,16 +8,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1319192600844312679, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
+      propertyPath: ItemName
+      value: Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1319192600844312679, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: DamageType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7352416216431567377, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 74b43382b3add0f44a6ba3fd5ae09ac4, type: 3}
+      objectReference: {fileID: 21300000, guid: 85337ace6a703134bba4d78bc118ef18, type: 3}
     - target: {fileID: 7352416218070820004, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Name
-      value: Shortstaff Variant
+      value: Selfbow Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820005, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Pivot.x
@@ -104,12 +108,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820006, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
+      propertyPath: Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352416218070820006, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: Damage
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820006, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: WeaponName
-      value: Shortstaff
+      value: Selfbow
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820007, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
