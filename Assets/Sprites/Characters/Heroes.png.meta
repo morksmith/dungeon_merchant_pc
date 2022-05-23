@@ -132,7 +132,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 32
         width: 16
         height: 32
       alignment: 9
@@ -153,7 +153,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 32
         width: 16
         height: 32
       alignment: 9
@@ -174,7 +174,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 32
         width: 16
         height: 32
       alignment: 9
@@ -195,7 +195,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 0
+        y: 32
         width: 16
         height: 32
       alignment: 9
@@ -207,6 +207,27 @@ TextureImporter:
       bones: []
       spriteID: ba0bcc68e46329a46871442dabd50224
       internalID: 1177419733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Merchant Sprite
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0c2f928d88fd148b76f7d1ad6a2ea5
+      internalID: 681790770
       vertices: []
       indices: 
       edges: []
@@ -225,6 +246,7 @@ TextureImporter:
       Knight Sprite: 1322834010
       Rogue Sprite: 871194723
       Warrior Sprite: 1177419733
+      Merchant Sprite: 681790770
       Mage Sprite: -601483178
   spritePackingTag: 
   pSDRemoveMatte: 0

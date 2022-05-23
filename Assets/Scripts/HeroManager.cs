@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class HeroManager : MonoBehaviour
 {
@@ -239,13 +240,15 @@ public class HeroManager : MonoBehaviour
 
     public void UpdateQuestMenu(Stats s)
     {
-        AllHeroes = GameObject.FindObjectsOfType<Stats>();
+        AllHeroes = GameObject.FindObjectsOfType<Stats>().Where( h => h.State != Stats.HeroState.NotHired).ToArray();
         for (var i = 0; i < AllHeroes.Length; i++)
         {
             if (AllHeroes[i] == s)
             {
                 CurrentHero = i;
             }
+            
+            
         }
         if(AllHeroes[CurrentHero].State == Stats.HeroState.Questing)
         {

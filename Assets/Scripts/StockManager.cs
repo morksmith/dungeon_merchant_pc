@@ -264,44 +264,9 @@ public class StockManager : MonoBehaviour
         CurrentItem = i;
         if (i.GetComponent<Weapon>() != null)
         {
-            ItemInfoText.color = Color.white;
             {
                 ItemInfoText.text = i.GetComponent<Weapon>().WeaponName + " (" + i.GetComponent<Weapon>().Level + ")" + "\nDMG: " + i.GetComponent<Weapon>().Damage + "\n" + i.Price + "G";
-                if (Hero.SelectedHero != null)
-                {
-                    if (CurrentItem.GetComponent<Weapon>() != null)
-                    {
-                        if (Hero.SelectedHero.DamageType == CurrentItem.DamageType)
-                        {
-                            if (Hero.SelectedHero.WeaponItem != null)
-                            {
-                                if (CurrentItem.GetComponent<Weapon>().Damage > Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
-                                {
-                                    ItemInfoText.color = Color.yellow;
-                                }
-                                else if (CurrentItem.GetComponent<Weapon>().Damage < Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
-                                {
-                                    ItemInfoText.color = Color.red;
-                                }
-                                else if (CurrentItem.GetComponent<Weapon>().Damage == Hero.SelectedHero.WeaponItem.GetComponent<Weapon>().Damage)
-                                {
-                                    ItemInfoText.color = Color.white;
-                                }
-                            }
-                            else
-                            {
-                                ItemInfoText.color = Color.yellow;
-                            }
-
-                        }
-                        else
-                        {
-                            ItemInfoText.color = Color.white;
-                        }
-
-                    }
-
-                }
+                
 
             }
         }
@@ -313,7 +278,6 @@ public class StockManager : MonoBehaviour
     {
         CurrentItem = null;
         ItemInfoText.text = "SELECT AN ITEM";
-        ItemInfoText.color = Color.white;
     }
 
     public void CollectGold(float i)

@@ -6,7 +6,6 @@ using TMPro;
 
 public class Item : MonoBehaviour
 {
-    public float Level;
     public string ItemName;
     public Image ItemSprite;
     public Image DemandIcon;
@@ -28,7 +27,7 @@ public class Item : MonoBehaviour
     public bool Sold;
     public bool Merchant;
     public Slider SellSlider;
-
+    public TextMeshProUGUI LevelText;
     private StockManager stockMan;
     private MerchantMenu merch;
     private float sellTimer;
@@ -38,6 +37,11 @@ public class Item : MonoBehaviour
         if (gameObject.GetComponent<Weapon>())
         {
             BasePrice = gameObject.GetComponent<Weapon>().Damage * 3;
+            LevelText.text = gameObject.GetComponent<Weapon>().Level.ToString();
+        }
+        else
+        {
+            LevelText.text = " ";
         }
         stockMan = GameObject.FindObjectOfType<StockManager>();
         merch = GameObject.FindObjectOfType<MerchantMenu>();

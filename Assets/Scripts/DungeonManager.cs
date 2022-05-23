@@ -6,6 +6,7 @@ using TMPro;
 
 public class DungeonManager : MonoBehaviour
 {
+    public InnManager Inn;
     public bool Running = false;
     public GameObject HeroUI;
     public StockManager Stock;
@@ -55,11 +56,15 @@ public class DungeonManager : MonoBehaviour
     public Sprite DeadSprite;
     public Sprite CompleteSprite;
     public List<GameObject> DungeonLayouts;
+    public Button SleepButton;
+    public Slider SleepSlider;
+    private float sleepTimer;
+    public float SleepTime;
     // Start is called before the first frame update
     void Start()
     {
-        
-       
+
+        sleepTimer = SleepTime;
         EnemySpawners = GameObject.FindObjectsOfType<EnemySpawner>();
         EnemyCount = 1;
         NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
@@ -123,6 +128,19 @@ public class DungeonManager : MonoBehaviour
         {
             CycleDungeon();
         }
+        if(sleepTimer < SleepTime)
+        {
+            sleepTimer += Time.deltaTime;
+            SleepButton.interactable = false;
+            SleepSlider.gameObject.SetActive(true);
+            SleepSlider.value = sleepTimer / SleepTime;
+        }
+        else
+        {
+            SleepButton.interactable = true;
+            SleepSlider.gameObject.SetActive(false);
+
+        }
 
         Hours = (CurrentTime / 60) % 24;
         Minutes = (CurrentTime % 60);
@@ -148,6 +166,7 @@ public class DungeonManager : MonoBehaviour
         else
         {
             HeroUI.SetActive(false);
+            SleepButton.gameObject.SetActive(true);
             CurrentHeroAI.gameObject.SetActive(false);
         }
 
@@ -275,6 +294,7 @@ public class DungeonManager : MonoBehaviour
         SpawnTypes[2] = SpawnTypes[3];
         SpawnTypes[3] = Random.Range(0, 4);
         SetEnemyTypes();
+        Inn.NewDay();
         CurrentTime = 0;
 
     }
@@ -290,6 +310,7 @@ public class DungeonManager : MonoBehaviour
         GoldBonus = 1;
         GoldMultiplierText.text = GoldBonus + "x";
         HeroUI.SetActive(true);
+        SleepButton.gameObject.SetActive(false);
         Running = true;
         CurrentHeroAI.Waiting = false;        
         HeroImage.sprite = CurrentHeroStats.HeroSprite;
@@ -316,6 +337,7 @@ public class DungeonManager : MonoBehaviour
         var bonusText = GoldBonus.ToString("F1");
         GoldMultiplierText.text = "x" + bonusText;
         HeroUI.SetActive(true);
+        SleepButton.gameObject.SetActive(false);
         Running = true;
         CurrentHeroAI.Waiting = false;
         HeroImage.sprite = CurrentHeroStats.HeroSprite;
@@ -356,5 +378,11 @@ public class DungeonManager : MonoBehaviour
         }
         var layout = Random.Range(0, DungeonLayouts.Count);
         DungeonLayouts[layout].SetActive(true);
+    }
+
+    public void Sleep()
+    {
+        sleepTimer = 0;
+        CycleDungeon();
     }
 }

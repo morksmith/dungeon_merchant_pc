@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class EquipMenu : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class EquipMenu : MonoBehaviour
 
     public void UpdateEquipMenu(Stats s)
     {
-        AllHeroes = GameObject.FindObjectsOfType<Stats>();
+        AllHeroes = GameObject.FindObjectsOfType<Stats>().Where(h => h.State != Stats.HeroState.NotHired).ToArray();
         for (var i = 0; i < AllHeroes.Length; i++)
         {
             if(AllHeroes[i] == s)

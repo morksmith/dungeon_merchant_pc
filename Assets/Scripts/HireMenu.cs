@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HireMenu : MonoBehaviour
 {
@@ -14,8 +15,10 @@ public class HireMenu : MonoBehaviour
     public Transform CurrentHero;
     public StockManager Stock;
     public GameObject HeroButton;
+    public Image HeroIcon;
     public HeroGenerator Generator;
     public ScrollingWindow DungeonContent;
+    public GameObject NewIcon;
 
     private void Start()
     {
@@ -49,7 +52,7 @@ public class HireMenu : MonoBehaviour
         PriceText.text = HeroCost + "G";
         NameText.text = s.HeroName;
         HeroText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + " / " + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop: x" + s.Discovery;
-
+        HeroIcon.sprite = s.HeroSprite;
 
     }
 
@@ -62,6 +65,8 @@ public class HireMenu : MonoBehaviour
             Destroy(CurrentHero.gameObject);
         }
         Generator.CreateHero();
+        NewIcon.SetActive(true);
+
     }
 
 }
