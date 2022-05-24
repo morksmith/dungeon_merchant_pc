@@ -57,7 +57,7 @@ public class StockManager : MonoBehaviour
                     EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
                     if (results.Count > 0)
                     {
-                        if (results[0].gameObject.GetComponent<Item>() != null && !results[0].gameObject.GetComponent<Item>().Merchant)
+                        if (results[0].gameObject.GetComponent<Item>() != null && !results[0].gameObject.GetComponent<Item>().Merchant && !results[0].gameObject.GetComponent<Item>().Selling)
                         {
                             DraggedItem = results[0].gameObject.GetComponent<Item>();
                             SelectItem(results[0].gameObject.GetComponent<Item>());
