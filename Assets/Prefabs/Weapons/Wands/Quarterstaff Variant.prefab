@@ -14,10 +14,10 @@ PrefabInstance:
     - target: {fileID: 7352416216431567377, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 74b43382b3add0f44a6ba3fd5ae09ac4, type: 3}
+      objectReference: {fileID: 21300000, guid: 1070ec0e9357aad4aa40b843e49d3aa4, type: 3}
     - target: {fileID: 7352416218070820004, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Name
-      value: Shortstaff Variant
+      value: Quarterstaff Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820005, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Pivot.x
@@ -105,11 +105,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820006, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: Damage
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820006, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: WeaponName
-      value: Shortstaff
+      value: Quarterstaff
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820007, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b

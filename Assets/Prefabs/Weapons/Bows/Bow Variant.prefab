@@ -53,11 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820005, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820005, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820005, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_LocalPosition.x
@@ -113,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820006, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: Damage
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820006, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: WeaponName

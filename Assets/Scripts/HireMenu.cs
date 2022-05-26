@@ -16,6 +16,7 @@ public class HireMenu : MonoBehaviour
     public StockManager Stock;
     public GameObject HeroButton;
     public Image HeroIcon;
+    public Image HeroSprite;
     public HeroGenerator Generator;
     public ScrollingWindow DungeonContent;
     public GameObject NewIcon;
@@ -28,13 +29,13 @@ public class HireMenu : MonoBehaviour
     {
         if(HeroCost <= Stock.Gold)
         {
+            CurrentHero.gameObject.SetActive(true);
             Stock.CollectGold(-HeroCost);
             CurrentHero.SetParent(HeroParent);
             CurrentHero.GetComponent<Stats>().State = Stats.HeroState.Idle;
             CurrentHero = null;
             HireScreen.DeActivate();
             HeroButton.SetActive(false);
-            DungeonContent.SetWindow(2);
         }
         else
         {
@@ -53,6 +54,7 @@ public class HireMenu : MonoBehaviour
         NameText.text = s.HeroName;
         HeroText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + " / " + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop: x" + s.Discovery;
         HeroIcon.sprite = s.HeroSprite;
+        HeroSprite.sprite = s.HeroSprite;
 
     }
 

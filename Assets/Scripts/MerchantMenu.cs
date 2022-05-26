@@ -27,6 +27,10 @@ public class MerchantMenu : MonoBehaviour
 
     public void BuyItem()
     {
+        if(SelectedItem == null)
+        {
+            return;
+        }
         if(Stock.Gold >= SelectedItem.Price)
         {
             SelectedItem.transform.SetParent(Stock.StockList);

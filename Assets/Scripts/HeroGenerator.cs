@@ -67,6 +67,7 @@ public class HeroGenerator : MonoBehaviour
 
         newHero.GetComponent<Stats>().Level = Random.Range(1, 3);
         HireScreen.UpdateHeroInfo(newHero.gameObject.transform);
+        newHero.gameObject.SetActive(false);
 
     }
 }

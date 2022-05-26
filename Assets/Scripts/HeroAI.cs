@@ -95,7 +95,6 @@ public class HeroAI : MonoBehaviour
                 {
                     State = HeroState.Attacking;
                     Agent.isStopped = true;
-                    step = 0;
                 }
 
             }
@@ -187,6 +186,9 @@ public class HeroAI : MonoBehaviour
             var newNumber = Instantiate(FloatingNumber, CurrentTarget.position, Quaternion.Euler(Vector3.forward));
             newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + dmg;
         }
+
+        step = 0;
+
         if (CurrentTarget.GetComponent<Enemy>().HP <= 0)
         {
             if (CurrentTarget.GetComponent<Enemy>().XP + Stats.XP > Stats.MaxXP)
@@ -216,11 +218,7 @@ public class HeroAI : MonoBehaviour
             Destroy(CurrentTarget.gameObject);
             CurrentTarget = null;
             State = HeroState.Idle;
-            step = 0;
-
-
         }
-        step = 0;
     }
 
     public void TakeDamage(float i, Enemy e)
@@ -231,6 +229,12 @@ public class HeroAI : MonoBehaviour
             var newNumber = Instantiate(FloatingNumber, transform.position, Quaternion.Euler(Vector3.forward));
             newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + i;
             newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
+            if(CurrentTarget == null)
+            {
+                CurrentTarget = e.transform;
+                State = HeroState.Attacking;
+                step = UpdateTime;
+            }
         }
         else
         {
