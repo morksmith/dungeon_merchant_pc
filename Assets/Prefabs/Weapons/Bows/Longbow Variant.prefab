@@ -120,12 +120,16 @@ PrefabInstance:
       value: Longbow
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820007, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352416218070820007, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
-      value: 0.43867922
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820007, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Colors.m_SelectedColor.g
-      value: 0.860665
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820007, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Colors.m_SelectedColor.r
