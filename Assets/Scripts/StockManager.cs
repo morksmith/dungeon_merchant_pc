@@ -190,7 +190,7 @@ public class StockManager : MonoBehaviour
                                         Hero.SelectHero(Hero.SelectedHero);
                                         CurrentItem = null;
                                         ItemInfoText.text = "SELECT AN ITEM";
-                                        ItemInfoText.color = Color.white;
+                                        UpdatePrices();
                                     }
                                     else
                                     {
