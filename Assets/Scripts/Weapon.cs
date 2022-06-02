@@ -5,7 +5,6 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public float Level;
-    public int Rarity = 0;
     public string WeaponName;
     public float Damage;
     // Start is called before the first frame update

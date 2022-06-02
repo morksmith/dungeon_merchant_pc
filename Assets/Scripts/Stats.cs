@@ -125,6 +125,18 @@ public class Stats : MonoBehaviour
         WeaponItem = w.gameObject.GetComponent<Item>();
     }
 
+    public void EquipArmour(Armour a)
+    {
+        MaxHP += a.HP;
+        HelmItem = a.gameObject.GetComponent<Item>();
+    }
+
+    public void UneQuipArmour(Armour a)
+    {
+        MaxHP -= a.HP;
+        HelmItem = null;
+    }
+
     public void UnequipWeapon(Weapon w)
     {
         Damage -= w.Damage;

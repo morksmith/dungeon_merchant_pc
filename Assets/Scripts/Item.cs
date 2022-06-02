@@ -39,6 +39,11 @@ public class Item : MonoBehaviour
             BasePrice = gameObject.GetComponent<Weapon>().Damage * 3;
             LevelText.text = gameObject.GetComponent<Weapon>().Level.ToString();
         }
+        else if (gameObject.GetComponent<Armour>())
+        {
+            BasePrice = gameObject.GetComponent<Armour>().HP * 3;
+            LevelText.text = gameObject.GetComponent<Armour>().Level.ToString();
+        }
         else
         {
             LevelText.text = " ";

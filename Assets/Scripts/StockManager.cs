@@ -133,9 +133,17 @@ public class StockManager : MonoBehaviour
                                     DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform);
                                     DraggedItem.transform.position = results[0].gameObject.transform.position;
                                     DraggedItem.EquipItem();
-                                    Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
+                                    if(DraggedItem.GetComponent<Weapon>()!= null)
+                                    {
+                                        Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
+                                        Debug.Log("Equipped Weapon");
+                                    }
+                                    if (DraggedItem.GetComponent<Armour>() != null)
+                                    {
+                                        Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
+                                        Debug.Log("Equipped Armour");
+                                    }
                                     Hero.OpenEquipMenu();
-                                    Debug.Log("Equipped Weapon");
                                     Hero.SelectedHero.SelectHero();
                                     Hero.SelectHero(Hero.SelectedHero);
                                     CurrentItem = null;
@@ -155,7 +163,14 @@ public class StockManager : MonoBehaviour
                         {
                             if (DraggedItem.Equipped)
                             {
-                                Hero.SelectedHero.UnequipWeapon(DraggedItem.GetComponent<Weapon>());
+                                if (DraggedItem.GetComponent<Weapon>())
+                                {
+                                    Hero.SelectedHero.UnequipWeapon(DraggedItem.GetComponent<Weapon>());
+                                }
+                                if (DraggedItem.GetComponent<Armour>())
+                                {
+                                    Hero.SelectedHero.UneQuipArmour(DraggedItem.GetComponent<Armour>());
+                                }
                                 Hero.SelectHero(Hero.SelectedHero);
                                 Hero.OpenEquipMenu();
                             }
@@ -198,12 +213,24 @@ public class StockManager : MonoBehaviour
                                         Debug.Log("Wrong Weapon Type");
                                     }
                                 }
-                                
-                                else
+                                else if (DraggedItem.GetComponent<Armour>())
                                 {
-                                    
-
+                                    Debug.Log("Replaced Item");
+                                    DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
+                                    DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
+                                    DraggedItem.EquipItem();
+                                    results[0].gameObject.GetComponent<Item>().StockItem();
+                                    results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
+                                    Hero.SelectedHero.UneQuipArmour(results[0].gameObject.GetComponent<Armour>());
+                                    Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
+                                    Hero.OpenEquipMenu();
+                                    Hero.SelectedHero.SelectHero();
+                                    Hero.SelectHero(Hero.SelectedHero);
+                                    CurrentItem = null;
+                                    ItemInfoText.text = "SELECT AN ITEM";
+                                    UpdatePrices();
                                 }
+
                             }                  
 
                         }
@@ -271,7 +298,15 @@ public class StockManager : MonoBehaviour
 
             }
         }
-        
+        else if (i.GetComponent<Armour>() != null)
+        {
+            {
+                ItemInfoText.text = i.ItemName + " (" + i.GetComponent<Armour>().Level + ")" + "\n+HP: " + i.GetComponent<Armour>().HP + "\n" + i.Price + "G";
+
+
+            }
+        }
+
 
     }
 
