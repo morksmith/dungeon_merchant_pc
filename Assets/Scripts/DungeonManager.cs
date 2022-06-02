@@ -211,6 +211,7 @@ public class DungeonManager : MonoBehaviour
 
         Debug.Log("Beasts:" + beasts + " Ghosts:" + ghosts + " Demons:" + demons + " Skellys:" + skellys);
         Stock.CalculateWeaponPrices(beasts, ghosts, demons, skellys);
+        Stock.CalculateArmourAndPotions(EnemyCount, EnemyStrength);
 
         
 

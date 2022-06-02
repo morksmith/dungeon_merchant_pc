@@ -63,7 +63,15 @@ public class MerchantMenu : MonoBehaviour
         for(var i = 0; i <4; i++)
         {
             var itemLevel = Random.Range(1, l + 2);
-            Generator.GenerateWeapon(itemLevel, true);
+            var pick = Random.Range(0, 2);
+            if(pick == 0)
+            {
+                Generator.GenerateWeapon(itemLevel, true);
+            }
+            else
+            {
+                Generator.GenerateArmour(itemLevel, true);
+            }
         }
         Stock.UpdatePrices();
         NewIcon.SetActive(true);

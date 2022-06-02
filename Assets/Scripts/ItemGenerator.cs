@@ -39,9 +39,9 @@ public class ItemGenerator : MonoBehaviour
 
     }
 
-    public void GenerateArmour(int l)
+    public void GenerateArmour(int l, bool merch)
     {
-
+        CreateHelm(l, merch);
     }
 
     public void GenerateConsumable()
@@ -107,5 +107,18 @@ public class ItemGenerator : MonoBehaviour
         }
        
     }
+    public void CreateHelm(int l, bool merch)
+    {
+        Debug.Log("Created New Helm");
+        var pick = Random.Range(0, HelmPrefabs.Count);
+        var newHelm = Instantiate(HelmPrefabs[pick], StockList);
+        newHelm.GetComponent<Armour>().Level = l;
+        if (merch)
+        {
+            newHelm.transform.SetParent(MerchList);
+            newHelm.GetComponent<Item>().Merchant = true;
+        }
+    }
+
 
 }

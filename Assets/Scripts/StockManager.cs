@@ -465,6 +465,10 @@ public class StockManager : MonoBehaviour
                         AllItems[i].UpdatePrice(ClubPrice);
                     }
                 }
+                if (AllItems[i].gameObject.GetComponent<Armour>())
+                {
+                    AllItems[i].UpdatePrice(ArmourPrice);
+                }
             }
             
             
@@ -503,7 +507,7 @@ public class StockManager : MonoBehaviour
     {
         if(t == 0)
         {
-            Generator.GenerateArmour(l);
+            Generator.GenerateArmour(l, false);
         }
         else if (t == 1)
         {
