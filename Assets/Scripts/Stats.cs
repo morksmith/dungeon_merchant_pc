@@ -28,8 +28,6 @@ public class Stats : MonoBehaviour
     public Item WeaponItem;
     public Item HelmItem;
     public Item ArmourItem;
-    public Item BootsItem;
-    public Item RingItem;
     public Item ConsumableItem;
     public int DamageType;
     public HeroManager Manager;
@@ -49,7 +47,6 @@ public class Stats : MonoBehaviour
     public float Range;
     public float Discovery = 1;
     public float LootFind = 1;
-    public float SkillPoints = 0;
     public float GoldHeld;
     public float LootHeld;
     public List<int> ChestLevels;
@@ -76,7 +73,6 @@ public class Stats : MonoBehaviour
         XP = XP - MaxXP;
         MaxXP *= 2f;
         MaxXP = Mathf.CeilToInt(MaxXP);
-        SkillPoints += 1;
         MaxHP += 10;
         Damage++;
         HP = MaxHP;
@@ -128,12 +124,14 @@ public class Stats : MonoBehaviour
     public void EquipArmour(Armour a)
     {
         MaxHP += a.HP;
+        HP = MaxHP;
         HelmItem = a.gameObject.GetComponent<Item>();
     }
 
     public void UneQuipArmour(Armour a)
     {
         MaxHP -= a.HP;
+        HP = MaxHP;
         HelmItem = null;
     }
 
@@ -152,6 +150,14 @@ public class Stats : MonoBehaviour
         if (ArmourItem != null)
         {
             Destroy(ArmourItem.gameObject);
+        }
+        if (HelmItem != null)
+        {
+            Destroy(HelmItem.gameObject);
+        }
+        if (ConsumableItem != null)
+        {
+            Destroy(ConsumableItem.gameObject);
         }
     }
    
