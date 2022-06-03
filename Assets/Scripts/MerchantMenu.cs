@@ -22,6 +22,10 @@ public class MerchantMenu : MonoBehaviour
         {
             ItemInfo.text = i.GetComponent<Weapon>().WeaponName + " (" + i.GetComponent<Weapon>().Level + ")" + "\nDMG: " + i.GetComponent<Weapon>().Damage + "\n" + i.Price + "G";
         }
+        if (i.GetComponent<Armour>() != null)
+        {
+            ItemInfo.text = i.ItemName + " (" + i.GetComponent<Armour>().Level + ")" + "\n+HP: " + i.GetComponent<Armour>().HP + "\n" + i.Price + "G";
+        }
         SelectedItem = i;
     }
 
