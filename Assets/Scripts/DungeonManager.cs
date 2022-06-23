@@ -68,7 +68,22 @@ public class DungeonManager : MonoBehaviour
         sleepTimer = SleepTime;
         EnemySpawners = GameObject.FindObjectsOfType<EnemySpawner>();
         EnemyCount = 1;
-        NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
+        if(EnemyCount > 1 && EnemyCount < 3)
+        {
+            NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
+        }
+        else
+        {
+            if(EnemyCount == 1)
+            {
+                NextCount = Mathf.Clamp(EnemyCount + Random.Range(0, 2), 1, 3);
+            }
+            else if (EnemyCount == 3)
+            {
+                NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 1), 1, 3);
+            }
+        }
+        
         EnemyCountSlider.value = EnemyCount * 0.333f + 0.04f;
         if(NextCount == EnemyCount)
         {
@@ -87,7 +102,21 @@ public class DungeonManager : MonoBehaviour
             }
         }
         EnemyStrength = 1;
-        NextStrength = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
+        if (EnemyStrength > 1 && EnemyStrength < 3)
+        {
+            NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(-1, 2), 1, 3);
+        }
+        else
+        {
+            if (EnemyStrength == 1)
+            {
+                NextCount = Mathf.Clamp(EnemyStrength + Random.Range(0, 2), 1, 3);
+            }
+            else if (EnemyStrength == 3)
+            {
+                NextCount = Mathf.Clamp(EnemyStrength + Random.Range(-1, 1), 1, 3);
+            }
+        }
         EnemyStrengthSlider.value = EnemyStrength * 0.333f + 0.04f;
         if (NextStrength == EnemyStrength)
         {

@@ -49,7 +49,7 @@ public class HireMenu : MonoBehaviour
     {
         CurrentHero = hero;
         var s = CurrentHero.GetComponent<Stats>();
-        HeroCost = s.Level * 100;
+        HeroCost = s.Level * 75;
         PriceText.text = HeroCost + "G";
         NameText.text = s.HeroName;
         HeroText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + " / " + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop: x" + s.Discovery;
