@@ -3,7 +3,11 @@ guid: b7bb50b8cb7955749b6c765357f5e079
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Stock: {instanceID: 0}
+  - MerchList: {instanceID: 0}
+  - StockList: {instanceID: 0}
+  - PotionPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -32,29 +32,7 @@ public class Item : MonoBehaviour
     private MerchantMenu merch;
     private float sellTimer;
     // Start is called before the first frame update
-    void Start()
-    {
-        if (gameObject.GetComponent<Weapon>())
-        {
-            BasePrice = gameObject.GetComponent<Weapon>().Damage * 3;
-            LevelText.text = gameObject.GetComponent<Weapon>().Level.ToString();
-        }
-        else if (gameObject.GetComponent<Armour>())
-        {
-            BasePrice = gameObject.GetComponent<Armour>().HP * 3;
-            LevelText.text = gameObject.GetComponent<Armour>().Level.ToString();
-        }
-        else
-        {
-            LevelText.text = " ";
-        }
-        stockMan = GameObject.FindObjectOfType<StockManager>();
-        merch = GameObject.FindObjectOfType<MerchantMenu>();
-        Price = Mathf.CeilToInt(BasePrice * PriceScale);
-        PriceText.text = Price + "G";
-        SellTime = Price;
-        stockMan.UpdatePrices();
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -142,4 +120,47 @@ public class Item : MonoBehaviour
         PriceText.text = Price + "G";        
         SellTime = Price;
     }
+
+    public void SetStats()
+    {
+        if (gameObject.GetComponent<Weapon>())
+        {
+            gameObject.GetComponent<Weapon>().Damage += (gameObject.GetComponent<Weapon>().Level * 2);
+            BasePrice = gameObject.GetComponent<Weapon>().Damage * 3;
+            LevelText.text = gameObject.GetComponent<Weapon>().Level.ToString();
+        }
+        else if (gameObject.GetComponent<Armour>())
+        {
+            gameObject.GetComponent<Armour>().HP += (gameObject.GetComponent<Armour>().Level * 2);
+            BasePrice = gameObject.GetComponent<Armour>().HP * 3;
+            LevelText.text = gameObject.GetComponent<Armour>().Level.ToString();
+        }
+        else if (gameObject.GetComponent<Consumable>())
+        {
+            var con = gameObject.GetComponent<Consumable>();
+            if (con.Type == Consumable.ConsumableType.Potion)
+            {
+                con.Value = con.Level * 10;
+                BasePrice = con.Value * 2;
+                LevelText.text = con.Value.ToString();
+
+            }
+            else if (con.Type == Consumable.ConsumableType.Portal)
+            {
+                BasePrice = 100;
+                LevelText.text = "";
+            }
+        }
+        else
+        {
+            LevelText.text = " ";
+        }
+        stockMan = GameObject.FindObjectOfType<StockManager>();
+        merch = GameObject.FindObjectOfType<MerchantMenu>();
+        Price = Mathf.CeilToInt(BasePrice * PriceScale);
+        PriceText.text = Price + "G";
+        SellTime = Price;
+        stockMan.UpdatePrices();
+    
+}
 }

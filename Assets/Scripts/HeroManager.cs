@@ -51,7 +51,19 @@ public class HeroManager : MonoBehaviour
         {
             s.WeaponItem.gameObject.SetActive(true);
         }
-        if(SelectedHero.State == Stats.HeroState.Dead)
+        if (s.HelmItem != null)
+        {
+            s.HelmItem.gameObject.SetActive(true);
+        }
+        if (s.ArmourItem != null)
+        {
+            s.ArmourItem.gameObject.SetActive(true);
+        }
+        if (s.ConsumableItem != null)
+        {
+            s.ConsumableItem.gameObject.SetActive(true);
+        }
+        if (SelectedHero.State == Stats.HeroState.Dead)
         {
             HeroInfoText.text = s.HeroName + " IS DEAD!";
         }
@@ -79,6 +91,18 @@ public class HeroManager : MonoBehaviour
                 {
                     heroes[i].WeaponItem.gameObject.SetActive(false);
                 }
+                if (heroes[i].HelmItem != null)
+                {
+                    heroes[i].HelmItem.gameObject.SetActive(false);
+                }
+                if (heroes[i].ArmourItem != null)
+                {
+                    heroes[i].ArmourItem.gameObject.SetActive(false);
+                }
+                if (heroes[i].ConsumableItem != null)
+                {
+                    heroes[i].ConsumableItem.gameObject.SetActive(false);
+                }
             }
             
             
@@ -96,7 +120,6 @@ public class HeroManager : MonoBehaviour
         HeroInfoText.text = SelectedHero.HeroName + " is on a Quest!";
         CurrentQuestingHero = SelectedHero.gameObject;
         SelectedHero.SelectHero();
-        SelectedFloor = 1;
         CheckFloorButtons();
         Stock.DeselectItems();
         DeselectHero();
@@ -180,8 +203,7 @@ public class HeroManager : MonoBehaviour
         Stock.CollectGold(s.GoldHeld);
         for(var c = 0; c<s.ChestLevels.Count; c++)
         {
-            //CHANGE THIS TO DAMAGE TYPE ONCE ARMOUR AND CONSUMABLES HAVE BEEN ADDED!!!
-            Stock.AddChest(3, s.ChestLevels[c]);
+            Stock.AddChest(s.DamageType, s.ChestLevels[c]);
         }
         s.ChestLevels.Clear();
         s.GoldHeld = 0;
@@ -204,7 +226,6 @@ public class HeroManager : MonoBehaviour
         var s = CurrentQuestingHero.GetComponent<Stats>();
         SelectHero(s);
         s.SelectHero();
-        SelectedFloor = 1;
         s.GoldHeld = 0;
         s.State = Stats.HeroState.Dead;
         Destroy(s.gameObject);

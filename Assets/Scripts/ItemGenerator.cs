@@ -7,6 +7,8 @@ public class ItemGenerator : MonoBehaviour
     public StockManager Stock;
     public Transform MerchList;
     public Transform StockList;
+    public GameObject PotionPrefab;
+    public GameObject PortalPrefab;
     public List<GameObject> SwordPrefabs;
     public List<GameObject> ClubPrefabs;
     public List<GameObject> BowPrefabs;
@@ -44,9 +46,17 @@ public class ItemGenerator : MonoBehaviour
         CreateHelm(l, merch);
     }
 
-    public void GenerateConsumable()
+    public void GenerateConsumable(int l, bool merch)
     {
-
+        var pick = Random.Range(0, 2);
+        if (pick == 0)
+        {
+            CreatePotion(l, merch);
+        }
+        else
+        {
+            CreatePortal(l, merch);
+        }
     }
 
     public void CreateSword(int l, bool merch)
@@ -61,7 +71,8 @@ public class ItemGenerator : MonoBehaviour
             newSword.GetComponent<Item>().Merchant = true;
 
         }
-       
+        newSword.GetComponent<Item>().SetStats();
+
 
     }
 
@@ -76,8 +87,11 @@ public class ItemGenerator : MonoBehaviour
             newClub.transform.SetParent(MerchList);
             newClub.GetComponent<Item>().Merchant = true;
 
+
         }
-       
+        newClub.GetComponent<Item>().SetStats();
+
+
     }
     public void CreateBow(int l, bool merch)
     {
@@ -91,7 +105,9 @@ public class ItemGenerator : MonoBehaviour
             newBow.GetComponent<Item>().Merchant = true;
 
         }
-       
+        newBow.GetComponent<Item>().SetStats();
+
+
     }
     public void CreateWand(int l, bool merch)
     {
@@ -105,7 +121,9 @@ public class ItemGenerator : MonoBehaviour
             newWand.GetComponent<Item>().Merchant = true;
 
         }
-       
+        newWand.GetComponent<Item>().SetStats();
+
+
     }
     public void CreateHelm(int l, bool merch)
     {
@@ -117,7 +135,36 @@ public class ItemGenerator : MonoBehaviour
         {
             newHelm.transform.SetParent(MerchList);
             newHelm.GetComponent<Item>().Merchant = true;
+
         }
+        newHelm.GetComponent<Item>().SetStats();
+
+    }
+    public void CreatePotion(int l, bool merch)
+    {
+        Debug.Log("Created New Potion");
+        var newPotion = Instantiate(PotionPrefab, StockList);
+        newPotion.GetComponent<Consumable>().Level = l;
+        if (merch)
+        {
+            newPotion.transform.SetParent(MerchList);
+            newPotion.GetComponent<Item>().Merchant = true;
+        }
+        newPotion.GetComponent<Item>().SetStats();
+
+    }
+    public void CreatePortal(int l, bool merch)
+    {
+        Debug.Log("Created New Portal");
+        var newPortal = Instantiate(PortalPrefab, StockList);
+        newPortal.GetComponent<Consumable>().Level = l;
+        if (merch)
+        {
+            newPortal.transform.SetParent(MerchList);
+            newPortal.GetComponent<Item>().Merchant = true;
+        }
+        newPortal.GetComponent<Item>().SetStats();
+
     }
 
 

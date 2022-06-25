@@ -26,6 +26,21 @@ public class MerchantMenu : MonoBehaviour
         {
             ItemInfo.text = i.ItemName + " (" + i.GetComponent<Armour>().Level + ")" + "\n+HP: " + i.GetComponent<Armour>().HP + "\n" + i.Price + "G";
         }
+        if (i.GetComponent<Consumable>() != null)
+        {
+            {
+                if (i.GetComponent<Consumable>().Type == Consumable.ConsumableType.Potion)
+                {
+                    ItemInfo.text = i.ItemName + "\n+" + i.GetComponent<Consumable>().Value + "HP"+ "\n" + i.Price + "G";
+                }
+                else if (i.GetComponent<Consumable>().Type == Consumable.ConsumableType.Portal)
+                {
+                    ItemInfo.text = i.ItemName + "\n Returns hero safely" + "\n" + i.Price + "G";
+                }
+
+
+            }
+        }
         SelectedItem = i;
     }
 
@@ -67,14 +82,18 @@ public class MerchantMenu : MonoBehaviour
         for(var i = 0; i <4; i++)
         {
             var itemLevel = Random.Range(1, l + 2);
-            var pick = Random.Range(0, 2);
+            var pick = Random.Range(0, 3);
             if(pick == 0)
             {
                 Generator.GenerateWeapon(itemLevel, true);
             }
-            else
+            else if (pick == 1)
             {
                 Generator.GenerateArmour(itemLevel, true);
+            }
+            else if (pick == 2)
+            {
+                Generator.GenerateConsumable(itemLevel, true);
             }
         }
         Stock.UpdatePrices();

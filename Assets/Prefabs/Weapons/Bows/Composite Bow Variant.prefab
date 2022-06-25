@@ -117,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820006, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: WeaponName
-      value: Composite Bow Variant
+      value: Composite Bow
       objectReference: {fileID: 0}
     - target: {fileID: 7352416218070820007, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Colors.m_DisabledColor.a

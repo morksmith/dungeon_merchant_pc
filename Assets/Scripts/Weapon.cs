@@ -10,8 +10,10 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Damage += (Level * 2);
-        gameObject.GetComponent<Item>().Price = Damage * 8;
+        
+        
+
+
     }
 
     // Update is called once per frame

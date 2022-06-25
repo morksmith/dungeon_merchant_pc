@@ -105,17 +105,8 @@ public class HeroAI : MonoBehaviour
                     if(Vector2.Distance(transform.position, TargetPos) < 0.1f)
                     {
 
-                        
-                        Active = false;
-                        Waiting = true;
-                        LevelCleared = false;
-                        CurrentTarget = null;
-                        Agent.isStopped = true;
-                        Waiting = true;
-                        DM.Running = false;
-                        State = HeroState.Idle;
-                        DM.DungeonCompleted = true;
-                        DM.DungeonComplete();
+
+                        CompletedLevel();
                     }
                 }
             }
@@ -235,11 +226,59 @@ public class HeroAI : MonoBehaviour
                 State = HeroState.Attacking;
                 step = UpdateTime;
             }
+            if(Stats.ConsumableItem != null)
+            {
+                var con = Stats.ConsumableItem.GetComponent<Consumable>();
+                if (con.Type == Consumable.ConsumableType.Potion)
+                {
+                    if(Stats.HP < (Stats.MaxHP - con.Value))
+                    {
+                        Debug.Log("Hero Healed");
+                        Stats.HP += con.Value;
+                        Destroy(Stats.ConsumableItem.gameObject);
+                        Stats.ConsumableItem = null;
+                        DM.ConsumableIcon.sprite = DM.HandSprite;
+                    }
+                }
+                
+            }
         }
         else
         {
-            e.Hero = null;
-            Die();
+            if(Stats.ConsumableItem == null)
+            {
+                e.Hero = null;
+                Die();
+            }
+            else
+            {
+                var con = Stats.ConsumableItem.GetComponent<Consumable>();
+                if (con.Type == Consumable.ConsumableType.Portal)
+                {
+                    if (Stats.HP < (20))
+                    {
+                        Debug.Log("Hero Used Town Portal");
+                        Destroy(Stats.ConsumableItem.gameObject);
+                        Stats.ConsumableItem = null;
+                        DM.ConsumableIcon.sprite = DM.HandSprite;
+                        Manager.ReturnHero();
+                        Active = false;
+                        Waiting = true;
+                        LevelCleared = false;
+                        CurrentTarget = null;
+                        Agent.isStopped = true;
+                        Waiting = true;
+                        DM.Running = false;
+                        State = HeroState.Idle;
+                        DM.DungeonCompleted = false;
+                    }
+                }
+                else
+                {
+                    Die();
+                }
+            }
+            
         }
        
 
@@ -259,6 +298,20 @@ public class HeroAI : MonoBehaviour
         DM.DungeonCompleted = false;
         DM.DungeonComplete();
 
+    }
+
+    public void CompletedLevel()
+    {
+        Active = false;
+        Waiting = true;
+        LevelCleared = false;
+        CurrentTarget = null;
+        Agent.isStopped = true;
+        Waiting = true;
+        DM.Running = false;
+        State = HeroState.Idle;
+        DM.DungeonCompleted = true;
+        DM.DungeonComplete();
     }
 
     

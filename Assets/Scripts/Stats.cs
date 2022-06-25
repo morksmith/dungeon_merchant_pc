@@ -141,6 +141,15 @@ public class Stats : MonoBehaviour
         WeaponItem = null;
     }
 
+    public void EquipConsumable(Consumable c)
+    {
+        ConsumableItem = c.gameObject.GetComponent<Item>();
+    }
+    public void UnequipConsumable(Consumable c)
+    {
+        ConsumableItem = null;
+    }
+
     public void RemoveItems()
     {
         if(WeaponItem != null)

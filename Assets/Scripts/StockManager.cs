@@ -143,6 +143,11 @@ public class StockManager : MonoBehaviour
                                         Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
                                         Debug.Log("Equipped Armour");
                                     }
+                                    if (DraggedItem.GetComponent<Consumable>() != null)
+                                    {
+                                        Hero.SelectedHero.EquipConsumable(DraggedItem.GetComponent<Consumable>());
+                                        Debug.Log("Equipped Consumable");
+                                    }
                                     Hero.OpenEquipMenu();
                                     Hero.SelectedHero.SelectHero();
                                     Hero.SelectHero(Hero.SelectedHero);
@@ -170,6 +175,10 @@ public class StockManager : MonoBehaviour
                                 if (DraggedItem.GetComponent<Armour>())
                                 {
                                     Hero.SelectedHero.UneQuipArmour(DraggedItem.GetComponent<Armour>());
+                                }
+                                if (DraggedItem.GetComponent<Consumable>())
+                                {
+                                    Hero.SelectedHero.UnequipConsumable(DraggedItem.GetComponent<Consumable>());
                                 }
                                 Hero.SelectHero(Hero.SelectedHero);
                                 Hero.OpenEquipMenu();
@@ -223,6 +232,23 @@ public class StockManager : MonoBehaviour
                                     results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
                                     Hero.SelectedHero.UneQuipArmour(results[0].gameObject.GetComponent<Armour>());
                                     Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
+                                    Hero.OpenEquipMenu();
+                                    Hero.SelectedHero.SelectHero();
+                                    Hero.SelectHero(Hero.SelectedHero);
+                                    CurrentItem = null;
+                                    ItemInfoText.text = "SELECT AN ITEM";
+                                    UpdatePrices();
+                                }
+                                else if (DraggedItem.GetComponent<Consumable>())
+                                {
+                                    Debug.Log("Replaced Item");
+                                    DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
+                                    DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
+                                    DraggedItem.EquipItem();
+                                    results[0].gameObject.GetComponent<Item>().StockItem();
+                                    results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
+                                    Hero.SelectedHero.UnequipConsumable(results[0].gameObject.GetComponent<Consumable>());
+                                    Hero.SelectedHero.EquipConsumable(DraggedItem.GetComponent<Consumable>());
                                     Hero.OpenEquipMenu();
                                     Hero.SelectedHero.SelectHero();
                                     Hero.SelectHero(Hero.SelectedHero);
@@ -302,6 +328,21 @@ public class StockManager : MonoBehaviour
         {
             {
                 ItemInfoText.text = i.ItemName + " (" + i.GetComponent<Armour>().Level + ")" + "\n+HP: " + i.GetComponent<Armour>().HP + "\n" + i.Price + "G";
+
+
+            }
+        }
+        else if (i.GetComponent<Consumable>() != null)
+        {
+            {
+                if(i.GetComponent<Consumable>().Type == Consumable.ConsumableType.Potion)
+                {
+                    ItemInfoText.text = i.ItemName + "\n+" + i.GetComponent<Consumable>().Value + "HP" + "\n" + i.Price + "G";
+                }
+                else if(i.GetComponent<Consumable>().Type == Consumable.ConsumableType.Portal)
+                {
+                    ItemInfoText.text = i.ItemName + "\n Returns hero safely" + "\n" + i.Price + "G";
+                }
 
 
             }
@@ -469,6 +510,10 @@ public class StockManager : MonoBehaviour
                 {
                     AllItems[i].UpdatePrice(ArmourPrice);
                 }
+                if (AllItems[i].gameObject.GetComponent<Consumable>())
+                {
+                    AllItems[i].UpdatePrice(PotionPrice);
+                }
             }
             
             
@@ -513,9 +558,9 @@ public class StockManager : MonoBehaviour
         {
             Generator.GenerateWeapon(l, false);
         }
-        else if (t == 3)
+        else if (t == 2)
         {
-            Generator.GenerateConsumable();
+            Generator.GenerateConsumable(l, false);
         }
 
     }
