@@ -335,5 +335,11 @@ public class HeroManager : MonoBehaviour
         SelectedHero = null;
     }
 
+    public void SelectTutorialHero()
+    {
+        var hero = GameObject.FindObjectOfType<Stats>();
+        hero.SelectHero();
+    }
+
 
 }

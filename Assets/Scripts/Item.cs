@@ -32,7 +32,17 @@ public class Item : MonoBehaviour
     private MerchantMenu merch;
     private float sellTimer;
     // Start is called before the first frame update
-    
+    private void Start()
+    {
+        if(stockMan == null)
+        {
+            stockMan = GameObject.FindObjectOfType<StockManager>();
+        }
+        if(merch == null)
+        {
+            merch = GameObject.FindObjectOfType<MerchantMenu>();
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -48,10 +58,7 @@ public class Item : MonoBehaviour
             }
             else
             {
-                Selling = false;
-                Sold = true;
-                CollectButton.SetActive(true);
-                CollectButton.GetComponentInChildren<TextMeshProUGUI>().text = "SOLD\n" + Price + "G";
+                ReadyToSell();
             }
             SellSlider.value = sellTimer / SellTime;
         }
@@ -140,8 +147,8 @@ public class Item : MonoBehaviour
             var con = gameObject.GetComponent<Consumable>();
             if (con.Type == Consumable.ConsumableType.Potion)
             {
-                con.Value = con.Level * 10;
-                BasePrice = con.Value * 2;
+                con.Value = con.Level * 20;
+                BasePrice = con.Value / 2;
                 LevelText.text = con.Value.ToString();
 
             }
@@ -163,4 +170,11 @@ public class Item : MonoBehaviour
         stockMan.UpdatePrices();
     
 }
+    public void ReadyToSell()
+    {
+        Selling = false;
+        Sold = true;
+        CollectButton.SetActive(true);
+        CollectButton.GetComponentInChildren<TextMeshProUGUI>().text = "SOLD\n" + Price + "G";
+    }
 }

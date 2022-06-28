@@ -16,6 +16,7 @@ public class HeroGenerator : MonoBehaviour
     
 
     public List<GameObject> HeroPrefabs;
+    public GameObject TutorialHero;
     public Transform HeroParent;
     public HireMenu HireScreen;
     private void Update()
@@ -69,5 +70,12 @@ public class HeroGenerator : MonoBehaviour
         HireScreen.UpdateHeroInfo(newHero.gameObject.transform);
         newHero.gameObject.SetActive(false);
 
+    }
+    public void CreateTutorialHero()
+    {
+        var newHero = Instantiate(TutorialHero, HeroParent.position, HeroParent.rotation, HeroParent);
+        newHero.GetComponent<Stats>().Level = 1;
+        HireScreen.UpdateHeroInfo(newHero.gameObject.transform);
+        newHero.gameObject.SetActive(false);
     }
 }

@@ -10,10 +10,14 @@ public class MerchantMenu : MonoBehaviour
     public Item SelectedItem;
     public ItemGenerator Generator;
     public GameObject NewIcon;
+    public bool Tutorial = false;
 
     private void Start()
     {
-        NewItems(1);
+        if (!Tutorial)
+        {
+            NewItems(1);
+        }
     }
     public void SelectItem(Item i)
     {

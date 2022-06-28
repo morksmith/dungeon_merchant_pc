@@ -231,13 +231,16 @@ public class HeroAI : MonoBehaviour
                 var con = Stats.ConsumableItem.GetComponent<Consumable>();
                 if (con.Type == Consumable.ConsumableType.Potion)
                 {
-                    if(Stats.HP < (Stats.MaxHP - con.Value))
+                    if(Stats.HP <= (Stats.MaxHP - con.Value))
                     {
                         Debug.Log("Hero Healed");
                         Stats.HP += con.Value;
                         Destroy(Stats.ConsumableItem.gameObject);
                         Stats.ConsumableItem = null;
                         DM.ConsumableIcon.sprite = DM.HandSprite;
+                        var healNumber = Instantiate(FloatingNumber, transform.position, Quaternion.Euler(Vector3.forward * 1));
+                        healNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + con.Value;
+                        healNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
                     }
                 }
                 
@@ -255,26 +258,36 @@ public class HeroAI : MonoBehaviour
                 var con = Stats.ConsumableItem.GetComponent<Consumable>();
                 if (con.Type == Consumable.ConsumableType.Portal)
                 {
-                    if (Stats.HP < (20))
-                    {
-                        Debug.Log("Hero Used Town Portal");
-                        Destroy(Stats.ConsumableItem.gameObject);
-                        Stats.ConsumableItem = null;
-                        DM.ConsumableIcon.sprite = DM.HandSprite;
-                        Manager.ReturnHero();
-                        Active = false;
-                        Waiting = true;
-                        LevelCleared = false;
-                        CurrentTarget = null;
-                        Agent.isStopped = true;
-                        Waiting = true;
-                        DM.Running = false;
-                        State = HeroState.Idle;
-                        DM.DungeonCompleted = false;
-                    }
+                    Debug.Log("Hero Used Town Portal");
+                    Destroy(Stats.ConsumableItem.gameObject);
+                    Stats.ConsumableItem = null;
+                    DM.ConsumableIcon.sprite = DM.HandSprite;
+                    Manager.ReturnHero();
+                    Active = false;
+                    Waiting = true;
+                    LevelCleared = false;
+                    CurrentTarget = null;
+                    Agent.isStopped = true;
+                    Waiting = true;
+                    DM.Running = false;
+                    State = HeroState.Idle;
+                    DM.DungeonCompleted = false;
+                }
+                else if(con.Type == Consumable.ConsumableType.Potion)
+                {
+                    Debug.Log("Hero Healed");
+                    Stats.HP += con.Value;
+                    Stats.HP = Mathf.Clamp(Stats.HP, 0, Stats.MaxHP);
+                    Destroy(Stats.ConsumableItem.gameObject);
+                    Stats.ConsumableItem = null;
+                    DM.ConsumableIcon.sprite = DM.HandSprite;
+                    var healNumber = Instantiate(FloatingNumber, transform.position, Quaternion.Euler(Vector3.forward * 1));
+                    healNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + con.Value;
+                    healNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
                 }
                 else
                 {
+                    e.Hero = null;
                     Die();
                 }
             }

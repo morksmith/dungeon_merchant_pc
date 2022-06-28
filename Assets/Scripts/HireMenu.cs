@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class HireMenu : MonoBehaviour
 {
+    public bool Tutorial = false;
     public float HeroCost;
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI HeroText;
@@ -23,7 +24,11 @@ public class HireMenu : MonoBehaviour
 
     private void Start()
     {
-        NewHero();
+        if (!Tutorial)
+        {
+            NewHero();
+
+        }
     }
     public void HireHero()
     {
@@ -69,6 +74,17 @@ public class HireMenu : MonoBehaviour
         Generator.CreateHero();
         NewIcon.SetActive(true);
 
+    }
+    public void CreateTutorialHero()
+    {
+        HeroButton.SetActive(true);
+        HireScreen.DeActivate();
+        if (CurrentHero != null)
+        {
+            Destroy(CurrentHero.gameObject);
+        }
+        Generator.CreateTutorialHero();
+        NewIcon.SetActive(true);
     }
 
 }

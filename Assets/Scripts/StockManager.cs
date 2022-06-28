@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class StockManager : MonoBehaviour
 {
+    public TutorialSequence Tutorial;
     public float Gold;
     public float MaxProfit;
     public ItemGenerator Generator;
@@ -120,6 +121,10 @@ public class StockManager : MonoBehaviour
                                             CurrentItem = null;
                                             ItemInfoText.text = "SELECT AN ITEM";
                                             ItemInfoText.color = Color.white;
+                                            if(Tutorial != null)
+                                            {
+                                                Tutorial.NextStep();
+                                            }
 
                                         }
                                         else
