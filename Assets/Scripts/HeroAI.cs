@@ -310,6 +310,7 @@ public class HeroAI : MonoBehaviour
         Stats.Die();
         DM.DungeonCompleted = false;
         DM.DungeonComplete();
+        
 
     }
 

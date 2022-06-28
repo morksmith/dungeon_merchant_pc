@@ -91,13 +91,7 @@ public class DungeonManager : MonoBehaviour
         
         
         EnemyStrength = 1;
-        if (Tutorial)
-        {
-            EnemyCount = 2;
-            NextCount = 3;
-            EnemyStrength = 2;
-            NextCount = 3;
-        }
+        
         if (EnemyStrength > 1 && EnemyStrength < 3)
         {
             NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(-1, 2), 1, 3);
@@ -113,9 +107,17 @@ public class DungeonManager : MonoBehaviour
                 NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(-1, 1), 1, 3);
             }
         }
-        EnemyStrengthSlider.value = EnemyStrength * 0.333f + 0.04f;
+        if (Tutorial)
+        {
+            EnemyCount = 2;
+            NextCount = 3;
+            EnemyStrength = 2;
+            NextStrength = 3;
+            EnemyCountSlider.value = EnemyCount * 0.333f + 0.04f;
+            EnemyStrengthSlider.value = EnemyStrength * 0.333f + 0.04f;
+        }
 
-        
+        EnemyStrengthSlider.value = EnemyStrength * 0.333f + 0.04f;        
         if (NextStrength == EnemyStrength)
         {
             StrengthTrendIcon.enabled = false;
@@ -157,6 +159,7 @@ public class DungeonManager : MonoBehaviour
             }
         }
         
+
         SetEnemyTypes();
 
 
