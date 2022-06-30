@@ -13,6 +13,8 @@ public class InnManager : MonoBehaviour
     public HireMenu Hire;
     private float merchantTimer;
     private float heroTimer;
+    public ScrollingWindow BottomContent;
+
     private void Update()
     {
         
@@ -20,11 +22,13 @@ public class InnManager : MonoBehaviour
         if(merchantTimer > MerchantTime)
         {
             NewMerchant();
+            BottomContent.NewMerchantIcon();
             merchantTimer = 0;
         }
         if (heroTimer > HeroTime)
         {
             NewHero();
+            BottomContent.NewHeroIcon();
             heroTimer = 0;
         }
     }

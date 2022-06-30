@@ -17,6 +17,7 @@ public class TutorialSequence : MonoBehaviour
             if(i != CurrentStep)
             {
                 TutorialSteps[i].NextButton.SetActive(false);
+
             }
         }
     }

@@ -32,6 +32,8 @@ public class HeroAI : MonoBehaviour
     private float step;
     private Enemy[] enemies;
     private Transform exit;
+
+    private RequestManager requests;
     // Start is called before the first frame update
     void Start()
     {
@@ -206,6 +208,23 @@ public class HeroAI : MonoBehaviour
             }
             var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
             Stats.GoldHeld += GoldFound;
+            var e = CurrentTarget.GetComponent<Enemy>();
+            if(e.DamageWeakness == 0)
+            {
+                requests.DemonKills++;
+            }
+            else if(e.DamageWeakness == 1)
+            {
+                requests.GhostKills++;
+            }
+            else if (e.DamageWeakness == 2)
+            {
+                requests.BeastKills++;
+            }
+            else if (e.DamageWeakness == 3)
+            {
+                requests.SkellyKills++;
+            }
             Destroy(CurrentTarget.gameObject);
             CurrentTarget = null;
             State = HeroState.Idle;

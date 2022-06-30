@@ -64,6 +64,8 @@ public class DungeonManager : MonoBehaviour
     public Slider SleepSlider;
     private float sleepTimer;
     public float SleepTime;
+    public ScrollingWindow TopContent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -445,6 +447,7 @@ public class DungeonManager : MonoBehaviour
 
     public void DungeonComplete()
     {
+        TopContent.NewSaleIcon();
         DungeonCompleteMenu.Activate();
         if (DungeonCompleted)
         {

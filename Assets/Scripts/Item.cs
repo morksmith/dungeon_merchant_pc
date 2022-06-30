@@ -176,5 +176,6 @@ public class Item : MonoBehaviour
         Sold = true;
         CollectButton.SetActive(true);
         CollectButton.GetComponentInChildren<TextMeshProUGUI>().text = "SOLD\n" + Price + "G";
+        stockMan.NewSale();
     }
 }

@@ -33,6 +33,8 @@ public class StockManager : MonoBehaviour
     public float ArmourPrice = 1;
     public float PotionPrice = 1;
     public int ShopSlots = 4;
+    public ScrollingWindow BottomContent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -551,6 +553,8 @@ public class StockManager : MonoBehaviour
             }
         }
         c.Level = l;
+        BottomContent.NewItemIcon();
+        Debug.Log("New Item");
     }
 
     public void CreateItem(int t, int l)
@@ -568,6 +572,11 @@ public class StockManager : MonoBehaviour
             Generator.GenerateConsumable(l, false);
         }
 
+    }
+
+    public void NewSale()
+    {
+        BottomContent.NewSaleIcon();
     }
 
     

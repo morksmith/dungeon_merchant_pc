@@ -821,7 +821,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_33
+      name: Down Arrow
       rect:
         serializedVersion: 2
         x: 16
@@ -1493,7 +1493,6 @@ TextureImporter:
       UI Icons_49: -811662599
       UI Icons_39: -1832430684
       UI Icons_42: -2037247765
-      UI Icons_33: -1706774531
       UI Icons_59: -85376452
       UI Icons_61: 344171816
       UI Icons_50: -477135976
@@ -1509,9 +1508,11 @@ TextureImporter:
       UI Icons_41: -654184327
       Wand Icon: -1282459064
       UI Icons_44: -2105886311
+      Down Arrow: -1706774531
       UI Icons_53: 1137604696
       UI Icons_58: -1467690362
       UI Icons_56: -1981332245
+      Box Icon: -576844939
       Floor Icon: -1144174766
       UI Icons_40: 1331171362
       UI Icons_37: 173537716
@@ -1521,7 +1522,6 @@ TextureImporter:
       Club Icon: 587968469
       UI Icons_47: -779969718
       UI Icons_36: -2059341422
-      Box Icon: -576844939
       UI Icons_46: 1305928266
       Sleep Icon: 814697313
       Hand Icon: 617925880

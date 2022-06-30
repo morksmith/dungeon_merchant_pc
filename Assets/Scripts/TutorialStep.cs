@@ -10,4 +10,7 @@ public class TutorialStep : MonoBehaviour
     public string StepText;
     public GameObject NextButton;
     public float TextboxPosition = 128;
+
+    
+
 }
