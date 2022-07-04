@@ -9,17 +9,26 @@ public class InnManager : MonoBehaviour
     public HeroManager HeroManager;
     public float MerchantTime = 2;
     public float HeroTime = 3;
+    public float RequestTime = 4;
     public MerchantMenu Merchant;
     public HireMenu Hire;
+    public RequestManager Requests;
     private float merchantTimer;
     private float heroTimer;
+    private float requestTimer;
     public ScrollingWindow BottomContent;
+    public ScrollingWindow TopContent;
 
     private void Update()
     {
-        
 
-        if(merchantTimer > MerchantTime)
+        if (requestTimer > RequestTime)
+        {
+            Requests.NewRequests();
+            TopContent.NewMerchantIcon();
+            requestTimer = 0;
+        }
+        if (merchantTimer > MerchantTime)
         {
             NewMerchant();
             BottomContent.NewMerchantIcon();
@@ -51,5 +60,6 @@ public class InnManager : MonoBehaviour
     {
         merchantTimer++;
         heroTimer++;
+        requestTimer++;
     }
 }

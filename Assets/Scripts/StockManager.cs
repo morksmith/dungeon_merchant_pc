@@ -10,6 +10,8 @@ public class StockManager : MonoBehaviour
     public TutorialSequence Tutorial;
     public float Gold;
     public float MaxProfit;
+    public float MerchantDiscount = 1;
+    public float SellSpeed = 1;
     public ItemGenerator Generator;
     public Transform ItemBox;
     public Item[] AllItems;
@@ -34,18 +36,28 @@ public class StockManager : MonoBehaviour
     public float PotionPrice = 1;
     public int ShopSlots = 4;
     public ScrollingWindow BottomContent;
+    public RequestManager Requests;
+    public DialogueManager Dialogue;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (Tutorial == null)
+        {
+            Debug.Log("No Tutorial");
+            Gold = PlayerPrefs.GetFloat("Player Gold");
+            MaxProfit = PlayerPrefs.GetFloat("Max Profit");
+        }
         GoldText.text = Gold + "G";
         UpdatePrices();
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -267,6 +279,93 @@ public class StockManager : MonoBehaviour
                             }                  
 
                         }
+                        if (results[0].gameObject.GetComponent<Request>() != null)
+                        {
+                            Debug.Log("Dropped on request");
+                            var r = results[0].gameObject.GetComponent<Request>();
+                            if(DraggedItem.GetComponent<Weapon>() != null)
+                            {
+                                var w = DraggedItem.GetComponent<Weapon>();
+                                if(w.Level >= r.Level)
+                                {
+                                    if (r.Type == Request.RequestType.Sword)
+                                    {
+                                        if (DraggedItem.DamageType == 0)
+                                        {
+                                            Requests.CompleteRequest(r);
+
+                                        }
+                                        Debug.Log("Wrong Weapon Type");
+                                    }
+                                    if (r.Type == Request.RequestType.Wand)
+                                    {
+                                        if (DraggedItem.DamageType == 1)
+                                        {
+                                            Requests.CompleteRequest(r);
+                                        }
+                                        Debug.Log("Wrong Weapon Type");
+                                    }
+                                    if (r.Type == Request.RequestType.Bow)
+                                    {
+                                        if (DraggedItem.DamageType == 2)
+                                        {
+                                            Requests.CompleteRequest(r);
+                                        }
+                                        Debug.Log("Wrong Weapon Type");
+                                    }
+                                    if (r.Type == Request.RequestType.Club)
+                                    {
+                                        if (DraggedItem.DamageType == 3)
+                                        {
+                                            Requests.CompleteRequest(r);
+                                        }
+                                        Debug.Log("Wrong Weapon Type");
+                                    }
+                                }
+                                else
+                                {
+                                    Debug.Log("Not high enough level");
+                                }
+
+                            }
+                            if (DraggedItem != null && DraggedItem.GetComponent<Armour>() != null)
+                            {
+                                var a = DraggedItem.GetComponent<Armour>();
+                                if (a.Level >= r.Level)
+                                {
+                                    if (r.Type == Request.RequestType.Helm)
+                                    {
+                                        if (a.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
+                                        {
+                                            Requests.CompleteRequest(r);
+                                        }
+                                        else
+                                        {
+                                            Debug.Log("Wrong Armour Type");
+                                        }
+                                    }
+                                    if (r.Type == Request.RequestType.Armour)
+                                    {
+                                        if (a.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
+                                        {
+                                            Requests.CompleteRequest(r);
+                                        }
+                                        else
+                                        {
+                                            Debug.Log("Wrong Armour Type");
+                                        }
+                                    }
+
+
+                                }
+                                else
+                                {
+                                    Debug.Log("Not high enough level");
+                                }
+
+                            }
+                            
+                        }
 
                     }
                     DraggedItem = null;
@@ -275,6 +374,10 @@ public class StockManager : MonoBehaviour
 
                     break;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            CollectGold(100);
         }
     }
 
@@ -371,7 +474,17 @@ public class StockManager : MonoBehaviour
         if(Gold > MaxProfit)
         {
             MaxProfit = Gold;
+            if(Dialogue != null)
+            {
+                if (MaxProfit > Dialogue.ProfitSteps[Dialogue.CurrentDialogue])
+                {
+                    Dialogue.NewDialogue();
+                }
+            }
+            
         }
+        PlayerPrefs.SetFloat("Player Gold", Gold);
+        PlayerPrefs.SetFloat("Max Profit", MaxProfit);
     }
 
     public void CalculateArmourAndPotions(float a, float p)
@@ -533,7 +646,7 @@ public class StockManager : MonoBehaviour
         var newChest = Instantiate(ChestPrefab, StockList);
         var c = newChest.GetComponent<Chest>();
         var t = Random.Range(0, 5);
-        if (t < 3)
+        if (t < 4)
         {
             if (d == 0)
             {
@@ -552,6 +665,10 @@ public class StockManager : MonoBehaviour
                 c.Type = Chest.ChestType.Weapon;
             }
         }
+        else
+        {
+            c.PickRandom();
+        }
         c.Level = l;
         BottomContent.NewItemIcon();
         Debug.Log("New Item");
@@ -567,7 +684,7 @@ public class StockManager : MonoBehaviour
         {
             Generator.GenerateWeapon(l, false);
         }
-        else if (t == 2)
+        else if (t == 3)
         {
             Generator.GenerateConsumable(l, false);
         }
@@ -577,6 +694,11 @@ public class StockManager : MonoBehaviour
     public void NewSale()
     {
         BottomContent.NewSaleIcon();
+    }
+
+    public void EnableMerchDiscount()
+    {
+        MerchantDiscount = 0.75f;
     }
 
     

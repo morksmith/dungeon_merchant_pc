@@ -54,7 +54,7 @@ public class Item : MonoBehaviour
             GetComponent<Button>().interactable = false;
             if(sellTimer < SellTime)
             {
-                sellTimer += Time.deltaTime;
+                sellTimer += Time.deltaTime * stockMan.SellSpeed;
             }
             else
             {
@@ -165,6 +165,10 @@ public class Item : MonoBehaviour
         stockMan = GameObject.FindObjectOfType<StockManager>();
         merch = GameObject.FindObjectOfType<MerchantMenu>();
         Price = Mathf.CeilToInt(BasePrice * PriceScale);
+        if (Merchant)
+        {
+            Price = Mathf.CeilToInt(Price * stockMan.MerchantDiscount);
+        }
         PriceText.text = Price + "G";
         SellTime = Price;
         stockMan.UpdatePrices();

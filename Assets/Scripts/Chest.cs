@@ -18,6 +18,18 @@ public class Chest : MonoBehaviour
     private void Start()
     {
         stock = GameObject.FindObjectOfType<StockManager>(); 
+        if(Type == ChestType.Armour)
+        {
+            ItemType = 0;
+        }
+        else if(Type == ChestType.Weapon)
+        {
+            ItemType = 1;
+        }
+        else if (Type == ChestType.Consumable)
+        {
+            ItemType = 3;
+        }
     }
 
     public void PickRandom()
@@ -33,10 +45,10 @@ public class Chest : MonoBehaviour
             Type = ChestType.Armour;
             ItemType = 1;
         }
-        else if (i == 2)
+        else if (i == 3)
         {
             Type = ChestType.Consumable;
-            ItemType = 2;
+            ItemType = 3;
         }
     }
 

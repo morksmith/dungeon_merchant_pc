@@ -842,7 +842,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_34
+      name: Options Icon
       rect:
         serializedVersion: 2
         x: 32
@@ -863,7 +863,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_35
+      name: Upgrade Icon
       rect:
         serializedVersion: 2
         x: 48
@@ -1485,10 +1485,8 @@ TextureImporter:
       UI Icons_43: 6281229
       UI Icons_51: -1745310925
       New Icon: -1760440644
-      UI Icons_34: -1771915823
-      UI Icons_45: -1327362712
       Sword Icon: 146824655
-      UI Icons_35: 2073385100
+      UI Icons_45: -1327362712
       Demon Icon: 1740618757
       UI Icons_49: -811662599
       UI Icons_39: -1832430684
@@ -1500,6 +1498,7 @@ TextureImporter:
       Bar: 1343421656
       Left Button: 1857169760
       Beast Icon: -1647127367
+      Upgrade Icon: 2073385100
       Down Icon: -1241161481
       Enemy Icon: -533737630
       UI Icons_52: -583487608
@@ -1507,6 +1506,7 @@ TextureImporter:
       Double Down Icon: -1113570038
       UI Icons_41: -654184327
       Wand Icon: -1282459064
+      Options Icon: -1771915823
       UI Icons_44: -2105886311
       Down Arrow: -1706774531
       UI Icons_53: 1137604696

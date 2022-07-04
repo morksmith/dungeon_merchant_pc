@@ -386,6 +386,10 @@ public class DungeonManager : MonoBehaviour
         SetEnemyTypes();
         Inn.NewDay();
         CurrentTime = 0;
+        string hourDisplay = Hours.ToString("00");
+        string minuteDisplay = Minutes.ToString("00");
+        TimeText.text = hourDisplay + ":" + minuteDisplay;
+        TimeSlider.value = CurrentTime / MaxTime;
 
     }
 
