@@ -9,6 +9,5 @@ public class SaveManager : MonoBehaviour
     public void ResetProgress()
     {
         PlayerPrefs.DeleteAll();
-        Level.LoadMainScene();
     }
 }

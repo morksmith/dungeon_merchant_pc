@@ -43,7 +43,16 @@ public class ItemGenerator : MonoBehaviour
 
     public void GenerateArmour(int l, bool merch)
     {
-        CreateHelm(l, merch);
+        var pick = Random.Range(0, 2);
+        if (pick == 0)
+        {
+            CreateHelm(l, merch);
+        }
+        else
+        {
+            CreateArmour(l, merch);
+        }
+
     }
 
     public void GenerateConsumable(int l, bool merch)
@@ -138,6 +147,21 @@ public class ItemGenerator : MonoBehaviour
 
         }
         newHelm.GetComponent<Item>().SetStats();
+
+    }
+    public void CreateArmour(int l, bool merch)
+    {
+        Debug.Log("Created New Armour");
+        var pick = Random.Range(0, ArmourPrefabs.Count);
+        var newArmour = Instantiate(ArmourPrefabs[pick], StockList);
+        newArmour.GetComponent<Armour>().Level = l;
+        if (merch)
+        {
+            newArmour.transform.SetParent(MerchList);
+            newArmour.GetComponent<Item>().Merchant = true;
+
+        }
+        newArmour.GetComponent<Item>().SetStats();
 
     }
     public void CreatePotion(int l, bool merch)

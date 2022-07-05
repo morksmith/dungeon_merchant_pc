@@ -10,6 +10,18 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main Scene");
     }
-  
+    public void LoadTutorialScene()
+    {
+        SceneManager.LoadScene("Tutorial Scene");
+    }
+    public void LoadStartScene()
+    {
+        SceneManager.LoadScene("Start");
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
 }
 
