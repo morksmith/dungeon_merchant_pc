@@ -125,10 +125,23 @@ public class Stats : MonoBehaviour
     {
         MaxHP += a.HP;
         HP = MaxHP;
-        HelmItem = a.gameObject.GetComponent<Item>();
+        ArmourItem = a.gameObject.GetComponent<Item>();
     }
 
     public void UneQuipArmour(Armour a)
+    {
+        MaxHP -= a.HP;
+        HP = MaxHP;
+        ArmourItem = null;
+    }
+    public void EquipHelm(Armour a)
+    {
+        MaxHP += a.HP;
+        HP = MaxHP;
+        HelmItem = a.gameObject.GetComponent<Item>();
+    }
+
+    public void UnequipHelm(Armour a)
     {
         MaxHP -= a.HP;
         HP = MaxHP;

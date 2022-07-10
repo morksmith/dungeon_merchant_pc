@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
     public Transform Hero;
     public SpriteRenderer EnemySprite;
     public Slider HPSlider;
+    public AudioClip DeathSound;
+    private SFXManager sfx;
     private NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour
         HP = MaxHP;
         Gold = Random.Range(1, Damage);
         HPSlider.value = 1;
+        sfx = GameObject.FindObjectOfType<SFXManager>();
 
     }
 
@@ -152,5 +155,11 @@ public class Enemy : MonoBehaviour
         Hero.GetComponent<HeroAI>().TakeDamage(Damage, this);
         Debug.Log("Hero Takes " + Damage + " Damage!");
         step = 0;
+    }
+
+    public void Die()
+    {
+        sfx.PlaySound(DeathSound);
+        Destroy(this);
     }
 }

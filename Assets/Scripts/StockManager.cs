@@ -159,8 +159,17 @@ public class StockManager : MonoBehaviour
                                     }
                                     if (DraggedItem.GetComponent<Armour>() != null)
                                     {
-                                        Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
-                                        Debug.Log("Equipped Armour");
+                                        if(DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
+                                        {
+                                            Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
+                                            Debug.Log("Equipped Armour");
+                                        }
+                                        else if(DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
+                                        {
+                                            Hero.SelectedHero.EquipHelm(DraggedItem.GetComponent<Armour>());
+                                            Debug.Log("Equipped Helm");
+                                        }
+                                        
                                     }
                                     if (DraggedItem.GetComponent<Consumable>() != null)
                                     {
@@ -193,7 +202,14 @@ public class StockManager : MonoBehaviour
                                 }
                                 if (DraggedItem.GetComponent<Armour>())
                                 {
-                                    Hero.SelectedHero.UneQuipArmour(DraggedItem.GetComponent<Armour>());
+                                    if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
+                                    {
+                                        Hero.SelectedHero.UneQuipArmour(DraggedItem.GetComponent<Armour>());
+                                    }
+                                    else if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
+                                    {
+                                        Hero.SelectedHero.UnequipHelm(DraggedItem.GetComponent<Armour>());
+                                    }
                                 }
                                 if (DraggedItem.GetComponent<Consumable>())
                                 {

@@ -12,10 +12,7 @@ public class TutorialSequence : MonoBehaviour
     public LevelManager Level;
     private void Start()
     {
-        if (PlayerPrefs.GetInt("Tutorial Complete") == 1)
-        {
-            Level.LoadMainScene();
-        }
+        
         for(var i = 0; i < TutorialSteps.Count; i++)
         {
             if(i != CurrentStep)
@@ -49,8 +46,5 @@ public class TutorialSequence : MonoBehaviour
 
     }
 
-    public void CompleteTutorial()
-    {
-        PlayerPrefs.SetInt("Tutorial Complete", 1);
-    }
+    
 }

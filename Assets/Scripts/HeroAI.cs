@@ -32,13 +32,14 @@ public class HeroAI : MonoBehaviour
     private float step;
     private Enemy[] enemies;
     private Transform exit;
+    private SFXManager sfx;
 
     private RequestManager requests;
     // Start is called before the first frame update
     void Start()
     {
         transform.position = DM.HeroStartPosition;
-
+        sfx = GameObject.FindObjectOfType<SFXManager>();
         exit = GameObject.FindObjectOfType<Exit>().transform;
         
     }
@@ -160,7 +161,23 @@ public class HeroAI : MonoBehaviour
 
     public void Attack()
     {
-        if(CurrentTarget == null)
+        if(Stats.DamageType == 0)
+        {
+            sfx.PlaySwordSound();
+        }
+        else if(Stats.DamageType == 1)
+        {
+            sfx.PlayClubSound();
+        }
+        else if (Stats.DamageType == 2)
+        {
+            sfx.PlayBowSound();
+        }
+        else if (Stats.DamageType == 3)
+        {
+            sfx.PlayWandSound();
+        }
+        if (CurrentTarget == null)
         {
             return;
         }
@@ -209,8 +226,8 @@ public class HeroAI : MonoBehaviour
             var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
             Stats.GoldHeld += GoldFound;
             var e = CurrentTarget.GetComponent<Enemy>();
-            
-            Destroy(CurrentTarget.gameObject);
+
+            e.Die();
             CurrentTarget = null;
             State = HeroState.Idle;
         }
@@ -218,6 +235,7 @@ public class HeroAI : MonoBehaviour
 
     public void TakeDamage(float i, Enemy e)
     {
+        sfx.PlayDamageSound();
         if(Stats.HP > i)
         {
             Stats.HP -= i;

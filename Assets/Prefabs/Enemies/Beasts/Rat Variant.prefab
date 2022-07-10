@@ -7,6 +7,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4471283525810509380, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471283525810509380, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916711132773978798, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2014615819, guid: 573618ca500148041a2c316465310114, type: 3}
+    - target: {fileID: 5916711132773978798, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916711132773978798, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916711132773978798, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916711132773978799, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916711132773978799, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5916711133184510306, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -67,6 +99,10 @@ PrefabInstance:
       propertyPath: MaxHP
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5916711133184510317, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 28d097fe4edc9554591f9b9115ad4f8f, type: 3}
     - target: {fileID: 5916711133184510317, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
       propertyPath: DamageWeakness
       value: 2

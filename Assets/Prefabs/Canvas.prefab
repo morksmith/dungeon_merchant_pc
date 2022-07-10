@@ -738,6 +738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420747450428093702}
   - component: {fileID: 6704178854857801938}
+  - component: {fileID: 7658682150067773742}
   m_Layer: 5
   m_Name: SFX Slider
   m_TagString: Untagged
@@ -818,7 +819,33 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7658682150067773742}
+        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7658682150067773742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725565870456298771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c932b96c5f8adb4187366d66f835e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSlider: {fileID: 6704178854857801938}
+  Type: 0
 --- !u!1 &751427762604806287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,7 +3226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
-  InactivePosition: {x: 0, y: -1500, z: 0}
+  InactivePosition: {x: 0, y: -2500, z: 0}
   ActivePosition: {x: 0, y: -410, z: 0}
   MoveSpeed: 5
 --- !u!1 &3069977600068904281
@@ -4685,8 +4712,9 @@ GameObject:
   m_Component:
   - component: {fileID: 721263408122630979}
   - component: {fileID: 511323645762866857}
+  - component: {fileID: 1062018243122758034}
   m_Layer: 5
-  m_Name: SFX Slider
+  m_Name: Music Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4765,7 +4793,33 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1062018243122758034}
+        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1062018243122758034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4433378855051164930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c932b96c5f8adb4187366d66f835e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSlider: {fileID: 511323645762866857}
+  Type: 1
 --- !u!1 &4446388195757623647
 GameObject:
   m_ObjectHideFlags: 0
@@ -30498,7 +30552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
-  InactivePosition: {x: 0, y: -1500, z: 0}
+  InactivePosition: {x: 0, y: -2500, z: 0}
   ActivePosition: {x: 0, y: -410, z: 0}
   MoveSpeed: 5
 --- !u!1 &9060110505406428706

@@ -10,7 +10,19 @@ PrefabInstance:
     - target: {fileID: 5916711132773978798, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 921437539, guid: ad0321e7df9c34446832cab7de16ee77, type: 3}
+      objectReference: {fileID: 7142358, guid: 573618ca500148041a2c316465310114, type: 3}
+    - target: {fileID: 5916711132773978798, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916711132773978798, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916711132773978798, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5916711133184510306, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -75,6 +87,10 @@ PrefabInstance:
       propertyPath: Damage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5916711133184510317, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 20ebf06d1f6a28945b02eb1bad54bef2, type: 3}
     - target: {fileID: 5916711133184510317, guid: 857e474046182fe46a101f52ab5cc5c8, type: 3}
       propertyPath: DamageWeakness
       value: 1

@@ -20,6 +20,7 @@ public class RequestManager : MonoBehaviour
         Stock.DraggedItem = null;
         Stock.CollectGold(r.Reward);
         r.Complete();
+        Stock.DeselectItems();
     }
 
     public void NewRequests()
