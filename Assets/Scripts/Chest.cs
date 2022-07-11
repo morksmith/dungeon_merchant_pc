@@ -54,6 +54,7 @@ public class Chest : MonoBehaviour
 
     public void CreateItem()
     {
+        stock.PlayChestSound();
         stock.CreateItem(ItemType, Level);
         stock.UpdatePrices();
         Destroy(gameObject);

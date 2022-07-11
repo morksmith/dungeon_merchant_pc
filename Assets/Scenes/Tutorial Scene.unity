@@ -1267,6 +1267,10 @@ MonoBehaviour:
   BottomContent: {fileID: 1334123462}
   Requests: {fileID: 2116422485}
   Dialogue: {fileID: 0}
+  SellSound: {fileID: 8300000, guid: 53cf6ea8e464acd4a9f6f7ecf09bf76c, type: 3}
+  EquipSound: {fileID: 8300000, guid: 6fd244606355e814f9c56e20ee65d31f, type: 3}
+  CollectSound: {fileID: 8300000, guid: 5cc41b14d3bf9544e919793d5fcc62e9, type: 3}
+  ChestSound: {fileID: 8300000, guid: f3cc1b354ffb1f5468067b27ac508a55, type: 3}
 --- !u!4 &70214547
 Transform:
   m_ObjectHideFlags: 0
@@ -3093,6 +3097,11 @@ MonoBehaviour:
   FloatingNumber: {fileID: 1007638361659291008, guid: eab757f0244d0c74db74ddf4c142b3f9, type: 3}
   Manager: {fileID: 2135481764}
   DM: {fileID: 2060876958}
+  DeathSound: {fileID: 8300000, guid: 570517366c24caf4883395982e667704, type: 3}
+  ChestSound: {fileID: 8300000, guid: 6e2a0672e0164d54cbadb1b1a32f812f, type: 3}
+  LevelUpSound: {fileID: 8300000, guid: d13c7d652206d6b4baa190b4eba99874, type: 3}
+  HealSound: {fileID: 8300000, guid: 32a1c70393528d7438dc3699173a387f, type: 3}
+  TeleportSound: {fileID: 8300000, guid: 8be3ce963cb743148a529e36fc934935, type: 3}
 --- !u!1 &175297416
 GameObject:
   m_ObjectHideFlags: 0
@@ -40486,6 +40495,9 @@ MonoBehaviour:
   SleepSlider: {fileID: 1879496887}
   SleepTime: 30
   TopContent: {fileID: 992900714}
+  EnterDungeonSound: {fileID: 8300000, guid: e3fd2704acac0d6458ea8fb4f7585d6d, type: 3}
+  DungeonCompleteSound: {fileID: 8300000, guid: d9d8d8d5a05673e4194b7aef4129579b, type: 3}
+  NewDaySound: {fileID: 8300000, guid: d1fc2c33783663c46863dbf8597a0ec3, type: 3}
 --- !u!4 &2060876959
 Transform:
   m_ObjectHideFlags: 0
@@ -42172,6 +42184,7 @@ MonoBehaviour:
   DeployCost: 0
   AllHeroes: []
   CurrentHero: 0
+  ReturnSound: {fileID: 8300000, guid: d9d8d8d5a05673e4194b7aef4129579b, type: 3}
 --- !u!4 &2135481765
 Transform:
   m_ObjectHideFlags: 0

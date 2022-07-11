@@ -38,10 +38,17 @@ public class StockManager : MonoBehaviour
     public ScrollingWindow BottomContent;
     public RequestManager Requests;
     public DialogueManager Dialogue;
+    public AudioClip SellSound;
+    public AudioClip EquipSound;
+    public AudioClip CollectSound;
+    public AudioClip ChestSound;
+
+    private SFXManager sfx;
 
     // Start is called before the first frame update
     void Start()
     {
+        sfx = GameObject.FindObjectOfType<SFXManager>();
         if (Tutorial == null)
         {
             Debug.Log("No Tutorial");
@@ -125,6 +132,7 @@ public class StockManager : MonoBehaviour
                                         if(DraggedItem.DamageType == results[0].gameObject.GetComponent<EquipmentSlot>().DamageType)
                                         {
                                             Debug.Log("Dropped on Equipment Slot");
+                                            sfx.PlaySound(EquipSound);
                                             DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform);
                                             DraggedItem.transform.position = results[0].gameObject.transform.position;
                                             DraggedItem.EquipItem();
@@ -156,6 +164,8 @@ public class StockManager : MonoBehaviour
                                     {
                                         Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
                                         Debug.Log("Equipped Weapon");
+                                        sfx.PlaySound(EquipSound);
+
                                     }
                                     if (DraggedItem.GetComponent<Armour>() != null)
                                     {
@@ -163,18 +173,24 @@ public class StockManager : MonoBehaviour
                                         {
                                             Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
                                             Debug.Log("Equipped Armour");
+                                            sfx.PlaySound(EquipSound);
+
                                         }
                                         else if(DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
                                         {
                                             Hero.SelectedHero.EquipHelm(DraggedItem.GetComponent<Armour>());
                                             Debug.Log("Equipped Helm");
+                                            sfx.PlaySound(EquipSound);
+
                                         }
-                                        
+
                                     }
                                     if (DraggedItem.GetComponent<Consumable>() != null)
                                     {
                                         Hero.SelectedHero.EquipConsumable(DraggedItem.GetComponent<Consumable>());
                                         Debug.Log("Equipped Consumable");
+                                        sfx.PlaySound(EquipSound);
+
                                     }
                                     Hero.OpenEquipMenu();
                                     Hero.SelectedHero.SelectHero();
@@ -238,6 +254,8 @@ public class StockManager : MonoBehaviour
                                     if (DraggedItem.DamageType == results[0].gameObject.GetComponent<Item>().DamageType)
                                     {
                                         Debug.Log("Replaced Item");
+                                        sfx.PlaySound(EquipSound);
+
                                         DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
                                         DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
                                         DraggedItem.EquipItem();
@@ -260,6 +278,8 @@ public class StockManager : MonoBehaviour
                                 else if (DraggedItem.GetComponent<Armour>())
                                 {
                                     Debug.Log("Replaced Item");
+                                    sfx.PlaySound(EquipSound);
+
                                     DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
                                     DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
                                     DraggedItem.EquipItem();
@@ -277,6 +297,8 @@ public class StockManager : MonoBehaviour
                                 else if (DraggedItem.GetComponent<Consumable>())
                                 {
                                     Debug.Log("Replaced Item");
+                                    sfx.PlaySound(EquipSound);
+
                                     DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
                                     DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
                                     DraggedItem.EquipItem();
@@ -298,6 +320,8 @@ public class StockManager : MonoBehaviour
                         if (results[0].gameObject.GetComponent<Request>() != null)
                         {
                             Debug.Log("Dropped on request");
+                            sfx.PlaySound(CollectSound);
+
                             var r = results[0].gameObject.GetComponent<Request>();
                             if(DraggedItem.GetComponent<Weapon>() != null)
                             {
@@ -406,6 +430,8 @@ public class StockManager : MonoBehaviour
                 
                 if (!CurrentItem.Equipped)
                 {
+                    sfx.PlaySound(SellSound);
+
                     CurrentItem.transform.SetParent(ShopList);
                     CurrentItem.Selling = true;
                     CurrentItem = null;
@@ -717,5 +743,19 @@ public class StockManager : MonoBehaviour
         MerchantDiscount = 0.75f;
     }
 
-    
+    public void PlayCollectSound()
+    {
+        sfx.PlaySound(CollectSound);
+    }
+    public void PlaySellSound()
+    {
+        sfx.PlaySound(SellSound);
+    }
+
+    public void PlayChestSound()
+    {
+        sfx.PlaySound(ChestSound);
+    }
+
+
 }

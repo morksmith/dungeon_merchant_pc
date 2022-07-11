@@ -28,6 +28,8 @@ public class Item : MonoBehaviour
     public bool Merchant;
     public Slider SellSlider;
     public TextMeshProUGUI LevelText;
+
+
     private StockManager stockMan;
     private MerchantMenu merch;
     private float sellTimer;
@@ -83,6 +85,7 @@ public class Item : MonoBehaviour
     public void CollectGold()
     {
         stockMan.CollectGold(Price);
+        stockMan.PlayCollectSound();
         Destroy(gameObject);
     }
 

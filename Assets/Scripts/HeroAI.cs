@@ -28,6 +28,13 @@ public class HeroAI : MonoBehaviour
     public GameObject FloatingNumber;
     public HeroManager Manager;
     public DungeonManager DM;
+    public AudioClip DeathSound;
+    public AudioClip ChestSound;
+    public AudioClip LevelUpSound;
+    public AudioClip HealSound;
+    public AudioClip TeleportSound;
+
+
     private float activeTimer;
     private float step;
     private Enemy[] enemies;
@@ -206,6 +213,8 @@ public class HeroAI : MonoBehaviour
                 var newNumber = Instantiate(FloatingNumber, CurrentTarget.position - Vector3.forward * 0.5f, Quaternion.Euler(Vector3.forward));
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "LEVEL UP!";
+                sfx.PlaySound(LevelUpSound);
+
             }
             else
             {
@@ -217,6 +226,7 @@ public class HeroAI : MonoBehaviour
             var lootChance = Random.Range(0, 13);
             if(lootChance <= Stats.LootFind)
             {
+                sfx.PlaySound(ChestSound);
                 Stats.LootHeld++;
                 Stats.ChestLevels.Add(DM.Level);
                 var newNumber = Instantiate(FloatingNumber, CurrentTarget.position - Vector3.forward * 1.5f, Quaternion.Euler(Vector3.forward));
@@ -255,6 +265,7 @@ public class HeroAI : MonoBehaviour
                 {
                     if(Stats.HP <= (Stats.MaxHP - con.Value))
                     {
+                        sfx.PlaySound(HealSound);
                         Debug.Log("Hero Healed");
                         Stats.HP += con.Value;
                         Destroy(Stats.ConsumableItem.gameObject);
@@ -273,6 +284,8 @@ public class HeroAI : MonoBehaviour
             if(Stats.ConsumableItem == null)
             {
                 e.Hero = null;
+                sfx.PlaySound(DeathSound);
+
                 Die();
             }
             else
@@ -280,6 +293,7 @@ public class HeroAI : MonoBehaviour
                 var con = Stats.ConsumableItem.GetComponent<Consumable>();
                 if (con.Type == Consumable.ConsumableType.Portal)
                 {
+                    sfx.PlaySound(TeleportSound);
                     Debug.Log("Hero Used Town Portal");
                     Destroy(Stats.ConsumableItem.gameObject);
                     Stats.ConsumableItem = null;

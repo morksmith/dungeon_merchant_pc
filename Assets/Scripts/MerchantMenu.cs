@@ -62,6 +62,7 @@ public class MerchantMenu : MonoBehaviour
             SelectedItem = null;
             ItemInfo.text = "SELECT AN ITEM";
             Stock.UpdatePrices();
+            Stock.PlaySellSound();
         }
         else 
         {

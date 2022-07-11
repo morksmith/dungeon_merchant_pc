@@ -2626,6 +2626,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1020ff3745f55c44daa46e5657f96f28, type: 3}
   - {fileID: 8300000, guid: 85769b363bfe25d47b02de69d607f6b8, type: 3}
   - {fileID: 8300000, guid: 6a79e456de8e0b648bb1284556871296, type: 3}
+  - {fileID: 8300000, guid: 333562e094c687b458d48d1a1192d713, type: 3}
   CurrentTrack: 0
   MusicSource: {fileID: 612830776}
 --- !u!4 &612830778

@@ -160,6 +160,6 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         sfx.PlaySound(DeathSound);
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }

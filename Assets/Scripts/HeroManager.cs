@@ -31,9 +31,13 @@ public class HeroManager : MonoBehaviour
     public int DeployCost = 0;
     public Stats[] AllHeroes;
     public int CurrentHero;
+    public AudioClip ReturnSound;
+
+    private SFXManager sfx;
     // Start is called before the first frame update
     void Start()
     {
+        sfx = GameObject.FindObjectOfType<SFXManager>();
         CheckFloorButtons();
     }
 
@@ -199,6 +203,7 @@ public class HeroManager : MonoBehaviour
     }
     public void ReturnHero()
     {
+        sfx.PlaySound(ReturnSound);
         var s = CurrentQuestingHero.GetComponent<Stats>();
         Stock.CollectGold(s.GoldHeld);
         for(var c = 0; c<s.ChestLevels.Count; c++)

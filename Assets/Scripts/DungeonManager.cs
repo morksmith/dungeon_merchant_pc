@@ -65,11 +65,16 @@ public class DungeonManager : MonoBehaviour
     private float sleepTimer;
     public float SleepTime;
     public ScrollingWindow TopContent;
+    public AudioClip EnterDungeonSound;
+    public AudioClip DungeonCompleteSound;
+    public AudioClip NewDaySound;
+
+    private SFXManager sfx;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        sfx = GameObject.FindObjectOfType<SFXManager>();
         sleepTimer = SleepTime;
         EnemySpawners = GameObject.FindObjectsOfType<EnemySpawner>();
         
@@ -313,6 +318,7 @@ public class DungeonManager : MonoBehaviour
 
     public void CycleDungeon()
     {
+        sfx.PlaySound(NewDaySound);
         EnemyCount = NextCount;
         if (EnemyCount > 1 && EnemyCount < 3)
         {
@@ -395,6 +401,7 @@ public class DungeonManager : MonoBehaviour
 
     public void StartDungeon(int i)
     {
+        sfx.PlaySound(EnterDungeonSound);
         var currentEnemies = GameObject.FindObjectsOfType<Enemy>();
         foreach (Enemy x in currentEnemies)
         {
@@ -428,7 +435,9 @@ public class DungeonManager : MonoBehaviour
     public void NextDungeonLevel()
     {
         Level++;
-        if(Level > CurrentHeroAI.Manager.MaxDungeonFloor)
+        sfx.PlaySound(EnterDungeonSound);
+
+        if (Level > CurrentHeroAI.Manager.MaxDungeonFloor)
         {
             CurrentHeroAI.Manager.MaxDungeonFloor++;
             CurrentHeroAI.Manager.CheckFloorButtons();
@@ -455,6 +464,8 @@ public class DungeonManager : MonoBehaviour
         DungeonCompleteMenu.Activate();
         if (DungeonCompleted)
         {
+            sfx.PlaySound(DungeonCompleteSound);
+
             CompleteTitle.text = "LEVEL COMPLETE!";
             CompleteText.text = "Return home or continue for 1.2x gold discovery?";
             GoldCollectedText.text = CurrentHeroStats.GoldHeld.ToString();

@@ -50,11 +50,13 @@ public class Stats : MonoBehaviour
     public float GoldHeld;
     public float LootHeld;
     public List<int> ChestLevels;
+    
 
     private void Start()
     {
         Manager = GameObject.FindObjectOfType<HeroManager>();
         LevelText.text = Level.ToString();
+       
     }
     // Update is called once per frame
     void Update()

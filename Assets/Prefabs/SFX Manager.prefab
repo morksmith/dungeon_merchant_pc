@@ -154,8 +154,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7d00964f3e47d1c49b2e0adec44394d9, type: 3}
   - {fileID: 8300000, guid: 42f7390e49730c24baf75ae615584b98, type: 3}
   ClubSounds:
-  - {fileID: 8300000, guid: 6b6ecd9fd37bb2a4397cf5b78996b907, type: 3}
-  - {fileID: 8300000, guid: 49da91def9960854fb727aa89d0ae52a, type: 3}
+  - {fileID: 8300000, guid: 34ffc174d36d04d41831727201bb696d, type: 3}
+  - {fileID: 8300000, guid: 742340fb4389e3c43829587f72a16680, type: 3}
   - {fileID: 8300000, guid: d7a392ff03261ae4194ba6f2246a5f65, type: 3}
   BowSounds:
   - {fileID: 8300000, guid: 5aadff22d09c6ed44b152ff23a09e4bf, type: 3}
