@@ -57,7 +57,6 @@ public class StockManager : MonoBehaviour
         }
         GoldText.text = Gold + "G";
         UpdatePrices();
-
         
     }
 
@@ -522,8 +521,9 @@ public class StockManager : MonoBehaviour
                 {
                     Dialogue.NewDialogue();
                 }
+
             }
-            
+
         }
         PlayerPrefs.SetFloat("Player Gold", Gold);
         PlayerPrefs.SetFloat("Max Profit", MaxProfit);

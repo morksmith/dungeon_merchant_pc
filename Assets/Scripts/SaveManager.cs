@@ -11,14 +11,8 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
-        if(PlayerPrefs.GetFloat("Game Started") == 0)
-        {
-            PlayerPrefs.SetFloat("Music Volume", 1);
-            PlayerPrefs.SetFloat("SFX Volume", 1);
-            PlayerPrefs.SetFloat("Game Started", 1);
-        }
 
-        if(PlayerPrefs.GetFloat("New Game") == 0)
+        if(PlayerPrefs.GetFloat("Tutorial Complete") == 0)
         {
             if (ContinueButton != null)
             {
@@ -37,17 +31,15 @@ public class SaveManager : MonoBehaviour
 
     public void ResetProgress()
     {
+        var musicVol = PlayerPrefs.GetFloat("Music Volume");
+        var sfxVol = PlayerPrefs.GetFloat("SFX Volume");
         PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetFloat("Music Volume", 1);
-        PlayerPrefs.SetFloat("SFX Volume", 1);
+        PlayerPrefs.SetFloat("Music Volume", musicVol);
+        PlayerPrefs.SetFloat("SFX Volume", sfxVol);
 
     }
 
-    public void StartNewGame()
-    {
-        PlayerPrefs.SetFloat("New Game", 1);
-
-    }
+    
 
 
 }

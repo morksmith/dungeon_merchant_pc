@@ -46,5 +46,10 @@ public class TutorialSequence : MonoBehaviour
 
     }
 
+    public void TutorialComplete()
+    {
+        PlayerPrefs.SetFloat("Tutorial Complete", 1);
+    }
+
     
 }

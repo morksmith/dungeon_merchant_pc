@@ -24,16 +24,37 @@ public class VolumeSlider : MonoBehaviour
 
         if (Type == AudioType.SFX)
         {
-            AudioSlider.value = PlayerPrefs.GetFloat("SFX Volume");
-            sfxSource.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("SFX Volume");
+            if(PlayerPrefs.GetInt("Game Started") == 0)
+            {
+                AudioSlider.value = 1;
+                PlayerPrefs.SetFloat("SFX Volume", 1);
+                sfxSource.GetComponent<AudioSource>().volume = 1;
+            }
+            else
+            {
+                AudioSlider.value = PlayerPrefs.GetFloat("SFX Volume");
+                sfxSource.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("SFX Volume");
+            }
+            
 
         }
         else
         {
-            AudioSlider.value = PlayerPrefs.GetFloat("Music Volume");
-            musicSource.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("Music Volume");
+            if (PlayerPrefs.GetInt("Game Started") == 0)
+            {
+                AudioSlider.value = 1;
+                PlayerPrefs.SetFloat("Music Volume", 1);
+                musicSource.GetComponent<AudioSource>().volume = 1;
+            }
+            else
+            {
+                AudioSlider.value = PlayerPrefs.GetFloat("Music Volume");
+                musicSource.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("Music Volume");
+            }
 
         }
+
+        PlayerPrefs.SetInt("Game Started", 1);
 
 
     }

@@ -63,7 +63,7 @@ public class DialogueBox : MonoBehaviour
             }
             
         }
-        charTimer += Time.deltaTime;
+        charTimer += Time.deltaTime * 5;
         if(charTimer > TextSpeed)
         {
             if(charCount > TMP.text.Length)

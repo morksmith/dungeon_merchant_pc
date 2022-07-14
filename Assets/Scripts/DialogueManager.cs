@@ -12,7 +12,10 @@ public class DialogueManager : MonoBehaviour
     public int CurrentDialogue = 0;
     public GameObject StoryButton;
 
-
+    private void Start()
+    {
+        CurrentDialogue = PlayerPrefs.GetInt("Dialogue Step");
+    }
 
     public void StartDialogue ()
     {
@@ -28,6 +31,7 @@ public class DialogueManager : MonoBehaviour
         BottomContent.NewHeroIcon();
         StoryButton.SetActive(true);
         CurrentDialogue++;
+        PlayerPrefs.SetInt("Dialogue Step", CurrentDialogue);
     }
     
     

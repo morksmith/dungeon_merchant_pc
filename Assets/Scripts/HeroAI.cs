@@ -172,7 +172,7 @@ public class HeroAI : MonoBehaviour
         {
             sfx.PlaySwordSound();
         }
-        else if(Stats.DamageType == 1)
+        else if(Stats.DamageType == 3)
         {
             sfx.PlayClubSound();
         }
@@ -180,7 +180,7 @@ public class HeroAI : MonoBehaviour
         {
             sfx.PlayBowSound();
         }
-        else if (Stats.DamageType == 3)
+        else if (Stats.DamageType == 1)
         {
             sfx.PlayWandSound();
         }
