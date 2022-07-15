@@ -17,6 +17,7 @@ public class Upgrade : MonoBehaviour
     public float Price;
     public StockManager Stock;
     public bool Complete = false;
+    public GameObject Shelves;
 
     private void Start()
     {
@@ -38,6 +39,7 @@ public class Upgrade : MonoBehaviour
                 CompleteObject.SetActive(true);
                 Complete = true;
                 PurchaseButton.interactable = false;
+                Shelves.SetActive(true);
             }
         }
         else if (Type == UpgradeType.Speed)
@@ -84,6 +86,7 @@ public class Upgrade : MonoBehaviour
         Complete = true;
         PurchaseButton.interactable = false;
         PlayerPrefs.SetInt("Shelves", 1);
+        Shelves.SetActive(true);
 
     }
     public void BuySellSpeed()
