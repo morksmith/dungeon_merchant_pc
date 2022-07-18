@@ -33,7 +33,7 @@ public class Request : MonoBehaviour
         var level = Random.Range(-2, l+1);
         level = Mathf.RoundToInt(Mathf.Clamp(level, 1, 9999));
         Level = level;
-        Reward = (Random.Range(5,11) + Level * 2) * 5;
+        Reward = (Random.Range(5,11) + Level * 2) * 4;
         var type = Random.Range(0, 6);
         if(type == 0)
         {
