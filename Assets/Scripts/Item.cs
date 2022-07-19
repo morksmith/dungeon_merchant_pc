@@ -127,6 +127,14 @@ public class Item : MonoBehaviour
             DemandIcon.gameObject.SetActive(true);
         }
         Price = Mathf.CeilToInt(BasePrice * PriceScale);
+        if (Merchant)
+        {
+            if(stockMan!= null)
+            {
+                Price *= stockMan.MerchantDiscount;
+            }
+            Price = Mathf.CeilToInt(Price);
+        }
         PriceText.text = Price + "G";        
         SellTime = Price;
     }
@@ -168,10 +176,6 @@ public class Item : MonoBehaviour
         stockMan = GameObject.FindObjectOfType<StockManager>();
         merch = GameObject.FindObjectOfType<MerchantMenu>();
         Price = Mathf.CeilToInt(BasePrice * PriceScale);
-        if (Merchant)
-        {
-            Price = Mathf.CeilToInt(Price * stockMan.MerchantDiscount);
-        }
         PriceText.text = Price + "G";
         SellTime = Price;
         stockMan.UpdatePrices();
@@ -185,4 +189,6 @@ public class Item : MonoBehaviour
         CollectButton.GetComponentInChildren<TextMeshProUGUI>().text = "SOLD\n" + Price + "G";
         stockMan.NewSale();
     }
+
+    
 }

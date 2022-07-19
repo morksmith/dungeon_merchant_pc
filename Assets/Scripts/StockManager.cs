@@ -676,6 +676,8 @@ public class StockManager : MonoBehaviour
                 {
                     AllItems[i].UpdatePrice(PotionPrice);
                 }
+
+                
             }
             
             
