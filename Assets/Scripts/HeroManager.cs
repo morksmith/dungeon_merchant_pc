@@ -32,6 +32,7 @@ public class HeroManager : MonoBehaviour
     public Stats[] AllHeroes;
     public int CurrentHero;
     public AudioClip ReturnSound;
+    public GameObject InfoPanel;
 
     private SFXManager sfx;
     // Start is called before the first frame update
@@ -81,6 +82,8 @@ public class HeroManager : MonoBehaviour
         }
         else if(SelectedHero.State == Stats.HeroState.Idle)
         {
+            InfoPanel.SetActive(true);
+
             HeroInfoText.text = s.HeroName + "\n"+ s.Class + "\n HP:" + s.MaxHP + "\n DMG:" + s.Damage + "\n RNG:" + Mathf.FloorToInt(s.Range) + "\n GOLD:x" + s.Discovery;
         }
 
@@ -240,18 +243,23 @@ public class HeroManager : MonoBehaviour
         DM.CurrentHeroAI.Agent.Warp(DM.HeroStartPosition);
         DM.CurrentHeroStats = null;
         DM.NewLevel(1);
-        
+        InfoPanel.SetActive(false);
+
+
     }
     public void DeleteHero()
     {
         Destroy(SelectedHero.gameObject);
         SelectedHero = null;
+        InfoPanel.SetActive(false);
+
     }
     public void OpenEquipMenu()
     {
         if(SelectedHero == null)
         {
             HeroInfoText.text = "SELECT A HERO";
+            InfoPanel.SetActive(false);
             return;
         }
         if(SelectedHero.State != Stats.HeroState.Idle)
@@ -338,6 +346,8 @@ public class HeroManager : MonoBehaviour
     public void DeselectHero()
     {
         SelectedHero = null;
+        InfoPanel.SetActive(false);
+
     }
 
     public void SelectTutorialHero()

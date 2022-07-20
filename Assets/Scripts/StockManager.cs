@@ -42,6 +42,7 @@ public class StockManager : MonoBehaviour
     public AudioClip EquipSound;
     public AudioClip CollectSound;
     public AudioClip ChestSound;
+    public GameObject InfoPanel;
 
     private SFXManager sfx;
 
@@ -141,6 +142,7 @@ public class StockManager : MonoBehaviour
                                             Hero.SelectHero(Hero.SelectedHero);
                                             CurrentItem = null;
                                             ItemInfoText.text = "SELECT AN ITEM";
+                                            InfoPanel.SetActive(false);
                                             ItemInfoText.color = Color.white;
                                             if(Tutorial != null)
                                             {
@@ -196,6 +198,8 @@ public class StockManager : MonoBehaviour
                                     Hero.SelectHero(Hero.SelectedHero);
                                     CurrentItem = null;
                                     ItemInfoText.text = "SELECT AN ITEM";
+                                    InfoPanel.SetActive(false);
+
                                     ItemInfoText.color = Color.white;
 
 
@@ -267,6 +271,8 @@ public class StockManager : MonoBehaviour
                                         Hero.SelectHero(Hero.SelectedHero);
                                         CurrentItem = null;
                                         ItemInfoText.text = "SELECT AN ITEM";
+                                        InfoPanel.SetActive(false);
+
                                         UpdatePrices();
                                     }
                                     else
@@ -291,6 +297,8 @@ public class StockManager : MonoBehaviour
                                     Hero.SelectHero(Hero.SelectedHero);
                                     CurrentItem = null;
                                     ItemInfoText.text = "SELECT AN ITEM";
+                                    InfoPanel.SetActive(false);
+
                                     UpdatePrices();
                                 }
                                 else if (DraggedItem.GetComponent<Consumable>())
@@ -310,6 +318,8 @@ public class StockManager : MonoBehaviour
                                     Hero.SelectHero(Hero.SelectedHero);
                                     CurrentItem = null;
                                     ItemInfoText.text = "SELECT AN ITEM";
+                                    InfoPanel.SetActive(false);
+
                                     UpdatePrices();
                                 }
 
@@ -435,6 +445,8 @@ public class StockManager : MonoBehaviour
                     CurrentItem.Selling = true;
                     CurrentItem = null;
                     ItemInfoText.text = "SELECT AN ITEM";
+                    InfoPanel.SetActive(false);
+
                     ItemInfoText.color = Color.white;
                 }
                 else
@@ -447,7 +459,7 @@ public class StockManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("No available slots in shop");
+                ItemInfoText.text = "NOT ENOUGH SHELVES!";
                 ItemInfoText.color = Color.white;
             }
 
@@ -458,6 +470,8 @@ public class StockManager : MonoBehaviour
             Debug.Log("No Item selected");
             CurrentItem = null;
             ItemInfoText.text = "SELECT AN ITEM";
+            InfoPanel.SetActive(false);
+
             ItemInfoText.color = Color.white;
         }
 
@@ -467,6 +481,8 @@ public class StockManager : MonoBehaviour
     public void SelectItem(Item i)
     {
         CurrentItem = i;
+        InfoPanel.SetActive(true);
+
         if (i.GetComponent<Weapon>() != null)
         {
             {
@@ -506,6 +522,9 @@ public class StockManager : MonoBehaviour
     {
         CurrentItem = null;
         ItemInfoText.text = "SELECT AN ITEM";
+        InfoPanel.SetActive(false);
+
+
     }
 
     public void CollectGold(float i)

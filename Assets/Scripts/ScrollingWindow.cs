@@ -13,6 +13,9 @@ public class ScrollingWindow : MonoBehaviour
     public Vector2 startPos;
     public Vector2 targetPos;
 
+    public Button RightButton;
+    public Button LeftButton;
+
     public bool NewMerchant = false;
     public bool NewHero = false;
     public bool NewSale = false;
@@ -39,6 +42,7 @@ public class ScrollingWindow : MonoBehaviour
             var dist = Mathf.Clamp01(step / ScrollSpeed);
             Rect.anchoredPosition = Vector2.Lerp(startPos, targetPos, dist);
         }
+        
     }
 
     public void ScrollRight()
@@ -130,6 +134,23 @@ public class ScrollingWindow : MonoBehaviour
         RightIcon.SetActive(false);
         LeftIcon.SetActive(false);
         NewIcon();
+
+        if(CurrentWindow == 0)
+        {
+            RightButton.interactable = false;
+        }
+        else
+        {
+            RightButton.interactable = true;
+        }
+        if (CurrentWindow == 2)
+        {
+            LeftButton.interactable = false;
+        }
+        else
+        {
+            LeftButton.interactable = true;
+        }
 
 
     }

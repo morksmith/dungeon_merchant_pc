@@ -677,6 +677,7 @@ MonoBehaviour:
   EquipSound: {fileID: 8300000, guid: 6fd244606355e814f9c56e20ee65d31f, type: 3}
   CollectSound: {fileID: 8300000, guid: 5cc41b14d3bf9544e919793d5fcc62e9, type: 3}
   ChestSound: {fileID: 8300000, guid: f3cc1b354ffb1f5468067b27ac508a55, type: 3}
+  InfoPanel: {fileID: 226711300}
 --- !u!4 &70214547
 Transform:
   m_ObjectHideFlags: 0
@@ -2629,6 +2630,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217052587}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &226711300 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 862056625883800661, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+  m_PrefabInstance: {fileID: 6723141201573289124}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &253459946 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6723141201623179598, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
@@ -26063,6 +26069,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125440972}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2125719872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4516490835936733405, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+  m_PrefabInstance: {fileID: 6723141201573289124}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2133191036
 GameObject:
   m_ObjectHideFlags: 0
@@ -26232,6 +26243,7 @@ MonoBehaviour:
   AllHeroes: []
   CurrentHero: 0
   ReturnSound: {fileID: 8300000, guid: d9d8d8d5a05673e4194b7aef4129579b, type: 3}
+  InfoPanel: {fileID: 2125719872}
 --- !u!4 &2135481765
 Transform:
   m_ObjectHideFlags: 0

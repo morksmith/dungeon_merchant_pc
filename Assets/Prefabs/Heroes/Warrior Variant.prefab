@@ -164,16 +164,32 @@ PrefabInstance:
       value: Warrior Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4953946753732833222, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953946753732833222, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
+      propertyPath: m_Colors.m_PressedColor.a
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953946753732833222, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953946753732833222, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
-      value: 0.41037738
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4953946753732833222, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: m_Colors.m_SelectedColor.g
-      value: 0.8549341
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4953946753732833222, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: m_Colors.m_SelectedColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953946753732833222, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 0.98039216
       objectReference: {fileID: 0}
     - target: {fileID: 6411943190109119536, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: m_AnchorMax.y

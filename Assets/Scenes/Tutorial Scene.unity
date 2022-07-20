@@ -1271,6 +1271,7 @@ MonoBehaviour:
   EquipSound: {fileID: 8300000, guid: 6fd244606355e814f9c56e20ee65d31f, type: 3}
   CollectSound: {fileID: 8300000, guid: 5cc41b14d3bf9544e919793d5fcc62e9, type: 3}
   ChestSound: {fileID: 8300000, guid: f3cc1b354ffb1f5468067b27ac508a55, type: 3}
+  InfoPanel: {fileID: 6723141201573289129}
 --- !u!4 &70214547
 Transform:
   m_ObjectHideFlags: 0
@@ -2750,6 +2751,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129627192}
   m_CullTransparentMesh: 1
+--- !u!1 &143979256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4516490835936733405, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+  m_PrefabInstance: {fileID: 6723141201573289124}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &162037804
 GameObject:
   m_ObjectHideFlags: 0
@@ -4988,6 +4994,10 @@ PrefabInstance:
     - target: {fileID: 1874572406335997581, guid: 1bc76bbf910c77046827b3b9f27e5803, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874572406335997582, guid: 1bc76bbf910c77046827b3b9f27e5803, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 0.39215687
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bc76bbf910c77046827b3b9f27e5803, type: 3}
@@ -28138,6 +28148,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 485141173}
     m_Modifications:
+    - target: {fileID: 873650766871571656, guid: 69247b72f1925d64c855dafb330d68b7, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 0.7058824
+      objectReference: {fileID: 0}
     - target: {fileID: 873650766871571658, guid: 69247b72f1925d64c855dafb330d68b7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -30521,6 +30535,10 @@ PrefabInstance:
     - target: {fileID: 4210745550167089906, guid: 37f9141af2692b54e8b5d23d426dde1b, type: 3}
       propertyPath: WeaponName
       value: Ol'Faithful
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210745550167089907, guid: 37f9141af2692b54e8b5d23d426dde1b, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 0.7058824
       objectReference: {fileID: 0}
     - target: {fileID: 5631790858866828851, guid: 37f9141af2692b54e8b5d23d426dde1b, type: 3}
       propertyPath: Price
@@ -33123,7 +33141,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   StepText: Here is your total gold. Buy and sell items to increase your gold and
-    reach the final goal of 100,000,000G. Tap to continue.
+    reach the final goal of 100,000G. Tap to continue.
   NextButton: {fileID: 1683494151}
   TextboxPosition: 300
 --- !u!1 &1607674022
@@ -42212,6 +42230,7 @@ MonoBehaviour:
   AllHeroes: []
   CurrentHero: 0
   ReturnSound: {fileID: 8300000, guid: d9d8d8d5a05673e4194b7aef4129579b, type: 3}
+  InfoPanel: {fileID: 143979256}
 --- !u!4 &2135481765
 Transform:
   m_ObjectHideFlags: 0
@@ -42429,6 +42448,10 @@ PrefabInstance:
     - target: {fileID: 238405935204007835, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -655.3125
+      objectReference: {fileID: 0}
+    - target: {fileID: 862056625883800661, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1623425678756861140, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -43104,27 +43127,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201302418420, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201302418420, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201302418420, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201302418420, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201302418420, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201302418420, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -222.5
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201302418421, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_Interactable
@@ -43132,15 +43155,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -43148,11 +43171,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -387.99994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -43160,27 +43183,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201448649240, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201448649240, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201448649240, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201448649240, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201448649240, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201448649240, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -77.5
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201448649241, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -43378,6 +43401,11 @@ PrefabInstance:
       propertyPath: Stock
       value: 
       objectReference: {fileID: 70214546}
+    - target: {fileID: 8200466101829100003, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: Sentences.Array.data[1]
+      value: It's a bit whimsical for my taste but my son loves it. Maybe that's
+        why there are so many children missing?
+      objectReference: {fileID: 0}
     - target: {fileID: 8363545702970747900, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -43548,3 +43576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc01538ad373084fa8a8ccc2478f303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6723141201573289129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 862056625883800661, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+  m_PrefabInstance: {fileID: 6723141201573289124}
+  m_PrefabAsset: {fileID: 0}
