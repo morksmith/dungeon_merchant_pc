@@ -246,6 +246,7 @@ public class HeroAI : MonoBehaviour
 
     public void TakeDamage(float i, Enemy e)
     {
+        GetComponent<Flash>().FlashWhite();
         sfx.PlayDamageSound();
         if(Stats.HP > i)
         {

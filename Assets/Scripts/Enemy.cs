@@ -147,6 +147,7 @@ public class Enemy : MonoBehaviour
         
         HP -= i;
         HPSlider.value = HP / MaxHP;
+        GetComponent<Flash>().FlashWhite();
                 
     }
 
