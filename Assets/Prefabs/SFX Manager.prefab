@@ -165,3 +165,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ec16c1f258efc224f8b0541b0cec4182, type: 3}
   - {fileID: 8300000, guid: 5634dfa55cabae144a4dfe0e7313a985, type: 3}
   - {fileID: 8300000, guid: be56ba26f44940d44a53712d509f525e, type: 3}
+  CatSounds:
+  - {fileID: 8300000, guid: 776bb89a527592e4ba45e38a2ff95096, type: 3}
+  - {fileID: 8300000, guid: 02d2a64635ba6ff41ba3d20f502fa9e8, type: 3}
+  - {fileID: 8300000, guid: 3a8aee1ed174c454e81af44a43f0b36b, type: 3}
+  - {fileID: 8300000, guid: 9dcb025c378a51f429bfb68d5edb61ac, type: 3}
+  - {fileID: 8300000, guid: 7c7868c89c51b6541af946d32e772ef1, type: 3}

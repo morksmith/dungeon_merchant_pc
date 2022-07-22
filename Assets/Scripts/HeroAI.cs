@@ -208,6 +208,8 @@ public class HeroAI : MonoBehaviour
 
         if (CurrentTarget.GetComponent<Enemy>().HP <= 0)
         {
+            var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
+            Stats.GoldHeld += GoldFound;
             if (CurrentTarget.GetComponent<Enemy>().XP + Stats.XP > Stats.MaxXP)
             {
                 var newNumber = Instantiate(FloatingNumber, CurrentTarget.position - Vector3.forward * 0.5f, Quaternion.Euler(Vector3.forward));
@@ -220,7 +222,7 @@ public class HeroAI : MonoBehaviour
             {
                 var newNumber = Instantiate(FloatingNumber, CurrentTarget.position - Vector3.forward, Quaternion.Euler(Vector3.forward));
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
-                newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + CurrentTarget.GetComponent<Enemy>().XP + "XP";
+                newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + GoldFound +"G";
             }
             Stats.XP += CurrentTarget.GetComponent<Enemy>().XP;
             var lootChance = Random.Range(0, 13);
@@ -233,8 +235,7 @@ public class HeroAI : MonoBehaviour
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "Loot Found!";
             }
-            var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
-            Stats.GoldHeld += GoldFound;
+            
             var e = CurrentTarget.GetComponent<Enemy>();
 
             e.Die();

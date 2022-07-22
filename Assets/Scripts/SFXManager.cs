@@ -11,12 +11,19 @@ public class SFXManager : MonoBehaviour
     public List<AudioClip> ClubSounds;
     public List<AudioClip> BowSounds;
     public List<AudioClip> WandSounds;
+    public List<AudioClip> CatSounds;
 
 
     public void PlayDamageSound()
     {
         var s = Random.Range(0, DamageSounds.Count);
         SFX.clip = DamageSounds[s];
+        SFX.Play();
+    }
+    public void PlayCatSounds()
+    {
+        var s = Random.Range(0, CatSounds.Count);
+        SFX.clip = CatSounds[s];
         SFX.Play();
     }
 
