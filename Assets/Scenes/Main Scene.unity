@@ -26314,7 +26314,7 @@ MonoBehaviour:
   - Jane
   - Clint
   - Marge
-  - Geoff
+  - Bort
   - Bess
   MageLastNames:
   - ' the Magical'
@@ -27531,7 +27531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -387.99994
+      value: -387.9999
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
