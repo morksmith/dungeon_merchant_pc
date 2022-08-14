@@ -27,7 +27,6 @@ public class StockManager : MonoBehaviour
     public GameObject ArmourPrefab;
     public GameObject ConsumablePrefab;
     public HeroManager Hero;
-    public List<Item> ItemList;
     public float SwordPrice = 1.5f;
     public float ClubPrice = 1;
     public float BowPrice = 1;
