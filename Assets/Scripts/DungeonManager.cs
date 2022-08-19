@@ -425,6 +425,7 @@ public class DungeonManager : MonoBehaviour
             ConsumableIcon.sprite = HandSprite;
         }
         CurrentHeroAI.Agent.Warp(HeroStartPosition);
+        CurrentHeroAI.ResetCamera();
         Level = i;
         GenerateLayout();
         SetEnemyTypes();
@@ -453,6 +454,7 @@ public class DungeonManager : MonoBehaviour
         CurrentHeroAI.Waiting = false;
         HeroImage.sprite = CurrentHeroStats.HeroSprite;
         CurrentHeroAI.Agent.Warp(HeroStartPosition);
+        CurrentHeroAI.ResetCamera();
         GenerateLayout();
         SetEnemyTypes();
         SpawnEnemies();

@@ -19,6 +19,12 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("Game Started", 1);
 
     }
+    public void LoadIntro()
+    {
+        SceneManager.LoadScene("Intro Cutscene");
+        PlayerPrefs.SetInt("Game Started", 1);
+
+    }
     public void LoadStartScene()
     {
         SceneManager.LoadScene("Start");

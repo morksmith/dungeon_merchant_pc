@@ -17,6 +17,7 @@ public class DialogueBox : MonoBehaviour
     private float flashTimer = 0;
     public GameObject DialoguePanel;
     public GameObject StoryButton;
+    public bool Cutscene = false;
     
     void Update()
     {
@@ -30,7 +31,7 @@ public class DialogueBox : MonoBehaviour
             {
                 TMP.enabled = true;
             }
-            if (charCount >= TMP.text.Length)
+            if (charCount >= TMP.text.Length && !Cutscene)
             {
                 if(NextIcon != null)
                 {

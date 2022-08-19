@@ -6,7 +6,7 @@ using TMPro;
 
 public class Item : MonoBehaviour
 {
-    public string ItemName;
+    public string ItemName;    
     public Image ItemSprite;
     public Image DemandIcon;
     public Sprite DownSprite;

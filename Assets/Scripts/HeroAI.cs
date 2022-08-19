@@ -47,6 +47,7 @@ public class HeroAI : MonoBehaviour
     void Start()
     {
         transform.position = DM.HeroStartPosition;
+        Camera.transform.position = transform.position + new Vector3(0, 5, 0);
         sfx = GameObject.FindObjectOfType<SFXManager>();
         exit = GameObject.FindObjectOfType<Exit>().transform;
         
@@ -169,7 +170,7 @@ public class HeroAI : MonoBehaviour
 
     public void Attack()
     {
-        Camera.AddShake(0.5f);
+        Camera.AddShake(0.1f);
         var newEffect = Instantiate(EffectPrefab, CurrentTarget.position + new Vector3(0,0,0.5f), Quaternion.Euler(90, 0, 0));
         newEffect.GetComponent<SpecialEffect>().EffectType = Stats.DamageType;
         newEffect.transform.localScale = HeroSprite.transform.localScale;
@@ -251,7 +252,7 @@ public class HeroAI : MonoBehaviour
 
     public void TakeDamage(float i, Enemy e)
     {
-        Camera.AddShake(1);
+        Camera.AddShake(0.5f);
         var damageEffect = Instantiate(EffectPrefab, transform.position + new Vector3(0, 0, 1), Quaternion.Euler(90, 0, 0));
         damageEffect.GetComponent<SpecialEffect>().EffectType = 4;
         damageEffect.transform.localScale = e.EnemySprite.transform.localScale;
@@ -361,7 +362,8 @@ public class HeroAI : MonoBehaviour
         Stats.Die();
         DM.DungeonCompleted = false;
         DM.DungeonComplete();
-        
+
+
 
     }
 
@@ -377,9 +379,16 @@ public class HeroAI : MonoBehaviour
         State = HeroState.Idle;
         DM.DungeonCompleted = true;
         DM.DungeonComplete();
+
     }
 
-    
+    public void ResetCamera()
+    {
+        Camera.transform.position = transform.position + new Vector3(0, 5, 0);
+
+    }
+
+
 
 
 }
