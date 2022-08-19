@@ -1662,6 +1662,7 @@ MonoBehaviour:
   HealSound: {fileID: 8300000, guid: 32a1c70393528d7438dc3699173a387f, type: 3}
   TeleportSound: {fileID: 8300000, guid: 8be3ce963cb743148a529e36fc934935, type: 3}
   EffectPrefab: {fileID: 5972517807649682431, guid: 77ab1697355ca5f4ab894237ab4b9e82, type: 3}
+  Camera: {fileID: 1828641202}
 --- !u!114 &173168046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23442,6 +23443,7 @@ GameObject:
   - component: {fileID: 1828641199}
   - component: {fileID: 1828641198}
   - component: {fileID: 1828641201}
+  - component: {fileID: 1828641202}
   m_Layer: 0
   m_Name: Dungeon Camera
   m_TagString: MainCamera
@@ -23522,7 +23524,7 @@ PositionConstraint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828641197}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Weight: 1
   m_TranslationAtRest: {x: 2, y: 4, z: -12.039998}
   m_TranslationOffset: {x: 0, y: 0, z: -12.0400095}
@@ -23534,6 +23536,20 @@ PositionConstraint:
   m_Sources:
   - sourceTransform: {fileID: 173168043}
     weight: 1
+--- !u!114 &1828641202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828641197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ce0ecf796d7de4984736c6b9a5da2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 173168043}
+  MoveSpeed: 5
 --- !u!1 &1832349327
 GameObject:
   m_ObjectHideFlags: 0
@@ -27833,15 +27849,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -27849,11 +27865,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 98
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -387.99994
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y

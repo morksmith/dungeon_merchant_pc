@@ -3108,6 +3108,7 @@ MonoBehaviour:
   LevelUpSound: {fileID: 8300000, guid: d13c7d652206d6b4baa190b4eba99874, type: 3}
   HealSound: {fileID: 8300000, guid: 32a1c70393528d7438dc3699173a387f, type: 3}
   TeleportSound: {fileID: 8300000, guid: 8be3ce963cb743148a529e36fc934935, type: 3}
+  EffectPrefab: {fileID: 5972517807649682431, guid: 77ab1697355ca5f4ab894237ab4b9e82, type: 3}
 --- !u!114 &173168046
 MonoBehaviour:
   m_ObjectHideFlags: 0

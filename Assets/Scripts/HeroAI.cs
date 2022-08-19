@@ -34,6 +34,7 @@ public class HeroAI : MonoBehaviour
     public AudioClip HealSound;
     public AudioClip TeleportSound;
     public GameObject EffectPrefab;
+    public CameraControl Camera;
 
     private float activeTimer;
     private float step;
@@ -168,9 +169,10 @@ public class HeroAI : MonoBehaviour
 
     public void Attack()
     {
+        Camera.AddShake(0.5f);
         var newEffect = Instantiate(EffectPrefab, CurrentTarget.position + new Vector3(0,0,0.5f), Quaternion.Euler(90, 0, 0));
         newEffect.GetComponent<SpecialEffect>().EffectType = Stats.DamageType;
-        newEffect.transform.localScale = transform.localScale;
+        newEffect.transform.localScale = HeroSprite.transform.localScale;
         if (Stats.DamageType == 0)
         {
             sfx.PlaySwordSound();
@@ -249,8 +251,10 @@ public class HeroAI : MonoBehaviour
 
     public void TakeDamage(float i, Enemy e)
     {
-        var newEffect = Instantiate(EffectPrefab, transform.position + new Vector3(0, 0, 1), transform.rotation);
-        newEffect.GetComponent<SpecialEffect>().EffectType = 4;
+        Camera.AddShake(1);
+        var damageEffect = Instantiate(EffectPrefab, transform.position + new Vector3(0, 0, 1), Quaternion.Euler(90, 0, 0));
+        damageEffect.GetComponent<SpecialEffect>().EffectType = 4;
+        damageEffect.transform.localScale = e.EnemySprite.transform.localScale;
         GetComponent<Flash>().FlashWhite();
         sfx.PlayDamageSound();
         if(Stats.HP > i)
@@ -272,8 +276,8 @@ public class HeroAI : MonoBehaviour
                 {
                     if(Stats.HP <= (Stats.MaxHP - con.Value))
                     {
-                        var newEffect = Instantiate(EffectPrefab, transform.position + new Vector3(0, 0, 1), transform.rotation);
-                        newEffect.GetComponent<SpecialEffect>().EffectType = 5;
+                        var potionEffect = Instantiate(EffectPrefab, transform.position + new Vector3(0, 0, 1), Quaternion.Euler(90, 0, 0));
+                        potionEffect.GetComponent<SpecialEffect>().EffectType = 5;
                         sfx.PlaySound(HealSound);
                         Debug.Log("Hero Healed");
                         Stats.HP += con.Value;
@@ -302,8 +306,8 @@ public class HeroAI : MonoBehaviour
                 var con = Stats.ConsumableItem.GetComponent<Consumable>();
                 if (con.Type == Consumable.ConsumableType.Portal)
                 {
-                    var newEffect = Instantiate(EffectPrefab, transform.position + new Vector3(0, 0, 1), transform.rotation);
-                    newEffect.GetComponent<SpecialEffect>().EffectType = 6;
+                    var portalEffect = Instantiate(EffectPrefab, transform.position + new Vector3(0, 0, 1), Quaternion.Euler(90, 0, 0));
+                    portalEffect.GetComponent<SpecialEffect>().EffectType = 6;
                     sfx.PlaySound(TeleportSound);
                     Debug.Log("Hero Used Town Portal");
                     Destroy(Stats.ConsumableItem.gameObject);
