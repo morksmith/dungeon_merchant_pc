@@ -33,7 +33,7 @@ public class HeroAI : MonoBehaviour
     public AudioClip LevelUpSound;
     public AudioClip HealSound;
     public AudioClip TeleportSound;
-
+    public GameObject EffectPrefab;
 
     private float activeTimer;
     private float step;
@@ -168,7 +168,10 @@ public class HeroAI : MonoBehaviour
 
     public void Attack()
     {
-        if(Stats.DamageType == 0)
+        var newEffect = Instantiate(EffectPrefab, CurrentTarget.position + new Vector3(0,0,0.5f), Quaternion.Euler(90, 0, 0));
+        newEffect.GetComponent<SpecialEffect>().EffectType = Stats.DamageType;
+        newEffect.transform.localScale = transform.localScale;
+        if (Stats.DamageType == 0)
         {
             sfx.PlaySwordSound();
         }
@@ -246,6 +249,8 @@ public class HeroAI : MonoBehaviour
 
     public void TakeDamage(float i, Enemy e)
     {
+        var newEffect = Instantiate(EffectPrefab, transform.position + new Vector3(0, 0, 1), transform.rotation);
+        newEffect.GetComponent<SpecialEffect>().EffectType = 4;
         GetComponent<Flash>().FlashWhite();
         sfx.PlayDamageSound();
         if(Stats.HP > i)
@@ -267,6 +272,8 @@ public class HeroAI : MonoBehaviour
                 {
                     if(Stats.HP <= (Stats.MaxHP - con.Value))
                     {
+                        var newEffect = Instantiate(EffectPrefab, transform.position + new Vector3(0, 0, 1), transform.rotation);
+                        newEffect.GetComponent<SpecialEffect>().EffectType = 5;
                         sfx.PlaySound(HealSound);
                         Debug.Log("Hero Healed");
                         Stats.HP += con.Value;
@@ -295,6 +302,8 @@ public class HeroAI : MonoBehaviour
                 var con = Stats.ConsumableItem.GetComponent<Consumable>();
                 if (con.Type == Consumable.ConsumableType.Portal)
                 {
+                    var newEffect = Instantiate(EffectPrefab, transform.position + new Vector3(0, 0, 1), transform.rotation);
+                    newEffect.GetComponent<SpecialEffect>().EffectType = 6;
                     sfx.PlaySound(TeleportSound);
                     Debug.Log("Hero Used Town Portal");
                     Destroy(Stats.ConsumableItem.gameObject);

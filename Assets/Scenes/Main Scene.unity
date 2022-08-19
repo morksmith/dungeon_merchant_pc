@@ -1661,6 +1661,7 @@ MonoBehaviour:
   LevelUpSound: {fileID: 8300000, guid: d13c7d652206d6b4baa190b4eba99874, type: 3}
   HealSound: {fileID: 8300000, guid: 32a1c70393528d7438dc3699173a387f, type: 3}
   TeleportSound: {fileID: 8300000, guid: 8be3ce963cb743148a529e36fc934935, type: 3}
+  EffectPrefab: {fileID: 5972517807649682431, guid: 77ab1697355ca5f4ab894237ab4b9e82, type: 3}
 --- !u!114 &173168046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18183,7 +18184,6 @@ MonoBehaviour:
   Level: {fileID: 654341710}
   ContinueButton: {fileID: 0}
   Data: {fileID: 1742919724}
-  StockItems: []
 --- !u!4 &1239310554
 Transform:
   m_ObjectHideFlags: 0
@@ -27833,15 +27833,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -27849,11 +27849,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -387.99994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
