@@ -68,6 +68,9 @@ public class DungeonManager : MonoBehaviour
     public AudioClip EnterDungeonSound;
     public AudioClip DungeonCompleteSound;
     public AudioClip NewDaySound;
+    private bool readyForNextDungeon = false;
+    private float nextDungeonTime = 1;
+    private float timer;
 
     private SFXManager sfx;
 
@@ -179,6 +182,16 @@ public class DungeonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (readyForNextDungeon)
+        {
+            timer += Time.deltaTime;
+            if(timer > nextDungeonTime)
+            {
+                readyForNextDungeon = false;
+                SendToNextLevel();
+            }
+        }
+
         if (Tutorial)
         {
             return;
@@ -192,6 +205,7 @@ public class DungeonManager : MonoBehaviour
             CycleDungeon();
         }
         
+
 
         Hours = (CurrentTime / 60) % 24;
         Minutes = (CurrentTime % 60);
@@ -434,6 +448,12 @@ public class DungeonManager : MonoBehaviour
     }
 
     public void NextDungeonLevel()
+    {
+        readyForNextDungeon = true;
+        timer = 0;
+
+    }
+    public void SendToNextLevel()
     {
         Level++;
         sfx.PlaySound(EnterDungeonSound);

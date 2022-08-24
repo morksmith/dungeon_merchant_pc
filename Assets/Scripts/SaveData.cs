@@ -7,6 +7,10 @@ public class SaveData : MonoBehaviour
     public StockManager Stock;
     public List<Item> StockItems;
 
+    private void Start()
+    {
+        //TestSaving();
+    }
     public void CollectData()
     {
         StockItems.Clear();
@@ -17,5 +21,14 @@ public class SaveData : MonoBehaviour
                 StockItems.Add(i);
             }
         }
+    }
+
+    public async void TestSaving()
+    {
+        var itemData = new ItemData();
+        itemData.ItemName = "CoolItem";
+        await DungeonMerchant.FileIO.JsonSerializationHandler.ResolveDataDirectoryAsync();
+        await DungeonMerchant.FileIO.JsonSerializationHandler.SerializeObjectToDataDirectory(itemData, "SaveData.json");
+
     }
 }

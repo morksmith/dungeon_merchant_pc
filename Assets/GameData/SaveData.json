@@ -1,10 +1,9 @@
-[
-  {
-    "ItemName": "Weapon",
-    "ItemSprite": {
-      "sprite": {
-        "bounds": {
-          "center": {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0
+{
+  "ItemName": "CoolItem",
+  "ItemSprite": null,
+  "BasePrice": 0.0,
+  "Type": null,
+  "DamageType": 0.0,
+  "HP": 0.0,
+  "Damage": 0.0
+}

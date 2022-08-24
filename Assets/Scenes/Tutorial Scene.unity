@@ -26297,6 +26297,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1554767462}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Dungeon Start
+          m_BoolArgument: 0
+        m_CallState: 2
   StepText: A hero cannot return until they reach the end of a level. Once they reach
     the end of a level, you can retrieve them to obtain the gold and items they collected.
     Tap to continue.
@@ -32716,6 +32728,73 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6723141200302286131, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
   m_PrefabInstance: {fileID: 6723141201573289124}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1554767460
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1828641200}
+    m_Modifications:
+    - target: {fileID: 4883770032801080913, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_Name
+      value: Dungeon Overlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.0400095
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071079
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000008940697
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000029802317
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+--- !u!4 &1554767461 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4883770032801080915, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+  m_PrefabInstance: {fileID: 1554767460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1554767462 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4883770032801080912, guid: a2bc03b89d814594ab165009d6d4a2dc, type: 3}
+  m_PrefabInstance: {fileID: 1554767460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1561604091
 GameObject:
   m_ObjectHideFlags: 0
@@ -36798,6 +36877,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1554767462}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Dungeon End
+          m_BoolArgument: 0
+        m_CallState: 2
   StepText: Tap on the right button to view customer requests.
   NextButton: {fileID: 127312702}
   TextboxPosition: -300
@@ -36917,7 +37008,8 @@ Transform:
   m_LocalPosition: {x: 0.5, y: 5.5000005, z: -12.039993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1554767461}
   m_Father: {fileID: 2050416735}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43019,6 +43111,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2135481764}
+    - target: {fileID: 6723141200388177692, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1554767462}
+    - target: {fileID: 6723141200388177692, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
     - target: {fileID: 6723141200399364664, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -43239,10 +43339,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2060876958}
+    - target: {fileID: 6723141200782177533, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1554767462}
+    - target: {fileID: 6723141200782177533, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
     - target: {fileID: 6723141200785804945, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2135481764}
+    - target: {fileID: 6723141200785804945, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1554767462}
+    - target: {fileID: 6723141200785804945, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
     - target: {fileID: 6723141200796269006, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -43379,6 +43495,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2135481764}
+    - target: {fileID: 6723141201240222051, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1554767462}
+    - target: {fileID: 6723141201240222051, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
     - target: {fileID: 6723141201250220722, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_Interactable
       value: 0
