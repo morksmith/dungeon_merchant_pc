@@ -5,5 +5,5 @@ using System;
 [Serializable]
 public class SaveData
 {
-    public List<ItemData> stockItemData;
+    public List<ItemData> AllItems;
 }

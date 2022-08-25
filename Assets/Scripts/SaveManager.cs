@@ -44,20 +44,23 @@ public class SaveManager : MonoBehaviour
     {
         var newSave = new SaveData();
         var allItems = GameObject.FindObjectsOfType<Item>();
-        var stockItems = new List<ItemData>();
+        var allItemsData = new List<ItemData>();
         foreach(Item i in allItems)
         {
-            if(!i.Merchant && !i.Equipped)
-            {
-                stockItems.Add(i.Data);
-            }
+            allItemsData.Add(i.Data);
         }
-        newSave.stockItemData = stockItems;
+        newSave.AllItems = allItemsData;
         await DungeonMerchant.FileIO.JsonSerializationHandler.ResolveDataDirectoryAsync();
         await DungeonMerchant.FileIO.JsonSerializationHandler.SerializeObjectToDataDirectory(newSave, "SaveData.json");
 
         Debug.Log("Did the save thing");
     }
+
+    //public async void LoadGame()
+    //{
+    //    await DungeonMerchant.FileIO.JsonSerializationHandler.ResolveDataDirectoryAsync();
+    //    await DungeonMerchant.FileIO.JsonSerializationHandler.DeserializeObjectFromDataDirectory<SaveData>("SaveData.json");
+    //}
     
 
 

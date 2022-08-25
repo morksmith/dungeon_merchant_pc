@@ -206,8 +206,12 @@ public class Item : MonoBehaviour
         newItemData.BasePrice = BasePrice;
         newItemData.TypeIndex = TypeIndex;
         newItemData.DamageType = DamageType;
+        newItemData.Merchant = Merchant;
+        newItemData.Equipped = Equipped;
+        newItemData.Selling = Selling;
         if(GetComponent<Weapon>() != null)
         {
+            newItemData.ItemName = GetComponent<Weapon>().WeaponName;
             newItemData.Level = GetComponent<Weapon>().Level;
             newItemData.StatPoint = GetComponent<Weapon>().Damage;
             newItemData.ConsumableType = 0;

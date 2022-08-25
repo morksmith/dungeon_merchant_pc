@@ -11,4 +11,7 @@ public class ItemData
     public float Level;
     public float StatPoint;
     public int ConsumableType;
+    public bool Merchant;
+    public bool Equipped;
+    public bool Selling;
 }

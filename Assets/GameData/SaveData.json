@@ -1,44 +1,56 @@
 {
-  "stockItemData": [
+  "AllItems": [
     {
-      "ItemName": "Weapon",
+      "ItemName": "Potion",
       "SpriteIndex": 0,
-      "BasePrice": 45.0,
+      "BasePrice": 10.0,
+      "TypeIndex": 0,
+      "DamageType": 0.0,
+      "Level": 1.0,
+      "StatPoint": 20.0,
+      "ConsumableType": 1,
+      "Merchant": true,
+      "Equipped": false,
+      "Selling": false
+    },
+    {
+      "ItemName": "Crown",
+      "SpriteIndex": 0,
+      "BasePrice": 18.0,
+      "TypeIndex": 0,
+      "DamageType": 0.0,
+      "Level": 2.0,
+      "StatPoint": 6.0,
+      "ConsumableType": 0,
+      "Merchant": false,
+      "Equipped": false,
+      "Selling": false
+    },
+    {
+      "ItemName": "Town Portal",
+      "SpriteIndex": 0,
+      "BasePrice": 100.0,
+      "TypeIndex": 0,
+      "DamageType": 0.0,
+      "Level": 1.0,
+      "StatPoint": 10.0,
+      "ConsumableType": 2,
+      "Merchant": false,
+      "Equipped": false,
+      "Selling": false
+    },
+    {
+      "ItemName": "Sceptre",
+      "SpriteIndex": 0,
+      "BasePrice": 30.0,
       "TypeIndex": 0,
       "DamageType": 1.0,
       "Level": 2.0,
-      "StatPoint": 15.0,
-      "ConsumableType": 0
-    },
-    {
-      "ItemName": "Great Helm",
-      "SpriteIndex": 0,
-      "BasePrice": 42.0,
-      "TypeIndex": 0,
-      "DamageType": 0.0,
-      "Level": 1.0,
-      "StatPoint": 14.0,
-      "ConsumableType": 0
-    },
-    {
-      "ItemName": "Town Portal",
-      "SpriteIndex": 0,
-      "BasePrice": 100.0,
-      "TypeIndex": 0,
-      "DamageType": 0.0,
-      "Level": 1.0,
       "StatPoint": 10.0,
-      "ConsumableType": 2
-    },
-    {
-      "ItemName": "Town Portal",
-      "SpriteIndex": 0,
-      "BasePrice": 100.0,
-      "TypeIndex": 0,
-      "DamageType": 0.0,
-      "Level": 1.0,
-      "StatPoint": 10.0,
-      "ConsumableType": 2
+      "ConsumableType": 0,
+      "Merchant": true,
+      "Equipped": false,
+      "Selling": false
     }
   ]
 }

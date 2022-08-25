@@ -665,6 +665,7 @@ public class StockManager : MonoBehaviour
         AllItems = GameObject.FindObjectsOfType<Item>();
         for(var i = 0; i < AllItems.Length; i++)
         {
+            AllItems[i].StoreData();
             if (!AllItems[i].Selling)
             {
                 if (AllItems[i].gameObject.GetComponent<Weapon>())
