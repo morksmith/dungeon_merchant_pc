@@ -17,5 +17,6 @@ public class ItemType : MonoBehaviour
         Ring,
     }
     public ItemTypes Type;
-   
+
+    public static ItemType End { get; internal set; }
 }

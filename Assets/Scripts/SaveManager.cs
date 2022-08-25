@@ -8,7 +8,6 @@ public class SaveManager : MonoBehaviour
 {
     public LevelManager Level;
     public Button ContinueButton;
-    public SaveData Data;
 
 
     private void Start()
@@ -43,10 +42,19 @@ public class SaveManager : MonoBehaviour
 
     public async void SaveGame()
     {
-        Data.CollectData();
-
+        var newSave = new SaveData();
+        var allItems = GameObject.FindObjectsOfType<Item>();
+        var stockItems = new List<ItemData>();
+        foreach(Item i in allItems)
+        {
+            if(!i.Merchant && !i.Equipped)
+            {
+                stockItems.Add(i.Data);
+            }
+        }
+        newSave.stockItemData = stockItems;
         await DungeonMerchant.FileIO.JsonSerializationHandler.ResolveDataDirectoryAsync();
-        await DungeonMerchant.FileIO.JsonSerializationHandler.SerializeObjectToDataDirectory(Data.Stock.AllItems, "SaveData.json");
+        await DungeonMerchant.FileIO.JsonSerializationHandler.SerializeObjectToDataDirectory(newSave, "SaveData.json");
 
         Debug.Log("Did the save thing");
     }

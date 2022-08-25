@@ -1,9 +1,44 @@
 {
-  "ItemName": "CoolItem",
-  "ItemSprite": null,
-  "BasePrice": 0.0,
-  "Type": null,
-  "DamageType": 0.0,
-  "HP": 0.0,
-  "Damage": 0.0
+  "stockItemData": [
+    {
+      "ItemName": "Weapon",
+      "SpriteIndex": 0,
+      "BasePrice": 45.0,
+      "TypeIndex": 0,
+      "DamageType": 1.0,
+      "Level": 2.0,
+      "StatPoint": 15.0,
+      "ConsumableType": 0
+    },
+    {
+      "ItemName": "Great Helm",
+      "SpriteIndex": 0,
+      "BasePrice": 42.0,
+      "TypeIndex": 0,
+      "DamageType": 0.0,
+      "Level": 1.0,
+      "StatPoint": 14.0,
+      "ConsumableType": 0
+    },
+    {
+      "ItemName": "Town Portal",
+      "SpriteIndex": 0,
+      "BasePrice": 100.0,
+      "TypeIndex": 0,
+      "DamageType": 0.0,
+      "Level": 1.0,
+      "StatPoint": 10.0,
+      "ConsumableType": 2
+    },
+    {
+      "ItemName": "Town Portal",
+      "SpriteIndex": 0,
+      "BasePrice": 100.0,
+      "TypeIndex": 0,
+      "DamageType": 0.0,
+      "Level": 1.0,
+      "StatPoint": 10.0,
+      "ConsumableType": 2
+    }
+  ]
 }

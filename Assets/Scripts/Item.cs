@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
 {
     public string ItemName;    
     public Image ItemSprite;
+    public int SpriteIndex;
     public Image DemandIcon;
     public Sprite DownSprite;
     public Sprite UpSprite;
@@ -16,6 +17,7 @@ public class Item : MonoBehaviour
     public float BasePrice;
     public float Price;
     public ItemType Type;
+    public int TypeIndex;
     public GameObject CollectButton;
     public GameObject PriceInfo;
     public TextMeshProUGUI PriceText;
@@ -28,7 +30,7 @@ public class Item : MonoBehaviour
     public bool Merchant;
     public Slider SellSlider;
     public TextMeshProUGUI LevelText;
-
+    public ItemData Data;
 
     private StockManager stockMan;
     private MerchantMenu merch;
@@ -44,6 +46,12 @@ public class Item : MonoBehaviour
         {
             merch = GameObject.FindObjectOfType<MerchantMenu>();
         }
+
+        StoreData();
+
+
+
+        
     }
 
     // Update is called once per frame
@@ -188,6 +196,42 @@ public class Item : MonoBehaviour
         CollectButton.SetActive(true);
         CollectButton.GetComponentInChildren<TextMeshProUGUI>().text = "SOLD\n" + Price + "G";
         stockMan.NewSale();
+    }
+
+    public void StoreData()
+    {
+        var newItemData = new ItemData();
+        newItemData.ItemName = ItemName;
+        newItemData.SpriteIndex = SpriteIndex;
+        newItemData.BasePrice = BasePrice;
+        newItemData.TypeIndex = TypeIndex;
+        newItemData.DamageType = DamageType;
+        if(GetComponent<Weapon>() != null)
+        {
+            newItemData.Level = GetComponent<Weapon>().Level;
+            newItemData.StatPoint = GetComponent<Weapon>().Damage;
+            newItemData.ConsumableType = 0;
+        }
+        else if(GetComponent<Armour>() != null)
+        {
+            newItemData.Level = GetComponent<Armour>().Level;
+            newItemData.StatPoint = GetComponent<Armour>().HP;
+            newItemData.ConsumableType = 0;
+        }
+        else if (GetComponent<Consumable>() != null)
+        {
+            newItemData.Level = GetComponent<Consumable>().Level;
+            newItemData.StatPoint = GetComponent<Consumable>().Value;
+            if(GetComponent<Consumable>().Type == Consumable.ConsumableType.Potion)
+            {
+                newItemData.ConsumableType = 1;
+            }
+            else
+            {
+                newItemData.ConsumableType = 2;
+            }
+        }
+        Data = newItemData;
     }
 
     
