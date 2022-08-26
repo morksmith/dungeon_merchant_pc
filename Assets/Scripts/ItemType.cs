@@ -12,7 +12,6 @@ public class ItemType : MonoBehaviour
         Wand,
         Helm,
         Armour,
-        Boots,
         Consumable,
     }
     public ItemTypes Type;

@@ -17,7 +17,10 @@ public class EquipMenu : MonoBehaviour
     public EquipmentSlot WeaponSlot;
     public GameObject EquipBlock;
     public Stats[] AllHeroes;
-
+    public Transform WeaponItemSlot;
+    public Transform HelmSlot;
+    public Transform ArmourSlot;
+    public Transform ConsumableSlot;
     public void UpdateEquipMenu(Stats s)
     {
         AllHeroes = GameObject.FindObjectsOfType<Stats>().Where(h => h.State != Stats.HeroState.NotHired).ToArray();

@@ -5,5 +5,7 @@ using System;
 [Serializable]
 public class SaveData
 {
+
+    public List<HeroData> AllHeroes;
     public List<ItemData> AllItems;
 }

@@ -13,8 +13,9 @@ public class HeroGenerator : MonoBehaviour
     public List<string> RogueLastNames;
     public List<string> WarriorFirstNames;
     public List<string> WarriorLastNames;
-    
-
+    public List<Sprite> SpriteIndex;
+    public ItemGenerator ItemGen;
+    public EquipMenu Equipment; 
     public List<GameObject> HeroPrefabs;
     public GameObject TutorialHero;
     public Transform HeroParent;
@@ -77,5 +78,59 @@ public class HeroGenerator : MonoBehaviour
         newHero.GetComponent<Stats>().Level = 1;
         HireScreen.UpdateHeroInfo(newHero.gameObject.transform);
         newHero.gameObject.SetActive(false);
+    }
+
+    public void CreateSpecificHero(HeroData hd)
+    {
+        var newHero = Instantiate(HeroPrefabs[hd.DamageType]);
+        var newHeroStats = newHero.GetComponent<Stats>();
+        newHeroStats.HeroSprite = SpriteIndex[hd.SpriteIndex];
+        newHeroStats.gameObject.name = hd.HeroName;
+        newHeroStats.HeroName = hd.HeroName;
+        newHeroStats.Level = hd.Level;
+        newHeroStats.MaxHP = hd.MaxHP;
+        newHeroStats.MaxXP = hd.MaxXP;
+        newHeroStats.XP = hd.XP;
+        newHeroStats.Damage = hd.Damage;
+        newHeroStats.Range = hd.Range;
+        newHeroStats.Discovery = hd.Discovery;
+        newHeroStats.LootFind = hd.LootFind;
+        newHeroStats.State = Stats.HeroState.Idle;
+        if (hd.WeaponData != null)
+        {
+            ItemGen.CreateEquippedItem(hd.WeaponData, Equipment.WeaponItemSlot, newHeroStats);
+        }
+        else
+        {
+            newHeroStats.WeaponItem = null;
+        }
+        if (hd.ArmourData != null)
+        {
+            ItemGen.CreateEquippedItem(hd.ArmourData, Equipment.ArmourSlot, newHeroStats);
+        }
+        else
+        {
+            newHeroStats.ArmourItem = null;
+        }
+        if (hd.HelmData != null)
+        {
+            ItemGen.CreateEquippedItem(hd.HelmData, Equipment.HelmSlot, newHeroStats);
+        }
+        else
+        {
+            newHeroStats.HelmItem = null;
+        }
+        if (hd.ConsumableData != null)
+        {
+            ItemGen.CreateEquippedItem(hd.ConsumableData, Equipment.ConsumableSlot, newHeroStats);
+        }
+        else
+        {
+            newHeroStats.ConsumableItem = null;
+        }
+        newHero.transform.SetParent(GameObject.FindObjectOfType<HireMenu>().HeroParent);
+        newHero.transform.localScale = Vector3.one;
+        
+
     }
 }

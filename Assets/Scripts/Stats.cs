@@ -32,6 +32,7 @@ public class Stats : MonoBehaviour
     public int DamageType;
     public HeroManager Manager;
     public Sprite HeroSprite;
+    public int SpriteIndex;
     public Slider XPSlider;
     public TextMeshProUGUI LevelText;
     public GameObject DeadText;
@@ -50,12 +51,15 @@ public class Stats : MonoBehaviour
     public float GoldHeld;
     public float LootHeld;
     public List<int> ChestLevels;
+    public HeroData Data;
     
 
     private void Start()
     {
         Manager = GameObject.FindObjectOfType<HeroManager>();
         LevelText.text = Level.ToString();
+
+        StoreData();
        
     }
     // Update is called once per frame
@@ -183,6 +187,64 @@ public class Stats : MonoBehaviour
         {
             Destroy(ConsumableItem.gameObject);
         }
+    }
+
+    public void StoreData()
+    {
+        var newHeroData = new HeroData();
+        if(WeaponItem != null)
+        {
+            newHeroData.WeaponData = WeaponItem.Data;
+        }
+        else
+        {
+            newHeroData.WeaponData = null;
+        }
+        if (ArmourItem != null)
+        {
+            newHeroData.ArmourData = ArmourItem.Data;
+        }
+        else
+        {
+            newHeroData.ArmourData = null;
+        }
+        if (HelmItem != null)
+        {
+            newHeroData.HelmData = HelmItem.Data;
+        }
+        else
+        {
+            newHeroData.HelmData = null;
+        }
+        if (ConsumableItem != null)
+        {
+            newHeroData.ConsumableData = ConsumableItem.Data;
+        }
+        else
+        {
+            newHeroData.ConsumableData = null;
+        }
+        newHeroData.DamageType = DamageType;
+        newHeroData.HeroName = HeroName;
+        newHeroData.SpriteIndex = SpriteIndex;
+        newHeroData.Level = Level;
+        newHeroData.MaxHP = MaxHP;
+        newHeroData.MaxXP = MaxXP;
+        newHeroData.XP = XP;
+        newHeroData.Damage = Damage;
+        newHeroData.Range = Range;
+        newHeroData.Discovery = Discovery;
+        newHeroData.LootFind = LootFind;
+        if(State == HeroState.NotHired)
+        {
+            newHeroData.Hired = false;
+        }
+        else if (State != HeroState.Dead)
+        {
+            newHeroData.Hired = true;
+        }
+        Data = newHeroData;
+
     }
    
 

@@ -9,7 +9,9 @@ public class SaveManager : MonoBehaviour
     public LevelManager Level;
     public Button ContinueButton;
     public StockManager Stock;
+    public EquipMenu Equipment;
     public ItemGenerator ItemGen;
+    public HeroGenerator HeroGen;
     public bool MainGame = false;
 
 
@@ -52,13 +54,21 @@ public class SaveManager : MonoBehaviour
     {
         var newSave = new SaveData();
         var allItems = GameObject.FindObjectsOfType<Item>();
+        var allHeroes = GameObject.FindObjectsOfType<Stats>();
         var allItemsData = new List<ItemData>();
+        var allHeroesData = new List<HeroData>();
         foreach(Item i in allItems)
         {
             i.StoreData();
             allItemsData.Add(i.Data);
         }
+        foreach (Stats s in allHeroes)
+        {
+            s.StoreData();
+            allHeroesData.Add(s.Data);
+        }
         newSave.AllItems = allItemsData;
+        newSave.AllHeroes = allHeroesData;
         await DungeonMerchant.FileIO.JsonSerializationHandler.ResolveDataDirectoryAsync();
         await DungeonMerchant.FileIO.JsonSerializationHandler.SerializeObjectToDataDirectory(newSave, "SaveData.json");
 
@@ -74,10 +84,21 @@ public class SaveManager : MonoBehaviour
         SaveData loadedData = await DungeonMerchant.FileIO.JsonSerializationHandler.DeserializeObjectFromDataDirectory<SaveData>("SaveData.json");
         foreach(ItemData id in loadedData.AllItems)
         {
-            if(!id.Equipped && !id.Merchant)
+            if(!id.Merchant && !id.Equipped)
             {
                 ItemGen.CreateSpecificItem(id);
             }
+        }
+
+        foreach(HeroData hd in loadedData.AllHeroes)
+        {
+            if (hd.Hired)
+            {
+                HeroGen.CreateSpecificHero(hd);
+                
+            }
+            
+
         }
 
         Stock.UpdatePrices();

@@ -234,6 +234,80 @@ public class ItemGenerator : MonoBehaviour
             if (!newItem.Selling)
             {
                 newItem.transform.SetParent(StockList);
+                newItem.transform.localScale = Vector3.one;
+                newItem.PriceUI();
+            }
+            else
+            {
+                newItem.transform.SetParent(Stock.ShopList);
+            }
+        }
+        else if(id.TypeIndex < 6)
+        {
+            var newArmourItem = new GameObject();
+            if (id.TypeIndex == 4)
+            {
+                var helm = Instantiate(HelmPrefabs[0]);
+                newArmourItem = helm;
+            }
+            else if (id.TypeIndex == 5)
+            {
+                var armour = Instantiate(ArmourPrefabs[0]);
+                newArmourItem = armour;
+            }
+            var newItem = newArmourItem.GetComponent<Item>();
+            var newArmour = newArmourItem.GetComponent<Armour>();
+            newItem.ItemName = id.ItemName;
+            newItem.SpriteIndex = id.SpriteIndex;
+            newItem.BasePrice = id.BasePrice;
+            newItem.TypeIndex = id.TypeIndex;
+            newArmour.Level = id.Level;
+            newArmour.HP = id.StatPoint;
+            newItem.Selling = id.Selling;
+            newItem.SellTimer = id.SellTimer;
+            newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
+            if (!newItem.Selling)
+            {
+                newItem.transform.SetParent(StockList);
+                newItem.transform.localScale = Vector3.one;
+                newItem.PriceUI();
+
+            }
+            else
+            {
+                newItem.transform.SetParent(Stock.ShopList);
+            }
+        }
+        else
+        {
+            var newConsumableItem = new GameObject();
+            if (id.ConsumableType == 1)
+            {
+                var potion = Instantiate(PotionPrefab);
+                newConsumableItem = potion;
+            }
+            else if (id.ConsumableType == 2)
+            {
+                var portal = Instantiate(PortalPrefab);
+                newConsumableItem = portal;
+            }
+            var newItem = newConsumableItem.GetComponent<Item>();
+            var newConsumable = newConsumableItem.GetComponent<Consumable>();
+            newItem.ItemName = id.ItemName;
+            newItem.SpriteIndex = id.SpriteIndex;
+            newItem.BasePrice = id.BasePrice;
+            newItem.TypeIndex = id.TypeIndex;
+            newConsumable.Level = id.Level;
+            newConsumable.Value = id.StatPoint;
+            newItem.Selling = id.Selling;
+            newItem.SellTimer = id.SellTimer;
+            newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
+            if (!newItem.Selling)
+            {
+                newItem.transform.SetParent(StockList);
+                newItem.transform.localScale = Vector3.one;
+                newItem.PriceUI();
+
             }
             else
             {
@@ -241,8 +315,118 @@ public class ItemGenerator : MonoBehaviour
             }
         }
     }
+    public void CreateEquippedItem(ItemData id, Transform parent, Stats hero)
+    {
+        if (id.TypeIndex < 4)
+        {
+            var newWeaponItem = new GameObject();
+            if (id.TypeIndex == 0)
+            {
+                var newSword = Instantiate(SwordPrefabs[0]);
+                newWeaponItem = newSword;
+            }
+            else if (id.TypeIndex == 1)
+            {
+                var newClub = Instantiate(ClubPrefabs[0]);
+                newWeaponItem = newClub;
+            }
+            else if (id.TypeIndex == 2)
+            {
+                var newBow = Instantiate(BowPrefabs[0]);
+                newWeaponItem = newBow;
+            }
+            else if (id.TypeIndex == 3)
+            {
+                var newWand = Instantiate(WandPrefabs[0]);
+                newWeaponItem = newWand;
+            }
 
-        
+            newWeaponItem.name = id.ItemName;
+            var newItem = newWeaponItem.GetComponent<Item>();
+            var newWeapon = newWeaponItem.GetComponent<Weapon>();
+            newItem.ItemName = id.ItemName;
+            newItem.SpriteIndex = id.SpriteIndex;
+            newItem.BasePrice = id.BasePrice;
+            newItem.TypeIndex = id.TypeIndex;
+            newWeapon.Level = id.Level;
+            newWeapon.WeaponName = id.ItemName;
+            newWeapon.Damage = id.StatPoint;
+            newItem.Selling = id.Selling;
+            newItem.SellTimer = id.SellTimer;
+            newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
+            newItem.transform.SetParent(parent);
+            newItem.transform.position = parent.position;
+            newItem.transform.localScale = Vector3.one;
+            newItem.Equipped = true;
+            hero.WeaponItem = newItem;
+        }
+        else if (id.TypeIndex < 6)
+        {
+            var newArmourItem = new GameObject();
+            if (id.TypeIndex == 4)
+            {
+                var helm = Instantiate(HelmPrefabs[0]);
+                newArmourItem = helm;
+                hero.HelmItem = newArmourItem.GetComponent<Item>();
+            }
+            else if (id.TypeIndex == 5)
+            {
+                var armour = Instantiate(ArmourPrefabs[0]);
+                newArmourItem = armour;
+                hero.ArmourItem = newArmourItem.GetComponent<Item>();
+            }
+            var newItem = newArmourItem.GetComponent<Item>();
+            var newArmour = newArmourItem.GetComponent<Armour>();
+            newItem.ItemName = id.ItemName;
+            newItem.SpriteIndex = id.SpriteIndex;
+            newItem.BasePrice = id.BasePrice;
+            newItem.TypeIndex = id.TypeIndex;
+            newArmour.Level = id.Level;
+            newArmour.HP = id.StatPoint;
+            newItem.Selling = id.Selling;
+            newItem.SellTimer = id.SellTimer;
+            newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
+            newItem.transform.SetParent(parent);
+            newItem.transform.position = parent.position;
+            newItem.transform.localScale = Vector3.one;
+            newItem.Equipped = true;
+
+
+        }
+        else
+        {
+            var newConsumableItem = new GameObject();
+            if (id.ConsumableType == 1)
+            {
+                var potion = Instantiate(PotionPrefab);
+                newConsumableItem = potion;
+            }
+            else if (id.ConsumableType == 2)
+            {
+                var portal = Instantiate(PortalPrefab);
+                newConsumableItem = portal;
+            }
+            var newItem = newConsumableItem.GetComponent<Item>();
+            var newConsumable = newConsumableItem.GetComponent<Consumable>();
+            newItem.ItemName = id.ItemName;
+            newItem.SpriteIndex = id.SpriteIndex;
+            newItem.BasePrice = id.BasePrice;
+            newItem.TypeIndex = id.TypeIndex;
+            newConsumable.Level = id.Level;
+            newConsumable.Value = id.StatPoint;
+            newItem.Selling = id.Selling;
+            newItem.SellTimer = id.SellTimer;
+            newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
+            newItem.transform.SetParent(parent);
+            newItem.transform.position = parent.position;
+            newItem.transform.localScale = Vector3.one;
+            newItem.Equipped = true;
+
+            hero.ConsumableItem = newItem;
+        }
+    }
+
+
 
 
 }

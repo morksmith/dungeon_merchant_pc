@@ -198,6 +198,28 @@ public class Item : MonoBehaviour
         stockMan.NewSale();
     }
 
+    public void PriceUI()
+    {
+        PriceText.text = Price + "G";
+        if (gameObject.GetComponent<Weapon>())
+        {
+            LevelText.text = gameObject.GetComponent<Weapon>().Level.ToString();
+        }
+        else if (gameObject.GetComponent<Armour>())
+        {
+            LevelText.text = gameObject.GetComponent<Armour>().Level.ToString();
+        }
+        else if (gameObject.GetComponent<Consumable>())
+        {
+            var con = gameObject.GetComponent<Consumable>();
+            LevelText.text = con.Value.ToString();
+        }
+        else
+        {
+            LevelText.text = " ";
+        }
+    }
+
     public void StoreData()
     {
         var newItemData = new ItemData();

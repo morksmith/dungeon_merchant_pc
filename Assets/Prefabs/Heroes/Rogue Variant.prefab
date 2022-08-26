@@ -47,6 +47,10 @@ PrefabInstance:
       propertyPath: HeroSprite
       value: 
       objectReference: {fileID: 871194723, guid: 5d5ad8d7abb81d44eb65daec97b0b0cd, type: 3}
+    - target: {fileID: 1697211788159581743, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
+      propertyPath: SpriteIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4953946752841719014, guid: 3bf88d60707bc2743ad06f46c1438682, type: 3}
       propertyPath: m_Sprite
       value: 
