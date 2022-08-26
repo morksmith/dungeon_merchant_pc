@@ -42,6 +42,7 @@ public class StockManager : MonoBehaviour
     public AudioClip CollectSound;
     public AudioClip ChestSound;
     public GameObject InfoPanel;
+    public SaveManager Save;
 
     private SFXManager sfx;
 
@@ -52,8 +53,6 @@ public class StockManager : MonoBehaviour
         if (Tutorial == null)
         {
             Debug.Log("No Tutorial");
-            Gold = PlayerPrefs.GetFloat("Player Gold");
-            MaxProfit = PlayerPrefs.GetFloat("Max Profit");
         }
         GoldText.text = Gold + "G";
         UpdatePrices();
@@ -472,8 +471,11 @@ public class StockManager : MonoBehaviour
 
             ItemInfoText.color = Color.white;
         }
+        if (!Tutorial)
+        {
+            Save.SaveGame();
 
-       
+        }
     }
 
     public void SelectItem(Item i)
@@ -542,8 +544,10 @@ public class StockManager : MonoBehaviour
             }
 
         }
-        PlayerPrefs.SetFloat("Player Gold", Gold);
-        PlayerPrefs.SetFloat("Max Profit", MaxProfit);
+        if (!Tutorial)
+        {
+            Save.SaveGame();
+        }
     }
 
     public void CalculateArmourAndPotions(float a, float p)

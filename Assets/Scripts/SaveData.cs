@@ -5,7 +5,9 @@ using System;
 [Serializable]
 public class SaveData
 {
-
+    public float Gold;
+    public float MaxProfit;
+    public int MaxLevel;
     public List<HeroData> AllHeroes;
     public List<ItemData> AllItems;
 }

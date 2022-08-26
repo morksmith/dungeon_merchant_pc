@@ -44,6 +44,16 @@ namespace DungeonMerchant.FileIO
                 return Task.FromResult(false);
         }
 
+        public static Task DeleteSave(string fileName)
+        {
+            var fullPath = string.Concat(_pathToResourcesDirectory, fileName.Replace(".json", ""));
+            if (File.Exists(fullPath))
+                File.Delete(fullPath);
+
+            return Task.CompletedTask;
+            
+        }
+
         public static async Task SerializeObjectToDataDirectory(object objectToSerialize, string fileName)
         {
             var serializer = new JsonSerializer

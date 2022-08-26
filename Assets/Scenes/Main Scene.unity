@@ -682,6 +682,7 @@ MonoBehaviour:
   CollectSound: {fileID: 8300000, guid: 5cc41b14d3bf9544e919793d5fcc62e9, type: 3}
   ChestSound: {fileID: 8300000, guid: f3cc1b354ffb1f5468067b27ac508a55, type: 3}
   InfoPanel: {fileID: 226711300}
+  Save: {fileID: 1239310553}
 --- !u!4 &70214547
 Transform:
   m_ObjectHideFlags: 0
@@ -18279,6 +18280,7 @@ MonoBehaviour:
   ItemGen: {fileID: 70214548}
   HeroGen: {fileID: 2135481766}
   MainGame: 1
+  Hero: {fileID: 2135481764}
 --- !u!4 &1239310554
 Transform:
   m_ObjectHideFlags: 0
@@ -21374,7 +21376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1664892986
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25372,6 +25374,7 @@ MonoBehaviour:
   EnterDungeonSound: {fileID: 8300000, guid: e3fd2704acac0d6458ea8fb4f7585d6d, type: 3}
   DungeonCompleteSound: {fileID: 8300000, guid: d9d8d8d5a05673e4194b7aef4129579b, type: 3}
   NewDaySound: {fileID: 8300000, guid: d1fc2c33783663c46863dbf8597a0ec3, type: 3}
+  Save: {fileID: 0}
 --- !u!4 &2060876959
 Transform:
   m_ObjectHideFlags: 0

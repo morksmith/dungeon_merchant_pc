@@ -13,6 +13,7 @@ public class SaveManager : MonoBehaviour
     public ItemGenerator ItemGen;
     public HeroGenerator HeroGen;
     public bool MainGame = false;
+    public HeroManager Hero;
 
 
     private void Start()
@@ -40,19 +41,25 @@ public class SaveManager : MonoBehaviour
 
     }
 
-    public void ResetProgress()
+    public async void ResetProgress()
     {
+        await DungeonMerchant.FileIO.JsonSerializationHandler.DeleteSave("SaveData.json");
         var musicVol = PlayerPrefs.GetFloat("Music Volume");
         var sfxVol = PlayerPrefs.GetFloat("SFX Volume");
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetFloat("Music Volume", musicVol);
         PlayerPrefs.SetFloat("SFX Volume", sfxVol);
 
+
     }
 
     public async void SaveGame()
     {
         var newSave = new SaveData();
+        newSave.Gold = Stock.Gold;
+        newSave.MaxProfit = Stock.MaxProfit;
+        newSave.MaxLevel = Hero.MaxDungeonFloor;
+
         var allItems = GameObject.FindObjectsOfType<Item>();
         var allHeroes = GameObject.FindObjectsOfType<Stats>();
         var allItemsData = new List<ItemData>();
@@ -77,12 +84,17 @@ public class SaveManager : MonoBehaviour
 
     public async void LoadGame()
     {
+
         if(!await DungeonMerchant.FileIO.JsonSerializationHandler.CheckIfFileExistsInDataDirectory("SaveData.json"))
         {
             return;
         }
         SaveData loadedData = await DungeonMerchant.FileIO.JsonSerializationHandler.DeserializeObjectFromDataDirectory<SaveData>("SaveData.json");
-        foreach(ItemData id in loadedData.AllItems)
+        Stock.Gold = loadedData.Gold;
+        Stock.MaxProfit = loadedData.MaxProfit;
+        Hero.MaxDungeonFloor = loadedData.MaxLevel;
+        Stock.GoldText.text = Stock.Gold + "G";
+        foreach (ItemData id in loadedData.AllItems)
         {
             if(!id.Merchant && !id.Equipped)
             {

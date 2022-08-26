@@ -68,6 +68,7 @@ public class DungeonManager : MonoBehaviour
     public AudioClip EnterDungeonSound;
     public AudioClip DungeonCompleteSound;
     public AudioClip NewDaySound;
+    public SaveManager Save;
     private bool readyForNextDungeon = false;
     private float nextDungeonTime = 1;
     private float timer;
@@ -332,6 +333,10 @@ public class DungeonManager : MonoBehaviour
 
     public void CycleDungeon()
     {
+        if (!Tutorial)
+        {
+            Save.SaveGame();
+        }
         sfx.PlaySound(NewDaySound);
         EnemyCount = NextCount;
         if (EnemyCount > 1 && EnemyCount < 3)
@@ -482,6 +487,10 @@ public class DungeonManager : MonoBehaviour
 
     public void DungeonComplete()
     {
+        if (!Tutorial)
+        {
+            Save.SaveGame();
+        }
         TopContent.NewSaleIcon();
         DungeonCompleteMenu.Activate();
         if (DungeonCompleted)
