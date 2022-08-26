@@ -11,13 +11,17 @@ PrefabInstance:
       propertyPath: ItemName
       value: Cap
       objectReference: {fileID: 0}
+    - target: {fileID: 432933251108539341, guid: 7e33fc4377dce4b4f82188500dc99305, type: 3}
+      propertyPath: SpriteIndex
+      value: 66
+      objectReference: {fileID: 0}
     - target: {fileID: 7130774775090515298, guid: 7e33fc4377dce4b4f82188500dc99305, type: 3}
       propertyPath: HP
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8234171428619882254, guid: 7e33fc4377dce4b4f82188500dc99305, type: 3}
       propertyPath: m_Name
-      value: Cap
+      value: Cap Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8234171428619882255, guid: 7e33fc4377dce4b4f82188500dc99305, type: 3}
       propertyPath: m_Pivot.x

@@ -11,13 +11,21 @@ PrefabInstance:
       propertyPath: ItemName
       value: Great Helm
       objectReference: {fileID: 0}
+    - target: {fileID: 2219874636715974061, guid: 7a9c8f680ebf3e643a986de201042d4c, type: 3}
+      propertyPath: TypeIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219874636715974061, guid: 7a9c8f680ebf3e643a986de201042d4c, type: 3}
+      propertyPath: SpriteIndex
+      value: 71
+      objectReference: {fileID: 0}
     - target: {fileID: 7676707782724509659, guid: 7a9c8f680ebf3e643a986de201042d4c, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1182473873, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
     - target: {fileID: 7676707783266425198, guid: 7a9c8f680ebf3e643a986de201042d4c, type: 3}
       propertyPath: m_Name
-      value: Great Helm
+      value: Great Helm Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7676707783266425199, guid: 7a9c8f680ebf3e643a986de201042d4c, type: 3}
       propertyPath: m_Pivot.x

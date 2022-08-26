@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: ItemName
       value: Heavy Armour
       objectReference: {fileID: 0}
+    - target: {fileID: 1923753270550606620, guid: 00d56f9fa314fac4ebb445b5de037d6b, type: 3}
+      propertyPath: TypeIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923753270550606620, guid: 00d56f9fa314fac4ebb445b5de037d6b, type: 3}
+      propertyPath: SpriteIndex
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7995360889335363550, guid: 00d56f9fa314fac4ebb445b5de037d6b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -97,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7995360889335363551, guid: 00d56f9fa314fac4ebb445b5de037d6b, type: 3}
       propertyPath: m_Name
-      value: Heavy Armour
+      value: Heavy Armour Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7995360890884305258, guid: 00d56f9fa314fac4ebb445b5de037d6b, type: 3}
       propertyPath: m_Sprite

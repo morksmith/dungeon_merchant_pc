@@ -11,13 +11,17 @@ PrefabInstance:
       propertyPath: ItemName
       value: Silver Armour
       objectReference: {fileID: 0}
+    - target: {fileID: 1283396148864194167, guid: 8d92a19856c63c34aa5794151b0add5e, type: 3}
+      propertyPath: SpriteIndex
+      value: 58
+      objectReference: {fileID: 0}
     - target: {fileID: 7316160031302882305, guid: 8d92a19856c63c34aa5794151b0add5e, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1728304606, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
     - target: {fileID: 7316160031851745972, guid: 8d92a19856c63c34aa5794151b0add5e, type: 3}
       propertyPath: m_Name
-      value: Silver Armour
+      value: Silver Armour Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7316160031851745973, guid: 8d92a19856c63c34aa5794151b0add5e, type: 3}
       propertyPath: m_Pivot.x

@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: ItemName
       value: Chainmail
       objectReference: {fileID: 0}
+    - target: {fileID: 2084287613428121504, guid: 8a7bf57600000494ba4615cdc4d0d538, type: 3}
+      propertyPath: TypeIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084287613428121504, guid: 8a7bf57600000494ba4615cdc4d0d538, type: 3}
+      propertyPath: SpriteIndex
+      value: 49
+      objectReference: {fileID: 0}
     - target: {fileID: 7542211871901334370, guid: 8a7bf57600000494ba4615cdc4d0d538, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -97,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7542211871901334371, guid: 8a7bf57600000494ba4615cdc4d0d538, type: 3}
       propertyPath: m_Name
-      value: Chainmail
+      value: Chainmail Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7542211872460553686, guid: 8a7bf57600000494ba4615cdc4d0d538, type: 3}
       propertyPath: m_Sprite

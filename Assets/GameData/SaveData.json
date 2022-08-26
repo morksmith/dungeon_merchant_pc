@@ -1,56 +1,60 @@
 {
   "AllItems": [
     {
+      "ItemName": "Cap",
+      "SpriteIndex": 66,
+      "BasePrice": 33.0,
+      "TypeIndex": 4,
+      "DamageType": 0.0,
+      "Level": 2.0,
+      "StatPoint": 11.0,
+      "ConsumableType": 0,
+      "Merchant": true,
+      "Equipped": false,
+      "Selling": false,
+      "SellTimer": 0.0
+    },
+    {
       "ItemName": "Potion",
-      "SpriteIndex": 0,
+      "SpriteIndex": 72,
       "BasePrice": 10.0,
-      "TypeIndex": 0,
+      "TypeIndex": 7,
       "DamageType": 0.0,
       "Level": 1.0,
       "StatPoint": 20.0,
       "ConsumableType": 1,
       "Merchant": true,
       "Equipped": false,
-      "Selling": false
+      "Selling": false,
+      "SellTimer": 0.0
     },
     {
-      "ItemName": "Crown",
-      "SpriteIndex": 0,
-      "BasePrice": 18.0,
-      "TypeIndex": 0,
-      "DamageType": 0.0,
-      "Level": 2.0,
-      "StatPoint": 6.0,
-      "ConsumableType": 0,
-      "Merchant": false,
-      "Equipped": false,
-      "Selling": false
-    },
-    {
-      "ItemName": "Town Portal",
-      "SpriteIndex": 0,
-      "BasePrice": 100.0,
+      "ItemName": "Claymore",
+      "SpriteIndex": 10,
+      "BasePrice": 39.0,
       "TypeIndex": 0,
       "DamageType": 0.0,
       "Level": 1.0,
-      "StatPoint": 10.0,
-      "ConsumableType": 2,
+      "StatPoint": 13.0,
+      "ConsumableType": 0,
       "Merchant": false,
       "Equipped": false,
-      "Selling": false
+      "Selling": false,
+      "SellTimer": 0.0
     },
     {
-      "ItemName": "Sceptre",
-      "SpriteIndex": 0,
-      "BasePrice": 30.0,
-      "TypeIndex": 0,
-      "DamageType": 1.0,
+      "ItemName": "Mail Helm",
+      "SpriteIndex": 70,
+      "BasePrice": 45.0,
+      "TypeIndex": 4,
+      "DamageType": 0.0,
       "Level": 2.0,
-      "StatPoint": 10.0,
+      "StatPoint": 15.0,
       "ConsumableType": 0,
       "Merchant": true,
       "Equipped": false,
-      "Selling": false
+      "Selling": false,
+      "SellTimer": 0.0
     }
   ]
 }

@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: ItemName
       value: Knight Armour
       objectReference: {fileID: 0}
+    - target: {fileID: 527369025693085602, guid: 2834ac9d218b7df42b105d3eb3518675, type: 3}
+      propertyPath: TypeIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 527369025693085602, guid: 2834ac9d218b7df42b105d3eb3518675, type: 3}
+      propertyPath: SpriteIndex
+      value: 51
+      objectReference: {fileID: 0}
     - target: {fileID: 7180453914178447629, guid: 2834ac9d218b7df42b105d3eb3518675, type: 3}
       propertyPath: HP
       value: 13
@@ -101,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8292857973121903457, guid: 2834ac9d218b7df42b105d3eb3518675, type: 3}
       propertyPath: m_Name
-      value: Knight Armour
+      value: Knight Armour Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8292857974777802196, guid: 2834ac9d218b7df42b105d3eb3518675, type: 3}
       propertyPath: m_Sprite

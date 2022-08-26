@@ -14,4 +14,5 @@ public class ItemData
     public bool Merchant;
     public bool Equipped;
     public bool Selling;
+    public float SellTimer;
 }

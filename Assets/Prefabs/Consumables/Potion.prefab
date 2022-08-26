@@ -289,6 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Potion
   ItemSprite: {fileID: 482068943526014970}
+  SpriteIndex: 72
   DemandIcon: {fileID: 7548523062761926001}
   DownSprite: {fileID: -1241161481, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   UpSprite: {fileID: 443786278, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
@@ -297,6 +298,7 @@ MonoBehaviour:
   BasePrice: 1
   Price: 10
   Type: {fileID: 8713154654205602205}
+  TypeIndex: 7
   CollectButton: {fileID: 348487395371553760}
   PriceInfo: {fileID: 4827981067048685796}
   PriceText: {fileID: 6094902292251945812}
@@ -309,6 +311,20 @@ MonoBehaviour:
   Merchant: 0
   SellSlider: {fileID: 1588897763926455689}
   LevelText: {fileID: 7788574840769382137}
+  Data:
+    ItemName: 
+    SpriteIndex: 0
+    BasePrice: 0
+    TypeIndex: 0
+    DamageType: 0
+    Level: 0
+    StatPoint: 0
+    ConsumableType: 0
+    Merchant: 0
+    Equipped: 0
+    Selling: 0
+    SellTimer: 0
+  SellTimer: 0
 --- !u!114 &8713154654205602205
 MonoBehaviour:
   m_ObjectHideFlags: 0

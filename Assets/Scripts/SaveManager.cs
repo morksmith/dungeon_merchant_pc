@@ -8,6 +8,9 @@ public class SaveManager : MonoBehaviour
 {
     public LevelManager Level;
     public Button ContinueButton;
+    public StockManager Stock;
+    public ItemGenerator ItemGen;
+    public bool MainGame = false;
 
 
     private void Start()
@@ -26,6 +29,11 @@ public class SaveManager : MonoBehaviour
             {
                 ContinueButton.interactable = true;
             }
+        }
+
+        if (MainGame)
+        {
+            LoadGame();
         }
 
     }
@@ -47,6 +55,7 @@ public class SaveManager : MonoBehaviour
         var allItemsData = new List<ItemData>();
         foreach(Item i in allItems)
         {
+            i.StoreData();
             allItemsData.Add(i.Data);
         }
         newSave.AllItems = allItemsData;
@@ -56,12 +65,25 @@ public class SaveManager : MonoBehaviour
         Debug.Log("Did the save thing");
     }
 
-    //public async void LoadGame()
-    //{
-    //    await DungeonMerchant.FileIO.JsonSerializationHandler.ResolveDataDirectoryAsync();
-    //    await DungeonMerchant.FileIO.JsonSerializationHandler.DeserializeObjectFromDataDirectory<SaveData>("SaveData.json");
-    //}
-    
+    public async void LoadGame()
+    {
+        if(!await DungeonMerchant.FileIO.JsonSerializationHandler.CheckIfFileExistsInDataDirectory("SaveData.json"))
+        {
+            return;
+        }
+        SaveData loadedData = await DungeonMerchant.FileIO.JsonSerializationHandler.DeserializeObjectFromDataDirectory<SaveData>("SaveData.json");
+        foreach(ItemData id in loadedData.AllItems)
+        {
+            if(!id.Equipped && !id.Merchant)
+            {
+                ItemGen.CreateSpecificItem(id);
+            }
+        }
+
+        Stock.UpdatePrices();
+
+    }
+
 
 
 

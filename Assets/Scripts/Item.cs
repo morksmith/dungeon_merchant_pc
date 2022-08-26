@@ -34,7 +34,7 @@ public class Item : MonoBehaviour
 
     private StockManager stockMan;
     private MerchantMenu merch;
-    private float sellTimer;
+    public float SellTimer;
     // Start is called before the first frame update
     private void Start()
     {
@@ -62,15 +62,15 @@ public class Item : MonoBehaviour
         {
             SellSlider.gameObject.SetActive(true);
             GetComponent<Button>().interactable = false;
-            if(sellTimer < SellTime)
+            if(SellTimer < SellTime)
             {
-                sellTimer += Time.deltaTime * stockMan.SellSpeed;
+                SellTimer += Time.deltaTime * stockMan.SellSpeed;
             }
             else
             {
                 ReadyToSell();
             }
-            SellSlider.value = sellTimer / SellTime;
+            SellSlider.value = SellTimer / SellTime;
         }
         else
         {
@@ -203,12 +203,12 @@ public class Item : MonoBehaviour
         var newItemData = new ItemData();
         newItemData.ItemName = ItemName;
         newItemData.SpriteIndex = SpriteIndex;
-        newItemData.BasePrice = BasePrice;
         newItemData.TypeIndex = TypeIndex;
         newItemData.DamageType = DamageType;
         newItemData.Merchant = Merchant;
         newItemData.Equipped = Equipped;
         newItemData.Selling = Selling;
+        newItemData.SellTimer = SellTimer;
         if(GetComponent<Weapon>() != null)
         {
             newItemData.ItemName = GetComponent<Weapon>().WeaponName;
@@ -235,6 +235,7 @@ public class Item : MonoBehaviour
                 newItemData.ConsumableType = 2;
             }
         }
+        newItemData.BasePrice = BasePrice;
         Data = newItemData;
     }
 

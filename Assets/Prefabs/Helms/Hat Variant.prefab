@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: ItemName
       value: Hat
       objectReference: {fileID: 0}
+    - target: {fileID: 596771143205891876, guid: b352e488921a3d94c871e0f279646dea, type: 3}
+      propertyPath: TypeIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 596771143205891876, guid: b352e488921a3d94c871e0f279646dea, type: 3}
+      propertyPath: SpriteIndex
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7836166243549456779, guid: b352e488921a3d94c871e0f279646dea, type: 3}
       propertyPath: HP
       value: 5
@@ -105,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8939532042034818023, guid: b352e488921a3d94c871e0f279646dea, type: 3}
       propertyPath: m_Name
-      value: Hat
+      value: Hat Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b352e488921a3d94c871e0f279646dea, type: 3}

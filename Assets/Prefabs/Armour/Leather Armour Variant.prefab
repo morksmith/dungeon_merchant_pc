@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: -642882924, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
     - target: {fileID: 552708893233028698, guid: 256f7e7ecb1faa74689aa118bd4975b3, type: 3}
       propertyPath: m_Name
-      value: Leather Armour
+      value: Leather Armour Variant
       objectReference: {fileID: 0}
     - target: {fileID: 552708893233028699, guid: 256f7e7ecb1faa74689aa118bd4975b3, type: 3}
       propertyPath: m_Pivot.x
@@ -106,6 +106,14 @@ PrefabInstance:
     - target: {fileID: 8353100858704140953, guid: 256f7e7ecb1faa74689aa118bd4975b3, type: 3}
       propertyPath: ItemName
       value: Leather Armour
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353100858704140953, guid: 256f7e7ecb1faa74689aa118bd4975b3, type: 3}
+      propertyPath: TypeIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353100858704140953, guid: 256f7e7ecb1faa74689aa118bd4975b3, type: 3}
+      propertyPath: SpriteIndex
+      value: 52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 256f7e7ecb1faa74689aa118bd4975b3, type: 3}

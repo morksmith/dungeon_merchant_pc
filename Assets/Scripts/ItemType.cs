@@ -14,7 +14,6 @@ public class ItemType : MonoBehaviour
         Armour,
         Boots,
         Consumable,
-        Ring,
     }
     public ItemTypes Type;
 

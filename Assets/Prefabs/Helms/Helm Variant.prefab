@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1284364046780681595, guid: 1e9901c9238a68d4a814a2b44a1ec118, type: 3}
       propertyPath: m_Name
-      value: Helm
+      value: Helm Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1284364047297432526, guid: 1e9901c9238a68d4a814a2b44a1ec118, type: 3}
       propertyPath: m_Sprite
@@ -106,6 +106,14 @@ PrefabInstance:
     - target: {fileID: 7319839772286765496, guid: 1e9901c9238a68d4a814a2b44a1ec118, type: 3}
       propertyPath: ItemName
       value: Helm
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319839772286765496, guid: 1e9901c9238a68d4a814a2b44a1ec118, type: 3}
+      propertyPath: TypeIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319839772286765496, guid: 1e9901c9238a68d4a814a2b44a1ec118, type: 3}
+      propertyPath: SpriteIndex
+      value: 68
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e9901c9238a68d4a814a2b44a1ec118, type: 3}

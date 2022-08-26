@@ -107,5 +107,13 @@ PrefabInstance:
       propertyPath: ItemName
       value: Crown
       objectReference: {fileID: 0}
+    - target: {fileID: 8533345431942072833, guid: ffe04e429e4ba574fac5363a7223fd29, type: 3}
+      propertyPath: TypeIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533345431942072833, guid: ffe04e429e4ba574fac5363a7223fd29, type: 3}
+      propertyPath: SpriteIndex
+      value: 61
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffe04e429e4ba574fac5363a7223fd29, type: 3}

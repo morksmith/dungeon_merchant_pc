@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1319192600844312679, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
+      propertyPath: SpriteIndex
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7352416216431567377, guid: 3270354bb225bfd409f6e2ab8d46e652, type: 3}
       propertyPath: m_Sprite
       value: 

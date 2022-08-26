@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2643565576478474195, guid: ac4339483faa34b4f9576ad8e64b20c7, type: 3}
       propertyPath: m_Name
-      value: Mask
+      value: Mask Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2643565577001777510, guid: ac4339483faa34b4f9576ad8e64b20c7, type: 3}
       propertyPath: m_Sprite
@@ -106,6 +106,10 @@ PrefabInstance:
     - target: {fileID: 5830021681442962192, guid: ac4339483faa34b4f9576ad8e64b20c7, type: 3}
       propertyPath: ItemName
       value: Mask
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830021681442962192, guid: ac4339483faa34b4f9576ad8e64b20c7, type: 3}
+      propertyPath: SpriteIndex
+      value: 62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4339483faa34b4f9576ad8e64b20c7, type: 3}

@@ -11,9 +11,17 @@ PrefabInstance:
       propertyPath: ItemName
       value: Light Armour
       objectReference: {fileID: 0}
+    - target: {fileID: 4400630499478116143, guid: 6e6a417b5457f5c418b1d070864e5c45, type: 3}
+      propertyPath: TypeIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400630499478116143, guid: 6e6a417b5457f5c418b1d070864e5c45, type: 3}
+      propertyPath: SpriteIndex
+      value: 53
+      objectReference: {fileID: 0}
     - target: {fileID: 5284304738386187244, guid: 6e6a417b5457f5c418b1d070864e5c45, type: 3}
       propertyPath: m_Name
-      value: Light Armour
+      value: Light Armour Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5284304738386187245, guid: 6e6a417b5457f5c418b1d070864e5c45, type: 3}
       propertyPath: m_Pivot.x

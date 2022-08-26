@@ -9,6 +9,7 @@ public class ItemGenerator : MonoBehaviour
     public Transform StockList;
     public GameObject PotionPrefab;
     public GameObject PortalPrefab;
+    public List<Sprite> ItemSprites;
     public List<GameObject> SwordPrefabs;
     public List<GameObject> ClubPrefabs;
     public List<GameObject> BowPrefabs;
@@ -190,6 +191,58 @@ public class ItemGenerator : MonoBehaviour
         newPortal.GetComponent<Item>().SetStats();
 
     }
+
+    public void CreateSpecificItem(ItemData id)
+    {
+        if (id.TypeIndex < 4)
+        {
+            var newWeaponItem = new GameObject();
+            if (id.TypeIndex == 0)
+            {
+                var newSword = Instantiate(SwordPrefabs[0]);
+                newWeaponItem = newSword;
+            }
+            else if (id.TypeIndex == 1)
+            {
+                var newClub = Instantiate(ClubPrefabs[0]);
+                newWeaponItem = newClub;
+            }
+            else if (id.TypeIndex == 2)
+            {
+                var newBow = Instantiate(BowPrefabs[0]);
+                newWeaponItem = newBow;
+            }
+            else if (id.TypeIndex == 3)
+            {
+                var newWand = Instantiate(WandPrefabs[0]);
+                newWeaponItem = newWand;
+            }
+
+            newWeaponItem.name = id.ItemName;
+            var newItem = newWeaponItem.GetComponent<Item>();
+            var newWeapon = newWeaponItem.GetComponent<Weapon>();
+            newItem.ItemName = id.ItemName;
+            newItem.SpriteIndex = id.SpriteIndex;
+            newItem.BasePrice = id.BasePrice;
+            newItem.TypeIndex = id.TypeIndex;
+            newWeapon.Level = id.Level;
+            newWeapon.WeaponName = id.ItemName;
+            newWeapon.Damage = id.StatPoint;
+            newItem.Selling = id.Selling;
+            newItem.SellTimer = id.SellTimer;
+            newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
+            if (!newItem.Selling)
+            {
+                newItem.transform.SetParent(StockList);
+            }
+            else
+            {
+                newItem.transform.SetParent(Stock.ShopList);
+            }
+        }
+    }
+
+        
 
 
 }

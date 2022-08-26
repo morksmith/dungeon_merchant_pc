@@ -709,6 +709,81 @@ MonoBehaviour:
   StockList: {fileID: 1952709735}
   PotionPrefab: {fileID: 482068941977069903, guid: 3a3b258a5b5129747a9645b3510668f7, type: 3}
   PortalPrefab: {fileID: 7138182019659374265, guid: 6832729f06e7a424fb8c06f7d6e29d81, type: 3}
+  ItemSprites:
+  - {fileID: 21300000, guid: fccfa3c42dd2ae74c8f719d0198a26b4, type: 3}
+  - {fileID: 21300000, guid: 6a6eb7e0a3f40d24b93ebfd187c8fd43, type: 3}
+  - {fileID: 21300000, guid: ffe0438c20184e14c8be866821f15443, type: 3}
+  - {fileID: 21300000, guid: a1cb8b6502555f14aa5957017a8fbfe1, type: 3}
+  - {fileID: 21300000, guid: d122ea21e8298bd4fb04f4c22827b489, type: 3}
+  - {fileID: 21300000, guid: 28b5bd6d71c7dd6448dd6491be5dcd76, type: 3}
+  - {fileID: 21300000, guid: 31cf3dcc616eb524284b8de1385f6453, type: 3}
+  - {fileID: 21300000, guid: 61e048943f4b79e4a8e12f88414ba948, type: 3}
+  - {fileID: 21300000, guid: 3011fb6732c6a014fb027c05454e2cdc, type: 3}
+  - {fileID: 21300000, guid: 2af16cfd2cf7bfd499da975c28b3ca9f, type: 3}
+  - {fileID: 21300000, guid: 1ed3be8db963a7e4b88cb8ed82ddedad, type: 3}
+  - {fileID: 21300000, guid: b193f2766452ed946abf9410918225ee, type: 3}
+  - {fileID: 21300000, guid: 248151e52ea35b24f8a7bea21c9e25a6, type: 3}
+  - {fileID: 21300000, guid: 27a60a0749e9e7f46b01d26fd0712cbd, type: 3}
+  - {fileID: 21300000, guid: dcb9f8fae67b5a9409bd2abc3b8dfc38, type: 3}
+  - {fileID: 21300000, guid: 6ff10705d7ca6da4c8cdad3b9d6dd2ac, type: 3}
+  - {fileID: 21300000, guid: 08a0b3e82bbcf294f8458d1fd2cec259, type: 3}
+  - {fileID: 21300000, guid: fbf2f7a32fb679548844717748f747a3, type: 3}
+  - {fileID: 21300000, guid: b771bed2aa1ea3c4da9b6d494bf71665, type: 3}
+  - {fileID: 21300000, guid: bab631c9ffef6324b8659660a91be0be, type: 3}
+  - {fileID: 21300000, guid: b42bc9d518681f8449bbfcc1d875880d, type: 3}
+  - {fileID: 21300000, guid: c93df03cdb2290449a6adb854a43137f, type: 3}
+  - {fileID: 21300000, guid: a7abec6e03c8a384da98cd2973ba8bbd, type: 3}
+  - {fileID: 21300000, guid: d35a4b8993da82b4aae4d9a4b3c6b67a, type: 3}
+  - {fileID: 21300000, guid: 52da713f75f291b4fbb00bb522628218, type: 3}
+  - {fileID: 21300000, guid: 398c6f009ec9a17429a475205bcbfe2f, type: 3}
+  - {fileID: 21300000, guid: 85337ace6a703134bba4d78bc118ef18, type: 3}
+  - {fileID: 21300000, guid: 140fd140cd5dbe5488d37c02df737050, type: 3}
+  - {fileID: 21300000, guid: caf77533807fb5141a4e8d11c1e7d2ff, type: 3}
+  - {fileID: 21300000, guid: 35b24e35b66019743884d299a071fa58, type: 3}
+  - {fileID: 21300000, guid: ffe4394822ef6164d84ebdad1f7a9e58, type: 3}
+  - {fileID: 21300000, guid: 1a596f322df5aa445bc1e019626e723f, type: 3}
+  - {fileID: 21300000, guid: 9fec38c3068aa5d448dd5a4d67af3c0d, type: 3}
+  - {fileID: 21300000, guid: 6301f44e52578c34f9a6777a8bf35511, type: 3}
+  - {fileID: 21300000, guid: d37aa5cbd54c1c6458ca4c85ff42db0e, type: 3}
+  - {fileID: 21300000, guid: 91b5dd5e309675b45bcb7a03f8854603, type: 3}
+  - {fileID: 21300000, guid: 337f9ae298660994aba8b7bfcd7147af, type: 3}
+  - {fileID: 21300000, guid: 61b9933f7159d5d4983fb35a4996a98e, type: 3}
+  - {fileID: 21300000, guid: e0c39ec13dcf84743ba7886a0d3256c4, type: 3}
+  - {fileID: 21300000, guid: 27b26033680f8d943b004a1557ffd18c, type: 3}
+  - {fileID: 21300000, guid: 74b43382b3add0f44a6ba3fd5ae09ac4, type: 3}
+  - {fileID: 21300000, guid: 64f88d8a61c4efb4b8985210eff2c4c0, type: 3}
+  - {fileID: 21300000, guid: 527a4daf460d9784e9a3a6d44a3f9623, type: 3}
+  - {fileID: 21300000, guid: 1070ec0e9357aad4aa40b843e49d3aa4, type: 3}
+  - {fileID: 21300000, guid: 01118e6d1be18f143bf03cbbcc12ff5b, type: 3}
+  - {fileID: 21300000, guid: 3e72f920af959bd4f84786e9f2410573, type: 3}
+  - {fileID: 21300000, guid: 8320842d521131b4a91b0b05d19653d9, type: 3}
+  - {fileID: 21300000, guid: 55cbeb7c47424a54b8b2191bd76c1079, type: 3}
+  - {fileID: 1720019971, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: -1468455837, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: -1722917425, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: -1404775816, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: -642882924, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: 165583035, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: -1591306543, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: 291967688, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: 2106949619, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: 411249416, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: 1728304606, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: 477575753, guid: a225c0abcf8a9da4f8d9c669ff9709c7, type: 3}
+  - {fileID: -1346259923, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: 1051091565, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: -1326144732, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: 1283025017, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: 1287877949, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: -621262767, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: 103120777, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: -922725041, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: 1335543930, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: 1664552284, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: 696612109, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: -1182473873, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
+  - {fileID: 385543915, guid: a49d8f19ffc7a3d45aca68aee9163777, type: 3}
+  - {fileID: 604352201, guid: a49d8f19ffc7a3d45aca68aee9163777, type: 3}
   SwordPrefabs:
   - {fileID: 7011517433748354625, guid: 54d872a4fc70eca4d9c1541a87898f61, type: 3}
   - {fileID: 5816604433435212801, guid: f501e28143506c849b073a2595ce894b, type: 3}
@@ -18192,9 +18267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339f2b1dff61ea4488e39bcff0cd9d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stock: {fileID: 70214546}
   Level: {fileID: 654341710}
   ContinueButton: {fileID: 0}
+  Stock: {fileID: 70214546}
+  ItemGen: {fileID: 70214548}
+  MainGame: 1
 --- !u!4 &1239310554
 Transform:
   m_ObjectHideFlags: 0

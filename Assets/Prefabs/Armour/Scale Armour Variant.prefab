@@ -107,5 +107,9 @@ PrefabInstance:
       propertyPath: ItemName
       value: Scale Armour
       objectReference: {fileID: 0}
+    - target: {fileID: 6150368717929151864, guid: 64580584a558f214d965fc0128f017f7, type: 3}
+      propertyPath: SpriteIndex
+      value: 57
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64580584a558f214d965fc0128f017f7, type: 3}

@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: ItemName
       value: Hood
       objectReference: {fileID: 0}
+    - target: {fileID: 316774461044629904, guid: 2a2ce581ff07e884ba8cf82920105b1c, type: 3}
+      propertyPath: TypeIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 316774461044629904, guid: 2a2ce581ff07e884ba8cf82920105b1c, type: 3}
+      propertyPath: SpriteIndex
+      value: 63
+      objectReference: {fileID: 0}
     - target: {fileID: 6958878561296623423, guid: 2a2ce581ff07e884ba8cf82920105b1c, type: 3}
       propertyPath: HP
       value: 4

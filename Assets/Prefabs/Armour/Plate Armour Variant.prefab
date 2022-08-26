@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2386290930859637179, guid: 64580584a558f214d965fc0128f017f7, type: 3}
       propertyPath: m_Name
-      value: Plate Armour
+      value: Plate Armour Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3579781558577855447, guid: 64580584a558f214d965fc0128f017f7, type: 3}
       propertyPath: HP
@@ -106,6 +106,10 @@ PrefabInstance:
     - target: {fileID: 6150368717929151864, guid: 64580584a558f214d965fc0128f017f7, type: 3}
       propertyPath: ItemName
       value: Plate Armour
+      objectReference: {fileID: 0}
+    - target: {fileID: 6150368717929151864, guid: 64580584a558f214d965fc0128f017f7, type: 3}
+      propertyPath: SpriteIndex
+      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64580584a558f214d965fc0128f017f7, type: 3}

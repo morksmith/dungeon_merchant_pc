@@ -11,13 +11,17 @@ PrefabInstance:
       propertyPath: ItemName
       value: Breastplate
       objectReference: {fileID: 0}
+    - target: {fileID: 2769360744558811315, guid: 5fe1bc783a770994e913feea84e61ad5, type: 3}
+      propertyPath: SpriteIndex
+      value: 48
+      objectReference: {fileID: 0}
     - target: {fileID: 4798921250263490076, guid: 5fe1bc783a770994e913feea84e61ad5, type: 3}
       propertyPath: HP
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5920280616399428720, guid: 5fe1bc783a770994e913feea84e61ad5, type: 3}
       propertyPath: m_Name
-      value: Breastplate
+      value: Breastplate Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5920280616399428721, guid: 5fe1bc783a770994e913feea84e61ad5, type: 3}
       propertyPath: m_Pivot.x

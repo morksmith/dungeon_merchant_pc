@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65076269869730613, guid: 1b92f9bd360e6ae4fb87653d275284b6, type: 3}
       propertyPath: m_Name
-      value: Light Helm
+      value: Light Helm Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1177423213936609625, guid: 1b92f9bd360e6ae4fb87653d275284b6, type: 3}
       propertyPath: HP
@@ -106,6 +106,14 @@ PrefabInstance:
     - target: {fileID: 8403861713281880054, guid: 1b92f9bd360e6ae4fb87653d275284b6, type: 3}
       propertyPath: ItemName
       value: Light Helm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403861713281880054, guid: 1b92f9bd360e6ae4fb87653d275284b6, type: 3}
+      propertyPath: TypeIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403861713281880054, guid: 1b92f9bd360e6ae4fb87653d275284b6, type: 3}
+      propertyPath: SpriteIndex
+      value: 67
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b92f9bd360e6ae4fb87653d275284b6, type: 3}

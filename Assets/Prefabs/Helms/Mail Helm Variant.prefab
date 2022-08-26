@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 696612109, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
     - target: {fileID: 3660345751653104700, guid: dfda7c0d2a34c8c458373707bb553950, type: 3}
       propertyPath: m_Name
-      value: Mail Helm
+      value: Mail Helm Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3660345751653104701, guid: dfda7c0d2a34c8c458373707bb553950, type: 3}
       propertyPath: m_Pivot.x
@@ -106,6 +106,10 @@ PrefabInstance:
     - target: {fileID: 5083323899688270079, guid: dfda7c0d2a34c8c458373707bb553950, type: 3}
       propertyPath: ItemName
       value: Mail Helm
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083323899688270079, guid: dfda7c0d2a34c8c458373707bb553950, type: 3}
+      propertyPath: SpriteIndex
+      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfda7c0d2a34c8c458373707bb553950, type: 3}

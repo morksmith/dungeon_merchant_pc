@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: ItemName
       value: Robe
       objectReference: {fileID: 0}
+    - target: {fileID: 3756901223890514256, guid: 0b24b5274a7ccdf458ea32e7f63c543f, type: 3}
+      propertyPath: SpriteIndex
+      value: 56
+      objectReference: {fileID: 0}
     - target: {fileID: 4639975302489044370, guid: 0b24b5274a7ccdf458ea32e7f63c543f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -97,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4639975302489044371, guid: 0b24b5274a7ccdf458ea32e7f63c543f, type: 3}
       propertyPath: m_Name
-      value: Robe
+      value: Robe Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4639975302979056422, guid: 0b24b5274a7ccdf458ea32e7f63c543f, type: 3}
       propertyPath: m_Sprite
