@@ -223,8 +223,8 @@ public class ItemGenerator : MonoBehaviour
             var newWeapon = newWeaponItem.GetComponent<Weapon>();
             newItem.ItemName = id.ItemName;
             newItem.SpriteIndex = id.SpriteIndex;
-            newItem.BasePrice = id.BasePrice;
             newItem.TypeIndex = id.TypeIndex;
+            newItem.BasePrice = id.BasePrice;
             newWeapon.Level = id.Level;
             newWeapon.WeaponName = id.ItemName;
             newWeapon.Damage = id.StatPoint;
@@ -235,12 +235,18 @@ public class ItemGenerator : MonoBehaviour
             {
                 newItem.transform.SetParent(StockList);
                 newItem.transform.localScale = Vector3.one;
-                newItem.PriceUI();
             }
             else
             {
                 newItem.transform.SetParent(Stock.ShopList);
+                newItem.Price = newItem.BasePrice;
+                newItem.SellTime = newItem.BasePrice;
+                newItem.transform.localScale = Vector3.one;
+
             }
+            newItem.PriceUI();
+                
+
         }
         else if(id.TypeIndex < 6)
         {
@@ -270,13 +276,16 @@ public class ItemGenerator : MonoBehaviour
             {
                 newItem.transform.SetParent(StockList);
                 newItem.transform.localScale = Vector3.one;
-                newItem.PriceUI();
-
             }
             else
             {
                 newItem.transform.SetParent(Stock.ShopList);
+                newItem.Price = newItem.BasePrice;
+                newItem.SellTime = newItem.BasePrice;
+                newItem.transform.localScale = Vector3.one;
+
             }
+            newItem.PriceUI();
         }
         else
         {
@@ -306,13 +315,16 @@ public class ItemGenerator : MonoBehaviour
             {
                 newItem.transform.SetParent(StockList);
                 newItem.transform.localScale = Vector3.one;
-                newItem.PriceUI();
-
             }
             else
             {
                 newItem.transform.SetParent(Stock.ShopList);
+                newItem.Price = newItem.BasePrice;
+                newItem.SellTime = newItem.BasePrice;
+                newItem.transform.localScale = Vector3.one;
+
             }
+            newItem.PriceUI();
         }
     }
     public void CreateEquippedItem(ItemData id, Transform parent, Stats hero)

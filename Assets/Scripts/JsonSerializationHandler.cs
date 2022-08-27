@@ -46,10 +46,14 @@ namespace DungeonMerchant.FileIO
 
         public static Task DeleteSave(string fileName)
         {
-            var fullPath = string.Concat(_pathToResourcesDirectory, fileName.Replace(".json", ""));
+            var fullPath = Path.Combine(_pathToDataDirectory, fileName);
             if (File.Exists(fullPath))
                 File.Delete(fullPath);
-
+            # if UNITY_EDITOR
+            {
+                UnityEditor.AssetDatabase.Refresh();
+            }
+            # endif
             return Task.CompletedTask;
             
         }
