@@ -21,6 +21,7 @@ public class HireMenu : MonoBehaviour
     public HeroGenerator Generator;
     public ScrollingWindow DungeonContent;
     public GameObject NewIcon;
+    public SaveManager Save;
 
     private void Start()
     {
@@ -35,9 +36,10 @@ public class HireMenu : MonoBehaviour
         if(HeroCost <= Stock.Gold)
         {
             CurrentHero.gameObject.SetActive(true);
-            Stock.CollectGold(-HeroCost);
             CurrentHero.SetParent(HeroParent);
             CurrentHero.GetComponent<Stats>().State = Stats.HeroState.Idle;
+            CurrentHero.GetComponent<Stats>().StoreData();
+            Stock.CollectGold(-HeroCost);
             CurrentHero = null;
             HireScreen.DeActivate();
             HeroButton.SetActive(false);
@@ -46,7 +48,11 @@ public class HireMenu : MonoBehaviour
         {
             HeroText.text = "YOU CAN'T AFFORD ME!";
         }
-        
+        if (!Tutorial)
+        {
+            Save.SaveGame();
+        }
+
 
     }
 
@@ -60,6 +66,7 @@ public class HireMenu : MonoBehaviour
         HeroText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + " / " + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop: x" + s.Discovery;
         HeroIcon.sprite = s.HeroSprite;
         HeroSprite.sprite = s.HeroSprite;
+        s.StoreData();
 
     }
 

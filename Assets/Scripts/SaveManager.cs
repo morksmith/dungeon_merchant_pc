@@ -87,8 +87,11 @@ public class SaveManager : MonoBehaviour
 
         if(!await DungeonMerchant.FileIO.JsonSerializationHandler.CheckIfFileExistsInDataDirectory("SaveData.json"))
         {
+            Debug.Log("NO SAVE FILE");
             return;
+
         }
+        Debug.Log("Loading");
         SaveData loadedData = await DungeonMerchant.FileIO.JsonSerializationHandler.DeserializeObjectFromDataDirectory<SaveData>("SaveData.json");
         Stock.Gold = loadedData.Gold;
         Stock.MaxProfit = loadedData.MaxProfit;

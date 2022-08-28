@@ -25303,6 +25303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tutorial: 0
+  Paused: 0
   Inn: {fileID: 791159073}
   Running: 0
   HeroUI: {fileID: 1549352776}
@@ -28057,6 +28058,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6723141200854799403, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: Save
+      value: 
+      objectReference: {fileID: 1239310553}
     - target: {fileID: 6723141200854799403, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: Stock
       value: 

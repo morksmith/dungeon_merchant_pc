@@ -110,6 +110,7 @@ public class Stats : MonoBehaviour
             QuestText.SetActive(false);
             LevelUI.SetActive(true);
         }
+        StoreData();
     }
 
     public void Die()
@@ -125,6 +126,7 @@ public class Stats : MonoBehaviour
     {
         Damage += w.Damage;
         WeaponItem = w.gameObject.GetComponent<Item>();
+        StoreData();
     }
 
     public void EquipArmour(Armour a)
@@ -132,6 +134,8 @@ public class Stats : MonoBehaviour
         MaxHP += a.HP;
         HP = MaxHP;
         ArmourItem = a.gameObject.GetComponent<Item>();
+        StoreData();
+
     }
 
     public void UneQuipArmour(Armour a)
@@ -139,12 +143,16 @@ public class Stats : MonoBehaviour
         MaxHP -= a.HP;
         HP = MaxHP;
         ArmourItem = null;
+        StoreData();
+
     }
     public void EquipHelm(Armour a)
     {
         MaxHP += a.HP;
         HP = MaxHP;
         HelmItem = a.gameObject.GetComponent<Item>();
+        StoreData();
+
     }
 
     public void UnequipHelm(Armour a)
@@ -152,21 +160,29 @@ public class Stats : MonoBehaviour
         MaxHP -= a.HP;
         HP = MaxHP;
         HelmItem = null;
+        StoreData();
+
     }
 
     public void UnequipWeapon(Weapon w)
     {
         Damage -= w.Damage;
         WeaponItem = null;
+        StoreData();
+
     }
 
     public void EquipConsumable(Consumable c)
     {
         ConsumableItem = c.gameObject.GetComponent<Item>();
+        StoreData();
+
     }
     public void UnequipConsumable(Consumable c)
     {
         ConsumableItem = null;
+        StoreData();
+
     }
 
     public void RemoveItems()
@@ -187,6 +203,8 @@ public class Stats : MonoBehaviour
         {
             Destroy(ConsumableItem.gameObject);
         }
+        StoreData();
+
     }
 
     public void StoreData()
@@ -235,11 +253,7 @@ public class Stats : MonoBehaviour
         newHeroData.Range = Range;
         newHeroData.Discovery = Discovery;
         newHeroData.LootFind = LootFind;
-        if(State == HeroState.NotHired)
-        {
-            newHeroData.Hired = false;
-        }
-        else if (State != HeroState.Dead)
+        if(State != HeroState.Dead && State != HeroState.NotHired)
         {
             newHeroData.Hired = true;
         }
