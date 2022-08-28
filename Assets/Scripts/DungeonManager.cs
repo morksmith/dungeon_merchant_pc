@@ -7,6 +7,7 @@ using TMPro;
 public class DungeonManager : MonoBehaviour
 {
     public bool Tutorial = false;
+    public bool Paused = false;
     public InnManager Inn;
     public bool Running = false;
     public GameObject HeroUI;
@@ -193,7 +194,7 @@ public class DungeonManager : MonoBehaviour
             }
         }
 
-        if (Tutorial)
+        if (Paused)
         {
             return;
         }
@@ -535,5 +536,9 @@ public class DungeonManager : MonoBehaviour
     public void EndTutorial()
     {
         Tutorial = false;
+    }
+    public void UnPause()
+    {
+        Paused = false;
     }
 }
