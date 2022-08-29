@@ -212,12 +212,17 @@ public class Item : MonoBehaviour
         else if (gameObject.GetComponent<Consumable>())
         {
             var con = gameObject.GetComponent<Consumable>();
-            LevelText.text = con.Value.ToString();
+            if(con.Type == Consumable.ConsumableType.Potion)
+            {
+                LevelText.text = con.Value.ToString();
+            }
+            else
+            {
+                LevelText.text = " ";
+            }
+
         }
-        else
-        {
-            LevelText.text = " ";
-        }
+        
     }
 
     public void StoreData()
@@ -258,6 +263,10 @@ public class Item : MonoBehaviour
             }
         }
         newItemData.BasePrice = BasePrice;
+        if (Selling)
+        {
+            newItemData.BasePrice = Price;
+        }
         Data = newItemData;
     }
 

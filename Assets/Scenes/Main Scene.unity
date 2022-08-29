@@ -1744,6 +1744,9 @@ MonoBehaviour:
   TeleportSound: {fileID: 8300000, guid: 8be3ce963cb743148a529e36fc934935, type: 3}
   EffectPrefab: {fileID: 5972517807649682431, guid: 77ab1697355ca5f4ab894237ab4b9e82, type: 3}
   Camera: {fileID: 1828641202}
+  DungeonOverlay: {fileID: 872219397}
+  PortalOut: 0
+  PortalTime: 1
 --- !u!114 &173168046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26767,8 +26770,8 @@ MonoBehaviour:
   - ' the Muscles'
   SpriteIndex:
   - {fileID: 1322834010, guid: 5d5ad8d7abb81d44eb65daec97b0b0cd, type: 3}
-  - {fileID: 871194723, guid: 5d5ad8d7abb81d44eb65daec97b0b0cd, type: 3}
   - {fileID: -601483178, guid: 5d5ad8d7abb81d44eb65daec97b0b0cd, type: 3}
+  - {fileID: 871194723, guid: 5d5ad8d7abb81d44eb65daec97b0b0cd, type: 3}
   - {fileID: 1177419733, guid: 5d5ad8d7abb81d44eb65daec97b0b0cd, type: 3}
   ItemGen: {fileID: 70214548}
   Equipment: {fileID: 1238103751}

@@ -89,6 +89,7 @@ public class HeroGenerator : MonoBehaviour
         newHeroStats.HeroName = hd.HeroName;
         newHeroStats.Level = hd.Level;
         newHeroStats.MaxHP = hd.MaxHP;
+        newHeroStats.HP = hd.MaxHP;
         newHeroStats.MaxXP = hd.MaxXP;
         newHeroStats.XP = hd.XP;
         newHeroStats.Damage = hd.Damage;

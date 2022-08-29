@@ -422,6 +422,7 @@ public class DungeonManager : MonoBehaviour
     public void StartDungeon(int i)
     {
         sfx.PlaySound(EnterDungeonSound);
+        HeroSprite.enabled = true;
         var currentEnemies = GameObject.FindObjectsOfType<Enemy>();
         foreach (Enemy x in currentEnemies)
         {

@@ -35,6 +35,10 @@ public class HeroAI : MonoBehaviour
     public AudioClip TeleportSound;
     public GameObject EffectPrefab;
     public CameraControl Camera;
+    public Animator DungeonOverlay;
+    public bool PortalOut = false;
+    public float PortalTime = 1;
+    private float portalTimer;
 
     private float activeTimer;
     private float step;
@@ -55,7 +59,21 @@ public class HeroAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Waiting == true)
+
+        if (PortalOut)
+        {
+            if (portalTimer < PortalTime)
+            {
+                portalTimer += Time.deltaTime;
+            }
+            else
+            {
+                ExitPortal();
+                portalTimer = 0;
+                PortalOut = false;
+            }
+        }
+        if (Waiting == true)
         {
             return;
         }
@@ -70,6 +88,8 @@ public class HeroAI : MonoBehaviour
                 activeTimer = 0;
             }
         }
+
+        
 
         HeroSprite.sortingOrder = 20 - Mathf.FloorToInt(transform.position.z);
         if (Agent.destination.x < transform.position.x)
@@ -307,23 +327,22 @@ public class HeroAI : MonoBehaviour
                 var con = Stats.ConsumableItem.GetComponent<Consumable>();
                 if (con.Type == Consumable.ConsumableType.Portal)
                 {
+                    
                     var portalEffect = Instantiate(EffectPrefab, transform.position + new Vector3(0, 0, 1), Quaternion.Euler(90, 0, 0));
                     portalEffect.GetComponent<SpecialEffect>().EffectType = 6;
                     sfx.PlaySound(TeleportSound);
-                    Debug.Log("Hero Used Town Portal");
                     Destroy(Stats.ConsumableItem.gameObject);
                     Stats.ConsumableItem = null;
                     DM.ConsumableIcon.sprite = DM.HandSprite;
-                    Manager.ReturnHero();
-                    Active = false;
                     Waiting = true;
+                    Active = false;
                     LevelCleared = false;
                     CurrentTarget = null;
                     Agent.isStopped = true;
-                    Waiting = true;
                     DM.Running = false;
                     State = HeroState.Idle;
-                    DM.DungeonCompleted = false;
+                    HeroSprite.enabled = false;
+                    PortalOut = true;
                 }
                 else if(con.Type == Consumable.ConsumableType.Potion)
                 {
@@ -347,6 +366,16 @@ public class HeroAI : MonoBehaviour
         }
        
 
+    }
+
+    public void ExitPortal()
+    {
+
+        DungeonOverlay.Play("Dungeon End");
+        Debug.Log("Hero Used Town Portal");
+        Manager.ReturnHero();
+        
+        DM.DungeonCompleted = false;
     }
 
     public void Die()

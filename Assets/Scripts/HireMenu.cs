@@ -39,20 +39,21 @@ public class HireMenu : MonoBehaviour
             CurrentHero.SetParent(HeroParent);
             CurrentHero.GetComponent<Stats>().State = Stats.HeroState.Idle;
             CurrentHero.GetComponent<Stats>().StoreData();
-            
             CurrentHero = null;
             HireScreen.DeActivate();
             HeroButton.SetActive(false);
+            Stock.CollectGold(-HeroCost);
+            if (!Tutorial)
+            {
+                Save.SaveGame();
+            }
         }
         else
         {
             HeroText.text = "YOU CAN'T AFFORD ME!";
         }
-        if (!Tutorial)
-        {
-            Save.SaveGame();
-        }
-        Stock.CollectGold(-HeroCost);
+        
+        
 
 
     }

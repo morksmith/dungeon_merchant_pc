@@ -234,6 +234,8 @@ public class ItemGenerator : MonoBehaviour
             if (!newItem.Selling)
             {
                 newItem.transform.SetParent(StockList);
+                newItem.Price = id.BasePrice;
+                newItem.Selling = true;
                 newItem.transform.localScale = Vector3.one;
             }
             else
@@ -285,6 +287,7 @@ public class ItemGenerator : MonoBehaviour
                 newItem.transform.localScale = Vector3.one;
 
             }
+            
             newItem.PriceUI();
         }
         else
@@ -323,6 +326,10 @@ public class ItemGenerator : MonoBehaviour
                 newItem.SellTime = newItem.BasePrice;
                 newItem.transform.localScale = Vector3.one;
 
+            }
+            if (id.ConsumableType == 2)
+            {
+                newItem.LevelText.text = "";
             }
             newItem.PriceUI();
         }
@@ -433,8 +440,8 @@ public class ItemGenerator : MonoBehaviour
             newItem.transform.position = parent.position;
             newItem.transform.localScale = Vector3.one;
             newItem.Equipped = true;
-
             hero.ConsumableItem = newItem;
+            newItem.PriceUI();
         }
     }
 
