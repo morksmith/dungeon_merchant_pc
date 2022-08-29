@@ -955,8 +955,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1083,6 +1083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Weapon
   ItemSprite: {fileID: 7352416216431567377}
+  SpriteIndex: 0
   DemandIcon: {fileID: 610269657556885658}
   DownSprite: {fileID: -1241161481, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   UpSprite: {fileID: 443786278, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
@@ -1091,6 +1092,7 @@ MonoBehaviour:
   BasePrice: 1
   Price: 10
   Type: {fileID: 1752735059683796086}
+  TypeIndex: 0
   CollectButton: {fileID: 7237200827527896587}
   PriceInfo: {fileID: 2574316867029802255}
   PriceText: {fileID: 3759610591015085759}
@@ -1103,6 +1105,20 @@ MonoBehaviour:
   Merchant: 0
   SellSlider: {fileID: 8553820752180918370}
   LevelText: {fileID: 914005544316865298}
+  Data:
+    ItemName: 
+    SpriteIndex: 0
+    BasePrice: 0
+    TypeIndex: 0
+    DamageType: 0
+    Level: 0
+    StatPoint: 0
+    ConsumableType: 0
+    Merchant: 0
+    Equipped: 0
+    Selling: 0
+    SellTimer: 0
+  SellTimer: 0
 --- !u!114 &1752735059683796086
 MonoBehaviour:
   m_ObjectHideFlags: 0

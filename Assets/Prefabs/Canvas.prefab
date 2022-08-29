@@ -13892,6 +13892,10 @@ MonoBehaviour:
   WeaponSlot: {fileID: 6723141200399364667}
   EquipBlock: {fileID: 6723141201883773775}
   AllHeroes: []
+  WeaponItemSlot: {fileID: 0}
+  HelmSlot: {fileID: 0}
+  ArmourSlot: {fileID: 0}
+  ConsumableSlot: {fileID: 0}
 --- !u!1 &6723141200652512276
 GameObject:
   m_ObjectHideFlags: 0
@@ -16747,6 +16751,7 @@ MonoBehaviour:
   Generator: {fileID: 0}
   DungeonContent: {fileID: 6723141200800344999}
   NewIcon: {fileID: 6723141202047592173}
+  Save: {fileID: 0}
 --- !u!1 &6723141200862739763
 GameObject:
   m_ObjectHideFlags: 0

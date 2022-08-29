@@ -39,7 +39,7 @@ public class HireMenu : MonoBehaviour
             CurrentHero.SetParent(HeroParent);
             CurrentHero.GetComponent<Stats>().State = Stats.HeroState.Idle;
             CurrentHero.GetComponent<Stats>().StoreData();
-            Stock.CollectGold(-HeroCost);
+            
             CurrentHero = null;
             HireScreen.DeActivate();
             HeroButton.SetActive(false);
@@ -52,6 +52,7 @@ public class HireMenu : MonoBehaviour
         {
             Save.SaveGame();
         }
+        Stock.CollectGold(-HeroCost);
 
 
     }

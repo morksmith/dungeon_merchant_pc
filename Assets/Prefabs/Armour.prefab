@@ -252,8 +252,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -365,6 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Headband
   ItemSprite: {fileID: 156281573040425079}
+  SpriteIndex: 0
   DemandIcon: {fileID: 7807592340404210428}
   DownSprite: {fileID: -1241161481, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   UpSprite: {fileID: 443786278, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
@@ -373,6 +374,7 @@ MonoBehaviour:
   BasePrice: 1
   Price: 10
   Type: {fileID: 8966888526505922064}
+  TypeIndex: 0
   CollectButton: {fileID: 21828697892631661}
   PriceInfo: {fileID: 5159983150652307305}
   PriceText: {fileID: 5768811174501682393}
@@ -385,6 +387,20 @@ MonoBehaviour:
   Merchant: 0
   SellSlider: {fileID: 1339671889297117700}
   LevelText: {fileID: 7533693041820082548}
+  Data:
+    ItemName: 
+    SpriteIndex: 0
+    BasePrice: 0
+    TypeIndex: 0
+    DamageType: 0
+    Level: 0
+    StatPoint: 0
+    ConsumableType: 0
+    Merchant: 0
+    Equipped: 0
+    Selling: 0
+    SellTimer: 0
+  SellTimer: 0
 --- !u!114 &8966888526505922064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,7 +521,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
+  m_fontSize: 88.85
   m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 1

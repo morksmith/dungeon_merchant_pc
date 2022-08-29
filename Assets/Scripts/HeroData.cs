@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
+[Serializable]
 public class HeroData
 {
     public string HeroName;
     public bool Hired;
+    public bool hasWeapon = false;
+    public bool hasHelm = false;
+    public bool hasArmour = false;
+    public bool hasConsumable = false;
     public ItemData WeaponData;
     public ItemData HelmData;
     public ItemData ArmourData;

@@ -96,7 +96,7 @@ public class HeroGenerator : MonoBehaviour
         newHeroStats.Discovery = hd.Discovery;
         newHeroStats.LootFind = hd.LootFind;
         newHeroStats.State = Stats.HeroState.Idle;
-        if (hd.WeaponData != null)
+        if (hd.hasWeapon)
         {
             ItemGen.CreateEquippedItem(hd.WeaponData, Equipment.WeaponItemSlot, newHeroStats);
         }
@@ -104,7 +104,7 @@ public class HeroGenerator : MonoBehaviour
         {
             newHeroStats.WeaponItem = null;
         }
-        if (hd.ArmourData != null)
+        if (hd.hasArmour)
         {
             ItemGen.CreateEquippedItem(hd.ArmourData, Equipment.ArmourSlot, newHeroStats);
         }
@@ -112,7 +112,7 @@ public class HeroGenerator : MonoBehaviour
         {
             newHeroStats.ArmourItem = null;
         }
-        if (hd.HelmData != null)
+        if (hd.hasHelm)
         {
             ItemGen.CreateEquippedItem(hd.HelmData, Equipment.HelmSlot, newHeroStats);
         }
@@ -120,7 +120,7 @@ public class HeroGenerator : MonoBehaviour
         {
             newHeroStats.HelmItem = null;
         }
-        if (hd.ConsumableData != null)
+        if (hd.hasConsumable)
         {
             ItemGen.CreateEquippedItem(hd.ConsumableData, Equipment.ConsumableSlot, newHeroStats);
         }

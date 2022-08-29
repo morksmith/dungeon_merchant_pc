@@ -213,34 +213,43 @@ public class Stats : MonoBehaviour
         if(WeaponItem != null)
         {
             newHeroData.WeaponData = WeaponItem.Data;
+            newHeroData.hasWeapon = true;
         }
         else
         {
             newHeroData.WeaponData = null;
+            newHeroData.hasWeapon = false;
+
         }
         if (ArmourItem != null)
         {
             newHeroData.ArmourData = ArmourItem.Data;
+            newHeroData.hasArmour = true;
         }
         else
         {
             newHeroData.ArmourData = null;
+            newHeroData.hasArmour = false;
         }
         if (HelmItem != null)
         {
             newHeroData.HelmData = HelmItem.Data;
+            newHeroData.hasHelm = true;
         }
         else
         {
             newHeroData.HelmData = null;
+            newHeroData.hasHelm = false;
         }
         if (ConsumableItem != null)
         {
             newHeroData.ConsumableData = ConsumableItem.Data;
+            newHeroData.hasConsumable = true;
         }
         else
         {
             newHeroData.ConsumableData = null;
+            newHeroData.hasConsumable = false;
         }
         newHeroData.DamageType = DamageType;
         newHeroData.HeroName = HeroName;

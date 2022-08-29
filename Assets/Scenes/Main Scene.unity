@@ -27787,6 +27787,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 872219397}
     - target: {fileID: 6723141200399364664, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723141200399364664, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723141200399364664, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -28023,6 +28031,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 872219397}
     - target: {fileID: 6723141200796269006, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723141200796269006, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723141200796269006, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -28071,6 +28087,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2135481766}
     - target: {fileID: 6723141200881915886, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723141200881915886, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723141200881915886, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -28110,6 +28134,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2135481764}
+    - target: {fileID: 6723141201228848850, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723141201228848850, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6723141201228848850, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

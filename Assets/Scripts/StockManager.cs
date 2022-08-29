@@ -418,14 +418,11 @@ public class StockManager : MonoBehaviour
                     DraggedItem = null;
                     ItemBox.gameObject.SetActive(false);
                     StockDropZone.SetActive(false);
-
+                    Save.SaveGame();
                     break;
             }
         }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            CollectGold(100);
-        }
+        
     }
 
     public void SellItem()
