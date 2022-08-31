@@ -451,6 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSlider: {fileID: 56867048}
+  isSFX: 0
   Type: 1
 --- !u!1 &113096406
 GameObject:
@@ -4825,7 +4826,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v0.4.1 Monster Shop Games 2022
+  m_text: v0.4.3 Monster Shop Games 2022
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afbf014436d404d40a6ca6d180265424, type: 2}
   m_sharedMaterial: {fileID: 3596085694989975384, guid: afbf014436d404d40a6ca6d180265424, type: 2}
@@ -5170,6 +5171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSlider: {fileID: 1912113194}
+  isSFX: 1
   Type: 0
 --- !u!1 &1935710787
 GameObject:

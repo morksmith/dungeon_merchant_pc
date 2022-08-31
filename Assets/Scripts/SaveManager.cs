@@ -56,6 +56,14 @@ public class SaveManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    PlayerPrefs.DeleteAll();
+        //}
+    }
+
     //public async void SaveGame()
     //{
     //    var newSave = new SaveData();
@@ -85,7 +93,7 @@ public class SaveManager : MonoBehaviour
 
     //    Debug.Log("Did the save thing");
     //}
-    public async void SaveGame()
+    public void SaveGame()
     {
         var newSave = new SaveData();
         newSave.Gold = Stock.Gold;

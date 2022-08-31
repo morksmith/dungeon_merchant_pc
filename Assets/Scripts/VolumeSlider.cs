@@ -11,6 +11,7 @@ public class VolumeSlider : MonoBehaviour
         SFX,
         Music
     }
+    public bool isSFX;
     public AudioType Type;
 
     private AudioSource musicSource;
@@ -21,26 +22,9 @@ public class VolumeSlider : MonoBehaviour
     {
         musicSource = GameObject.FindObjectOfType<MusicManager>().gameObject.GetComponent<AudioSource>();
         sfxSource = GameObject.FindObjectOfType<SFXManager>().gameObject.GetComponent<AudioSource>();
-
-        if (Type == AudioType.SFX)
+        if (PlayerPrefs.GetInt("Game Started") == 0)
         {
-            if(PlayerPrefs.GetInt("Game Started") == 0)
-            {
-                AudioSlider.value = 1;
-                PlayerPrefs.SetFloat("SFX Volume", 1);
-                sfxSource.GetComponent<AudioSource>().volume = 1;
-            }
-            else
-            {
-                AudioSlider.value = PlayerPrefs.GetFloat("SFX Volume");
-                sfxSource.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("SFX Volume");
-            }
-            
-
-        }
-        else
-        {
-            if (PlayerPrefs.GetInt("Game Started") == 0)
+            if (Type == AudioType.Music)
             {
                 AudioSlider.value = 1;
                 PlayerPrefs.SetFloat("Music Volume", 1);
@@ -48,16 +32,35 @@ public class VolumeSlider : MonoBehaviour
             }
             else
             {
+                Debug.Log("I am an SFX Slider");
+                AudioSlider.value = 1;
+                PlayerPrefs.SetFloat("SFX Volume", 1);
+                sfxSource.GetComponent<AudioSource>().volume = 1;
+            }
+            
+        }
+        else
+        {
+            if (Type == AudioType.Music)
+            {
                 AudioSlider.value = PlayerPrefs.GetFloat("Music Volume");
                 musicSource.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("Music Volume");
             }
-
+            else
+            {
+                AudioSlider.value = PlayerPrefs.GetFloat("SFX Volume");
+                sfxSource.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("SFX Volume");
+            }
+            
         }
-
-        PlayerPrefs.SetInt("Game Started", 1);
 
 
     }
+
+
+
+
+
 
     public void SetVolume()
     {
