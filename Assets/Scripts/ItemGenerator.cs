@@ -231,15 +231,17 @@ public class ItemGenerator : MonoBehaviour
             newItem.Selling = id.Selling;
             newItem.SellTimer = id.SellTimer;
             newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
-            if (!newItem.Selling)
+            if (!id.Selling)
             {
                 newItem.transform.SetParent(StockList);
                 newItem.Price = id.BasePrice;
-                newItem.Selling = true;
+                newItem.Selling = false;
+                newItem.SellTime = 0;
                 newItem.transform.localScale = Vector3.one;
             }
             else
             {
+                newItem.Selling = true;
                 newItem.transform.SetParent(Stock.ShopList);
                 newItem.Price = newItem.BasePrice;
                 newItem.SellTime = newItem.BasePrice;
@@ -377,6 +379,7 @@ public class ItemGenerator : MonoBehaviour
             newItem.transform.position = parent.position;
             newItem.transform.localScale = Vector3.one;
             newItem.Equipped = true;
+            newItem.PriceInfo.SetActive(false);
             hero.WeaponItem = newItem;
         }
         else if (id.TypeIndex < 6)
@@ -409,6 +412,8 @@ public class ItemGenerator : MonoBehaviour
             newItem.transform.position = parent.position;
             newItem.transform.localScale = Vector3.one;
             newItem.Equipped = true;
+            newItem.PriceInfo.SetActive(false);
+
 
 
         }
@@ -440,6 +445,8 @@ public class ItemGenerator : MonoBehaviour
             newItem.transform.position = parent.position;
             newItem.transform.localScale = Vector3.one;
             newItem.Equipped = true;
+            newItem.PriceInfo.SetActive(false);
+
             hero.ConsumableItem = newItem;
             newItem.PriceUI();
         }
