@@ -288,8 +288,17 @@ public class StockManager : MonoBehaviour
                                     DraggedItem.EquipItem();
                                     results[0].gameObject.GetComponent<Item>().StockItem();
                                     results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
-                                    Hero.SelectedHero.UneQuipArmour(results[0].gameObject.GetComponent<Armour>());
-                                    Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
+                                    if(DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
+                                    {
+                                        Hero.SelectedHero.UnequipHelm(results[0].gameObject.GetComponent<Armour>());
+                                        Hero.SelectedHero.EquipHelm(DraggedItem.GetComponent<Armour>());
+                                    }
+                                    else if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
+                                    {
+                                        Hero.SelectedHero.UneQuipArmour(results[0].gameObject.GetComponent<Armour>());
+                                        Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
+                                    }
+                                    
                                     Hero.OpenEquipMenu();
                                     Hero.SelectedHero.SelectHero();
                                     Hero.SelectHero(Hero.SelectedHero);

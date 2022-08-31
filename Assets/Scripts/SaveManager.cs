@@ -85,7 +85,7 @@ public class SaveManager : MonoBehaviour
 
     //    Debug.Log("Did the save thing");
     //}
-    public void SaveGame()
+    public async void SaveGame()
     {
         var newSave = new SaveData();
         newSave.Gold = Stock.Gold;
