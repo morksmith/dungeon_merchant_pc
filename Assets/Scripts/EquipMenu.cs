@@ -41,6 +41,23 @@ public class EquipMenu : MonoBehaviour
         }
         WeaponImage.sprite = WeaponSprites[s.DamageType];
         WeaponSlot.DamageType = s.DamageType;
+        if(s.DamageType == 0)
+        {
+            WeaponItemSlot.GetComponent<ItemType>().Type = ItemType.ItemTypes.Sword;
+        }
+        else if(s.DamageType == 1)
+        {
+            WeaponItemSlot.GetComponent<ItemType>().Type = ItemType.ItemTypes.Wand;
+        }
+        else if (s.DamageType == 2)
+        {
+            WeaponItemSlot.GetComponent<ItemType>().Type = ItemType.ItemTypes.Bow;
+        }
+        else if (s.DamageType == 3)
+        {
+            WeaponItemSlot.GetComponent<ItemType>().Type = ItemType.ItemTypes.Club;
+        }
+
         HeroInfoText.text = s.HeroName + "\n Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;
         HeroImage.sprite = s.HeroSprite;
     }

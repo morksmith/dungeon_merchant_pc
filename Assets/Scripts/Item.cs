@@ -94,6 +94,7 @@ public class Item : MonoBehaviour
     {
         stockMan.CollectGold(Price);
         stockMan.PlayCollectSound();
+        stockMan.Save.SaveGame();
         Destroy(gameObject);
     }
 
@@ -166,7 +167,7 @@ public class Item : MonoBehaviour
             var con = gameObject.GetComponent<Consumable>();
             if (con.Type == Consumable.ConsumableType.Potion)
             {
-                con.Value = con.Level * 20;
+                con.Value = 20 + con.Level * 2;
                 BasePrice = con.Value / 2;
                 LevelText.text = con.Value.ToString();
 
@@ -196,6 +197,7 @@ public class Item : MonoBehaviour
         CollectButton.SetActive(true);
         CollectButton.GetComponentInChildren<TextMeshProUGUI>().text = "SOLD\n" + Price + "G";
         stockMan.NewSale();
+        StoreData();
     }
 
     public void PriceUI()
@@ -235,6 +237,7 @@ public class Item : MonoBehaviour
         newItemData.Merchant = Merchant;
         newItemData.Equipped = Equipped;
         newItemData.Selling = Selling;
+        newItemData.Sold = Sold;
         newItemData.SellTimer = SellTimer;
         if(GetComponent<Weapon>() != null)
         {

@@ -1139,6 +1139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSlider: {fileID: 6704178854857801938}
+  isSFX: 0
   Type: 0
 --- !u!1 &751427762604806287
 GameObject:
@@ -2524,7 +2525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1023, y: -2842.0002}
+  m_AnchoredPosition: {x: -1982, y: -2842.0002}
   m_SizeDelta: {x: 900, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4071061453506075979
@@ -5731,6 +5732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSlider: {fileID: 511323645762866857}
+  isSFX: 0
   Type: 1
 --- !u!1 &4446388195757623647
 GameObject:
