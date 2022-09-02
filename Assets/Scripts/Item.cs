@@ -94,7 +94,10 @@ public class Item : MonoBehaviour
     {
         stockMan.CollectGold(Price);
         stockMan.PlayCollectSound();
-        stockMan.Save.SaveGame();
+        if (!stockMan.Tutorial)
+        {
+            stockMan.Save.SaveGame();
+        }
         Destroy(gameObject);
     }
 

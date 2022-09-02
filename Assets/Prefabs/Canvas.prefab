@@ -13807,10 +13807,10 @@ MonoBehaviour:
   WeaponSlot: {fileID: 6723141200399364667}
   EquipBlock: {fileID: 6723141201883773775}
   AllHeroes: []
-  WeaponItemSlot: {fileID: 0}
-  HelmSlot: {fileID: 0}
-  ArmourSlot: {fileID: 0}
-  ConsumableSlot: {fileID: 0}
+  WeaponItemSlot: {fileID: 6723141200399364664}
+  HelmSlot: {fileID: 6723141200881915886}
+  ArmourSlot: {fileID: 6723141200796269006}
+  ConsumableSlot: {fileID: 6723141201228848850}
 --- !u!1 &6723141200652512276
 GameObject:
   m_ObjectHideFlags: 0
@@ -20614,7 +20614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb86283d82843c6419ab2f59576ea1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 7
+  Type: 6
 --- !u!1 &6723141201240222049
 GameObject:
   m_ObjectHideFlags: 0
