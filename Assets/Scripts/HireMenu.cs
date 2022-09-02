@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class HireMenu : MonoBehaviour
 {
     public bool Tutorial = false;
+    public bool HeroAvailable = false;
     public float HeroCost;
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI HeroText;
@@ -22,14 +23,11 @@ public class HireMenu : MonoBehaviour
     public ScrollingWindow DungeonContent;
     public GameObject NewIcon;
     public SaveManager Save;
+    public HeroData HiredHero;
 
     private void Start()
     {
-        if (!Tutorial)
-        {
-            NewHero();
-
-        }
+        //NewHero();
     }
     public void HireHero()
     {
@@ -43,6 +41,7 @@ public class HireMenu : MonoBehaviour
             HireScreen.DeActivate();
             HeroButton.SetActive(false);
             Stock.CollectGold(-HeroCost);
+            HeroAvailable = false;
             if (!Tutorial)
             {
                 Save.SaveGame();
@@ -82,6 +81,20 @@ public class HireMenu : MonoBehaviour
         }
         Generator.CreateHero();
         NewIcon.SetActive(true);
+        HeroAvailable = true;
+
+    }
+    public void LoadHireHero(HeroData hd)
+    {
+        HeroButton.SetActive(true);
+        HireScreen.DeActivate();
+        if (CurrentHero != null)
+        {
+            Destroy(CurrentHero.gameObject);
+        }
+        Generator.CreateHiredHero(hd);
+        NewIcon.SetActive(true);
+        HeroAvailable = true;
 
     }
     public void CreateTutorialHero()
@@ -95,5 +108,7 @@ public class HireMenu : MonoBehaviour
         Generator.CreateTutorialHero();
         NewIcon.SetActive(true);
     }
+
+   
 
 }

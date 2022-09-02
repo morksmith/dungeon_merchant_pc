@@ -12,13 +12,7 @@ public class MerchantMenu : MonoBehaviour
     public GameObject NewIcon;
     public bool Tutorial = false;
 
-    private void Start()
-    {
-        if (!Tutorial)
-        {
-            NewItems(1);
-        }
-    }
+   
     public void SelectItem(Item i)
     {
         

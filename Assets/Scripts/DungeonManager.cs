@@ -63,13 +63,14 @@ public class DungeonManager : MonoBehaviour
     public List<GameObject> DungeonLayouts;
     public Button SleepButton;
     public Slider SleepSlider;
-    private float sleepTimer;
+    public float SleepTimer;
     public float SleepTime;
     public ScrollingWindow TopContent;
     public AudioClip EnterDungeonSound;
     public AudioClip DungeonCompleteSound;
     public AudioClip NewDaySound;
     public SaveManager Save;
+    public DungeonData SaveData;
     private bool readyForNextDungeon = false;
     private float nextDungeonTime = 1;
     private float timer;
@@ -80,45 +81,44 @@ public class DungeonManager : MonoBehaviour
     void Start()
     {
         sfx = GameObject.FindObjectOfType<SFXManager>();
-        sleepTimer = SleepTime;
         EnemySpawners = GameObject.FindObjectsOfType<EnemySpawner>();
         
-        EnemyCount = 1;
-        if(EnemyCount > 1 && EnemyCount < 3)
-        {
-            NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
-        }
-        else
-        {
-            if(EnemyCount == 1)
-            {
-                NextCount = Mathf.Clamp(EnemyCount + Random.Range(0, 2), 1, 3);
-            }
-            else if (EnemyCount == 3)
-            {
-                NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 1), 1, 3);
-            }
-        }
+        //EnemyCount = 1;
+        //if(EnemyCount > 1 && EnemyCount < 3)
+        //{
+        //    NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
+        //}
+        //else
+        //{
+        //    if(EnemyCount == 1)
+        //    {
+        //        NextCount = Mathf.Clamp(EnemyCount + Random.Range(0, 2), 1, 3);
+        //    }
+        //    else if (EnemyCount == 3)
+        //    {
+        //        NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 1), 1, 3);
+        //    }
+        //}
         
         
         
-        EnemyStrength = 1;
+        //EnemyStrength = 1;
         
-        if (EnemyStrength > 1 && EnemyStrength < 3)
-        {
-            NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(-1, 2), 1, 3);
-        }
-        else
-        {
-            if (EnemyStrength == 1)
-            {
-                NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(0, 2), 1, 3);
-            }
-            else if (EnemyStrength == 3)
-            {
-                NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(-1, 1), 1, 3);
-            }
-        }
+        //if (EnemyStrength > 1 && EnemyStrength < 3)
+        //{
+        //    NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(-1, 2), 1, 3);
+        //}
+        //else
+        //{
+        //    if (EnemyStrength == 1)
+        //    {
+        //        NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(0, 2), 1, 3);
+        //    }
+        //    else if (EnemyStrength == 3)
+        //    {
+        //        NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(-1, 1), 1, 3);
+        //    }
+        //}
         if (Tutorial)
         {
             EnemyCount = 2;
@@ -129,53 +129,18 @@ public class DungeonManager : MonoBehaviour
             EnemyStrengthSlider.value = EnemyStrength * 0.333f + 0.04f;
         }
 
-        EnemyStrengthSlider.value = EnemyStrength * 0.333f + 0.04f;        
-        if (NextStrength == EnemyStrength)
-        {
-            StrengthTrendIcon.enabled = false;
-        }
-        else
-        {
-            StrengthTrendIcon.enabled = true;
-            if (NextStrength > EnemyStrength)
-            {
-                StrengthTrendIcon.sprite = UpSprite;
-            }
-            else
-            {
-                StrengthTrendIcon.sprite = DownSprite;
-            }
-        }
-        EnemyCountSlider.value = EnemyCount * 0.333f + 0.04f;
-        if (NextCount == EnemyCount)
-        {
-            CountTrendIcon.enabled = false;
-        }
-        else
-        {
-            CountTrendIcon.enabled = true;
-            if (NextCount > EnemyCount)
-            {
-                CountTrendIcon.sprite = UpSprite;
-            }
-            else
-            {
-                CountTrendIcon.sprite = DownSprite;
-            }
-        }
-        if (!Tutorial)
-        {
-            foreach (int i in SpawnTypes)
-            {
-                SpawnTypes[i] = Random.Range(0, 4);
-            }
-        }
+        
+        //if (!Tutorial)
+        //{
+        //    foreach (int i in SpawnTypes)
+        //    {
+        //        SpawnTypes[i] = Random.Range(0, 4);
+        //    }
+        //}
         
 
         SetEnemyTypes();
-
-
-
+        UpdateUI();
         Stock.UpdatePrices();
 
 
@@ -239,12 +204,12 @@ public class DungeonManager : MonoBehaviour
 
         if (!Running)
         {
-            if (sleepTimer < SleepTime)
+            if (SleepTimer < SleepTime)
             {
-                sleepTimer += Time.deltaTime;
+                SleepTimer += Time.deltaTime;
                 SleepButton.interactable = false;
                 SleepSlider.gameObject.SetActive(true);
-                SleepSlider.value = sleepTimer / SleepTime;
+                SleepSlider.value = SleepTimer / SleepTime;
             }
             else
             {
@@ -530,7 +495,7 @@ public class DungeonManager : MonoBehaviour
 
     public void Sleep()
     {
-        sleepTimer = 0;
+        SleepTimer = 0;
         CycleDungeon();
     }
 
@@ -541,5 +506,63 @@ public class DungeonManager : MonoBehaviour
     public void UnPause()
     {
         Paused = false;
+    }
+
+    public void UpdateUI()
+    {
+        EnemyStrengthSlider.value = EnemyStrength * 0.333f + 0.04f;
+        if (NextStrength == EnemyStrength)
+        {
+            StrengthTrendIcon.enabled = false;
+        }
+        else
+        {
+            StrengthTrendIcon.enabled = true;
+            if (NextStrength > EnemyStrength)
+            {
+                StrengthTrendIcon.sprite = UpSprite;
+            }
+            else
+            {
+                StrengthTrendIcon.sprite = DownSprite;
+            }
+        }
+        EnemyCountSlider.value = EnemyCount * 0.333f + 0.04f;
+        if (NextCount == EnemyCount)
+        {
+            CountTrendIcon.enabled = false;
+        }
+        else
+        {
+            CountTrendIcon.enabled = true;
+            if (NextCount > EnemyCount)
+            {
+                CountTrendIcon.sprite = UpSprite;
+            }
+            else
+            {
+                CountTrendIcon.sprite = DownSprite;
+            }
+        }
+    }
+
+    public void StoreData()
+    {
+        var newDungeonData = new DungeonData();
+        newDungeonData.Time = CurrentTime;
+        newDungeonData.EnemyCount = EnemyCount;
+        newDungeonData.NextCount = NextCount;
+        newDungeonData.EnemyStrength = EnemyStrength;
+        newDungeonData.NextStrength = NextStrength;
+        var typeList = new List<int>();
+        foreach(int i in SpawnTypes)
+        {
+            typeList.Add(i);
+        }
+        newDungeonData.SpawnTypes = typeList.ToArray();
+        newDungeonData.SleepTimer = SleepTimer;
+
+        SaveData = newDungeonData;
+
     }
 }

@@ -12500,8 +12500,89 @@ MonoBehaviour:
   Merchant: {fileID: 1295311176}
   Hire: {fileID: 2100283535}
   Requests: {fileID: 179824636}
+  merchantTimer: 3
+  heroTimer: 4
+  requestTimer: 5
   BottomContent: {fileID: 519794056}
   TopContent: {fileID: 1878990211}
+  Data:
+    MerchTime: 0
+    HeroTime: 0
+    RequestTime: 0
+    HireHero:
+      HeroName: 
+      Hired: 0
+      hasWeapon: 0
+      hasHelm: 0
+      hasArmour: 0
+      hasConsumable: 0
+      WeaponData:
+        ItemName: 
+        SpriteIndex: 0
+        BasePrice: 0
+        TypeIndex: 0
+        DamageType: 0
+        Level: 0
+        StatPoint: 0
+        ConsumableType: 0
+        Merchant: 0
+        Equipped: 0
+        Selling: 0
+        Sold: 0
+        SellTimer: 0
+      HelmData:
+        ItemName: 
+        SpriteIndex: 0
+        BasePrice: 0
+        TypeIndex: 0
+        DamageType: 0
+        Level: 0
+        StatPoint: 0
+        ConsumableType: 0
+        Merchant: 0
+        Equipped: 0
+        Selling: 0
+        Sold: 0
+        SellTimer: 0
+      ArmourData:
+        ItemName: 
+        SpriteIndex: 0
+        BasePrice: 0
+        TypeIndex: 0
+        DamageType: 0
+        Level: 0
+        StatPoint: 0
+        ConsumableType: 0
+        Merchant: 0
+        Equipped: 0
+        Selling: 0
+        Sold: 0
+        SellTimer: 0
+      ConsumableData:
+        ItemName: 
+        SpriteIndex: 0
+        BasePrice: 0
+        TypeIndex: 0
+        DamageType: 0
+        Level: 0
+        StatPoint: 0
+        ConsumableType: 0
+        Merchant: 0
+        Equipped: 0
+        Selling: 0
+        Sold: 0
+        SellTimer: 0
+      DamageType: 0
+      SpriteIndex: 0
+      Level: 0
+      MaxHP: 0
+      MaxXP: 0
+      XP: 0
+      Damage: 0
+      Range: 0
+      Discovery: 0
+      LootFind: 0
+    HeroAvailable: 0
 --- !u!4 &791159074
 Transform:
   m_ObjectHideFlags: 0
@@ -18280,10 +18361,13 @@ MonoBehaviour:
   ContinueButton: {fileID: 0}
   Stock: {fileID: 70214546}
   Equipment: {fileID: 1238103751}
+  Dungeon: {fileID: 2060876958}
   ItemGen: {fileID: 70214548}
   HeroGen: {fileID: 2135481766}
   MainGame: 1
   Hero: {fileID: 2135481764}
+  Inn: {fileID: 791159073}
+  Requests: {fileID: 179824636}
 --- !u!4 &1239310554
 Transform:
   m_ObjectHideFlags: 0
@@ -25326,9 +25410,9 @@ MonoBehaviour:
   Minutes: 0
   Hours: 0
   Level: 1
-  EnemyCount: 0
+  EnemyCount: 1
   GoldBonus: 1
-  NextCount: 0
+  NextCount: 2
   HeroStartPosition: {x: 0.5, y: 0, z: 5.5}
   EnemyCountSlider: {fileID: 254802377}
   EnemyStrengthSlider: {fileID: 710591846}
@@ -25336,8 +25420,8 @@ MonoBehaviour:
   DownSprite: {fileID: -1241161481, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   CountTrendIcon: {fileID: 274597519}
   StrengthTrendIcon: {fileID: 1632182293}
-  EnemyStrength: 0
-  NextStrength: 0
+  EnemyStrength: 1
+  NextStrength: 1
   SpawnTypes: 00000000010000000200000003000000
   SpawnIcons:
   - {fileID: 957321663}
@@ -25384,12 +25468,21 @@ MonoBehaviour:
   - {fileID: 376460037}
   SleepButton: {fileID: 1281836196}
   SleepSlider: {fileID: 1879496887}
+  SleepTimer: 0
   SleepTime: 30
   TopContent: {fileID: 1878990211}
   EnterDungeonSound: {fileID: 8300000, guid: e3fd2704acac0d6458ea8fb4f7585d6d, type: 3}
   DungeonCompleteSound: {fileID: 8300000, guid: d9d8d8d5a05673e4194b7aef4129579b, type: 3}
   NewDaySound: {fileID: 8300000, guid: d1fc2c33783663c46863dbf8597a0ec3, type: 3}
   Save: {fileID: 1239310553}
+  SaveData:
+    Time: 0
+    EnemyCount: 0
+    NextCount: 0
+    EnemyStrength: 0
+    NextStrength: 0
+    SpawnTypes: 00000000000000000000000000000000
+    SleepTimer: 0
 --- !u!4 &2060876959
 Transform:
   m_ObjectHideFlags: 0
@@ -28140,6 +28233,10 @@ PrefabInstance:
       propertyPath: Generator
       value: 
       objectReference: {fileID: 2135481766}
+    - target: {fileID: 6723141200862739763, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6723141200881915886, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -28178,6 +28275,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141200909181310, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723141201004157644, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201169282314, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
@@ -28278,7 +28379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -388
+      value: -387.99994
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y

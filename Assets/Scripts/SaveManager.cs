@@ -11,10 +11,13 @@ public class SaveManager : MonoBehaviour
     public Button ContinueButton;
     public StockManager Stock;
     public EquipMenu Equipment;
+    public DungeonManager Dungeon;
     public ItemGenerator ItemGen;
     public HeroGenerator HeroGen;
     public bool MainGame = false;
     public HeroManager Hero;
+    public InnManager Inn;
+    public RequestManager Requests;
 
     
 
@@ -115,11 +118,22 @@ public class SaveManager : MonoBehaviour
             allHeroesData.Add(s.Data);
         }
 
+        Dungeon.StoreData();
+        var newDungeonSaveData = Dungeon.SaveData;
+        Inn.StoreData();
+        var newInnSaveData = Inn.Data;
+
+        newSave.InnSaveData = newInnSaveData;
+        newSave.DungeonSaveData = newDungeonSaveData;
         newSave.AllItems = allItemsData;
         newSave.AllHeroes = allHeroesData;
         string saveData = JsonUtility.ToJson(newSave);
         string savePath;
         savePath = Application.persistentDataPath + "/SaveGame.json";
+
+        
+
+        
 
         File.WriteAllText(savePath, saveData);
 
@@ -153,10 +167,15 @@ public class SaveManager : MonoBehaviour
             Stock.GoldText.text = Stock.Gold + "G";
             foreach (ItemData id in loadedData.AllItems)
             {
-                if (!id.Merchant && !id.Equipped)
+                if (!id.Equipped && !id.Merchant)
                 {
                     ItemGen.CreateSpecificItem(id);
                 }
+                if (id.Merchant)
+                {
+                    ItemGen.CreateSpecificItem(id);
+                }
+                
             }
 
             foreach (HeroData hd in loadedData.AllHeroes)
@@ -169,10 +188,42 @@ public class SaveManager : MonoBehaviour
 
 
             }
+            if(loadedData.DungeonSaveData != null)
+            {
+                Dungeon.CurrentTime = loadedData.DungeonSaveData.Time;
+                Dungeon.EnemyCount = loadedData.DungeonSaveData.EnemyCount;
+                Dungeon.NextCount = loadedData.DungeonSaveData.NextCount;
+                Dungeon.EnemyStrength = loadedData.DungeonSaveData.EnemyStrength;
+                Dungeon.NextStrength = loadedData.DungeonSaveData.NextStrength;
+                var typeList = new List<int>();
+                foreach(int i in loadedData.DungeonSaveData.SpawnTypes)
+                {
+                    typeList.Add(i);
+                }
+                if(typeList.Count > 0)
+                {
+                    Dungeon.SpawnTypes = typeList.ToArray();
+                }
+                
+                Dungeon.SleepTimer = loadedData.DungeonSaveData.SleepTimer;
+                Dungeon.UpdateUI();
+            }
+
+            if(loadedData.InnSaveData != null)
+            {
+                Inn.SetTimers(loadedData.InnSaveData.MerchTime, loadedData.InnSaveData.HeroTime, loadedData.InnSaveData.RequestTime);
+                if (loadedData.InnSaveData.HeroAvailable)
+                {
+                    Inn.Hire.LoadHireHero(loadedData.InnSaveData.HireHero);
+                }
+                
+            }
+            
+           
 
             Stock.UpdatePrices();
         }
-
+       
         
 
     }

@@ -13,11 +13,12 @@ public class InnManager : MonoBehaviour
     public MerchantMenu Merchant;
     public HireMenu Hire;
     public RequestManager Requests;
-    private float merchantTimer;
-    private float heroTimer;
-    private float requestTimer;
+    public float merchantTimer;
+    public float heroTimer;
+    public float requestTimer;
     public ScrollingWindow BottomContent;
     public ScrollingWindow TopContent;
+    public InnData Data;
 
     private void Update()
     {
@@ -56,10 +57,33 @@ public class InnManager : MonoBehaviour
         Hire.NewHero();
     }
 
+    public void SetTimers(float m, float h, float r)
+    {
+        merchantTimer = m;
+        heroTimer = h;
+        requestTimer = r;
+    }
     public void NewDay()
     {
         merchantTimer++;
         heroTimer++;
         requestTimer++;
+    }
+
+    public void StoreData()
+    {
+        var newData = new InnData();
+        newData.MerchTime = merchantTimer;
+        newData.HeroTime = heroTimer;
+        newData.RequestTime = requestTimer;
+        if (Hire.HeroAvailable)
+        {
+            if(Hire.CurrentHero != null)
+            {
+                newData.HireHero = Hire.CurrentHero.GetComponent<Stats>().Data;
+            }
+        }
+        newData.HeroAvailable = Hire.HeroAvailable;
+        Data = newData;
     }
 }

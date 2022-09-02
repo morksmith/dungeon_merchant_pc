@@ -4502,10 +4502,13 @@ MonoBehaviour:
   ContinueButton: {fileID: 1608404226}
   Stock: {fileID: 0}
   Equipment: {fileID: 0}
+  Dungeon: {fileID: 0}
   ItemGen: {fileID: 0}
   HeroGen: {fileID: 0}
   MainGame: 0
   Hero: {fileID: 0}
+  Inn: {fileID: 0}
+  Requests: {fileID: 0}
 --- !u!4 &1499845880
 Transform:
   m_ObjectHideFlags: 0
@@ -4826,7 +4829,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'v0.4.7 Monster Shop Games 2022
+  m_text: 'v0.4.8 Monster Shop Games 2022
 
     BETA'
   m_isRightToLeft: 0

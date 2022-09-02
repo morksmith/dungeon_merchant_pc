@@ -22,10 +22,10 @@ public class HeroGenerator : MonoBehaviour
     public HireMenu HireScreen;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            CreateHero();
-        }
+        //if (Input.GetKeyDown(KeyCode.H))
+        //{
+        //    CreateHero();
+        //}
     }
     private void Start()
     {
@@ -70,7 +70,30 @@ public class HeroGenerator : MonoBehaviour
         newHero.GetComponent<Stats>().Level = Random.Range(1, 3);
         HireScreen.UpdateHeroInfo(newHero.gameObject.transform);
         newHero.gameObject.SetActive(false);
+        HireScreen.HiredHero = newHero.GetComponent<Stats>().Data;
 
+    }
+
+    public void CreateHiredHero(HeroData hd)
+    {
+        var newHero = Instantiate(HeroPrefabs[hd.DamageType]);
+        var newHeroStats = newHero.GetComponent<Stats>();
+        newHeroStats.HeroSprite = SpriteIndex[hd.SpriteIndex];
+        newHeroStats.gameObject.name = hd.HeroName;
+        newHeroStats.HeroName = hd.HeroName;
+        newHeroStats.Level = hd.Level;
+        newHeroStats.MaxHP = hd.MaxHP;
+        newHeroStats.HP = hd.MaxHP;
+        newHeroStats.MaxXP = hd.MaxXP;
+        newHeroStats.XP = hd.XP;
+        newHeroStats.Damage = hd.Damage;
+        newHeroStats.Range = hd.Range;
+        newHeroStats.Discovery = hd.Discovery;
+        newHeroStats.LootFind = hd.LootFind;
+        HireScreen.UpdateHeroInfo(newHero.gameObject.transform);
+        newHero.gameObject.SetActive(false);
+        HireScreen.HiredHero = newHero.GetComponent<Stats>().Data;
+        newHero.transform.localScale = Vector3.one;
     }
     public void CreateTutorialHero()
     {

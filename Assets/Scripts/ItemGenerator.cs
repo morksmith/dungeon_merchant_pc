@@ -231,31 +231,45 @@ public class ItemGenerator : MonoBehaviour
             newItem.Selling = id.Selling;
             newItem.SellTimer = id.SellTimer;
             newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
-            if (!id.Selling)
+            if (id.Merchant)
             {
-                newItem.transform.SetParent(StockList);
+                newItem.transform.SetParent(MerchList);
+                newItem.GetComponent<Item>().Merchant = true;
                 newItem.Price = id.BasePrice;
-                newItem.SellTime = 0;
-                newItem.transform.localScale = Vector3.one;
+                    newItem.SellTime = 0;
+                    newItem.transform.localScale = Vector3.one;
             }
             else
             {
-                newItem.Selling = true;
-                newItem.transform.SetParent(Stock.ShopList);
-                newItem.Price = newItem.BasePrice;
-                newItem.SellTime = newItem.BasePrice;
-                newItem.SellTimer = id.SellTimer;
-                newItem.transform.localScale = Vector3.one;
+                if (!id.Selling)
+                {
+                    newItem.transform.SetParent(StockList);
+                    newItem.Price = id.BasePrice;
+                    newItem.SellTime = 0;
+                    newItem.transform.localScale = Vector3.one;
+                }
+                else
+                {
+                    newItem.Selling = true;
+                    newItem.transform.SetParent(Stock.ShopList);
+                    newItem.Price = newItem.BasePrice;
+                    newItem.SellTime = newItem.BasePrice;
+                    newItem.SellTimer = id.SellTimer;
+                    newItem.transform.localScale = Vector3.one;
 
+                }
+                if (id.Sold)
+                {
+                    newItem.transform.SetParent(Stock.ShopList);
+                    newItem.Price = newItem.BasePrice;
+                    newItem.SellTime = newItem.BasePrice;
+                    newItem.SellTimer = newItem.SellTime;
+                    newItem.ReadyToSell();
+                }
             }
-            if (id.Sold)
-            {
-                newItem.transform.SetParent(Stock.ShopList);
-                newItem.Price = newItem.BasePrice;
-                newItem.SellTime = newItem.BasePrice;
-                newItem.SellTimer = newItem.SellTime;
-                newItem.ReadyToSell();
-            }
+            
+            
+
             newItem.PriceUI();
                 
 
@@ -284,32 +298,44 @@ public class ItemGenerator : MonoBehaviour
             newItem.Selling = id.Selling;
             newItem.SellTimer = id.SellTimer;
             newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
-            if (!id.Selling)
+            if (id.Merchant)
             {
-                newItem.transform.SetParent(StockList);
+                newItem.transform.SetParent(MerchList);
+                newItem.GetComponent<Item>().Merchant = true;
                 newItem.Price = id.BasePrice;
                 newItem.SellTime = 0;
                 newItem.transform.localScale = Vector3.one;
             }
             else
             {
-                newItem.Selling = true;
-                newItem.transform.SetParent(Stock.ShopList);
-                newItem.Price = newItem.BasePrice;
-                newItem.SellTime = newItem.BasePrice;
-                newItem.SellTimer = id.SellTimer;
-                newItem.transform.localScale = Vector3.one;
+                if (!id.Selling)
+                {
+                    newItem.transform.SetParent(StockList);
+                    newItem.Price = id.BasePrice;
+                    newItem.SellTime = 0;
+                    newItem.transform.localScale = Vector3.one;
+                }
+                else
+                {
+                    newItem.Selling = true;
+                    newItem.transform.SetParent(Stock.ShopList);
+                    newItem.Price = newItem.BasePrice;
+                    newItem.SellTime = newItem.BasePrice;
+                    newItem.SellTimer = id.SellTimer;
+                    newItem.transform.localScale = Vector3.one;
 
+                }
+                if (id.Sold)
+                {
+                    newItem.transform.SetParent(Stock.ShopList);
+                    newItem.Price = newItem.BasePrice;
+                    newItem.SellTime = newItem.BasePrice;
+                    newItem.SellTimer = newItem.SellTime;
+                    newItem.ReadyToSell();
+                }
+                newItem.PriceUI();
             }
-            if (id.Sold)
-            {
-                newItem.transform.SetParent(Stock.ShopList);
-                newItem.Price = newItem.BasePrice;
-                newItem.SellTime = newItem.BasePrice;
-                newItem.SellTimer = newItem.SellTime;
-                newItem.ReadyToSell();
-            }
-            newItem.PriceUI();
+            
         }
         else
         {
@@ -335,33 +361,45 @@ public class ItemGenerator : MonoBehaviour
             newItem.Selling = id.Selling;
             newItem.SellTimer = id.SellTimer;
             newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
-            if (!id.Selling)
+            if (id.Merchant)
             {
-                newItem.transform.SetParent(StockList);
+                newItem.transform.SetParent(MerchList);
+                newItem.GetComponent<Item>().Merchant = true;
                 newItem.Price = id.BasePrice;
                 newItem.SellTime = 0;
                 newItem.transform.localScale = Vector3.one;
             }
             else
             {
-                newItem.Selling = true;
-                newItem.transform.SetParent(Stock.ShopList);
-                newItem.Price = newItem.BasePrice;
-                newItem.SellTime = newItem.BasePrice;
-                newItem.SellTimer = id.SellTimer;
-                newItem.transform.localScale = Vector3.one;
+                if (!id.Selling)
+                {
+                    newItem.transform.SetParent(StockList);
+                    newItem.Price = id.BasePrice;
+                    newItem.SellTime = 0;
+                    newItem.transform.localScale = Vector3.one;
+                }
+                else
+                {
+                    newItem.Selling = true;
+                    newItem.transform.SetParent(Stock.ShopList);
+                    newItem.Price = newItem.BasePrice;
+                    newItem.SellTime = newItem.BasePrice;
+                    newItem.SellTimer = id.SellTimer;
+                    newItem.transform.localScale = Vector3.one;
 
+                }
+                if (id.Sold)
+                {
+                    newItem.transform.SetParent(Stock.ShopList);
+                    newItem.Price = newItem.BasePrice;
+                    newItem.SellTime = newItem.BasePrice;
+                    newItem.SellTimer = newItem.SellTime;
+                    newItem.ReadyToSell();
+                }
+                newItem.PriceUI();
             }
-            if (id.Sold)
-            {
-                newItem.transform.SetParent(Stock.ShopList);
-                newItem.Price = newItem.BasePrice;
-                newItem.SellTime = newItem.BasePrice;
-                newItem.SellTimer = newItem.SellTime;
-                newItem.ReadyToSell();
-            }
-            newItem.PriceUI();
         }
+           
     }
     public void CreateEquippedItem(ItemData id, Transform parent, Stats hero)
     {
