@@ -29,9 +29,20 @@ public class DialogueManager : MonoBehaviour
     public void NewDialogue()
     {
         BottomContent.NewHeroIcon();
-        StoryButton.SetActive(true);
-        CurrentDialogue++;
+        StoryButton.SetActive(true);        
         PlayerPrefs.SetInt("Dialogue Step", CurrentDialogue);
+    }
+
+    public void IterateDialogue(float p)
+    {
+        for (var i = 0;i < ProfitSteps.Count; i++)
+        {
+            if(p > ProfitSteps[i])
+            {
+                CurrentDialogue = i;
+                NewDialogue();
+            }
+        }
     }
     
     

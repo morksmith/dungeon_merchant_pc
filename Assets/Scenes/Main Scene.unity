@@ -1511,10 +1511,11 @@ MonoBehaviour:
   - 10000
   - 12000
   - 15000
-  - 17000
-  - 18000
-  - 19000
-  - 20000
+  - 25000
+  - 50000
+  - 60000
+  - 80000
+  - 100000
   Dialogues:
   - {fileID: 588771932}
   - {fileID: 588771932}
@@ -26804,7 +26805,7 @@ MonoBehaviour:
   - Chad
   - Eric
   - Chuck
-  - Bailey
+  - Bayley
   - Bryce
   - Kylie
   KnightLastNames:

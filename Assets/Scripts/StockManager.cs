@@ -543,14 +543,7 @@ public class StockManager : MonoBehaviour
         if(Gold > MaxProfit)
         {
             MaxProfit = Gold;
-            if(Dialogue != null)
-            {
-                if (MaxProfit > Dialogue.ProfitSteps[Dialogue.CurrentDialogue])
-                {
-                    Dialogue.NewDialogue();
-                }
-
-            }
+            CheckDialogue();
 
         }
         if (!Tutorial)
@@ -558,6 +551,16 @@ public class StockManager : MonoBehaviour
             Save.SaveGame();
         }
     }
+
+    public void CheckDialogue()
+    {
+        if (Dialogue != null)
+        {
+            Dialogue.IterateDialogue(MaxProfit);
+
+        }
+    }
+   
 
     public void CalculateArmourAndPotions(float a, float p)
     {

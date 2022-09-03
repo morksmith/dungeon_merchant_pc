@@ -35,6 +35,7 @@ public class HireMenu : MonoBehaviour
         {
             CurrentHero.gameObject.SetActive(true);
             CurrentHero.SetParent(HeroParent);
+            CurrentHero.transform.localScale = Vector3.one;
             CurrentHero.GetComponent<Stats>().State = Stats.HeroState.Idle;
             CurrentHero.GetComponent<Stats>().StoreData();
             CurrentHero = null;
