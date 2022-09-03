@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 146824655, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
+  m_Sprite: {fileID: 913576190, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2480,12 +2480,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level: 1
-  Reward: 100
+  Reward: 25
   RequestIcon: {fileID: 3927566198161115681}
+  TypeIndex: 0
   Type: 0
   RequestText: {fileID: 8599124243752581298}
   CompleteImage: {fileID: 6992207482786979231}
   Manager: {fileID: 0}
+  Data:
+    Level: 0
+    Reward: 0
+    RequestType: 0
+    Complete: 0
+  TaskComplete: 0
 --- !u!1 &2226328543489234267
 GameObject:
   m_ObjectHideFlags: 0
@@ -6448,12 +6455,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level: 1
-  Reward: 100
+  Reward: 20
   RequestIcon: {fileID: 1472051963963675421}
-  Type: 0
+  TypeIndex: 2
+  Type: 2
   RequestText: {fileID: 5732731658266393074}
   CompleteImage: {fileID: 2528376293738337721}
   Manager: {fileID: 0}
+  Data:
+    Level: 0
+    Reward: 0
+    RequestType: 0
+    Complete: 0
+  TaskComplete: 0
 --- !u!1 &5033057840290798564
 GameObject:
   m_ObjectHideFlags: 0
@@ -16652,6 +16666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tutorial: 0
+  HeroAvailable: 0
   HeroCost: 0
   NameText: {fileID: 6723141201677953010}
   HeroText: {fileID: 6723141201002124574}
@@ -16667,6 +16682,79 @@ MonoBehaviour:
   DungeonContent: {fileID: 6723141200800344999}
   NewIcon: {fileID: 6723141202047592173}
   Save: {fileID: 0}
+  HiredHero:
+    HeroName: 
+    Hired: 0
+    hasWeapon: 0
+    hasHelm: 0
+    hasArmour: 0
+    hasConsumable: 0
+    WeaponData:
+      ItemName: 
+      SpriteIndex: 0
+      BasePrice: 0
+      TypeIndex: 0
+      DamageType: 0
+      Level: 0
+      StatPoint: 0
+      ConsumableType: 0
+      Merchant: 0
+      Equipped: 0
+      Selling: 0
+      Sold: 0
+      SellTimer: 0
+    HelmData:
+      ItemName: 
+      SpriteIndex: 0
+      BasePrice: 0
+      TypeIndex: 0
+      DamageType: 0
+      Level: 0
+      StatPoint: 0
+      ConsumableType: 0
+      Merchant: 0
+      Equipped: 0
+      Selling: 0
+      Sold: 0
+      SellTimer: 0
+    ArmourData:
+      ItemName: 
+      SpriteIndex: 0
+      BasePrice: 0
+      TypeIndex: 0
+      DamageType: 0
+      Level: 0
+      StatPoint: 0
+      ConsumableType: 0
+      Merchant: 0
+      Equipped: 0
+      Selling: 0
+      Sold: 0
+      SellTimer: 0
+    ConsumableData:
+      ItemName: 
+      SpriteIndex: 0
+      BasePrice: 0
+      TypeIndex: 0
+      DamageType: 0
+      Level: 0
+      StatPoint: 0
+      ConsumableType: 0
+      Merchant: 0
+      Equipped: 0
+      Selling: 0
+      Sold: 0
+      SellTimer: 0
+    DamageType: 0
+    SpriteIndex: 0
+    Level: 0
+    MaxHP: 0
+    MaxXP: 0
+    XP: 0
+    Damage: 0
+    Range: 0
+    Discovery: 0
+    LootFind: 0
 --- !u!1 &6723141200862739763
 GameObject:
   m_ObjectHideFlags: 0
@@ -30098,13 +30186,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc01538ad373084fa8a8ccc2478f303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 1
-  Reward: 100
+  Level: 2
+  Reward: 32
   RequestIcon: {fileID: 1436707876390609604}
-  Type: 0
+  TypeIndex: 3
+  Type: 3
   RequestText: {fileID: 1701435095866341823}
   CompleteImage: {fileID: 6375805655888190190}
   Manager: {fileID: 0}
+  Data:
+    Level: 0
+    Reward: 0
+    RequestType: 0
+    Complete: 0
+  TaskComplete: 0
 --- !u!1 &7295657457097389993
 GameObject:
   m_ObjectHideFlags: 0
@@ -30638,13 +30733,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc01538ad373084fa8a8ccc2478f303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 1
-  Reward: 100
+  Level: 2
+  Reward: 40
   RequestIcon: {fileID: 6845803193593351966}
-  Type: 0
+  TypeIndex: 1
+  Type: 1
   RequestText: {fileID: 3262880229040277276}
   CompleteImage: {fileID: 8509702887024571240}
   Manager: {fileID: 0}
+  Data:
+    Level: 0
+    Reward: 0
+    RequestType: 0
+    Complete: 0
+  TaskComplete: 0
 --- !u!1 &7877182978554952737
 GameObject:
   m_ObjectHideFlags: 0
@@ -30824,7 +30926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 146824655, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
+  m_Sprite: {fileID: -1282459064, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31036,7 +31138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1 or higher Sword (100G)
+  m_text: Level 2 or higher Club (40G)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afbf014436d404d40a6ca6d180265424, type: 2}
   m_sharedMaterial: {fileID: 3596085694989975384, guid: afbf014436d404d40a6ca6d180265424, type: 2}
@@ -31436,7 +31538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1 or higher Sword (100G)
+  m_text: Level 1 or higher Bow (20G)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afbf014436d404d40a6ca6d180265424, type: 2}
   m_sharedMaterial: {fileID: 3596085694989975384, guid: afbf014436d404d40a6ca6d180265424, type: 2}
@@ -32223,7 +32325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1 or higher Sword (100G)
+  m_text: Level 2 or higher Wand (32G)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afbf014436d404d40a6ca6d180265424, type: 2}
   m_sharedMaterial: {fileID: 3596085694989975384, guid: afbf014436d404d40a6ca6d180265424, type: 2}
@@ -32913,7 +33015,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1 or higher Sword (100G)
+  m_text: Level 1 or higher Sword (25G)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afbf014436d404d40a6ca6d180265424, type: 2}
   m_sharedMaterial: {fileID: 3596085694989975384, guid: afbf014436d404d40a6ca6d180265424, type: 2}
@@ -33048,7 +33150,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 146824655, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
+  m_Sprite: {fileID: 587968469, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

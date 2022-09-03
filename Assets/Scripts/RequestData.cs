@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class RequestData : MonoBehaviour
+[Serializable]
+public class RequestData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float Level;
+    public float Reward;
+    public int RequestType;
+    public bool Complete;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -31,4 +31,12 @@ public class RequestManager : MonoBehaviour
         }
     }
 
+    public void CreateSpecificRequests(RequestData[] rd)
+    {
+        for (var r = 0; r < CurrentRequests.Count; r++)
+        {
+            CurrentRequests[r].SpecificRequest(rd[r]);
+        }
+    }
+
 }

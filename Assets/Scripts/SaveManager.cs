@@ -118,6 +118,14 @@ public class SaveManager : MonoBehaviour
             allHeroesData.Add(s.Data);
         }
 
+        var allRequests = GameObject.FindObjectsOfType<Request>();
+        var allRequestData = new List<RequestData>();
+        foreach(Request r in allRequests)
+        {
+            r.StoreData();
+            allRequestData.Add(r.Data);
+        }
+
         Dungeon.StoreData();
         var newDungeonSaveData = Dungeon.SaveData;
         Inn.StoreData();
@@ -127,6 +135,7 @@ public class SaveManager : MonoBehaviour
         newSave.DungeonSaveData = newDungeonSaveData;
         newSave.AllItems = allItemsData;
         newSave.AllHeroes = allHeroesData;
+        newSave.AllRequests = allRequestData;
         string saveData = JsonUtility.ToJson(newSave);
         string savePath;
         savePath = Application.persistentDataPath + "/SaveGame.json";
@@ -218,6 +227,13 @@ public class SaveManager : MonoBehaviour
                 }
                 
             }
+            var loadedRequests = new List<RequestData>();
+            foreach(RequestData rd in loadedData.AllRequests)
+            {
+                loadedRequests.Add(rd);
+            }
+
+            Requests.CreateSpecificRequests(loadedRequests.ToArray());
             
            
 

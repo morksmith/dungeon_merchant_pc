@@ -10,6 +10,7 @@ public class SaveData
     public int MaxLevel;
     public List<HeroData> AllHeroes;
     public List<ItemData> AllItems;
+    public List<RequestData> AllRequests;
     public DungeonData DungeonSaveData;
     public InnData InnSaveData;
     public HeroData HireHero;
