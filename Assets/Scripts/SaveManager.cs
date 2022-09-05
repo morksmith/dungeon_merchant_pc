@@ -99,24 +99,24 @@ public class SaveManager : MonoBehaviour
     public void SaveGame()
     {
         var newSave = new SaveData();
-        newSave.Gold = Stock.Gold;
-        newSave.MaxProfit = Stock.MaxProfit;
-        newSave.MaxLevel = Hero.MaxDungeonFloor;
-
-        var allItems = GameObject.FindObjectsOfType<Item>();
         var allHeroes = GameObject.FindObjectsOfType<Stats>();
-        var allItemsData = new List<ItemData>();
         var allHeroesData = new List<HeroData>();
-        foreach (Item i in allItems)
-        {
-            i.StoreData();
-            allItemsData.Add(i.Data);
-        }
         foreach (Stats s in allHeroes)
         {
             s.StoreData();
             allHeroesData.Add(s.Data);
         }
+        newSave.Gold = Stock.Gold;
+        newSave.MaxProfit = Stock.MaxProfit;
+        newSave.MaxLevel = Hero.MaxDungeonFloor;
+        var allItems = GameObject.FindObjectsOfType<Item>();
+        var allItemsData = new List<ItemData>();
+        foreach (Item i in allItems)
+        {
+            i.StoreData();
+            allItemsData.Add(i.Data);
+        }
+        
 
         var allRequests = GameObject.FindObjectsOfType<Request>();
         var allRequestData = new List<RequestData>();
@@ -131,10 +131,10 @@ public class SaveManager : MonoBehaviour
         Inn.StoreData();
         var newInnSaveData = Inn.Data;
 
+        newSave.AllHeroes = allHeroesData;
         newSave.InnSaveData = newInnSaveData;
         newSave.DungeonSaveData = newDungeonSaveData;
         newSave.AllItems = allItemsData;
-        newSave.AllHeroes = allHeroesData;
         newSave.AllRequests = allRequestData;
         string saveData = JsonUtility.ToJson(newSave);
         string savePath;
@@ -170,10 +170,21 @@ public class SaveManager : MonoBehaviour
         {
             string fileContents = File.ReadAllText(savePath);
             SaveData loadedData = JsonUtility.FromJson<SaveData>(fileContents);
+            foreach (HeroData hd in loadedData.AllHeroes)
+            {
+                if (hd.Hired)
+                {
+                    HeroGen.CreateSpecificHero(hd);
+
+                }
+
+
+            }
             Stock.Gold = loadedData.Gold;
             Stock.MaxProfit = loadedData.MaxProfit;
             Hero.MaxDungeonFloor = loadedData.MaxLevel;
             Stock.GoldText.text = Stock.Gold + "G";
+
             foreach (ItemData id in loadedData.AllItems)
             {
                 if (!id.Equipped && !id.Merchant)
@@ -187,16 +198,7 @@ public class SaveManager : MonoBehaviour
                 
             }
 
-            foreach (HeroData hd in loadedData.AllHeroes)
-            {
-                if (hd.Hired)
-                {
-                    HeroGen.CreateSpecificHero(hd);
-
-                }
-
-
-            }
+            
             if(loadedData.DungeonSaveData != null)
             {
                 Dungeon.CurrentTime = loadedData.DungeonSaveData.Time;
