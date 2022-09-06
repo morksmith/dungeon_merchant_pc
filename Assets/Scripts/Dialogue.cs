@@ -6,6 +6,7 @@ public class Dialogue : MonoBehaviour
 {
     public List<string> Sentences;
     public int CurrentSentence;
+    public bool HasPlayed = false;
     // Start is called before the first frame update
     void Start()
     {

@@ -9,20 +9,20 @@ public class DialogueManager : MonoBehaviour
     public DialogueBox TextBox;
     public ScrollingWindow BottomContent;
     public GameObject DialoguePanel;
-    public int CurrentDialogue = 0;
+    public int CurrentDialogueIndexYouBigBaby = 0;
     public GameObject StoryButton;
 
     private void Start()
     {
-        CurrentDialogue = PlayerPrefs.GetInt("Dialogue Step");
+        //CurrentDialogue = PlayerPrefs.GetInt("Dialogue Step");
     }
 
     public void StartDialogue ()
     {
         DialoguePanel.SetActive(true);
-        if(Dialogues[CurrentDialogue] != null)
+        if(Dialogues[CurrentDialogueIndexYouBigBaby] != null)
         {
-            TextBox.StartDialogue(Dialogues[CurrentDialogue]);
+            TextBox.StartDialogue(Dialogues[CurrentDialogueIndexYouBigBaby]);
         }
     }
 
@@ -30,24 +30,47 @@ public class DialogueManager : MonoBehaviour
     {
         BottomContent.NewHeroIcon();
         StoryButton.SetActive(true);
-        PlayerPrefs.SetInt("Dialogue Step", CurrentDialogue);
-
+        Dialogues[CurrentDialogueIndexYouBigBaby].HasPlayed = true;
     }
 
-    public void IterateDialogue(float p)
+    public void IterateDialogue(float currentProfit)
     {
-        var previousDialogue = CurrentDialogue;
-        for (var i = 0;i < ProfitSteps.Count; i++)
+        //if(p > ProfitSteps[CurrentDialogue])
+        //{
+        //    NewDialogue();
+        //    CurrentDialogue++;
+        //    if(p> ProfitSteps[CurrentDialogue])
+        //    {
+
+        //    }
+        //}
+        for (var i = 0; i < ProfitSteps.Count; i++)
         {
-            if(p > ProfitSteps[i])
+            if(currentProfit < ProfitSteps[i])
             {
-                
-                CurrentDialogue = i;
-                if(i > CurrentDialogue)
+                //Before we do this, check if i-1 exists.
+                var previousIndex = i - 1;
+                if(previousIndex < 0)
                 {
-                    NewDialogue();
+                    //We've not hit any breakpoint yet. Break;
+                    break;
+                }
+
+
+                if(currentProfit > ProfitSteps[previousIndex])
+                {
+                    //Great, we've hit the closest breakpoint over the amount: i -1
+                    CurrentDialogueIndexYouBigBaby = previousIndex;
+
+                    if (!Dialogues[previousIndex].HasPlayed)
+                    {
+                        NewDialogue();
+                        break;
+                    }
                 }
             }
+
+            
         }
     }
     

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class HeroAI : MonoBehaviour
 {
-
     public enum HeroState
     {
         Idle,
@@ -219,7 +218,8 @@ public class HeroAI : MonoBehaviour
             var dmg = Mathf.CeilToInt(Stats.Damage * 1.5f);
             CurrentTarget.GetComponent<Enemy>().TakeDamage(dmg);
             var newNumber = Instantiate(FloatingNumber, CurrentTarget.position, Quaternion.Euler(Vector3.forward));
-            newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+            Color orangePlease = new Color(1, 0.5f, 0);
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().color = orangePlease;
             newNumber.GetComponentInChildren<TextMeshProUGUI>().text = dmg + "!";
         }
         else

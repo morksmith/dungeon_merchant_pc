@@ -1518,7 +1518,6 @@ MonoBehaviour:
   - 100000
   Dialogues:
   - {fileID: 588771932}
-  - {fileID: 588771932}
   - {fileID: 993575626}
   - {fileID: 1415368189}
   - {fileID: 1456749080}
@@ -1537,10 +1536,11 @@ MonoBehaviour:
   - {fileID: 6723141201573289128}
   - {fileID: 6723141201573289127}
   - {fileID: 6723141201573289126}
+  - {fileID: 588771932}
   TextBox: {fileID: 301821418}
   BottomContent: {fileID: 519794056}
   DialoguePanel: {fileID: 2038876795}
-  CurrentDialogue: 0
+  CurrentDialogueIndexYouBigBaby: 0
   StoryButton: {fileID: 1490651840}
 --- !u!1 &168815430
 GameObject:
@@ -28380,7 +28380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -387.9999
+      value: -387.99994
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y

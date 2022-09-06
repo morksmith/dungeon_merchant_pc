@@ -218,6 +218,8 @@ public class ItemGenerator : MonoBehaviour
                 newWeaponItem = newWand;
             }
 
+           
+
             newWeaponItem.name = id.ItemName;
             var newItem = newWeaponItem.GetComponent<Item>();
             var newWeapon = newWeaponItem.GetComponent<Weapon>();

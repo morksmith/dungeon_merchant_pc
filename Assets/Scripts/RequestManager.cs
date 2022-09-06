@@ -27,7 +27,7 @@ public class RequestManager : MonoBehaviour
     {
         for (var r = 0; r < CurrentRequests.Count; r++)
         {
-            CurrentRequests[r].NewRequest(Mathf.CeilToInt((Stock.MaxProfit / 100)/4));
+            CurrentRequests[r].NewRequest(Mathf.CeilToInt((Stock.MaxProfit / 1000)));
         }
     }
 

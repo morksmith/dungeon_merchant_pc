@@ -44,10 +44,9 @@ public class InnManager : MonoBehaviour
     }
     public void NewMerchant()
     {
-        var merchLevel = (Stock.MaxProfit / 100) / 4;
+        var merchLevel = (Stock.MaxProfit / 1000);
         merchLevel = Mathf.CeilToInt(merchLevel);
         int merchInt = (int)merchLevel;
-        Debug.Log(merchLevel + ">" + merchInt);
         Merchant.NewItems(merchInt);
         Merchant.GetComponent<Menu>().DeActivate();
 
