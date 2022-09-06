@@ -202,10 +202,10 @@ public class SaveManager : MonoBehaviour
             if(loadedData.DungeonSaveData != null)
             {
                 Dungeon.CurrentTime = loadedData.DungeonSaveData.Time;
-                Dungeon.EnemyCount = loadedData.DungeonSaveData.EnemyCount;
-                Dungeon.NextCount = loadedData.DungeonSaveData.NextCount;
-                Dungeon.EnemyStrength = loadedData.DungeonSaveData.EnemyStrength;
-                Dungeon.NextStrength = loadedData.DungeonSaveData.NextStrength;
+                Dungeon.EnemyCount = Mathf.Clamp(loadedData.DungeonSaveData.EnemyCount, 1, 3);
+                Dungeon.NextCount = Mathf.Clamp(loadedData.DungeonSaveData.NextCount, 1, 3);
+                Dungeon.EnemyStrength = Mathf.Clamp(loadedData.DungeonSaveData.EnemyStrength,1,3);
+                Dungeon.NextStrength = Mathf.Clamp(loadedData.DungeonSaveData.NextStrength,1,3);
                 var typeList = new List<int>();
                 foreach(int i in loadedData.DungeonSaveData.SpawnTypes)
                 {

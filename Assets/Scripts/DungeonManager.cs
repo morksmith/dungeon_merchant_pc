@@ -436,7 +436,7 @@ public class DungeonManager : MonoBehaviour
             CurrentHeroAI.Manager.CheckFloorButtons();
         }
         DungeonCompleted = false;
-        GoldBonus *= 1.2f;
+        GoldBonus += 0.4f;
         GoldBonus = Mathf.Clamp(GoldBonus, 1, 10);
         var bonusText = GoldBonus.ToString("F1");
         GoldMultiplierText.text = "x" + bonusText;
@@ -465,7 +465,9 @@ public class DungeonManager : MonoBehaviour
             sfx.PlaySound(DungeonCompleteSound);
 
             CompleteTitle.text = "LEVEL COMPLETE!";
-            CompleteText.text = "Return home or continue for 1.2x gold discovery?";
+            var bonusText = GoldBonus + 0.4f;
+            bonusText = Mathf.Clamp(bonusText, 1, 10);
+            CompleteText.text = "Return home or continue for " + bonusText + "x gold discovery?";
             GoldCollectedText.text = CurrentHeroStats.GoldHeld.ToString();
             LootCollectedText.text = CurrentHeroStats.LootHeld.ToString();
             LevelText.text = Level.ToString();

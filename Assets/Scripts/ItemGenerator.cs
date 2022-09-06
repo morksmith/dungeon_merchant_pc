@@ -335,7 +335,9 @@ public class ItemGenerator : MonoBehaviour
                 }
                 newItem.PriceUI();
             }
-            
+
+            newItem.PriceUI();
+
         }
         else
         {
@@ -398,6 +400,8 @@ public class ItemGenerator : MonoBehaviour
                 }
                 newItem.PriceUI();
             }
+
+            newItem.PriceUI();
         }
            
     }
@@ -446,6 +450,7 @@ public class ItemGenerator : MonoBehaviour
             newItem.Equipped = true;
             newItem.PriceInfo.SetActive(false);
             hero.WeaponItem = newItem;
+            newItem.PriceUI();
         }
         else if (id.TypeIndex < 6)
         {
@@ -478,7 +483,7 @@ public class ItemGenerator : MonoBehaviour
             newItem.transform.localScale = Vector3.one;
             newItem.Equipped = true;
             newItem.PriceInfo.SetActive(false);
-
+            newItem.PriceUI();
 
 
         }

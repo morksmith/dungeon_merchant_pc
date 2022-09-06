@@ -220,14 +220,14 @@ public class HeroAI : MonoBehaviour
             CurrentTarget.GetComponent<Enemy>().TakeDamage(dmg);
             var newNumber = Instantiate(FloatingNumber, CurrentTarget.position, Quaternion.Euler(Vector3.forward));
             newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
-            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + dmg;
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = dmg + "!";
         }
         else
         {
             var dmg = Stats.Damage;
             CurrentTarget.GetComponent<Enemy>().TakeDamage(dmg);
             var newNumber = Instantiate(FloatingNumber, CurrentTarget.position, Quaternion.Euler(Vector3.forward));
-            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + dmg;
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = dmg.ToString();
         }
 
         step = 0;
@@ -251,7 +251,7 @@ public class HeroAI : MonoBehaviour
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + GoldFound +"G";
             }
             Stats.XP += CurrentTarget.GetComponent<Enemy>().XP;
-            var lootChance = Random.Range(0, 13);
+            var lootChance = Random.Range(0, 21);
             if(lootChance <= Stats.LootFind)
             {
                 sfx.PlaySound(ChestSound);
@@ -282,7 +282,7 @@ public class HeroAI : MonoBehaviour
         {
             Stats.HP -= i;
             var newNumber = Instantiate(FloatingNumber, transform.position, Quaternion.Euler(Vector3.forward));
-            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "-" + i;
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = i.ToString();
             newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
             if(CurrentTarget == null)
             {
