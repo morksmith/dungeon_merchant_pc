@@ -256,7 +256,9 @@ public class HeroAI : MonoBehaviour
             {
                 sfx.PlaySound(ChestSound);
                 Stats.LootHeld++;
-                Stats.ChestLevels.Add(DM.Level);
+                var chestLevel = Random.Range(1, DM.Level * 2);
+                chestLevel = Mathf.RoundToInt(chestLevel);
+                Stats.ChestLevels.Add(chestLevel);
                 var newNumber = Instantiate(FloatingNumber, CurrentTarget.position - Vector3.forward * 1.5f, Quaternion.Euler(Vector3.forward));
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "Loot Found!";
