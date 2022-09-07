@@ -6696,6 +6696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b86ba103568b214885a80f526ab8cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Save: {fileID: 1239310553}
 --- !u!4 &654341711
 Transform:
   m_ObjectHideFlags: 0
@@ -18369,6 +18370,12 @@ MonoBehaviour:
   Hero: {fileID: 2135481764}
   Inn: {fileID: 791159073}
   Requests: {fileID: 179824636}
+  ItemsSaved: 0
+  HeroesSaved: 0
+  StockSaved: 0
+  DungeonSaved: 0
+  InnSaved: 0
+  RequestsSaved: 0
 --- !u!4 &1239310554
 Transform:
   m_ObjectHideFlags: 0
@@ -27700,7 +27707,7 @@ PrefabInstance:
       objectReference: {fileID: 179824636}
     - target: {fileID: 4759424709929506361, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4759424709929506361, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -27709,7 +27716,7 @@ PrefabInstance:
     - target: {fileID: 4759424709929506361, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1239310553}
+      objectReference: {fileID: 654341710}
     - target: {fileID: 4759424709929506361, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -27720,7 +27727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4759424709929506361, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SaveGame
+      value: LoadStartScene
       objectReference: {fileID: 0}
     - target: {fileID: 4759424709929506361, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -27728,7 +27735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4759424709929506361, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SaveManager, Assembly-CSharp
+      value: LevelManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4759424709929506361, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName

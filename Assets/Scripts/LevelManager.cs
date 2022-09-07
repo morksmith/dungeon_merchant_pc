@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+
+    public SaveManager Save;
     
     public void LoadMainScene()
     {
@@ -27,6 +29,12 @@ public class LevelManager : MonoBehaviour
     }
     public void LoadStartScene()
     {
+        if(!Save.InnSaved || !Save.ItemsSaved || !Save.HeroesSaved || !Save.StockSaved || !Save.DungeonSaved || !Save.RequestsSaved)
+        {
+            Debug.Log("Save not completed!");
+            return;
+        }
+
         SceneManager.LoadScene("Start");
         var musicSource = GameObject.FindObjectOfType<MusicManager>().gameObject;
         Destroy(musicSource.gameObject);

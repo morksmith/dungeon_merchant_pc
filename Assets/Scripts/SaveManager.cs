@@ -19,6 +19,15 @@ public class SaveManager : MonoBehaviour
     public InnManager Inn;
     public RequestManager Requests;
 
+    public bool ItemsSaved = false;
+    public bool HeroesSaved = false;
+    public bool StockSaved = false;
+    public bool DungeonSaved = false;
+    public bool InnSaved = false;
+    public bool RequestsSaved = false;
+
+
+
     
 
     private void Start()
@@ -60,6 +69,15 @@ public class SaveManager : MonoBehaviour
     
     public void SaveGame()
     {
+        //Set all save checks to false
+        ItemsSaved = false;
+        HeroesSaved = false;
+        DungeonSaved = false;
+        InnSaved = false;
+        StockSaved = false;
+        RequestsSaved = false;
+
+
         //Save Heroes
         var newSave = new SaveData();
         var allHeroes = GameObject.FindObjectsOfType<Stats>();
@@ -70,12 +88,13 @@ public class SaveManager : MonoBehaviour
             allHeroesData.Add(s.Data);
         }
         newSave.AllHeroes = allHeroesData;
-
+        HeroesSaved = true;
 
         //Save Gold and Profit
         newSave.Gold = Stock.Gold;
         newSave.MaxProfit = Stock.MaxProfit;
         newSave.MaxLevel = Hero.MaxDungeonFloor;
+        StockSaved = true;
 
         //Save Items
         var allItems = GameObject.FindObjectsOfType<Item>();
@@ -86,6 +105,7 @@ public class SaveManager : MonoBehaviour
             allItemsData.Add(i.Data);
         }
         newSave.AllItems = allItemsData;
+        ItemsSaved = true;
 
         //Save current requests
         var allRequests = GameObject.FindObjectsOfType<Request>();
@@ -96,17 +116,20 @@ public class SaveManager : MonoBehaviour
             allRequestData.Add(r.Data);
         }
         newSave.AllRequests = allRequestData;
+        RequestsSaved = true;
 
         //Save Dungeon State
         Dungeon.StoreData();
         var newDungeonSaveData = Dungeon.SaveData;
         newSave.DungeonSaveData = newDungeonSaveData;
+        DungeonSaved = true;
 
 
         //Save Inn State
         Inn.StoreData();
         var newInnSaveData = Inn.Data;
         newSave.InnSaveData = newInnSaveData;
+        InnSaved = true;
 
         //Save to file
         string saveData = JsonUtility.ToJson(newSave);
