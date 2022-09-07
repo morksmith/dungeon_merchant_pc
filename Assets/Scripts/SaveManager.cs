@@ -49,7 +49,6 @@ public class SaveManager : MonoBehaviour
     public void ResetProgress()
     {
         File.Delete(Application.persistentDataPath + "/SaveGame.json");
-        //await DungeonMerchant.FileIO.JsonSerializationHandler.DeleteSave("SaveData.json");
         var musicVol = PlayerPrefs.GetFloat("Music Volume");
         var sfxVol = PlayerPrefs.GetFloat("SFX Volume");
         PlayerPrefs.DeleteAll();
@@ -58,46 +57,10 @@ public class SaveManager : MonoBehaviour
 
 
     }
-
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    PlayerPrefs.DeleteAll();
-        //}
-    }
-
-    //public async void SaveGame()
-    //{
-    //    var newSave = new SaveData();
-    //    newSave.Gold = Stock.Gold;
-    //    newSave.MaxProfit = Stock.MaxProfit;
-    //    newSave.MaxLevel = Hero.MaxDungeonFloor;
-
-    //    var allItems = GameObject.FindObjectsOfType<Item>();
-    //    var allHeroes = GameObject.FindObjectsOfType<Stats>();
-    //    var allItemsData = new List<ItemData>();
-    //    var allHeroesData = new List<HeroData>();
-    //    foreach(Item i in allItems)
-    //    {
-    //        i.StoreData();
-    //        allItemsData.Add(i.Data);
-    //    }
-    //    foreach (Stats s in allHeroes)
-    //    {
-    //        s.StoreData();
-    //        allHeroesData.Add(s.Data);
-    //    }
-    //    newSave.AllItems = allItemsData;
-    //    newSave.AllHeroes = allHeroesData;
-    //    await DungeonMerchant.FileIO.JsonSerializationHandler.ResolveDataDirectoryAsync();
-    //    await DungeonMerchant.FileIO.JsonSerializationHandler.SerializeObjectToDataDirectory(newSave, "SaveData.json");
-
-
-    //    Debug.Log("Did the save thing");
-    //}
+    
     public void SaveGame()
     {
+        //Save Heroes
         var newSave = new SaveData();
         var allHeroes = GameObject.FindObjectsOfType<Stats>();
         var allHeroesData = new List<HeroData>();
@@ -106,9 +69,15 @@ public class SaveManager : MonoBehaviour
             s.StoreData();
             allHeroesData.Add(s.Data);
         }
+        newSave.AllHeroes = allHeroesData;
+
+
+        //Save Gold and Profit
         newSave.Gold = Stock.Gold;
         newSave.MaxProfit = Stock.MaxProfit;
         newSave.MaxLevel = Hero.MaxDungeonFloor;
+
+        //Save Items
         var allItems = GameObject.FindObjectsOfType<Item>();
         var allItemsData = new List<ItemData>();
         foreach (Item i in allItems)
@@ -116,8 +85,9 @@ public class SaveManager : MonoBehaviour
             i.StoreData();
             allItemsData.Add(i.Data);
         }
-        
+        newSave.AllItems = allItemsData;
 
+        //Save current requests
         var allRequests = GameObject.FindObjectsOfType<Request>();
         var allRequestData = new List<RequestData>();
         foreach(Request r in allRequests)
@@ -125,25 +95,23 @@ public class SaveManager : MonoBehaviour
             r.StoreData();
             allRequestData.Add(r.Data);
         }
+        newSave.AllRequests = allRequestData;
 
+        //Save Dungeon State
         Dungeon.StoreData();
         var newDungeonSaveData = Dungeon.SaveData;
+        newSave.DungeonSaveData = newDungeonSaveData;
+
+
+        //Save Inn State
         Inn.StoreData();
         var newInnSaveData = Inn.Data;
-
-        newSave.AllHeroes = allHeroesData;
         newSave.InnSaveData = newInnSaveData;
-        newSave.DungeonSaveData = newDungeonSaveData;
-        newSave.AllItems = allItemsData;
-        newSave.AllRequests = allRequestData;
+
+        //Save to file
         string saveData = JsonUtility.ToJson(newSave);
         string savePath;
         savePath = Application.persistentDataPath + "/SaveGame.json";
-
-        
-
-        
-
         File.WriteAllText(savePath, saveData);
 
 
@@ -155,14 +123,7 @@ public class SaveManager : MonoBehaviour
     public void LoadGame()
     {
 
-        //if(!await DungeonMerchant.FileIO.JsonSerializationHandler.CheckIfFileExistsInDataDirectory("SaveData.json"))
-        //{
-        //    Debug.Log("NO SAVE FILE");
-        //    return;
-
-        //}
-        //Debug.Log("Loading");
-        //SaveData loadedData = await DungeonMerchant.FileIO.JsonSerializationHandler.DeserializeObjectFromDataDirectory<SaveData>("SaveData.json");
+      
         string savePath;
         savePath = Application.persistentDataPath + "/SaveGame.json";
 
@@ -170,35 +131,36 @@ public class SaveManager : MonoBehaviour
         {
             string fileContents = File.ReadAllText(savePath);
             SaveData loadedData = JsonUtility.FromJson<SaveData>(fileContents);
+
+            //Load Heroes
             foreach (HeroData hd in loadedData.AllHeroes)
             {
                 if (hd.Hired)
                 {
                     HeroGen.CreateSpecificHero(hd);
-
                 }
-
-
             }
+
+            //Load Gold and Profit
             Stock.Gold = loadedData.Gold;
             Stock.MaxProfit = loadedData.MaxProfit;
             Hero.MaxDungeonFloor = loadedData.MaxLevel;
             Stock.GoldText.text = Stock.Gold + "G";
 
+            //Load Items
             foreach (ItemData id in loadedData.AllItems)
             {
-                if (!id.Equipped && !id.Merchant)
-                {
-                    ItemGen.CreateSpecificItem(id);
-                }
                 if (id.Merchant)
                 {
                     ItemGen.CreateSpecificItem(id);
                 }
-                
+                else if (!id.Equipped)
+                {
+                    ItemGen.CreateSpecificItem(id);
+                }
             }
 
-            
+            //Load Dungeon State
             if(loadedData.DungeonSaveData != null)
             {
                 Dungeon.CurrentTime = loadedData.DungeonSaveData.Time;
