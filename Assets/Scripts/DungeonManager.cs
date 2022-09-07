@@ -83,42 +83,7 @@ public class DungeonManager : MonoBehaviour
         sfx = GameObject.FindObjectOfType<SFXManager>();
         EnemySpawners = GameObject.FindObjectsOfType<EnemySpawner>();
         
-        //EnemyCount = 1;
-        //if(EnemyCount > 1 && EnemyCount < 3)
-        //{
-        //    NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 2), 1, 3);
-        //}
-        //else
-        //{
-        //    if(EnemyCount == 1)
-        //    {
-        //        NextCount = Mathf.Clamp(EnemyCount + Random.Range(0, 2), 1, 3);
-        //    }
-        //    else if (EnemyCount == 3)
-        //    {
-        //        NextCount = Mathf.Clamp(EnemyCount + Random.Range(-1, 1), 1, 3);
-        //    }
-        //}
         
-        
-        
-        //EnemyStrength = 1;
-        
-        //if (EnemyStrength > 1 && EnemyStrength < 3)
-        //{
-        //    NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(-1, 2), 1, 3);
-        //}
-        //else
-        //{
-        //    if (EnemyStrength == 1)
-        //    {
-        //        NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(0, 2), 1, 3);
-        //    }
-        //    else if (EnemyStrength == 3)
-        //    {
-        //        NextStrength = Mathf.Clamp(EnemyStrength + Random.Range(-1, 1), 1, 3);
-        //    }
-        //}
         if (Tutorial)
         {
             EnemyCount = 2;
@@ -130,13 +95,7 @@ public class DungeonManager : MonoBehaviour
         }
 
         
-        //if (!Tutorial)
-        //{
-        //    foreach (int i in SpawnTypes)
-        //    {
-        //        SpawnTypes[i] = Random.Range(0, 4);
-        //    }
-        //}
+        
         
 
         SetEnemyTypes();
@@ -467,7 +426,7 @@ public class DungeonManager : MonoBehaviour
             CompleteTitle.text = "LEVEL COMPLETE!";
             var bonusText = GoldBonus + 0.4f;
             bonusText = Mathf.Clamp(bonusText, 1, 10);
-            CompleteText.text = "Return home or continue for " + bonusText + "x gold discovery?";
+            CompleteText.text = "Return home or continue for " + bonusText.ToString("F1") + "x gold discovery?";
             GoldCollectedText.text = CurrentHeroStats.GoldHeld.ToString();
             LootCollectedText.text = CurrentHeroStats.LootHeld.ToString();
             LevelText.text = Level.ToString();

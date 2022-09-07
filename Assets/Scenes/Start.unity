@@ -2623,11 +2623,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MusicTracks:
-  - {fileID: 8300000, guid: f0e6ccc32eb05f34c9c8ff77d0b8d77c, type: 3}
-  - {fileID: 8300000, guid: 1020ff3745f55c44daa46e5657f96f28, type: 3}
-  - {fileID: 8300000, guid: 85769b363bfe25d47b02de69d607f6b8, type: 3}
-  - {fileID: 8300000, guid: 6a79e456de8e0b648bb1284556871296, type: 3}
-  - {fileID: 8300000, guid: 333562e094c687b458d48d1a1192d713, type: 3}
+  - {fileID: 8300000, guid: e3f1c21cb0afec4449257e41cf6b4bea, type: 3}
+  - {fileID: 8300000, guid: b3a56264eb791a240acb5dd6c65902e7, type: 3}
+  - {fileID: 8300000, guid: 7385e7078a878b64494061b54b2fdc04, type: 3}
+  - {fileID: 8300000, guid: b7d5740231ffe644f8a803b079249941, type: 3}
+  - {fileID: 8300000, guid: a12c8d451fb6bbd4a871a11656e0161a, type: 3}
   CurrentTrack: 0
   MusicSource: {fileID: 612830776}
 --- !u!4 &612830778
@@ -4509,6 +4509,13 @@ MonoBehaviour:
   Hero: {fileID: 0}
   Inn: {fileID: 0}
   Requests: {fileID: 0}
+  WarningMenu: {fileID: 0}
+  ItemsSaved: 0
+  HeroesSaved: 0
+  StockSaved: 0
+  DungeonSaved: 0
+  InnSaved: 0
+  RequestsSaved: 0
 --- !u!4 &1499845880
 Transform:
   m_ObjectHideFlags: 0
@@ -4829,7 +4836,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'v0.4.9 Monster Shop Games 2022
+  m_text: 'v0.5.1 Monster Shop Games 2022
 
     BETA'
   m_isRightToLeft: 0
@@ -4937,6 +4944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b86ba103568b214885a80f526ab8cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Save: {fileID: 0}
 --- !u!4 &1806575201
 Transform:
   m_ObjectHideFlags: 0

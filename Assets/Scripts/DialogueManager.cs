@@ -9,20 +9,22 @@ public class DialogueManager : MonoBehaviour
     public DialogueBox TextBox;
     public ScrollingWindow BottomContent;
     public GameObject DialoguePanel;
-    public int CurrentDialogueIndexYouBigBaby = 0;
+    public int CurrentDialogue = 0;
     public GameObject StoryButton;
 
     private void Start()
     {
-        //CurrentDialogue = PlayerPrefs.GetInt("Dialogue Step");
+        CurrentDialogue = PlayerPrefs.GetInt("Dialogue Step");
+        Dialogues[CurrentDialogue].HasPlayed = true;
+
     }
 
     public void StartDialogue ()
     {
         DialoguePanel.SetActive(true);
-        if(Dialogues[CurrentDialogueIndexYouBigBaby] != null)
+        if(Dialogues[CurrentDialogue] != null)
         {
-            TextBox.StartDialogue(Dialogues[CurrentDialogueIndexYouBigBaby]);
+            TextBox.StartDialogue(Dialogues[CurrentDialogue]);
         }
     }
 
@@ -30,20 +32,13 @@ public class DialogueManager : MonoBehaviour
     {
         BottomContent.NewHeroIcon();
         StoryButton.SetActive(true);
-        Dialogues[CurrentDialogueIndexYouBigBaby].HasPlayed = true;
+        PlayerPrefs.SetInt("Dialogue Step", CurrentDialogue);
+        Dialogues[CurrentDialogue].HasPlayed = true;
     }
 
     public void IterateDialogue(float currentProfit)
     {
-        //if(p > ProfitSteps[CurrentDialogue])
-        //{
-        //    NewDialogue();
-        //    CurrentDialogue++;
-        //    if(p> ProfitSteps[CurrentDialogue])
-        //    {
-
-        //    }
-        //}
+        
         for (var i = 0; i < ProfitSteps.Count; i++)
         {
             if(currentProfit < ProfitSteps[i])
@@ -60,7 +55,7 @@ public class DialogueManager : MonoBehaviour
                 if(currentProfit > ProfitSteps[previousIndex])
                 {
                     //Great, we've hit the closest breakpoint over the amount: i -1
-                    CurrentDialogueIndexYouBigBaby = previousIndex;
+                    CurrentDialogue = previousIndex;
 
                     if (!Dialogues[previousIndex].HasPlayed)
                     {

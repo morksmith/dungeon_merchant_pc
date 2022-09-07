@@ -11,6 +11,7 @@ public class SaveData
     public List<HeroData> AllHeroes;
     public List<ItemData> AllItems;
     public List<RequestData> AllRequests;
+    public List<ChestData> AllChests;
     public DungeonData DungeonSaveData;
     public InnData InnSaveData;
     public HeroData HireHero;

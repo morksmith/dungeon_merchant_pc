@@ -336,7 +336,7 @@ public class StockManager : MonoBehaviour
                         if (results[0].gameObject.GetComponent<Request>() != null)
                         {
                             Debug.Log("Dropped on request");
-                            sfx.PlaySound(CollectSound);
+                            
 
                             var r = results[0].gameObject.GetComponent<Request>();
                             if(DraggedItem.GetComponent<Weapon>() != null)

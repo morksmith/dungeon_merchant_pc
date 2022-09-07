@@ -48,6 +48,7 @@ public class TutorialSequence : MonoBehaviour
 
     public void TutorialComplete()
     {
+        PlayerPrefs.SetInt("Closed Correctly", 1);
         PlayerPrefs.SetFloat("Tutorial Complete", 1);
     }
 

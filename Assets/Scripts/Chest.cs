@@ -14,6 +14,7 @@ public class Chest : MonoBehaviour
     public int ItemType;
     public int Level = 1;
     private StockManager stock;
+    public ChestData Data;
 
     private void Start()
     {
@@ -59,6 +60,14 @@ public class Chest : MonoBehaviour
         stock.UpdatePrices();
         Destroy(gameObject);
         
+    }
+
+    public void StoreData()
+    {
+        var newChestData = new ChestData();
+        newChestData.Level = Level;
+        newChestData.Type = ItemType;
+        Data = newChestData;
     }
 
 

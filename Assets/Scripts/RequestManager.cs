@@ -16,6 +16,7 @@ public class RequestManager : MonoBehaviour
 
     public void CompleteRequest(Request r)
     {
+        Stock.PlayCollectSound();
         Destroy(Stock.DraggedItem.gameObject);
         Stock.DraggedItem = null;
         Stock.CollectGold(r.Reward);

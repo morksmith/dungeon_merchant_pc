@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Save not completed!");
             return;
         }
-
+        PlayerPrefs.SetInt("Closed Correctly", 1);
         SceneManager.LoadScene("Start");
         var musicSource = GameObject.FindObjectOfType<MusicManager>().gameObject;
         Destroy(musicSource.gameObject);

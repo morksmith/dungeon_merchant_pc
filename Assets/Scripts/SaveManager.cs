@@ -18,6 +18,7 @@ public class SaveManager : MonoBehaviour
     public HeroManager Hero;
     public InnManager Inn;
     public RequestManager Requests;
+    public Menu WarningMenu;
 
     public bool ItemsSaved = false;
     public bool HeroesSaved = false;
@@ -131,11 +132,23 @@ public class SaveManager : MonoBehaviour
         newSave.InnSaveData = newInnSaveData;
         InnSaved = true;
 
+        //Save Chests
+        var allChests = GameObject.FindObjectsOfType<Chest>();
+        var allChestData = new List<ChestData>();
+        foreach (Chest c in allChests)
+        {
+            c.StoreData();
+            allChestData.Add(c.Data);
+        }
+        newSave.AllChests = allChestData;
+
         //Save to file
         string saveData = JsonUtility.ToJson(newSave);
         string savePath;
         savePath = Application.persistentDataPath + "/SaveGame.json";
         File.WriteAllText(savePath, saveData);
+
+
 
 
         Debug.Log("Did the save thing");
@@ -145,7 +158,10 @@ public class SaveManager : MonoBehaviour
 
     public void LoadGame()
     {
-
+        if(PlayerPrefs.GetInt("Closed Correctly") != 1)
+        {
+            WarningMenu.Activate();
+        }
       
         string savePath;
         savePath = Application.persistentDataPath + "/SaveGame.json";
@@ -205,6 +221,15 @@ public class SaveManager : MonoBehaviour
                 Dungeon.UpdateUI();
             }
 
+            //Load Chests
+            if(loadedData.AllChests.Count > 0)
+            {
+                foreach(ChestData cd in loadedData.AllChests)
+                {
+                    Stock.AddChest(cd.Type, cd.Level);
+                }
+            }
+
             if(loadedData.InnSaveData != null)
             {
                 Inn.SetTimers(loadedData.InnSaveData.MerchTime, loadedData.InnSaveData.HeroTime, loadedData.InnSaveData.RequestTime);
@@ -221,9 +246,9 @@ public class SaveManager : MonoBehaviour
             }
 
             Requests.CreateSpecificRequests(loadedRequests.ToArray());
-            
-           
 
+
+            PlayerPrefs.SetInt("Closed Correctly", 0);
             Stock.UpdatePrices();
         }
        
