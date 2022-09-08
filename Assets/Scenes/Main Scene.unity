@@ -1540,7 +1540,7 @@ MonoBehaviour:
   TextBox: {fileID: 301821418}
   BottomContent: {fileID: 519794056}
   DialoguePanel: {fileID: 2038876795}
-  CurrentDialogueIndexYouBigBaby: 0
+  CurrentDialogue: 0
   StoryButton: {fileID: 1490651840}
 --- !u!1 &168815430
 GameObject:
@@ -25480,8 +25480,8 @@ MonoBehaviour:
   RIPButton: {fileID: 1501537206}
   CompleteButtons: {fileID: 546840255}
   CompleteImage: {fileID: 555209699}
-  DeadSprite: {fileID: 1849497218, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
-  CompleteSprite: {fileID: -1144174766, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
+  DeadSprite: {fileID: 1858758798, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
+  CompleteSprite: {fileID: -2059341422, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   DungeonLayouts:
   - {fileID: 1720990228}
   - {fileID: 1026623178}
@@ -28379,15 +28379,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -28395,11 +28395,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -387.99994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -28493,6 +28493,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2135481764}
+    - target: {fileID: 6723141202126196551, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2059341422, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
     - target: {fileID: 6844233578692015170, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

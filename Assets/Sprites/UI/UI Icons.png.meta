@@ -884,13 +884,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_36
+      name: Level Cleared
       rect:
         serializedVersion: 2
         x: 64
-        y: 48
-        width: 16
-        height: 16
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -926,13 +926,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_38
+      name: RIP Hero
       rect:
         serializedVersion: 2
         x: 96
-        y: 48
-        width: 16
-        height: 16
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1487,7 +1487,9 @@ TextureImporter:
       New Icon: -1760440644
       Sword Icon: 146824655
       UI Icons_45: -1327362712
+      RIP Hero: 1858758798
       Demon Icon: 1740618757
+      Level Cleared: -2059341422
       UI Icons_49: -811662599
       UI Icons_39: -1832430684
       UI Icons_42: -2037247765
@@ -1521,13 +1523,12 @@ TextureImporter:
       UI Icons_60: 854319678
       Club Icon: 587968469
       UI Icons_47: -779969718
-      UI Icons_36: -2059341422
       UI Icons_46: 1305928266
+      UI Icons_62: -1372708085
       Sleep Icon: 814697313
       Hand Icon: 617925880
       Clock Icon: -1257581251
       Right Button: 1275068342
-      UI Icons_62: -1372708085
       Up Icon: 443786278
       UI Icons_48: 1905295711
       UI Icons_63: 206034143
@@ -1545,7 +1546,6 @@ TextureImporter:
       UI Icons_54: -2046292516
       Bow Icon: 913576190
       Boots Icon: 759780696
-      UI Icons_38: 1858758798
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
