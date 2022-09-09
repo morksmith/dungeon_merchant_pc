@@ -968,7 +968,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_40
+      name: Prop 01
       rect:
         serializedVersion: 2
         x: 0
@@ -989,7 +989,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_41
+      name: Prop 02
       rect:
         serializedVersion: 2
         x: 16
@@ -1010,7 +1010,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_42
+      name: Prop 03
       rect:
         serializedVersion: 2
         x: 32
@@ -1031,7 +1031,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_43
+      name: Prop 04
       rect:
         serializedVersion: 2
         x: 48
@@ -1136,28 +1136,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_48
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8de7e2a7cc35f9f4e92b62a4daf35fbf
-      internalID: 1905295711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI Icons_49
+      name: prop 06
       rect:
         serializedVersion: 2
         x: 16
@@ -1178,7 +1157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_50
+      name: prop 07
       rect:
         serializedVersion: 2
         x: 32
@@ -1199,7 +1178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_51
+      name: Prop 08
       rect:
         serializedVersion: 2
         x: 48
@@ -1304,15 +1283,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_56
+      name: Prop 05
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1325,7 +1304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_57
+      name: Prop 09
       rect:
         serializedVersion: 2
         x: 16
@@ -1346,7 +1325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_58
+      name: Prop 10
       rect:
         serializedVersion: 2
         x: 32
@@ -1367,7 +1346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_59
+      name: Prop 11
       rect:
         serializedVersion: 2
         x: 48
@@ -1482,44 +1461,42 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI Icons_43: 6281229
-      UI Icons_51: -1745310925
       New Icon: -1760440644
       Sword Icon: 146824655
       UI Icons_45: -1327362712
       RIP Hero: 1858758798
       Demon Icon: 1740618757
       Level Cleared: -2059341422
-      UI Icons_49: -811662599
+      Prop 01: 1331171362
       UI Icons_39: -1832430684
-      UI Icons_42: -2037247765
-      UI Icons_59: -85376452
-      UI Icons_61: 344171816
-      UI Icons_50: -477135976
-      Ring Icon: -509072803
       Bar: 1343421656
+      Prop 10: -1467690362
+      UI Icons_61: 344171816
+      Ring Icon: -509072803
       Left Button: 1857169760
       Beast Icon: -1647127367
+      Prop 11: -85376452
+      Prop 09: -1047018790
       Upgrade Icon: 2073385100
       Down Icon: -1241161481
       Enemy Icon: -533737630
       UI Icons_52: -583487608
       UI Icons_55: 904229183
+      Prop 03: -2037247765
       Double Down Icon: -1113570038
-      UI Icons_41: -654184327
       Wand Icon: -1282459064
       Options Icon: -1771915823
+      Prop 05: -1981332245
       UI Icons_44: -2105886311
       Down Arrow: -1706774531
+      prop 06: -811662599
+      prop 07: -477135976
       UI Icons_53: 1137604696
-      UI Icons_58: -1467690362
-      UI Icons_56: -1981332245
       Box Icon: -576844939
       Floor Icon: -1144174766
-      UI Icons_40: 1331171362
+      Armour Icon: -1486367166
       UI Icons_37: 173537716
       Strength Icon: 1673536445
-      Armour Icon: -1486367166
       UI Icons_60: 854319678
       Club Icon: 587968469
       UI Icons_47: -779969718
@@ -1529,6 +1506,7 @@ TextureImporter:
       Hand Icon: 617925880
       Clock Icon: -1257581251
       Right Button: 1275068342
+      Prop 02: -654184327
       Up Icon: 443786278
       UI Icons_48: 1905295711
       UI Icons_63: 206034143
@@ -1536,7 +1514,6 @@ TextureImporter:
       Loot Icon: 900783781
       Helm Icon: 1673620574
       Chest Icon: -996191103
-      UI Icons_57: -1047018790
       Skeleton Icon: 1849497218
       Exit Icon: -1344064781
       Gold Icon: -764562705
@@ -1546,6 +1523,8 @@ TextureImporter:
       UI Icons_54: -2046292516
       Bow Icon: 913576190
       Boots Icon: 759780696
+      Prop 08: -1745310925
+      Prop 04: 6281229
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

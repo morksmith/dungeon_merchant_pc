@@ -48,6 +48,7 @@ public class DungeonManager : MonoBehaviour
     public Slider HeroHP;
     public Slider HeroXP;
     public EnemySpawner[] EnemySpawners;
+    public Prop[] Props;
     public bool DungeonCompleted = false;
     public Menu DungeonCompleteMenu;
     public TextMeshProUGUI CompleteTitle;
@@ -82,7 +83,7 @@ public class DungeonManager : MonoBehaviour
     {
         sfx = GameObject.FindObjectOfType<SFXManager>();
         EnemySpawners = GameObject.FindObjectsOfType<EnemySpawner>();
-        
+        Props = GameObject.FindObjectsOfType<Prop>();
         
         if (Tutorial)
         {
@@ -254,6 +255,10 @@ public class DungeonManager : MonoBehaviour
         
         GenerateLayout();
         SpawnEnemies();
+        foreach(Prop p in Props)
+        {
+            p.SetSprite();
+        }
     }
 
     public void CycleDungeon()
