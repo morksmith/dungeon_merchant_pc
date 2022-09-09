@@ -10,6 +10,9 @@ public class DialogueBox : MonoBehaviour
     public TextMeshProUGUI TMP;
     public bool DialogueStarted = false;
     public Dialogue CurrentDialogue;
+    public Dialogue FinalDialogue;
+    public Menu CongratsMenu;
+    public StockManager Stock;
     private int charCount = 0;
     private float charTimer = 0;
     public GameObject NextIcon;
@@ -124,6 +127,11 @@ public class DialogueBox : MonoBehaviour
             CurrentDialogue.CurrentSentence = 0;
             DialoguePanel.SetActive(false);
             StoryButton.SetActive(false);
+            if(CurrentDialogue == FinalDialogue)
+            {
+                CongratsMenu.Activate();
+                Stock.CollectGold(-100000);
+            }
 
         }
     }
