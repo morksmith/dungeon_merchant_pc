@@ -1199,7 +1199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_52
+      name: Info Icon
       rect:
         serializedVersion: 2
         x: 64
@@ -1480,7 +1480,6 @@ TextureImporter:
       Upgrade Icon: 2073385100
       Down Icon: -1241161481
       Enemy Icon: -533737630
-      UI Icons_52: -583487608
       UI Icons_55: 904229183
       Prop 03: -2037247765
       Double Down Icon: -1113570038
@@ -1502,6 +1501,7 @@ TextureImporter:
       UI Icons_47: -779969718
       UI Icons_46: 1305928266
       UI Icons_62: -1372708085
+      Info Icon: -583487608
       Sleep Icon: 814697313
       Hand Icon: 617925880
       Clock Icon: -1257581251
