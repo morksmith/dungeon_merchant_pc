@@ -3116,19 +3116,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159763059}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 267875495}
-  m_Father: {fileID: 1184366333}
-  m_RootOrder: 2
+  m_Father: {fileID: 1840417377}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -600, y: 100}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1040}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &159763061
 MonoBehaviour:
@@ -19311,6 +19311,7 @@ MonoBehaviour:
       Discovery: 0
       LootFind: 0
     HeroAvailable: 0
+  Audio: {fileID: 0}
 --- !u!4 &791159074
 Transform:
   m_ObjectHideFlags: 0
@@ -27419,7 +27420,6 @@ RectTransform:
   m_Children:
   - {fileID: 1911484482}
   - {fileID: 1860016359}
-  - {fileID: 159763060}
   m_Father: {fileID: 1840417377}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37951,7 +37951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -132, y: 358}
+  m_AnchoredPosition: {x: -132, y: 473.1}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772541724
@@ -42698,7 +42698,7 @@ MonoBehaviour:
   RIPButton: {fileID: 1501537206}
   CompleteButtons: {fileID: 546840255}
   CompleteImage: {fileID: 555209699}
-  DeadSprite: {fileID: 1849497218, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
+  DeadSprite: {fileID: 1858758798, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   CompleteSprite: {fileID: -1144174766, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   DungeonLayouts:
   - {fileID: 1720990228}
@@ -45745,7 +45745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -388
+      value: -387.99988
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y

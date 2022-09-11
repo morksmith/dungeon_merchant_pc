@@ -47,6 +47,7 @@ public class InnManager : MonoBehaviour
         {
             Audio.volume = PlayerPrefs.GetFloat("SFX Volume");
             Audio.Play();
+            NewHero();
             BottomContent.NewHeroIcon();
             heroTimer = 0;
         }

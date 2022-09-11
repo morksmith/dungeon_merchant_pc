@@ -362,6 +362,11 @@ public class DungeonManager : MonoBehaviour
         {
             Destroy(x.gameObject);
         }
+        var allBones = GameObject.FindObjectsOfType<Bones>();
+        foreach (Bones b in allBones)
+        {
+            Destroy(b.gameObject);
+        }
         DungeonCompleted = false;
         GoldBonus = 1;
         GoldMultiplierText.text = GoldBonus + "x";
