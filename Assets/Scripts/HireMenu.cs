@@ -24,15 +24,19 @@ public class HireMenu : MonoBehaviour
     public GameObject NewIcon;
     public SaveManager Save;
     public HeroData HiredHero;
+    public AudioClip HireHeroSound;
+    private SFXManager sfx;
 
     private void Start()
     {
+        sfx = GameObject.FindObjectOfType<SFXManager>();
         //NewHero();
     }
     public void HireHero()
     {
         if(HeroCost <= Stock.Gold)
         {
+            sfx.PlaySound(HireHeroSound);
             CurrentHero.gameObject.SetActive(true);
             CurrentHero.SetParent(HeroParent);
             CurrentHero.transform.localScale = Vector3.one;

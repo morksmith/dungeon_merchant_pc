@@ -582,6 +582,8 @@ GameObject:
   - component: {fileID: 4953946753732833222}
   - component: {fileID: 1697211788159581743}
   - component: {fileID: 74628224255133610}
+  - component: {fileID: 8424021124085743049}
+  - component: {fileID: -6250067529647319650}
   m_Layer: 5
   m_Name: Hero
   m_TagString: Untagged
@@ -707,6 +709,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -6250067529647319650}
+        m_TargetAssemblyTypeName: SingleSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1697211788159581743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,6 +743,7 @@ MonoBehaviour:
   DamageType: 0
   Manager: {fileID: 0}
   HeroSprite: {fileID: -1279543771, guid: da11d586838438344a9338826fcdcee8, type: 3}
+  SpriteIndex: 0
   XPSlider: {fileID: 7213991343457528749}
   LevelText: {fileID: 7837574320811357256}
   DeadText: {fileID: 9023132420094322964}
@@ -747,6 +762,79 @@ MonoBehaviour:
   GoldHeld: 0
   LootHeld: 0
   ChestLevels: 
+  Data:
+    HeroName: 
+    Hired: 0
+    hasWeapon: 0
+    hasHelm: 0
+    hasArmour: 0
+    hasConsumable: 0
+    WeaponData:
+      ItemName: 
+      SpriteIndex: 0
+      BasePrice: 0
+      TypeIndex: 0
+      DamageType: 0
+      Level: 0
+      StatPoint: 0
+      ConsumableType: 0
+      Merchant: 0
+      Equipped: 0
+      Selling: 0
+      Sold: 0
+      SellTimer: 0
+    HelmData:
+      ItemName: 
+      SpriteIndex: 0
+      BasePrice: 0
+      TypeIndex: 0
+      DamageType: 0
+      Level: 0
+      StatPoint: 0
+      ConsumableType: 0
+      Merchant: 0
+      Equipped: 0
+      Selling: 0
+      Sold: 0
+      SellTimer: 0
+    ArmourData:
+      ItemName: 
+      SpriteIndex: 0
+      BasePrice: 0
+      TypeIndex: 0
+      DamageType: 0
+      Level: 0
+      StatPoint: 0
+      ConsumableType: 0
+      Merchant: 0
+      Equipped: 0
+      Selling: 0
+      Sold: 0
+      SellTimer: 0
+    ConsumableData:
+      ItemName: 
+      SpriteIndex: 0
+      BasePrice: 0
+      TypeIndex: 0
+      DamageType: 0
+      Level: 0
+      StatPoint: 0
+      ConsumableType: 0
+      Merchant: 0
+      Equipped: 0
+      Selling: 0
+      Sold: 0
+      SellTimer: 0
+    DamageType: 0
+    SpriteIndex: 0
+    Level: 0
+    MaxHP: 0
+    MaxXP: 0
+    XP: 0
+    Damage: 0
+    Range: 0
+    Discovery: 0
+    LootFind: 0
 --- !u!114 &74628224255133610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,6 +848,123 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 0
+--- !u!82 &8424021124085743049
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953946753732833218}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-6250067529647319650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953946753732833218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44973830292e04ca66b8fff175524d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - {fileID: 8300000, guid: 4877ad45727dd334f99ae3b4496cb1fd, type: 3}
+  - {fileID: 8300000, guid: f34189519deb2ae499d728a0a0b0a767, type: 3}
+  - {fileID: 8300000, guid: aee81628f8d99e94384931a35ea1d41a, type: 3}
+  - {fileID: 8300000, guid: d4cc95a34fbf3284cbd7ac254758587e, type: 3}
+  - {fileID: 8300000, guid: 011890dddd61b3f4b85ea4c8b43068ac, type: 3}
+  - {fileID: 8300000, guid: e041f8e4add78714c841864fd61d1b39, type: 3}
+  - {fileID: 8300000, guid: 45e137e75559cb045b47e30ae57bcf9e, type: 3}
+  - {fileID: 8300000, guid: d108457210da06143aa719eb92f2cca2, type: 3}
 --- !u!1 &5397266640810068614
 GameObject:
   m_ObjectHideFlags: 0

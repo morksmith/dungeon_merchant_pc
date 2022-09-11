@@ -19,6 +19,12 @@ public class InnManager : MonoBehaviour
     public ScrollingWindow BottomContent;
     public ScrollingWindow TopContent;
     public InnData Data;
+    public AudioSource Audio;
+
+    private void Start()
+    {
+
+    }
 
     private void Update()
     {
@@ -31,13 +37,16 @@ public class InnManager : MonoBehaviour
         }
         if (merchantTimer > MerchantTime)
         {
+            Audio.volume = PlayerPrefs.GetFloat("SFX Volume");
+            Audio.Play();
             NewMerchant();
             BottomContent.NewMerchantIcon();
             merchantTimer = 0;
         }
         if (heroTimer > HeroTime)
         {
-            NewHero();
+            Audio.volume = PlayerPrefs.GetFloat("SFX Volume");
+            Audio.Play();
             BottomContent.NewHeroIcon();
             heroTimer = 0;
         }

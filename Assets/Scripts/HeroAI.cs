@@ -35,9 +35,11 @@ public class HeroAI : MonoBehaviour
     public GameObject EffectPrefab;
     public CameraControl Camera;
     public Animator DungeonOverlay;
+    public GameObject BonesPrefab;
     public bool PortalOut = false;
     public float PortalTime = 1;
     private float portalTimer;
+    
 
     private float activeTimer;
     private float step;
@@ -234,6 +236,7 @@ public class HeroAI : MonoBehaviour
 
         if (CurrentTarget.GetComponent<Enemy>().HP <= 0)
         {
+            Instantiate(BonesPrefab, CurrentTarget.position, Quaternion.Euler(90, 0, 0));
             var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
             Stats.GoldHeld += GoldFound;
             if (CurrentTarget.GetComponent<Enemy>().XP + Stats.XP > Stats.MaxXP)
