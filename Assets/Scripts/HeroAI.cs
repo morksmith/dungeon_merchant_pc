@@ -236,7 +236,7 @@ public class HeroAI : MonoBehaviour
 
         if (CurrentTarget.GetComponent<Enemy>().HP <= 0)
         {
-            Instantiate(BonesPrefab, CurrentTarget.position, Quaternion.Euler(90, 0, 0));
+            Instantiate(BonesPrefab, CurrentTarget.position + new Vector3(0,0,0.8f), Quaternion.Euler(90, 0, 0));
             var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
             Stats.GoldHeld += GoldFound;
             if (CurrentTarget.GetComponent<Enemy>().XP + Stats.XP > Stats.MaxXP)

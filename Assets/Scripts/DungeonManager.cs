@@ -252,6 +252,10 @@ public class DungeonManager : MonoBehaviour
         {
             Destroy(b.gameObject);
         }
+        foreach (Prop p in Props)
+        {
+            p.SetSprite();
+        }
         Level = i;
         var bonusText = GoldBonus.ToString("F1");
         GoldMultiplierText.text = "x" + bonusText;
@@ -260,10 +264,7 @@ public class DungeonManager : MonoBehaviour
         
         GenerateLayout();
         SpawnEnemies();
-        foreach(Prop p in Props)
-        {
-            p.SetSprite();
-        }
+        
     }
 
     public void CycleDungeon()
@@ -403,7 +404,15 @@ public class DungeonManager : MonoBehaviour
     {
         Level++;
         sfx.PlaySound(EnterDungeonSound);
-
+        var allBones = GameObject.FindObjectsOfType<Bones>();
+        foreach (Bones b in allBones)
+        {
+            Destroy(b.gameObject);
+        }
+        foreach (Prop p in Props)
+        {
+            p.SetSprite();
+        }
         if (Level > CurrentHeroAI.Manager.MaxDungeonFloor)
         {
             CurrentHeroAI.Manager.MaxDungeonFloor++;

@@ -1367,7 +1367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_60
+      name: Prop 12
       rect:
         serializedVersion: 2
         x: 64
@@ -1388,7 +1388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_61
+      name: Prop 13
       rect:
         serializedVersion: 2
         x: 80
@@ -1409,7 +1409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_62
+      name: Prop 14
       rect:
         serializedVersion: 2
         x: 96
@@ -1430,7 +1430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_63
+      name: Prop 15
       rect:
         serializedVersion: 2
         x: 112
@@ -1471,9 +1471,9 @@ TextureImporter:
       UI Icons_39: -1832430684
       Bar: 1343421656
       Prop 10: -1467690362
-      UI Icons_61: 344171816
       Ring Icon: -509072803
       Left Button: 1857169760
+      Prop 13: 344171816
       Beast Icon: -1647127367
       Prop 11: -85376452
       Prop 09: -1047018790
@@ -1496,23 +1496,23 @@ TextureImporter:
       Armour Icon: -1486367166
       UI Icons_37: 173537716
       Strength Icon: 1673536445
-      UI Icons_60: 854319678
       Club Icon: 587968469
+      Prop 15: 206034143
       UI Icons_47: -779969718
       UI Icons_46: 1305928266
       Info Icon: -583487608
+      Prop 14: -1372708085
       Sleep Icon: 814697313
       Hand Icon: 617925880
-      UI Icons_62: -1372708085
-      Right Button: 1275068342
       Clock Icon: -1257581251
+      Right Button: 1275068342
       Prop 02: -654184327
+      Prop 12: 854319678
       Up Icon: 443786278
       UI Icons_48: 1905295711
-      UI Icons_63: 206034143
+      Helm Icon: 1673620574
       Double Up Icon: -404003206
       Loot Icon: 900783781
-      Helm Icon: 1673620574
       Chest Icon: -996191103
       Skeleton Icon: 1849497218
       Exit Icon: -1344064781
