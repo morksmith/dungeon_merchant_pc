@@ -241,7 +241,7 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,6 +249,48 @@ TextureImporter:
       bones: []
       spriteID: 824ba5ce666eaaf41b258f47ff718656
       internalID: -129577084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evil Wizard
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c673400d8956c40b9f53b6dba17796
+      internalID: 506328491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero Wizard
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c0b1a65cbf66b641a54d3e319eff66e
+      internalID: -887730987
       vertices: []
       indices: 
       edges: []
@@ -264,11 +306,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Hero Wizard: -887730987
       Regent Sprite: -129577084
       Knight Sprite: 1322834010
       Rogue Sprite: 871194723
       Warrior Sprite: 1177419733
       Merchant Sprite: 681790770
+      Evil Wizard: 506328491
       Mage Sprite: -601483178
   spritePackingTag: 
   pSDRemoveMatte: 0

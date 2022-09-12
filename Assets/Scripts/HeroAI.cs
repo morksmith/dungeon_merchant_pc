@@ -36,6 +36,8 @@ public class HeroAI : MonoBehaviour
     public CameraControl Camera;
     public Animator DungeonOverlay;
     public GameObject BonesPrefab;
+    public GameObject CoinPrefab;
+    public GameObject ChestPrefab;
     public bool PortalOut = false;
     public float PortalTime = 1;
     private float portalTimer;
@@ -238,6 +240,12 @@ public class HeroAI : MonoBehaviour
         {
             Instantiate(BonesPrefab, CurrentTarget.position + new Vector3(0,0,0.8f), Quaternion.Euler(90, 0, 0));
             var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
+            var coinDrops = Mathf.CeilToInt(GoldFound / 3);
+            coinDrops = Mathf.Clamp(coinDrops, 1, 30);
+            for(var i = 0; i < coinDrops; i++)
+            {
+                var newCoin = Instantiate(CoinPrefab, CurrentTarget.position, Quaternion.Euler(90, 0, 0));
+            }
             Stats.GoldHeld += GoldFound;
             if (CurrentTarget.GetComponent<Enemy>().XP + Stats.XP > Stats.MaxXP)
             {
@@ -257,6 +265,7 @@ public class HeroAI : MonoBehaviour
             var lootChance = Random.Range(0, 21);
             if(lootChance <= Stats.LootFind)
             {
+                Instantiate(ChestPrefab, CurrentTarget.position, Quaternion.Euler(90, 0, 0));
                 sfx.PlaySound(ChestSound);
                 Stats.LootHeld++;
                 var chestLevel = Random.Range(DM.Level, DM.Level * 2);

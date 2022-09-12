@@ -11,7 +11,7 @@ public class DialogueBox : MonoBehaviour
     public bool DialogueStarted = false;
     public Dialogue CurrentDialogue;
     public Dialogue FinalDialogue;
-    public Menu CongratsMenu;
+    public GameObject EvilWizard;
     public StockManager Stock;
     private int charCount = 0;
     private float charTimer = 0;
@@ -129,8 +129,9 @@ public class DialogueBox : MonoBehaviour
             StoryButton.SetActive(false);
             if(CurrentDialogue == FinalDialogue)
             {
-                CongratsMenu.Activate();
+                EvilWizard.SetActive(true);
                 Stock.CollectGold(-100000);
+                PlayerPrefs.SetInt("Survival Unlocked", 1);
             }
 
         }

@@ -1220,7 +1220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_53
+      name: Coin
       rect:
         serializedVersion: 2
         x: 80
@@ -1241,7 +1241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Icons_54
+      name: Chest Pickup
       rect:
         serializedVersion: 2
         x: 96
@@ -1474,6 +1474,7 @@ TextureImporter:
       Ring Icon: -509072803
       Left Button: 1857169760
       Prop 13: 344171816
+      Coin: 1137604696
       Beast Icon: -1647127367
       Prop 11: -85376452
       Prop 09: -1047018790
@@ -1490,9 +1491,9 @@ TextureImporter:
       Down Arrow: -1706774531
       prop 06: -811662599
       prop 07: -477135976
-      UI Icons_53: 1137604696
       Box Icon: -576844939
       Floor Icon: -1144174766
+      Chest Pickup: -2046292516
       Armour Icon: -1486367166
       UI Icons_37: 173537716
       Strength Icon: 1673536445
@@ -1520,11 +1521,10 @@ TextureImporter:
       Ghost Icon: -1435565532
       Panel: -1146225180
       Button: 1052764457
-      UI Icons_54: -2046292516
+      Prop 04: 6281229
       Bow Icon: 913576190
       Boots Icon: 759780696
       Prop 08: -1745310925
-      Prop 04: 6281229
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

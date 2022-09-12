@@ -368,6 +368,10 @@ public class DungeonManager : MonoBehaviour
         {
             Destroy(b.gameObject);
         }
+        foreach (Prop p in Props)
+        {
+            p.SetSprite();
+        }
         DungeonCompleted = false;
         GoldBonus = 1;
         GoldMultiplierText.text = GoldBonus + "x";
