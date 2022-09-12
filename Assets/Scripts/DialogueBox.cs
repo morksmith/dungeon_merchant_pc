@@ -131,7 +131,7 @@ public class DialogueBox : MonoBehaviour
             {
                 EvilWizard.SetActive(true);
                 Stock.CollectGold(-100000);
-                PlayerPrefs.SetInt("Survival Unlocked", 1);
+                PlayerPrefs.SetInt("Survival Mode", 1);
             }
 
         }

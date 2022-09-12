@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class StockManager : MonoBehaviour
 {
     public TutorialSequence Tutorial;
+    public bool SurvivalMode = false;
     public float Gold;
     public float MaxProfit;
     public float MerchantDiscount = 1;
@@ -546,7 +547,7 @@ public class StockManager : MonoBehaviour
             CheckDialogue();
 
         }
-        if (!Tutorial)
+        if (!Tutorial && !SurvivalMode)
         {
             Save.SaveGame();
         }

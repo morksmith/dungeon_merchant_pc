@@ -2009,7 +2009,7 @@ RectTransform:
   - {fileID: 962791393}
   - {fileID: 196151194}
   m_Father: {fileID: 737919292}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3024,8 +3024,8 @@ RectTransform:
   - {fileID: 1731973526}
   - {fileID: 359374466}
   - {fileID: 1855542012}
-  - {fileID: 520920424}
   - {fileID: 1751399626}
+  - {fileID: 520920424}
   m_Father: {fileID: 888280684}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4353,7 +4353,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1806575200}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadMainScene
+        m_MethodName: LoadSurvival
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5061,6 +5061,7 @@ GameObject:
   - component: {fileID: 1751399626}
   - component: {fileID: 1751399628}
   - component: {fileID: 1751399627}
+  - component: {fileID: 1751399629}
   m_Layer: 5
   m_Name: Survival Blocker
   m_TagString: Untagged
@@ -5081,7 +5082,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 737919292}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5126,6 +5127,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751399625}
   m_CullTransparentMesh: 1
+--- !u!114 &1751399629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751399625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7162cc887c8727f4da558683f3dda46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPrefString: Survival Mode
 --- !u!1 &1806575199
 GameObject:
   m_ObjectHideFlags: 0

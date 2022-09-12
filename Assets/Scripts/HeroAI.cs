@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class HeroAI : MonoBehaviour
 {
+    public bool PlayerControlled = false;
     public enum HeroState
     {
         Idle,

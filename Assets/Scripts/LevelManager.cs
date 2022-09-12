@@ -27,6 +27,13 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("Game Started", 1);
 
     }
+    public void LoadSurvival()
+    {
+        SceneManager.LoadScene("Survival Mode");
+        PlayerPrefs.SetInt("Game Started", 1);
+
+    }
+
     public void LoadStartScene()
     {
         if(!Save.InnSaved || !Save.ItemsSaved || !Save.HeroesSaved || !Save.StockSaved || !Save.DungeonSaved || !Save.RequestsSaved)

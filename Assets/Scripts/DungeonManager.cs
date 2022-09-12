@@ -7,6 +7,7 @@ using TMPro;
 public class DungeonManager : MonoBehaviour
 {
     public bool Tutorial = false;
+    public bool SurvivalMode = false;
     public bool Paused = false;
     public InnManager Inn;
     public bool Running = false;
@@ -378,17 +379,20 @@ public class DungeonManager : MonoBehaviour
         HeroUI.SetActive(true);
         SleepButton.gameObject.SetActive(false);
         Running = true;
-        CurrentHeroAI.Waiting = false;        
-        HeroImage.sprite = CurrentHeroStats.HeroSprite;
-        HeroSprite.sprite = CurrentHeroStats.HeroSprite;
-        if(CurrentHeroStats.ConsumableItem != null)
+        CurrentHeroAI.Waiting = false;
+        if (!SurvivalMode)
         {
-            ConsumableIcon.sprite = CurrentHeroStats.ConsumableItem.ItemSprite.sprite;
+            HeroImage.sprite = CurrentHeroStats.HeroSprite;
+            if (CurrentHeroStats.ConsumableItem != null)
+            {
+                ConsumableIcon.sprite = CurrentHeroStats.ConsumableItem.ItemSprite.sprite;
+            }
+            else
+            {
+                ConsumableIcon.sprite = HandSprite;
+            }
         }
-        else
-        {
-            ConsumableIcon.sprite = HandSprite;
-        }
+        
         CurrentHeroAI.Agent.Warp(HeroStartPosition);
         CurrentHeroAI.ResetCamera();
         Level = i;
