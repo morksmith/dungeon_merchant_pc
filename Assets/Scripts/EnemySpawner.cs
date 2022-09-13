@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public DungeonManager Dungeon;
     public List<GameObject> BeastEnemies;
     public List<GameObject> GhostEnemies;
     public List<GameObject> SkeletonEnemies;
@@ -22,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
-    public void SpawnEnemy(int t, int l)
+    public void SpawnEnemy(int t, int l, bool survival)
     {
         if(t == 0)
         {
@@ -30,6 +32,11 @@ public class EnemySpawner : MonoBehaviour
             var newEnemy = Instantiate(BeastEnemies[pick], transform.position, transform.rotation);
             var info = newEnemy.GetComponent<Enemy>();
             info.Level = l;
+            if (survival)
+            {
+                newEnemy.GetComponent<NavMeshAgent>().speed = 2.5f;
+                info.Range = 3;
+            }
         }
         else if (t == 1)
         {
@@ -37,6 +44,11 @@ public class EnemySpawner : MonoBehaviour
             var newEnemy = Instantiate(GhostEnemies[pick], transform.position, transform.rotation);
             var info = newEnemy.GetComponent<Enemy>();
             info.Level = l;
+            if (survival)
+            {
+                newEnemy.GetComponent<NavMeshAgent>().speed = 2.5f;
+                info.Range = 3;
+            }
         }
         else if (t == 2)
         {
@@ -44,6 +56,12 @@ public class EnemySpawner : MonoBehaviour
             var newEnemy = Instantiate(DemonEnemies[pick], transform.position, transform.rotation);
             var info = newEnemy.GetComponent<Enemy>();
             info.Level = l;
+            if (survival)
+            {
+                newEnemy.GetComponent<NavMeshAgent>().speed = 2.5f;
+                info.Range = 3;
+
+            }
         }
         else if (t == 3)
         {
@@ -51,6 +69,12 @@ public class EnemySpawner : MonoBehaviour
             var newEnemy = Instantiate(SkeletonEnemies[pick], transform.position, transform.rotation);
             var info = newEnemy.GetComponent<Enemy>();
             info.Level = l;
+            if (survival)
+            {
+                newEnemy.GetComponent<NavMeshAgent>().speed = 2.5f;
+                info.Range = 3;
+
+            }
         }
 
     }

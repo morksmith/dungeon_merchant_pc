@@ -120,6 +120,18 @@ public class DungeonManager : MonoBehaviour
             }
         }
 
+        if (SurvivalMode)
+        {
+            CurrentHeroAI.gameObject.SetActive(true);
+            HeroHP.value = CurrentHeroStats.HP / CurrentHeroStats.MaxHP;
+            HeroXP.value = CurrentHeroStats.XP / CurrentHeroStats.MaxXP;
+            HeroLevel.text = CurrentHeroStats.Level.ToString();
+            GoldText.text = CurrentHeroStats.GoldHeld.ToString();
+            LootText.text = CurrentHeroStats.LootHeld.ToString();
+            SleepButton.gameObject.SetActive(false);
+           
+        }
+
         if (Paused)
         {
             return;
@@ -228,15 +240,15 @@ public class DungeonManager : MonoBehaviour
         {
             if(i < 2)
             {
-                EnemySpawners[i].SpawnEnemy(SpawnTypes[0], Level + EnemyStrength);
+                EnemySpawners[i].SpawnEnemy(SpawnTypes[0], Level + EnemyStrength, SurvivalMode);
             }
             else if(i < 4)
             {
-                EnemySpawners[i].SpawnEnemy(SpawnTypes[1], Level + EnemyStrength);
+                EnemySpawners[i].SpawnEnemy(SpawnTypes[1], Level + EnemyStrength, SurvivalMode);
             }
             else
             {
-                EnemySpawners[i].SpawnEnemy(SpawnTypes[2], Level + EnemyStrength);
+                EnemySpawners[i].SpawnEnemy(SpawnTypes[2], Level + EnemyStrength, SurvivalMode);
             }
         }
     }
@@ -446,7 +458,7 @@ public class DungeonManager : MonoBehaviour
 
     public void DungeonComplete()
     {
-        if (!Tutorial)
+        if (!Tutorial && !SurvivalMode)
         {
             Save.SaveGame();
         }

@@ -28,14 +28,22 @@ public class VolumeSlider : MonoBehaviour
             {
                 AudioSlider.value = 1;
                 PlayerPrefs.SetFloat("Music Volume", 1);
-                musicSource.GetComponent<AudioSource>().volume = 1;
+                if(musicSource!= null)
+                {
+                    musicSource.GetComponent<AudioSource>().volume = 1;
+
+                }
             }
             else
             {
                 Debug.Log("I am an SFX Slider");
                 AudioSlider.value = 1;
                 PlayerPrefs.SetFloat("SFX Volume", 1);
-                sfxSource.GetComponent<AudioSource>().volume = 1;
+                if(sfxSource != null)
+                {
+                    sfxSource.GetComponent<AudioSource>().volume = 1;
+
+                }
             }
             
         }
@@ -67,12 +75,20 @@ public class VolumeSlider : MonoBehaviour
         if (Type == AudioType.SFX)
         {
             PlayerPrefs.SetFloat("SFX Volume", AudioSlider.value);
-            sfxSource.volume = PlayerPrefs.GetFloat("SFX Volume");
+            if(sfxSource != null)
+            {
+                sfxSource.volume = PlayerPrefs.GetFloat("SFX Volume");
+
+            }
         }
         else
         {
             PlayerPrefs.SetFloat("Music Volume", AudioSlider.value);
-            musicSource.volume = PlayerPrefs.GetFloat("Music Volume");
+            if(musicSource != null)
+            {
+                musicSource.volume = PlayerPrefs.GetFloat("Music Volume");
+
+            }
         }
     }
 }

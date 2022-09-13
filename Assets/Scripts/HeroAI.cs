@@ -65,19 +65,14 @@ public class HeroAI : MonoBehaviour
     {
         if (PlayerControlled)
         {
-            if (DM.Paused)
+
+            var moveVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            if(Vector3.Magnitude(moveVector)!= 0)
             {
-                return;
+                Agent.SetDestination(transform.position + moveVector);
             }
-            if(Input.touchCount > 0)
-            {
-                float targetx = Camera.GetComponent<Camera>().ScreenToWorldPoint(Input.GetTouch(0).position).x;
-                float targety = Camera.GetComponent<Camera>().ScreenToWorldPoint(Input.GetTouch(0).position).z;
-                Vector3 targetPos = new Vector3(targetx, 0, targety-5);
-                Debug.Log(targetPos);
-                Agent.SetDestination(targetPos);
-            }
-            if(CurrentTarget != null)
+            
+            if (CurrentTarget != null)
             {
                 if(Vector3.Distance(transform.position, CurrentTarget.position) <= Stats.Range)
                 {
@@ -187,7 +182,9 @@ public class HeroAI : MonoBehaviour
                 }
                 else
                 {
+                    CurrentTarget = null;
                     State = HeroState.Moving;
+                    LookForEnemies();
                 }
                 
             }

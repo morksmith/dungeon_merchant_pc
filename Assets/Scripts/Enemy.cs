@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    public bool Survival = false;
     public int Level = 1;
     public float MaxHP;
     public float HP;
@@ -40,7 +41,14 @@ public class Enemy : MonoBehaviour
         {
             Hero = GameObject.FindObjectOfType<HeroAI>().transform;
         }
-        step = 0;
+        if (!Survival)
+        {
+            step = 0;
+        }
+        else
+        {
+            step = 1;
+        }
         MaxHP = MaxHP + (Level * 10);
         Damage = Damage + (Level * 2);
         XP = MaxHP + Level;
@@ -90,8 +98,12 @@ public class Enemy : MonoBehaviour
                     if (dist < Range)
                     {
                         State = CurrentState.Attacking;
-                        agent.isStopped = true;
-                        step = 0;
+                        if (!Survival)
+                        {
+                            agent.isStopped = true;
+                            step = 0;
+                        }
+                        
                     }
                     step = 0;
                 }
@@ -108,7 +120,11 @@ public class Enemy : MonoBehaviour
                     if (dist < Range)
                     {
                         State = CurrentState.Attacking;
-                        agent.isStopped = true;
+                        if (!Survival)
+                        {
+                            agent.isStopped = true;
+
+                        }
                         step = 0;
                     }
                     else
@@ -131,7 +147,13 @@ public class Enemy : MonoBehaviour
                     if (dist < Range)
                     {
                         Attack();
-                        //agent.isStopped = true;
+                        if (Survival)
+                        {
+                            agent.SetDestination(Hero.position);
+                            State = CurrentState.Moving;
+                            agent.isStopped = false;
+                        }
+
                         step = 0;
                     }
                     else
@@ -162,6 +184,12 @@ public class Enemy : MonoBehaviour
     {
         Hero.GetComponent<HeroAI>().TakeDamage(Damage, this);
         Debug.Log("Hero Takes " + Damage + " Damage!");
+        if (Survival)
+        {
+            State = CurrentState.Moving;
+            agent.SetDestination(Hero.position);
+            agent.isStopped = false;
+        }
         step = 0;
     }
 
