@@ -846,6 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tutorial: {fileID: 0}
+  SurvivalMode: 0
   Gold: 400
   MaxProfit: 0
   MerchantDiscount: 1
@@ -2124,6 +2125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c08c150e35a8124282c8e473887d880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerControlled: 0
   State: 0
   Active: 0
   Waiting: 1
@@ -29175,6 +29177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tutorial: 0
+  SurvivalMode: 0
   Paused: 0
   Inn: {fileID: 791159073}
   Running: 0
@@ -32612,7 +32615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -388
+      value: -387.99988
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y

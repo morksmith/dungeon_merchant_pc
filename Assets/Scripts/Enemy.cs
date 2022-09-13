@@ -134,6 +134,13 @@ public class Enemy : MonoBehaviour
                         //agent.isStopped = true;
                         step = 0;
                     }
+                    else
+                    {
+                        State = CurrentState.Moving;
+                        agent.SetDestination(Hero.position);
+                        agent.isStopped = false;
+
+                    }
                     step = 0;
                 }
             }

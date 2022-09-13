@@ -382,6 +382,7 @@ public class DungeonManager : MonoBehaviour
         CurrentHeroAI.Waiting = false;
         if (!SurvivalMode)
         {
+            HeroSprite.sprite = CurrentHeroStats.HeroSprite;
             HeroImage.sprite = CurrentHeroStats.HeroSprite;
             if (CurrentHeroStats.ConsumableItem != null)
             {

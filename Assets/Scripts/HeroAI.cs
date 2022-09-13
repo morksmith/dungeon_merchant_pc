@@ -63,7 +63,29 @@ public class HeroAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (PlayerControlled)
+        {
+            if (DM.Paused)
+            {
+                return;
+            }
+            if(Input.touchCount > 0)
+            {
+                float targetx = Camera.GetComponent<Camera>().ScreenToWorldPoint(Input.GetTouch(0).position).x;
+                float targety = Camera.GetComponent<Camera>().ScreenToWorldPoint(Input.GetTouch(0).position).z;
+                Vector3 targetPos = new Vector3(targetx, 0, targety-5);
+                Debug.Log(targetPos);
+                Agent.SetDestination(targetPos);
+            }
+            if(CurrentTarget != null)
+            {
+                if(Vector3.Distance(transform.position, CurrentTarget.position) <= Stats.Range)
+                {
+                    State = HeroState.Attacking;
+                }
+            }
+            
+        }
         if (PortalOut)
         {
             if (portalTimer < PortalTime)
@@ -120,6 +142,10 @@ public class HeroAI : MonoBehaviour
         }
         if(State == HeroState.Moving)
         {
+            if (PlayerControlled)
+            {
+                return;
+            }
             if(CurrentTarget != null)
             {
                 var targetDist = Vector3.Distance(transform.position, CurrentTarget.position);
@@ -155,7 +181,15 @@ public class HeroAI : MonoBehaviour
             }
             else
             {
-                Attack();
+                if(Vector3.Distance(transform.position, CurrentTarget.position) <= Stats.Range)
+                {
+                    Attack();
+                }
+                else
+                {
+                    State = HeroState.Moving;
+                }
+                
             }
         }
     }
@@ -241,8 +275,8 @@ public class HeroAI : MonoBehaviour
         {
             Instantiate(BonesPrefab, CurrentTarget.position + new Vector3(0,0,0.8f), Quaternion.Euler(90, 0, 0));
             var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
-            var coinDrops = Mathf.CeilToInt(GoldFound / 3);
-            coinDrops = Mathf.Clamp(coinDrops, 1, 30);
+            var coinDrops = Mathf.CeilToInt(GoldFound / 4);
+            coinDrops = Mathf.Clamp(coinDrops, 1, 20);
             for(var i = 0; i < coinDrops; i++)
             {
                 var newCoin = Instantiate(CoinPrefab, CurrentTarget.position, Quaternion.Euler(90, 0, 0));
