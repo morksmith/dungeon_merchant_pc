@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         {
             step = 1;
         }
-        MaxHP = MaxHP + (Level * 10);
+        MaxHP = MaxHP + (Level * (Level *10));
         Damage = Damage + (Level * 2);
         XP = MaxHP + Level;
         HP = MaxHP;
