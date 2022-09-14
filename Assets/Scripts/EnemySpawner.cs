@@ -34,8 +34,8 @@ public class EnemySpawner : MonoBehaviour
             info.Level = l;
             if (survival)
             {
-                newEnemy.GetComponent<NavMeshAgent>().speed = 2.5f;
-                info.Range = 3;
+                newEnemy.GetComponent<NavMeshAgent>().speed = 2;
+                info.Range = 2;
             }
         }
         else if (t == 1)
@@ -46,8 +46,8 @@ public class EnemySpawner : MonoBehaviour
             info.Level = l;
             if (survival)
             {
-                newEnemy.GetComponent<NavMeshAgent>().speed = 2.5f;
-                info.Range = 3;
+                newEnemy.GetComponent<NavMeshAgent>().speed = 2;
+                info.Range = 2;
             }
         }
         else if (t == 2)
@@ -58,8 +58,8 @@ public class EnemySpawner : MonoBehaviour
             info.Level = l;
             if (survival)
             {
-                newEnemy.GetComponent<NavMeshAgent>().speed = 2.5f;
-                info.Range = 3;
+                newEnemy.GetComponent<NavMeshAgent>().speed = 2;
+                info.Range = 2;
 
             }
         }
@@ -71,8 +71,8 @@ public class EnemySpawner : MonoBehaviour
             info.Level = l;
             if (survival)
             {
-                newEnemy.GetComponent<NavMeshAgent>().speed = 2.5f;
-                info.Range = 3;
+                newEnemy.GetComponent<NavMeshAgent>().speed = 2;
+                info.Range = 2;
 
             }
         }

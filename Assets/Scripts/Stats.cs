@@ -52,6 +52,7 @@ public class Stats : MonoBehaviour
     public float LootHeld;
     public List<int> ChestLevels;
     public HeroData Data;
+    public HeroAI AI;
     
 
     private void Start()

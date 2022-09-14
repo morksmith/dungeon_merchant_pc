@@ -66,11 +66,11 @@ public class HeroAI : MonoBehaviour
         if (PlayerControlled)
         {
 
-            var moveVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            if(Vector3.Magnitude(moveVector)!= 0)
-            {
-                Agent.SetDestination(transform.position + moveVector);
-            }
+            //var moveVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            //if(Vector3.Magnitude(moveVector)!= 0)
+            //{
+            //    Agent.SetDestination(transform.position + moveVector);
+            //}
             
             if (CurrentTarget != null)
             {
@@ -191,6 +191,14 @@ public class HeroAI : MonoBehaviour
         }
     }
 
+    public void JoystickMove(Vector3 dir)
+    {
+        if (!Waiting)
+        {
+            Agent.SetDestination(transform.position + dir);
+        }
+    }
+
     public void LookForEnemies()
     {
         float dist = 999;
@@ -214,10 +222,14 @@ public class HeroAI : MonoBehaviour
         {
             LevelCleared = true;
             CurrentTarget = null;
-            TargetPos = exit.position;
-            Agent.SetDestination(exit.position);
-            State = HeroState.Moving;
-            Agent.isStopped = false;
+            if (!PlayerControlled)
+            {
+                TargetPos = exit.position;
+                Agent.SetDestination(exit.position);
+                State = HeroState.Moving;
+                Agent.isStopped = false;
+            }
+            
         }
         
 
@@ -461,6 +473,19 @@ public class HeroAI : MonoBehaviour
     {
         Camera.transform.position = transform.position + new Vector3(0, 5, 0);
 
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (!PlayerControlled || !LevelCleared)
+        {
+            return;
+        }
+        Debug.Log(other.name);
+        if(other.tag == "Exit")
+        {
+            CompletedLevel();
+        }
     }
 
 

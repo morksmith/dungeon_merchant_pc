@@ -56,14 +56,24 @@ public class SaveManager : MonoBehaviour
 
     }
 
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            SaveGame();
+        }
+    }
+
     public void ResetProgress()
     {
         File.Delete(Application.persistentDataPath + "/SaveGame.json");
         var musicVol = PlayerPrefs.GetFloat("Music Volume");
         var sfxVol = PlayerPrefs.GetFloat("SFX Volume");
+        var survivalMode = PlayerPrefs.GetInt("Survival Mode");
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetFloat("Music Volume", musicVol);
         PlayerPrefs.SetFloat("SFX Volume", sfxVol);
+        PlayerPrefs.SetFloat("Survival Mode", survivalMode);
 
 
     }

@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public float Range = 1;
     public float AgroRange = 5;
     public float Gold;
+    public bool Agro = false;
     public enum CurrentState
     {
         Idle,
@@ -41,17 +42,10 @@ public class Enemy : MonoBehaviour
         {
             Hero = GameObject.FindObjectOfType<HeroAI>().transform;
         }
-        if (!Survival)
-        {
-            step = 0;
-        }
-        else
-        {
-            step = 1;
-        }
-        MaxHP = MaxHP + (Level * (Level *10));
+        step = 0;
+        MaxHP = MaxHP + (Level * (Level *5));
         Damage = Damage + (Level * 2);
-        XP = MaxHP + Level;
+        XP = MaxHP + (Level * 5);
         HP = MaxHP;
         Gold = Random.Range(1, Damage);
         HPSlider.value = 1;
@@ -79,6 +73,16 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            if (!Survival)
+            {
+                if (!Hero.GetComponent<HeroAI>().Waiting)
+                {
+                    if (Agro)
+                    {
+                        agent.SetDestination(Hero.position);
+                    }
+                }
+            }
             dist = Vector3.Distance(transform.position, Hero.position);
             if (State == CurrentState.Idle)
             {
@@ -93,6 +97,7 @@ public class Enemy : MonoBehaviour
                         State = CurrentState.Moving;
                         agent.SetDestination(Hero.position);
                         agent.isStopped = false;
+                        Agro = true;
                         step = 0;
                     }
                     if (dist < Range)
@@ -104,6 +109,7 @@ public class Enemy : MonoBehaviour
                             step = 0;
                         }
                         
+
                     }
                     step = 0;
                 }
@@ -123,7 +129,6 @@ public class Enemy : MonoBehaviour
                         if (!Survival)
                         {
                             agent.isStopped = true;
-
                         }
                         step = 0;
                     }
@@ -147,14 +152,6 @@ public class Enemy : MonoBehaviour
                     if (dist < Range)
                     {
                         Attack();
-                        if (Survival)
-                        {
-                            agent.SetDestination(Hero.position);
-                            State = CurrentState.Moving;
-                            agent.isStopped = false;
-                        }
-
-                        step = 0;
                     }
                     else
                     {
@@ -177,6 +174,10 @@ public class Enemy : MonoBehaviour
         HP -= i;
         HPSlider.value = HP / MaxHP;
         GetComponent<Flash>().FlashWhite();
+        if (Survival)
+        {
+            agent.SetDestination(Hero.position);
+        }
                 
     }
 
@@ -184,12 +185,7 @@ public class Enemy : MonoBehaviour
     {
         Hero.GetComponent<HeroAI>().TakeDamage(Damage, this);
         Debug.Log("Hero Takes " + Damage + " Damage!");
-        if (Survival)
-        {
-            State = CurrentState.Moving;
-            agent.SetDestination(Hero.position);
-            agent.isStopped = false;
-        }
+       
         step = 0;
     }
 

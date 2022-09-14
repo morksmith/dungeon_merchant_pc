@@ -36,15 +36,23 @@ public class LevelManager : MonoBehaviour
 
     public void LoadStartScene()
     {
-        if(!Save.InnSaved || !Save.ItemsSaved || !Save.HeroesSaved || !Save.StockSaved || !Save.DungeonSaved || !Save.RequestsSaved)
+        if(Save != null)
         {
-            Debug.Log("Save not completed!");
-            return;
+            if (!Save.InnSaved || !Save.ItemsSaved || !Save.HeroesSaved || !Save.StockSaved || !Save.DungeonSaved || !Save.RequestsSaved)
+            {
+                Debug.Log("Save not completed!");
+                return;
+            }
+            PlayerPrefs.SetInt("Closed Correctly", 1);
+            SceneManager.LoadScene("Start");
+            var musicSource = GameObject.FindObjectOfType<MusicManager>().gameObject;
+            Destroy(musicSource.gameObject);
         }
-        PlayerPrefs.SetInt("Closed Correctly", 1);
-        SceneManager.LoadScene("Start");
-        var musicSource = GameObject.FindObjectOfType<MusicManager>().gameObject;
-        Destroy(musicSource.gameObject);
+        else
+        {
+            SceneManager.LoadScene("Start");
+        }
+        
     }
     public void ExitGame()
     {
