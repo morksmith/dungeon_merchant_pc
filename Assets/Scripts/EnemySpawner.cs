@@ -36,6 +36,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 newEnemy.GetComponent<NavMeshAgent>().speed = 2;
                 info.Range = 2;
+                info.Survival = survival;
             }
         }
         else if (t == 1)
@@ -48,6 +49,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 newEnemy.GetComponent<NavMeshAgent>().speed = 2;
                 info.Range = 2;
+                info.Survival = survival;
             }
         }
         else if (t == 2)
@@ -60,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 newEnemy.GetComponent<NavMeshAgent>().speed = 2;
                 info.Range = 2;
-
+                info.Survival = survival;
             }
         }
         else if (t == 3)
@@ -73,7 +75,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 newEnemy.GetComponent<NavMeshAgent>().speed = 2;
                 info.Range = 2;
-
+                info.Survival = survival;
             }
         }
 

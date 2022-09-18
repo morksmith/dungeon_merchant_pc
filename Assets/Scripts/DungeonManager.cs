@@ -76,6 +76,8 @@ public class DungeonManager : MonoBehaviour
     private bool readyForNextDungeon = false;
     private float nextDungeonTime = 1;
     private float timer;
+    private float levelCount = 0;
+    private bool newHighScore = false;
 
     private SFXManager sfx;
 
@@ -467,11 +469,25 @@ public class DungeonManager : MonoBehaviour
         if (DungeonCompleted)
         {
             sfx.PlaySound(DungeonCompleteSound);
+            levelCount++;
+            if (levelCount > PlayerPrefs.GetFloat("Survival High Score"))
+            {
+                newHighScore = true;
+                PlayerPrefs.SetFloat("Survival High Score", levelCount);
+            }
 
             CompleteTitle.text = "LEVEL COMPLETE!";
             var bonusText = GoldBonus + 0.4f;
             bonusText = Mathf.Clamp(bonusText, 1, 10);
-            CompleteText.text = "Return home or continue for " + bonusText.ToString("F1") + "x gold discovery?";
+            if (!SurvivalMode)
+            {
+                CompleteText.text = "Return home or continue for " + bonusText.ToString("F1") + "x gold discovery?";
+            }
+            else
+            {
+                CompleteText.text = "Levels Cleared: " + levelCount.ToString() + "\n High Score: " + PlayerPrefs.GetFloat("Survival High Score").ToString();
+            }
+            
             GoldCollectedText.text = CurrentHeroStats.GoldHeld.ToString();
             LootCollectedText.text = CurrentHeroStats.LootHeld.ToString();
             LevelText.text = Level.ToString();

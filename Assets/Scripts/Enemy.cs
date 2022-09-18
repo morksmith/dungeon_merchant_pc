@@ -43,9 +43,9 @@ public class Enemy : MonoBehaviour
             Hero = GameObject.FindObjectOfType<HeroAI>().transform;
         }
         step = 0;
-        MaxHP = MaxHP + (Level * (Level *5));
+        MaxHP = MaxHP + (Level * (Level *2));
         Damage = Damage + (Level * 2);
-        XP = MaxHP + (Level * 5);
+        XP = MaxHP + (Level * 2);
         HP = MaxHP;
         Gold = Random.Range(1, Damage);
         HPSlider.value = 1;
@@ -73,14 +73,12 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if (!Survival)
+            if (Survival)
             {
-                if (!Hero.GetComponent<HeroAI>().Waiting)
+                if (Agro)
                 {
-                    if (Agro)
-                    {
-                        agent.SetDestination(Hero.position);
-                    }
+                    agent.SetDestination(Hero.position);
+                    agent.isStopped = false;
                 }
             }
             dist = Vector3.Distance(transform.position, Hero.position);
@@ -108,6 +106,11 @@ public class Enemy : MonoBehaviour
                             agent.isStopped = true;
                             step = 0;
                         }
+                        else
+                        {
+                            agent.isStopped = true;
+                            agent.SetDestination(Hero.position);
+                        }
                         
 
                     }
@@ -129,6 +132,11 @@ public class Enemy : MonoBehaviour
                         if (!Survival)
                         {
                             agent.isStopped = true;
+                        }
+                        else
+                        {
+                            agent.isStopped = true;
+                            agent.SetDestination(Hero.position);
                         }
                         step = 0;
                     }
@@ -183,6 +191,10 @@ public class Enemy : MonoBehaviour
 
     public void Attack()
     {
+        if (!Hero.GetComponent<HeroAI>().DM.Running)
+        {
+            return;
+        }
         Hero.GetComponent<HeroAI>().TakeDamage(Damage, this);
         Debug.Log("Hero Takes " + Damage + " Damage!");
        

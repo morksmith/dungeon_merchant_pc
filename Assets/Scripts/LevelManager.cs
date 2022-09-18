@@ -51,6 +51,8 @@ public class LevelManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene("Start");
+            var musicSource = GameObject.FindObjectOfType<MusicManager>().gameObject;
+            Destroy(musicSource.gameObject);
         }
         
     }
