@@ -75,15 +75,25 @@ public class Stats : MonoBehaviour
 
     public void LevelUp()
     {
-
-        Level++;
-        XP = XP - MaxXP;
-        MaxXP *= 1.5f;
-        MaxXP = Mathf.CeilToInt(MaxXP);
-        MaxHP += 10;
-        Damage++;
-        HP = MaxHP;
-        LevelText.text = Level.ToString();
+        if (!AI.PlayerControlled)
+        {
+            Level++;
+            XP = XP - MaxXP;
+            MaxXP *= 1.5f;
+            MaxXP = Mathf.CeilToInt(MaxXP);
+            MaxHP += 10;
+            Damage++;
+            HP = MaxHP;
+            LevelText.text = Level.ToString();
+        }
+        else
+        {
+            AI.DM.SurvivalPlayerUpgrade();
+            XP = XP - MaxXP;
+            MaxXP *= 1.5f;
+            MaxXP = Mathf.CeilToInt(MaxXP);
+        }
+        
     }
 
     public void SelectHero()

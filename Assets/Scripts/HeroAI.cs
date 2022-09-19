@@ -139,6 +139,16 @@ public class HeroAI : MonoBehaviour
         {
             if (PlayerControlled)
             {
+                if (step < UpdateTime)
+                {
+                    step += Time.deltaTime;
+                }
+                else
+                {
+                    step = 0;
+                    LookForEnemies();
+
+                }
                 return;
             }
             if(CurrentTarget != null)
@@ -193,7 +203,7 @@ public class HeroAI : MonoBehaviour
 
     public void JoystickMove(Vector3 dir)
     {
-        if (!Waiting)
+        if (!Waiting && DM.Running)
         {
             Agent.SetDestination(transform.position + dir);
         }

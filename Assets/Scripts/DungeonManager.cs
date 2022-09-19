@@ -73,6 +73,7 @@ public class DungeonManager : MonoBehaviour
     public AudioClip NewDaySound;
     public SaveManager Save;
     public DungeonData SaveData;
+    public Menu PlayerUpgradeMenu;
     private bool readyForNextDungeon = false;
     private float nextDungeonTime = 1;
     private float timer;
@@ -586,5 +587,11 @@ public class DungeonManager : MonoBehaviour
 
         SaveData = newDungeonData;
 
+    }
+
+    public void SurvivalPlayerUpgrade()
+    {
+        Running = false;
+        PlayerUpgradeMenu.Activate();
     }
 }

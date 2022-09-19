@@ -75,6 +75,10 @@ public class Enemy : MonoBehaviour
         {
             if (Survival)
             {
+                if (!Hero.GetComponent<HeroAI>().DM.Running)
+                {
+                    return;
+                }
                 if (Agro)
                 {
                     agent.SetDestination(Hero.position);
