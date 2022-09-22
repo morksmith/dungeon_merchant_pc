@@ -422,11 +422,21 @@ public class DungeonManager : MonoBehaviour
     {
         readyForNextDungeon = true;
         timer = 0;
+        
 
     }
     public void SendToNextLevel()
     {
         Level++;
+        DungeonText.text = Level.ToString();
+        if (SurvivalMode)
+        {
+            DungeonText.text = Level.ToString();
+            if (Level % 5 == 0)
+            {
+                SurvivalMerchantUpgrade();
+            }
+        }
         sfx.PlaySound(EnterDungeonSound);
         var allBones = GameObject.FindObjectsOfType<Bones>();
         foreach (Bones b in allBones)
@@ -451,6 +461,14 @@ public class DungeonManager : MonoBehaviour
         SleepButton.gameObject.SetActive(false);
         Running = true;
         CurrentHeroAI.Waiting = false;
+        if (SurvivalMode)
+        {
+            DungeonText.text = Level.ToString();
+            if (Level % 5 == 0)
+            {
+                SurvivalMerchantUpgrade();
+            }
+        }
         HeroImage.sprite = CurrentHeroStats.HeroSprite;
         CurrentHeroAI.Agent.Warp(HeroStartPosition);
         CurrentHeroAI.ResetCamera();
@@ -465,6 +483,7 @@ public class DungeonManager : MonoBehaviour
         {
             Save.SaveGame();
         }
+       
         TopContent.NewSaleIcon();
         DungeonCompleteMenu.Activate();
         if (DungeonCompleted)
@@ -498,8 +517,17 @@ public class DungeonManager : MonoBehaviour
         }
         else
         {
-            CompleteTitle.text = CurrentHeroStats.HeroName + " DIED!";
-            CompleteText.text = "All gold and loot collected by the hero is lost!";
+            if (!SurvivalMode)
+            {
+                CompleteTitle.text = CurrentHeroStats.HeroName + " DIED!";
+                CompleteText.text = "All gold and loot collected by the hero is lost!";
+            }
+            else
+            {
+                CompleteTitle.text = "YOU DIED!";
+                CompleteText.text = "Levels Cleared: " + levelCount.ToString() + "\n High Score: " + PlayerPrefs.GetFloat("Survival High Score").ToString();
+            }
+
             CompleteImage.sprite = DeadSprite;
             CompleteButtons.SetActive(false);
             RIPButton.SetActive(true);
@@ -591,7 +619,15 @@ public class DungeonManager : MonoBehaviour
 
     public void SurvivalPlayerUpgrade()
     {
+        CurrentHeroAI.Waiting = true;
         Running = false;
-        PlayerUpgradeMenu.Activate();
+        PlayerUpgradeMenu.GetComponent<PlayerUpgradeMenu>().NewUpgrades(false);
+    }
+
+    public void SurvivalMerchantUpgrade()
+    {
+        CurrentHeroAI.Waiting = true;
+        Running = false;
+        PlayerUpgradeMenu.GetComponent<PlayerUpgradeMenu>().NewUpgrades(true);
     }
 }

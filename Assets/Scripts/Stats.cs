@@ -52,7 +52,6 @@ public class Stats : MonoBehaviour
     public float LootHeld;
     public List<int> ChestLevels;
     public HeroData Data;
-    public HeroAI AI;
     
 
     private void Start()
@@ -75,6 +74,7 @@ public class Stats : MonoBehaviour
 
     public void LevelUp()
     {
+        var AI = GameObject.FindObjectOfType<HeroAI>();
         if (!AI.PlayerControlled)
         {
             Level++;
@@ -89,9 +89,11 @@ public class Stats : MonoBehaviour
         else
         {
             AI.DM.SurvivalPlayerUpgrade();
+            Level++;
             XP = XP - MaxXP;
             MaxXP *= 1.5f;
             MaxXP = Mathf.CeilToInt(MaxXP);
+            LevelText.text = Level.ToString();
         }
         
     }
