@@ -429,14 +429,7 @@ public class DungeonManager : MonoBehaviour
     {
         Level++;
         DungeonText.text = Level.ToString();
-        if (SurvivalMode)
-        {
-            DungeonText.text = Level.ToString();
-            if (Level % 4 == 0)
-            {
-                SurvivalMerchantUpgrade();
-            }
-        }
+        
         sfx.PlaySound(EnterDungeonSound);
         var allBones = GameObject.FindObjectsOfType<Bones>();
         foreach (Bones b in allBones)
@@ -464,7 +457,7 @@ public class DungeonManager : MonoBehaviour
         if (SurvivalMode)
         {
             DungeonText.text = Level.ToString();
-            if (Level % 5 == 0)
+            if (Level % 4 == 0)
             {
                 SurvivalMerchantUpgrade();
             }

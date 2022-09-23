@@ -68,6 +68,8 @@ public class PlayerUpgradeMenu : MonoBehaviour
     {
         UpgradeMenu.DeActivate();
         DM.Running = true;
+        DM.CurrentHeroAI.Waiting = false;
+        DM.Running = true;
         foreach (GameObject go in Upgrades)
         {
             go.GetComponent<Button>().interactable = false;

@@ -44,7 +44,8 @@ public class Enemy : MonoBehaviour
         }
         step = 0;
         MaxHP = MaxHP + (Level * (Level *2));
-        Damage = Damage + (Level * 2);
+        Damage = Damage + (Level * 1.5f);
+        Damage = Mathf.CeilToInt(Damage);
         XP = MaxHP + (Level * 2);
         HP = MaxHP;
         Gold = Random.Range(1, Damage);
