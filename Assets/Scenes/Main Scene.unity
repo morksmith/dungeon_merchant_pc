@@ -29261,6 +29261,7 @@ MonoBehaviour:
     NextStrength: 0
     SpawnTypes: 00000000000000000000000000000000
     SleepTimer: 0
+  PlayerUpgradeMenu: {fileID: 0}
 --- !u!4 &2060876959
 Transform:
   m_ObjectHideFlags: 0
@@ -32133,6 +32134,25 @@ PrefabInstance:
       propertyPath: NewMerchant
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6723141200544350791, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_text
+      value: 'Hero Name
+
+        Second Name
+
+        Level 20 Mage
+
+        HP:1000
+
+        XP:00000/0000100
+
+        Range:1
+
+        Damage:10
+
+        Gold
+        Discovery:1x'
+      objectReference: {fileID: 0}
     - target: {fileID: 6723141200549304439, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -32595,15 +32615,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -32611,11 +32631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -388
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y

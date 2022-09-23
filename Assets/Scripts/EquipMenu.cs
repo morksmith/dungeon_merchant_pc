@@ -58,7 +58,7 @@ public class EquipMenu : MonoBehaviour
             WeaponItemSlot.GetComponent<ItemType>().Type = ItemType.ItemTypes.Club;
         }
 
-        HeroInfoText.text = s.HeroName + "\n Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;
+        HeroInfoText.text = s.HeroName + "\nLevel " + s.Level + " " + s.Class + "\nHP:" + s.MaxHP + "\nXP:" + s.XP + "/" + s.MaxXP + "\nDamage:" + s.Damage + "\nRange:" + Mathf.FloorToInt(s.Range) + "\nGold Drop:x" + s.Discovery;
         HeroImage.sprite = s.HeroSprite;
     }
 

@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
         {
             if (Survival)
             {
-                if (!Hero.GetComponent<HeroAI>().DM.Running)
+                if (!Hero.GetComponent<HeroAI>().DM.Running || Hero.GetComponent<HeroAI>().Waiting)
                 {
                     return;
                 }

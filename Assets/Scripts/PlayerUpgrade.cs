@@ -117,7 +117,7 @@ public class PlayerUpgrade : MonoBehaviour
         }
         if (Paid)
         {
-            Cost = (10 * Level) + (Rarity * 50);
+            Cost = (40 * Level) + (Rarity * 50);
             ButtonText.text += " (" + Cost + "G)";
             if(HeroStats.GoldHeld < Cost)
             {

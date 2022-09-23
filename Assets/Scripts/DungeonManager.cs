@@ -432,7 +432,7 @@ public class DungeonManager : MonoBehaviour
         if (SurvivalMode)
         {
             DungeonText.text = Level.ToString();
-            if (Level % 5 == 0)
+            if (Level % 4 == 0)
             {
                 SurvivalMerchantUpgrade();
             }
@@ -489,12 +489,16 @@ public class DungeonManager : MonoBehaviour
         if (DungeonCompleted)
         {
             sfx.PlaySound(DungeonCompleteSound);
-            levelCount++;
-            if (levelCount > PlayerPrefs.GetFloat("Survival High Score"))
+            if (SurvivalMode)
             {
-                newHighScore = true;
-                PlayerPrefs.SetFloat("Survival High Score", levelCount);
+                levelCount++;
+                if (levelCount > PlayerPrefs.GetFloat("HS"))
+                {
+                    newHighScore = true;
+                    PlayerPrefs.SetFloat("HS", levelCount);
+                }
             }
+            
 
             CompleteTitle.text = "LEVEL COMPLETE!";
             var bonusText = GoldBonus + 0.4f;
@@ -505,7 +509,7 @@ public class DungeonManager : MonoBehaviour
             }
             else
             {
-                CompleteText.text = "Levels Cleared: " + levelCount.ToString() + "\n High Score: " + PlayerPrefs.GetFloat("Survival High Score").ToString();
+                CompleteText.text = "Levels Cleared: " + levelCount.ToString() + "\n High Score: " + PlayerPrefs.GetFloat("HS").ToString();
             }
             
             GoldCollectedText.text = CurrentHeroStats.GoldHeld.ToString();
@@ -525,7 +529,7 @@ public class DungeonManager : MonoBehaviour
             else
             {
                 CompleteTitle.text = "YOU DIED!";
-                CompleteText.text = "Levels Cleared: " + levelCount.ToString() + "\n High Score: " + PlayerPrefs.GetFloat("Survival High Score").ToString();
+                CompleteText.text = "Levels Cleared: " + levelCount.ToString() + "\n High Score: " + PlayerPrefs.GetFloat("HS").ToString();
             }
 
             CompleteImage.sprite = DeadSprite;
