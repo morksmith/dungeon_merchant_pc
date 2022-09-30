@@ -97,7 +97,7 @@ public class PlayerUpgrade : MonoBehaviour
         }
         else if (Type == UpgradeType.MaxHP)
         {
-            Value = 5 + 10 * Rarity;
+            Value = 10 + 20 * Rarity;
             ButtonText.text = "Max HP +" + Value;
         }
         else if (Type == UpgradeType.Speed)
@@ -112,12 +112,12 @@ public class PlayerUpgrade : MonoBehaviour
         }
         else if (Type == UpgradeType.Damage)
         {
-            Value = 5 + 5 * Rarity;
+            Value = 10 + 10 * Rarity;
             ButtonText.text = "Damage +" + Value;
         }
         if (Paid)
         {
-            Cost = (40 * Level) + (Rarity * 50);
+            Cost = (40 * Level) + (Rarity * 50) - 20;
             ButtonText.text += " (" + Cost + "G)";
             if(HeroStats.GoldHeld < Cost)
             {
