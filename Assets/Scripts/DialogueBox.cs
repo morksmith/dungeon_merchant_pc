@@ -88,6 +88,7 @@ public class DialogueBox : MonoBehaviour
 
     public void SendText(string txt)
     {
+        TMP.enabled = false;
         TMP.text = " ";
         charCount = 0;
         charTimer = 0;
