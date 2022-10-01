@@ -68,6 +68,14 @@ public class HeroGenerator : MonoBehaviour
         }
 
         newHero.GetComponent<Stats>().Level = Random.Range(1, 3);
+        if(newHero.GetComponent<Stats>().Level == 2)
+        {
+            newHero.GetComponent<Stats>().MaxXP *= 1.5f;
+            newHero.GetComponent<Stats>().MaxXP = Mathf.CeilToInt(newHero.GetComponent<Stats>().MaxXP);
+            newHero.GetComponent<Stats>().MaxHP += 10;
+            newHero.GetComponent<Stats>().Damage++;
+            newHero.GetComponent<Stats>().HP = newHero.GetComponent<Stats>().MaxHP;
+        }
         HireScreen.UpdateHeroInfo(newHero.gameObject.transform);
         newHero.gameObject.SetActive(false);
         HireScreen.HiredHero = newHero.GetComponent<Stats>().Data;
