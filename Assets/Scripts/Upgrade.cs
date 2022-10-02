@@ -7,11 +7,15 @@ public class Upgrade : MonoBehaviour
 {
     public Button PurchaseButton;
     public GameObject CompleteObject;
+    public SingleSound Sound;
+
     public enum UpgradeType
     {
         Discount,
         Shelves,
-        Speed
+        Speed,
+        Speed2,
+
     }
     public UpgradeType Type;
     public float Price;
@@ -52,6 +56,24 @@ public class Upgrade : MonoBehaviour
                 PurchaseButton.interactable = false;
             }
         }
+        else if (Type == UpgradeType.Speed2)
+        {
+            if (PlayerPrefs.GetInt("Sell Speed 2") == 1)
+            {
+                if (Stock.SellSpeed == 1)
+                {
+                    Stock.SellSpeed = 2;
+                }
+                else if(Stock.SellSpeed == 2)
+                {
+                    Stock.SellSpeed = 4;
+                }
+                
+                CompleteObject.SetActive(true);
+                Complete = true;
+                PurchaseButton.interactable = false;
+            }
+        }
     }
 
     public void Update()
@@ -77,6 +99,7 @@ public class Upgrade : MonoBehaviour
         Complete = true;
         PurchaseButton.interactable = false;
         PlayerPrefs.SetInt("Discount", 1);
+
     }
     public void BuyShelves()
     {
@@ -91,7 +114,14 @@ public class Upgrade : MonoBehaviour
     }
     public void BuySellSpeed()
     {
-        Stock.SellSpeed = 2;
+        if (Stock.SellSpeed == 1)
+        {
+            Stock.SellSpeed = 2;
+        }
+        else if (Stock.SellSpeed == 2)
+        {
+            Stock.SellSpeed = 4;
+        }
         Stock.CollectGold(-Price);
         CompleteObject.SetActive(true);
         Complete = true;
@@ -99,10 +129,30 @@ public class Upgrade : MonoBehaviour
         PlayerPrefs.SetInt("Sell Speed", 1);
 
     }
+    public void BuySellSpeed2()
+    {
+        if (Stock.SellSpeed == 1)
+        {
+            Stock.SellSpeed = 2;
+        }
+        else if(Stock.SellSpeed == 2)
+        {
+            Stock.SellSpeed = 4;
+        }
+
+        Stock.CollectGold(-Price);
+        CompleteObject.SetActive(true);
+        Complete = true;
+        PurchaseButton.interactable = false;
+        PlayerPrefs.SetInt("Sell Speed 2", 1);
+
+    }
 
     public void BuyUpgrade()
     {
-        if(Type == UpgradeType.Discount)
+        Sound.PlaySound();
+
+        if (Type == UpgradeType.Discount)
         {
             BuyDiscount();
         }
@@ -113,6 +163,10 @@ public class Upgrade : MonoBehaviour
         else if(Type == UpgradeType.Speed)
         {
             BuySellSpeed();
+        }
+        else if (Type == UpgradeType.Speed2)
+        {
+            BuySellSpeed2();
         }
     }
 }

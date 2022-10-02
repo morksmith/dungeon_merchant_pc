@@ -497,6 +497,18 @@ public class HeroAI : MonoBehaviour
             CompletedLevel();
         }
     }
+    public void OnTriggerExit(Collider other)
+    {
+        if (!PlayerControlled || !LevelCleared)
+        {
+            return;
+        }
+        Debug.Log(other.name);
+        if (other.tag == "Exit")
+        {
+            CompletedLevel();
+        }
+    }
 
 
 

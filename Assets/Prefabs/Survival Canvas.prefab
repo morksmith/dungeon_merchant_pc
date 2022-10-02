@@ -976,7 +976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1322564341, guid: 57fa45e14b620b648ab4fd5b173e3324, type: 3}
+  m_Sprite: {fileID: 947452501, guid: a49d8f19ffc7a3d45aca68aee9163777, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2476,12 +2476,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1ece5ccc982b44bb672f8425b1de15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeMenu: {fileID: 0}
   DM: {fileID: 0}
+  Level: 0
+  UpgradeMenu: {fileID: 0}
+  HeroStats: {fileID: 0}
   UpgradeName: 
   ButtonText: {fileID: 3261828051249852017}
   Value: 0
+  Cost: 0
   UpgradeButton: {fileID: 8131772812525572290}
+  Paid: 0
+  UncommonColour: {r: 0, g: 0, b: 0, a: 0}
+  RareColour: {r: 0, g: 0, b: 0, a: 0}
   Type: 0
   Rarity: 0
 --- !u!1 &740789525486710431
@@ -7591,12 +7597,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1ece5ccc982b44bb672f8425b1de15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeMenu: {fileID: 0}
   DM: {fileID: 0}
+  Level: 0
+  UpgradeMenu: {fileID: 0}
+  HeroStats: {fileID: 0}
   UpgradeName: 
   ButtonText: {fileID: 1701891427572058731}
   Value: 0
+  Cost: 0
   UpgradeButton: {fileID: 8086352104336095300}
+  Paid: 0
+  UncommonColour: {r: 0, g: 0, b: 0, a: 0}
+  RareColour: {r: 0, g: 0, b: 0, a: 0}
   Type: 3
   Rarity: 0
 --- !u!1 &2963473276333022597
@@ -9075,12 +9087,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1ece5ccc982b44bb672f8425b1de15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeMenu: {fileID: 0}
   DM: {fileID: 0}
+  Level: 0
+  UpgradeMenu: {fileID: 0}
+  HeroStats: {fileID: 0}
   UpgradeName: 
   ButtonText: {fileID: 2712095997439410238}
   Value: 0
+  Cost: 0
   UpgradeButton: {fileID: 5238808572903205569}
+  Paid: 0
+  UncommonColour: {r: 0, g: 0, b: 0, a: 0}
+  RareColour: {r: 0, g: 0, b: 0, a: 0}
   Type: 2
   Rarity: 0
 --- !u!1 &3378561415080209488
@@ -13294,6 +13312,9 @@ MonoBehaviour:
   - {fileID: 2830973554492250693}
   - {fileID: 7512204364688341891}
   UpgradeMenu: {fileID: 6873054863415309980}
+  DM: {fileID: 0}
+  TitleText: {fileID: 0}
+  BodyText: {fileID: 0}
 --- !u!1 &5144903046546313838
 GameObject:
   m_ObjectHideFlags: 0
@@ -20161,12 +20182,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1ece5ccc982b44bb672f8425b1de15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeMenu: {fileID: 0}
   DM: {fileID: 0}
+  Level: 0
+  UpgradeMenu: {fileID: 0}
+  HeroStats: {fileID: 0}
   UpgradeName: 
   ButtonText: {fileID: 5730047521397503148}
   Value: 0
+  Cost: 0
   UpgradeButton: {fileID: 603934564678457539}
+  Paid: 0
+  UncommonColour: {r: 0, g: 0, b: 0, a: 0}
+  RareColour: {r: 0, g: 0, b: 0, a: 0}
   Type: 4
   Rarity: 0
 --- !u!1 &7524127825931615361
@@ -21241,12 +21268,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1ece5ccc982b44bb672f8425b1de15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeMenu: {fileID: 0}
   DM: {fileID: 0}
+  Level: 0
+  UpgradeMenu: {fileID: 0}
+  HeroStats: {fileID: 0}
   UpgradeName: 
   ButtonText: {fileID: 3723590026532686496}
   Value: 0
+  Cost: 0
   UpgradeButton: {fileID: 1000251943816782189}
+  Paid: 0
+  UncommonColour: {r: 0, g: 0, b: 0, a: 0}
+  RareColour: {r: 0, g: 0, b: 0, a: 0}
   Type: 1
   Rarity: 0
 --- !u!1 &7948726721831596898
@@ -48227,7 +48260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 385543915, guid: a49d8f19ffc7a3d45aca68aee9163777, type: 3}
+  m_Sprite: {fileID: 669908395, guid: a49d8f19ffc7a3d45aca68aee9163777, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

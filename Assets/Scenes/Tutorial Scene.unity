@@ -46029,6 +46029,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 8189297692227002696, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8200466101829100003, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: Sentences.Array.data[1]
       value: It's a bit whimsical for my taste but my son loves it. Maybe that's

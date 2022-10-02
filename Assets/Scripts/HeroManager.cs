@@ -191,7 +191,7 @@ public class HeroManager : MonoBehaviour
         if(SelectedFloor < MaxDungeonFloor)
         {
             SelectedFloor++;
-            DeployCost += 20;
+            DeployCost += 10;
         }
         CheckFloorButtons();
     }
@@ -200,7 +200,7 @@ public class HeroManager : MonoBehaviour
         if (SelectedFloor > 1)
         {
             SelectedFloor--;
-            DeployCost -= 20;
+            DeployCost -= 10;
         }
         CheckFloorButtons();
     }
