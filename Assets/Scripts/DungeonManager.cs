@@ -288,6 +288,34 @@ public class DungeonManager : MonoBehaviour
         if (!Tutorial)
         {
             Save.SaveGame();
+            var allHeroes = GameObject.FindObjectsOfType<Stats>();
+            var hiredHeroes = new List<Stats>();
+            foreach(Stats s in allHeroes)
+            {
+                if(s.State != Stats.HeroState.NotHired)
+                {
+                    hiredHeroes.Add(s);
+                }
+            }
+            var allItems = GameObject.FindObjectsOfType<Item>();
+            var boughtItems = new List<Item>();
+            foreach(Item i in allItems)
+            {
+                if (!i.Merchant)
+                {
+                    boughtItems.Add(i);
+                }
+            }
+
+            if(boughtItems.Count == 0 && hiredHeroes.Count == 0)
+            {
+                Debug.Log("Player has no items or heroes");
+                if(Stock.Gold < 100)
+                {
+                    Stock.CollectGold(100);
+                    Debug.Log("Player gifted 100G");
+                }
+            }
         }
         sfx.PlaySound(NewDaySound);
         EnemyCount = NextCount;
