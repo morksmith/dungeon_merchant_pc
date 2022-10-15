@@ -64,6 +64,7 @@ public class Request : MonoBehaviour
         RequestIcon.sprite = Manager.TypeSprites[TypeIndex];
         RequestText.text = "Level " + Level.ToString() + " or higher " + Type.ToString() + " (" + Reward + "G)";
         CompleteImage.SetActive(false);
+        TaskComplete = false;
 
         StoreData();
 
