@@ -29,12 +29,16 @@ public class SaveManager : MonoBehaviour
 
 
 
-    
 
+    private void Awake()
+    {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    }
     private void Start()
     {
+        
 
-        if(PlayerPrefs.GetFloat("Tutorial Complete") == 0)
+        if (PlayerPrefs.GetFloat("Tutorial Complete") == 0)
         {
             if (ContinueButton != null)
             {
