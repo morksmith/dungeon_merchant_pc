@@ -171,8 +171,6 @@ public class HeroAI : MonoBehaviour
                 {
                     if(Vector2.Distance(transform.position, TargetPos) < 0.1f)
                     {
-
-
                         CompletedLevel();
                     }
                 }
@@ -373,7 +371,7 @@ public class HeroAI : MonoBehaviour
                         Destroy(Stats.ConsumableItem.gameObject);
                         Stats.ConsumableItem = null;
                         DM.ConsumableIcon.sprite = DM.HandSprite;
-                        var healNumber = Instantiate(FloatingNumber, transform.position, Quaternion.Euler(Vector3.forward * 1));
+                        var healNumber = Instantiate(FloatingNumber, transform.position + new Vector3(0,0,1), Quaternion.Euler(Vector3.forward));
                         healNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + con.Value;
                         healNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
                     }
@@ -420,7 +418,7 @@ public class HeroAI : MonoBehaviour
                     Destroy(Stats.ConsumableItem.gameObject);
                     Stats.ConsumableItem = null;
                     DM.ConsumableIcon.sprite = DM.HandSprite;
-                    var healNumber = Instantiate(FloatingNumber, transform.position, Quaternion.Euler(Vector3.forward * 1));
+                    var healNumber = Instantiate(FloatingNumber, transform.position + new Vector3(0, 0, 1), Quaternion.Euler(Vector3.forward));
                     healNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + con.Value;
                     healNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
                 }
@@ -466,6 +464,15 @@ public class HeroAI : MonoBehaviour
 
     public void CompletedLevel()
     {
+        if (Stats.HeroName == "Kitten")
+        {
+            Debug.Log("SECRET UNLOCKED!");
+            var newNumber = Instantiate(FloatingNumber, transform.position + new Vector3(0,0,2), Quaternion.Euler(Vector3.forward));
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+            newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "SECRET UNLOCKED!";
+            PlayerPrefs.SetInt("Survival Mode", 1);
+            Stats.HeroName = "Renowned Hero";
+        }
         Active = false;
         Waiting = true;
         LevelCleared = false;
@@ -476,6 +483,7 @@ public class HeroAI : MonoBehaviour
         State = HeroState.Idle;
         DM.DungeonCompleted = true;
         DM.DungeonComplete();
+        
 
     }
 

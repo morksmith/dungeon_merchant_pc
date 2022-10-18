@@ -13,7 +13,7 @@ public class Stats : MonoBehaviour
         Warrior,
         Knight,
         Mage,
-        Rogue
+        Ranger
     }
     public enum HeroState
     {
