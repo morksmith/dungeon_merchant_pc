@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-
+using System;
 
 public class SaveManager : MonoBehaviour
 {
@@ -155,6 +155,12 @@ public class SaveManager : MonoBehaviour
             allChestData.Add(c.Data);
         }
         newSave.AllChests = allChestData;
+
+        //Save timestamp for AFK stats
+        DateTime currentDateTime = System.DateTime.Now;
+        Debug.Log(currentDateTime.ToString("G"));
+        PlayerPrefs.SetString("DateTime", currentDateTime.ToString("G"));
+        
 
         //Save to file
         string saveData = JsonUtility.ToJson(newSave);

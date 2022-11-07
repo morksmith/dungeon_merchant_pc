@@ -43,6 +43,7 @@ public class StockManager : MonoBehaviour
     public AudioClip CollectSound;
     public AudioClip ChestSound;
     public GameObject InfoPanel;
+    public GameObject Prospector;
     public SaveManager Save;
 
     private SFXManager sfx;
@@ -541,7 +542,17 @@ public class StockManager : MonoBehaviour
     {
         Gold += i;
         GoldText.text = Gold + "G";
-        if(Gold > MaxProfit)
+        if (Gold > 10000)
+        {
+            if(PlayerPrefs.GetInt("ProspectorUnlocked") == 0)
+            {
+                PlayerPrefs.SetInt("ProspectorUnlocked", 1);
+                BottomContent.NewHeroIcon();
+                Prospector.SetActive(true);
+            }
+            
+        }
+        if (Gold > MaxProfit)
         {
             MaxProfit = Gold;
             CheckDialogue();
@@ -552,6 +563,7 @@ public class StockManager : MonoBehaviour
             Save.SaveGame();
         }
     }
+        
 
     public void CheckDialogue()
     {

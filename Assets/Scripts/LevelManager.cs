@@ -46,7 +46,10 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt("Closed Correctly", 1);
             SceneManager.LoadScene("Start");
             var musicSource = GameObject.FindObjectOfType<MusicManager>().gameObject;
-            Destroy(musicSource.gameObject);
+            if(musicSource != null)
+            {
+                Destroy(musicSource.gameObject);
+            }
         }
         else
         {
