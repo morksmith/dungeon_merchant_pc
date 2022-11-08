@@ -1784,6 +1784,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118492158}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &158262334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1190431834159987654, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+  m_PrefabInstance: {fileID: 6723141201573289124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035690169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2d6f5cb2b86a247b4ce361c5ed443a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &163546469
 GameObject:
   m_ObjectHideFlags: 0
@@ -20902,6 +20913,7 @@ MonoBehaviour:
   Inn: {fileID: 791159073}
   Requests: {fileID: 179824636}
   WarningMenu: {fileID: 1851762539}
+  Prospector: {fileID: 158262334}
   ItemsSaved: 0
   HeroesSaved: 0
   StockSaved: 0

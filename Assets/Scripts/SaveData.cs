@@ -15,4 +15,5 @@ public class SaveData
     public DungeonData DungeonSaveData;
     public InnData InnSaveData;
     public HeroData HireHero;
+    public ProspectorData ProspectorData;
 }

@@ -18,12 +18,13 @@ public class Prospector : MonoBehaviour
     public bool ReturnedFromMining = false;
     public GameObject ClaimGoldButton;
     public InnManager Inn;
+    public ProspectorData Data;
 
 
     private void Start()
     {
         ProspectorButton = gameObject.GetComponent<Button>();
-        if(PlayerPrefs.GetInt("ProspectorUnlocked") == 1)
+        if (PlayerPrefs.GetInt("ProspectorUnlocked") == 1)
         {
             gameObject.SetActive(true);
         }
@@ -59,6 +60,14 @@ public class Prospector : MonoBehaviour
         {
             ReturnFromMining();
         }
+        if (Mining)
+        {
+            NewIcon.SetActive(false);
+            ProspectorButton.interactable = false;
+            ProspectorSprite.color = new Color(1, 1, 1, 0.5f);
+            TimeSlider.gameObject.SetActive(true);
+        }
+        
     }
     public void ReturnFromMining()
     {
@@ -82,5 +91,15 @@ public class Prospector : MonoBehaviour
         ProspectorSprite.color = new Color(1, 1, 1, 0.5f);
         TimeSlider.gameObject.SetActive(true);
 
+    }
+
+    public void StoreData()
+    {
+        var newProspectorData = new ProspectorData();
+        newProspectorData.LastDateChecked = System.DateTime.Now;
+        newProspectorData.Timer = Timer;
+        newProspectorData.Mining = Mining;
+        newProspectorData.ReturnedFromMining = ReturnedFromMining;
+        Data = newProspectorData;
     }
 }

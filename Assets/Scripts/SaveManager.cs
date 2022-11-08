@@ -19,6 +19,7 @@ public class SaveManager : MonoBehaviour
     public InnManager Inn;
     public RequestManager Requests;
     public Menu WarningMenu;
+    public Prospector Prospector;
 
     public bool ItemsSaved = false;
     public bool HeroesSaved = false;
@@ -157,9 +158,12 @@ public class SaveManager : MonoBehaviour
         newSave.AllChests = allChestData;
 
         //Save timestamp for AFK stats
+
         DateTime currentDateTime = System.DateTime.Now;
         Debug.Log(currentDateTime.ToString("G"));
         PlayerPrefs.SetString("DateTime", currentDateTime.ToString("G"));
+        Prospector.StoreData();
+        newSave.ProspectorData = Prospector.Data;
         
 
         //Save to file
@@ -167,10 +171,6 @@ public class SaveManager : MonoBehaviour
         string savePath;
         savePath = Application.persistentDataPath + "/SaveGame.json";
         File.WriteAllText(savePath, saveData);
-
-
-
-
         Debug.Log("Did the save thing");
 
         
@@ -250,22 +250,29 @@ public class SaveManager : MonoBehaviour
                 }
             }
 
+            //Load Inn Data
             if(loadedData.InnSaveData != null)
             {
                 Inn.SetTimers(loadedData.InnSaveData.MerchTime, loadedData.InnSaveData.HeroTime, loadedData.InnSaveData.RequestTime);
                 if (loadedData.InnSaveData.HeroAvailable)
                 {
                     Inn.Hire.LoadHireHero(loadedData.InnSaveData.HireHero);
-                }
-                
+                }                
             }
+
+            //Load Requests
             var loadedRequests = new List<RequestData>();
             foreach(RequestData rd in loadedData.AllRequests)
             {
                 loadedRequests.Add(rd);
             }
-
             Requests.CreateSpecificRequests(loadedRequests.ToArray());
+
+            //Load Prospector
+            Prospector.Timer = loadedData.ProspectorData.Timer;
+            Prospector.Mining = loadedData.ProspectorData.Mining;
+            Prospector.ReturnedFromMining = loadedData.ProspectorData.ReturnedFromMining;
+            Prospector.CheckTimePassed();
 
 
             PlayerPrefs.SetInt("Closed Correctly", 0);
