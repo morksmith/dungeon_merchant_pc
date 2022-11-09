@@ -3851,7 +3851,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1393268134}
   m_OnClick:
     m_PersistentCalls:
@@ -4150,6 +4150,7 @@ MonoBehaviour:
   Inn: {fileID: 0}
   Requests: {fileID: 0}
   WarningMenu: {fileID: 0}
+  Prospector: {fileID: 0}
   ItemsSaved: 0
   HeroesSaved: 0
   StockSaved: 0
@@ -4476,7 +4477,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v1.5 Monster Shop Games 2022
+  m_text: v1.6 Monster Shop Games 2022
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afbf014436d404d40a6ca6d180265424, type: 2}
   m_sharedMaterial: {fileID: 3596085694989975384, guid: afbf014436d404d40a6ca6d180265424, type: 2}
@@ -4589,8 +4590,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3.2395935}
-  m_SizeDelta: {x: 2000, y: 120}
+  m_AnchoredPosition: {x: 0, y: 3}
+  m_SizeDelta: {x: 2000, y: 124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1751399627
 MonoBehaviour:
@@ -4643,6 +4644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPrefString: Survival Mode
+  SurvivalButton: {fileID: 1393268133}
 --- !u!1 &1806575199
 GameObject:
   m_ObjectHideFlags: 0
@@ -5043,7 +5045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

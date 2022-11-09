@@ -1,23 +1,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Prospector : MonoBehaviour
 {
     public Menu ProspectorMenu;
+    public List<Vector2> UpgradeLevels;
+    public int CurrentLevel = 0;
+    public StockManager Stock;
     public Button ProspectorButton;
+    public Button CollectButton;
+    public Button UpgradeButton;
+    public TextMeshProUGUI UpgradeText;
+    public TextMeshProUGUI ExpeditionText;
     public Image ProspectorSprite;
     public GameObject NewIcon;
+    public GameObject HireMenu;
+    public GameObject CollectMenu;
     public Slider TimeSlider;
     public float ProspectTime = 300;
     public float Timer;
-    public bool NewProspector;
+    public bool IsHired = false;
     public bool Mining = false;
     public bool ReturnedFromMining = false;
-    public GameObject ClaimGoldButton;
     public InnManager Inn;
+    public SaveManager Save;
     public ProspectorData Data;
 
 
@@ -31,6 +42,10 @@ public class Prospector : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+        }
+        if (ReturnedFromMining)
+        {
+            ReturnFromMining();
         }
         CheckTimePassed();
 
@@ -47,6 +62,22 @@ public class Prospector : MonoBehaviour
                 ReturnFromMining();
             }
         }
+        if(CurrentLevel < UpgradeLevels.Count)
+        {
+            if(Stock.Gold >= UpgradeLevels[CurrentLevel].x)
+            {
+                UpgradeButton.interactable = true;
+            }
+            else
+            {
+                UpgradeButton.interactable = false;
+            }            
+        }
+        else
+        {
+            UpgradeButton.interactable = false;
+        }
+
 
     }
 
@@ -56,6 +87,15 @@ public class Prospector : MonoBehaviour
         var elapsedSeconds = (int)System.DateTime.Now.Subtract(lastDateChecked).TotalSeconds;
         Debug.Log("Last Date: " + lastDateChecked + "\nCurrent Date: " + System.DateTime.Now + "\nSeconds Passed = " + elapsedSeconds);
         Timer += elapsedSeconds;
+        if (!IsHired)
+        {
+            HireMenu.SetActive(true);
+            return;
+        }
+        else
+        {
+            HireMenu.SetActive(false);
+        }
         if(Timer > ProspectTime)
         {
             ReturnFromMining();
@@ -67,18 +107,20 @@ public class Prospector : MonoBehaviour
             ProspectorSprite.color = new Color(1, 1, 1, 0.5f);
             TimeSlider.gameObject.SetActive(true);
         }
-        
+        UpdateUI();
+
     }
     public void ReturnFromMining()
     {
         Mining = false;
-        Timer = 0;
         ReturnedFromMining = true;
         NewIcon.SetActive(true);
         ProspectorButton.interactable = true;
         ProspectorSprite.color = new Color(1, 1, 1, 1);
         TimeSlider.gameObject.SetActive(false);
         Inn.BottomContent.NewHeroIcon();
+        CollectMenu.SetActive(true);
+        CollectButton.GetComponentInChildren<TextMeshProUGUI>().text = "COLLECT (" + UpgradeLevels[CurrentLevel].y + "G)";
     }
 
     public void SendToMine()
@@ -90,6 +132,8 @@ public class Prospector : MonoBehaviour
         ProspectorButton.interactable = false;
         ProspectorSprite.color = new Color(1, 1, 1, 0.5f);
         TimeSlider.gameObject.SetActive(true);
+        ProspectorMenu.DeActivate();
+        Save.SaveGame();
 
     }
 
@@ -98,8 +142,54 @@ public class Prospector : MonoBehaviour
         var newProspectorData = new ProspectorData();
         newProspectorData.LastDateChecked = System.DateTime.Now;
         newProspectorData.Timer = Timer;
+        newProspectorData.ProspectTime = ProspectTime;
         newProspectorData.Mining = Mining;
         newProspectorData.ReturnedFromMining = ReturnedFromMining;
+        newProspectorData.IsHired = IsHired;
+        newProspectorData.CurrentLevel = CurrentLevel;
         Data = newProspectorData;
+    }
+
+    public void HireProspector()
+    {
+        Stock.CollectGold(-2000);
+        IsHired = true;
+        HireMenu.SetActive(false);
+        Save.SaveGame();
+    }
+
+    public void CollectGold()
+    {
+        Stock.CollectGold(UpgradeLevels[CurrentLevel].y);
+        Timer = 0;
+        CollectMenu.SetActive(false);
+        ReturnedFromMining = false;
+        Mining = false;
+        Save.SaveGame();
+    }
+
+    public void UpgradeMiner()
+    {
+        Stock.CollectGold(-UpgradeLevels[CurrentLevel].x);
+        CurrentLevel++;
+        ProspectTime += 300;
+        UpdateUI();
+        Save.SaveGame();
+    }
+
+    public void UpdateUI()
+    {
+        if (CurrentLevel < UpgradeLevels.Count - 1)
+        {
+            UpgradeText.text = UpgradeLevels[CurrentLevel].y + "G > " + UpgradeLevels[CurrentLevel + 1].y + "G";
+            UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "UPGRADE (" + UpgradeLevels[CurrentLevel].x + "G)";
+        }
+        else
+        {
+            UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "FULLY UPGRADED";
+            UpgradeButton.interactable = false;
+            UpgradeText.gameObject.SetActive(false);
+        }
+        ExpeditionText.text = Mathf.CeilToInt(ProspectTime / 60) + "m - " + UpgradeLevels[CurrentLevel].y + "G";
     }
 }
