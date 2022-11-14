@@ -219,6 +219,39 @@ public class Stats : MonoBehaviour
         StoreData();
 
     }
+    public void FireHero()
+    {
+        if (WeaponItem != null)
+        {
+            WeaponItem.ReturnToStock();
+            UnequipWeapon(WeaponItem.GetComponent<Weapon>());
+            
+        }
+        if (ArmourItem != null)
+        {
+            ArmourItem.ReturnToStock();
+            UneQuipArmour(ArmourItem.GetComponent<Armour>());
+            
+
+        }
+        if (HelmItem != null)
+        {
+            HelmItem.ReturnToStock();
+            UnequipHelm(HelmItem.GetComponent<Armour>());
+            
+
+        }
+        if (ConsumableItem != null)
+        {
+            ConsumableItem.ReturnToStock();
+            UnequipConsumable(ConsumableItem.GetComponent<Consumable>());
+            
+            
+
+        }
+        StoreData();
+
+    }
 
     public void StoreData()
     {

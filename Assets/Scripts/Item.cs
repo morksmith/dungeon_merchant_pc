@@ -113,6 +113,13 @@ public class Item : MonoBehaviour
         Equipped = false;
     }
 
+    public void ReturnToStock()
+    {
+        transform.SetParent(stockMan.StockList);
+        transform.position = new Vector3(0, 0, 0);
+        StockItem();
+    }
+
     public void UpdatePrice(float x)
     {
         PriceScale = x;

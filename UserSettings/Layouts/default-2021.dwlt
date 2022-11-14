@@ -67,15 +67,15 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 1050
-  m_MinSize: {x: 200, y: 221}
-  m_MaxSize: {x: 4000, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 28}
   m_Panes:
   - {fileID: 17}
   - {fileID: 28}
   - {fileID: 16}
   m_Selected: 1
-  m_LastSelected: 2
+  m_LastSelected: 0
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 8096}
   vertical: 0
-  controlID: 17
+  controlID: 20
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 104
+  controlID: 546
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 105
+  controlID: 547
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 26
+  controlID: 152
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 27
+  controlID: 153
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -289,8 +289,8 @@ MonoBehaviour:
     y: 0
     width: 355
     height: 489
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -370,8 +370,8 @@ MonoBehaviour:
     y: 0
     width: 615
     height: 957
-  m_MinSize: {x: 276, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 24}
   m_Panes:
   - {fileID: 24}
@@ -494,9 +494,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: dad80400
-      m_LastClickedID: 0
-      m_ExpandedIDs: 4ea1fcff68a2fcff96a2fcff9ea2fcffa6a2fcffd8a7fcffd4a9fcff98bbfcfffcc3fcff4cc5fcff54c5fcff86cafcff82ccfcff5eecfcffaeedfcffb6edfcffe8f2fcffe4f4fcff28f6fcff48fefcff98fffcffa0fffcffd204fdffce06fdffd859fdff285bfdff305bfdff6260fdff5e62fdff34defdff84dffdff8cdffdffbee4fdffbae6fdff1808feff4608feff4e08feff5608feff880dfeff840ffeffb45cfeff265dfeff6665feffb666feffbe66fefff06bfeffec6dfeff6470feff727efeffc27ffeffca7ffefffc84fefff886feffbaadfeffd019ffff201bffff281bffff5a20ffff5622ffff002cffff502dffff582dffff8a32ffff8634ffff0e53ffff2854ffff5654ffff5e54ffff6654ffff9859ffff945bffff6e6dffff3cb7ffff3eb7ffffd4c0ffff7ac5ffffbcddffffcedeffff88e0ffff86e8ffff8ce8ffffc8efffffb6f0ffffd8f0ffffeaf0ffff0cf1ffff1ef1ffff40f1ffff52f1ffff74f1ffff84f1ffff8ef1ffffb2f1fffffef1ffff06f2ffff0ef2ffff40f7ffff3cf9ffffcafafffffe260300e6290300405f0300505f0300a65f0300f45f03004a640400
+      m_SelectedIDs: 68cdffff
+      m_LastClickedID: -12952
+      m_ExpandedIDs: fe9affff1e9bffff68cdffff1ef3ffff4ef4ffff50f7ffff58f7ffff6af7ffff66f9ffff26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -767,9 +767,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1949.3112, y: 508.67578, z: 5.678835}
+    m_Target: {x: -1507.1973, y: 1319.2255, z: 15.225729}
     speed: 2
-    m_Value: {x: 1949.3112, y: 508.67578, z: 5.678835}
+    m_Value: {x: -1507.1973, y: 1319.2255, z: 15.225729}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -820,9 +820,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 480.1522
+    m_Target: 579.32086
     speed: 2
-    m_Value: 480.1522
+    m_Value: 579.32086
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1139,22 +1139,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Packages/com.unity.mobile.notifications/Runtime/Android
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Packages/com.unity.mobile.notifications/Runtime/Android
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Work\Personal\Dungeon Merchant
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 297}
-    m_SelectedIDs: 26d90400
-    m_LastClickedID: 317734
-    m_ExpandedIDs: 00000000186800001a6800001c6800001cd904003ed9040000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: de590000
+    m_LastClickedID: 23006
+    m_ExpandedIDs: 00000000de590000e0590000e2590000405a0000585a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1182,7 +1182,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000186800001a6800001c680000
+    m_ExpandedIDs: 00000000de590000e0590000e2590000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

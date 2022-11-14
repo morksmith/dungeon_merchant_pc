@@ -117,6 +117,16 @@ public class HeroManager : MonoBehaviour
         
     }
 
+    public void FireHero()
+    {
+        SelectedHero.FireHero();
+        Stock.UpdatePrices();
+        EquipScreen.UpdateEquipMenu(SelectedHero);
+        Destroy(SelectedHero.gameObject);
+        SelectedHero = null;
+        Stock.Save.SaveGame();
+    }
+
     public void StartDungeon()
     {
         Stock.CollectGold(-DeployCost);
