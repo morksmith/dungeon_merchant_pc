@@ -360,6 +360,13 @@ public class Stats : MonoBehaviour
     public void FinishTraining()
     {
         Level++;
+        XP = XP - MaxXP;
+        MaxXP *= 1.5f;
+        MaxXP = Mathf.CeilToInt(MaxXP);
+        MaxHP += 10;
+        Damage++;
+        HP = MaxHP;
+        LevelText.text = Level.ToString();
         State = HeroState.Idle;
         Timer = 0;
         TrainUI.SetActive(false);
