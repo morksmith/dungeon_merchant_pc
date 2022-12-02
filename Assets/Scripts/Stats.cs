@@ -34,10 +34,12 @@ public class Stats : MonoBehaviour
     public Sprite HeroSprite;
     public int SpriteIndex;
     public Slider XPSlider;
+    public Slider TrainSlider;
     public TextMeshProUGUI LevelText;
     public GameObject DeadText;
     public GameObject QuestText;
     public GameObject LevelUI;
+    public GameObject TrainUI;
     public bool Selected;
     public float Level;
     public float MaxHP;
@@ -50,6 +52,9 @@ public class Stats : MonoBehaviour
     public float LootFind = 1;
     public float GoldHeld;
     public float LootHeld;
+    public float TrainingTime = 300;
+    public float TrainCost;
+    public float Timer;
     public List<int> ChestLevels;
     public HeroData Data;
     
@@ -58,7 +63,7 @@ public class Stats : MonoBehaviour
     {
         Manager = GameObject.FindObjectOfType<HeroManager>();
         LevelText.text = Level.ToString();
-
+        TrainCost = 50 * Level;
         StoreData();
        
     }
@@ -70,6 +75,17 @@ public class Stats : MonoBehaviour
             LevelUp();
         }
         XPSlider.value = XP / MaxXP;
+
+        if(State == HeroState.Training)
+        {
+            TrainSlider.value = Timer / TrainingTime;
+            if(Timer < TrainingTime)
+            {
+                Timer += Time.deltaTime;
+            }
+            
+
+        }
     }
 
     public void LevelUp()
@@ -253,6 +269,15 @@ public class Stats : MonoBehaviour
 
     }
 
+    public void TrainHero()
+    {
+        State = HeroState.Training;
+        Timer = 0;
+        TrainUI.SetActive(true);
+        StoreData();
+
+    }
+
     public void StoreData()
     {
         var newHeroData = new HeroData();
@@ -312,7 +337,34 @@ public class Stats : MonoBehaviour
         {
             newHeroData.Hired = true;
         }
+        if(State == HeroState.Training)
+        {
+            newHeroData.Training = true;
+        }
+        newHeroData.Timer = Timer;
         Data = newHeroData;
+
+    }
+
+    public void CheckTimePassed()
+    {
+        var lastDateChecked = System.DateTime.Parse(PlayerPrefs.GetString("DateTime"));
+        var elapsedSeconds = (int)System.DateTime.Now.Subtract(lastDateChecked).TotalSeconds;
+        Timer += elapsedSeconds;
+        if(Timer > TrainingTime)
+        {
+            FinishTraining();
+        }
+    }
+
+    public void FinishTraining()
+    {
+        Level++;
+        State = HeroState.Idle;
+        Timer = 0;
+        TrainUI.SetActive(false);
+        GameObject.FindObjectOfType<DungeonManager>().TopContent.NewHeroIcon();
+        StoreData();
 
     }
    

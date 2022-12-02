@@ -98,6 +98,7 @@ public class HeroGenerator : MonoBehaviour
         newHeroStats.Range = hd.Range;
         newHeroStats.Discovery = hd.Discovery;
         newHeroStats.LootFind = hd.LootFind;
+        newHeroStats.Timer = hd.Timer;
         HireScreen.UpdateHeroInfo(newHero.gameObject.transform);
         newHero.gameObject.SetActive(false);
         HireScreen.HiredHero = newHero.GetComponent<Stats>().Data;
@@ -127,7 +128,7 @@ public class HeroGenerator : MonoBehaviour
         newHeroStats.Range = hd.Range;
         newHeroStats.Discovery = hd.Discovery;
         newHeroStats.LootFind = hd.LootFind;
-        newHeroStats.State = Stats.HeroState.Idle;
+        newHeroStats.Timer = hd.Timer;
         if (hd.hasWeapon)
         {
             ItemGen.CreateEquippedItem(hd.WeaponData, Equipment.WeaponItemSlot, newHeroStats);
@@ -159,6 +160,12 @@ public class HeroGenerator : MonoBehaviour
         else
         {
             newHeroStats.ConsumableItem = null;
+        }
+        if (hd.Training)
+        {
+            newHeroStats.State = Stats.HeroState.Training;
+            newHeroStats.TrainUI.SetActive(true);
+            newHeroStats.CheckTimePassed();
         }
         newHero.transform.SetParent(GameObject.FindObjectOfType<HireMenu>().HeroParent);
         newHero.transform.localScale = Vector3.one;

@@ -160,7 +160,7 @@ public class Prospector : MonoBehaviour
 
     public void CollectGold()
     {
-        Stock.CollectGold(UpgradeLevels[CurrentLevel].y);
+        Stock.CollectGold(UpgradeLevels[CurrentLevel-1].y);
         Timer = 0;
         CollectMenu.SetActive(false);
         ReturnedFromMining = false;
@@ -170,7 +170,7 @@ public class Prospector : MonoBehaviour
 
     public void UpgradeMiner()
     {
-        Stock.CollectGold(-UpgradeLevels[CurrentLevel].x);
+        Stock.CollectGold(-UpgradeLevels[CurrentLevel-1].x);
         CurrentLevel++;
         ProspectTime += 300;
         UpdateUI();
@@ -181,8 +181,12 @@ public class Prospector : MonoBehaviour
     {
         if (CurrentLevel < UpgradeLevels.Count - 1)
         {
-            UpgradeText.text = UpgradeLevels[CurrentLevel].y + "G > " + UpgradeLevels[CurrentLevel + 1].y + "G";
-            UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "UPGRADE (" + UpgradeLevels[CurrentLevel].x + "G)";
+            UpgradeText.text = UpgradeLevels[CurrentLevel - 1].y + "G > " + UpgradeLevels[CurrentLevel].y + "G";
+            UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "UPGRADE (" + UpgradeLevels[CurrentLevel - 1].x + "G)";
+            if(Stock.Gold >= UpgradeLevels[CurrentLevel - 1].y)
+            {
+                UpgradeButton.interactable = true;
+            }
         }
         else
         {
@@ -190,6 +194,6 @@ public class Prospector : MonoBehaviour
             UpgradeButton.interactable = false;
             UpgradeText.gameObject.SetActive(false);
         }
-        ExpeditionText.text = Mathf.CeilToInt(ProspectTime / 60) + "m - " + UpgradeLevels[CurrentLevel].y + "G";
+        ExpeditionText.text = Mathf.CeilToInt(ProspectTime / 60) + "m - " + UpgradeLevels[CurrentLevel-1].y + "G";
     }
 }

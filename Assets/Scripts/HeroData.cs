@@ -25,5 +25,7 @@ public class HeroData
     public float Range;
     public float Discovery;
     public float LootFind;
+    public float Timer;
+    public bool Training;
     
 }
