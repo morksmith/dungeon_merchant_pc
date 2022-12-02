@@ -167,6 +167,11 @@ public class HeroGenerator : MonoBehaviour
             newHeroStats.TrainUI.SetActive(true);
             newHeroStats.CheckTimePassed();
         }
+        else
+        {
+            newHeroStats.State = Stats.HeroState.Idle;
+            newHeroStats.TrainUI.SetActive(false);
+        }
         newHero.transform.SetParent(GameObject.FindObjectOfType<HireMenu>().HeroParent);
         newHero.transform.localScale = Vector3.one;
         
