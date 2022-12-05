@@ -15,6 +15,7 @@ public class Upgrade : MonoBehaviour
         Shelves,
         Speed,
         Speed2,
+        RequestPrice
 
     }
     public UpgradeType Type;
@@ -69,6 +70,16 @@ public class Upgrade : MonoBehaviour
                     Stock.SellSpeed = 4;
                 }
                 
+                CompleteObject.SetActive(true);
+                Complete = true;
+                PurchaseButton.interactable = false;
+            }
+        }
+        else if (Type == UpgradeType.RequestPrice)
+        {
+            if (PlayerPrefs.GetInt("Request Bonus") == 1)
+            {
+                Stock.RequestBonus = 1.5f;
                 CompleteObject.SetActive(true);
                 Complete = true;
                 PurchaseButton.interactable = false;
@@ -147,6 +158,16 @@ public class Upgrade : MonoBehaviour
         PlayerPrefs.SetInt("Sell Speed 2", 1);
 
     }
+    public void BuyRequest()
+    {
+        Stock.RequestBonus = 1.5f;
+        Stock.CollectGold(-Price);
+        CompleteObject.SetActive(true);
+        Complete = true;
+        PurchaseButton.interactable = false;
+        PlayerPrefs.SetInt("Request Bonus", 1);
+    }
+
 
     public void BuyUpgrade()
     {
@@ -168,5 +189,10 @@ public class Upgrade : MonoBehaviour
         {
             BuySellSpeed2();
         }
+        else if (Type == UpgradeType.RequestPrice)
+        {
+            BuyRequest();
+        }
     }
+
 }

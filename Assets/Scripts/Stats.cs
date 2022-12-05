@@ -142,6 +142,7 @@ public class Stats : MonoBehaviour
             DeadText.SetActive(false);
             QuestText.SetActive(false);
             LevelUI.SetActive(true);
+            TrainCost = 100 * Level;
         }
         StoreData();
     }
@@ -375,6 +376,7 @@ public class Stats : MonoBehaviour
         Timer = 0;
         TrainUI.SetActive(false);
         GameObject.FindObjectOfType<DungeonManager>().TopContent.NewItemIcon();
+        TrainCost = 100 * Level;
         StoreData();
 
     }

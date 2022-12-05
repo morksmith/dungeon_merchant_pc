@@ -30,12 +30,13 @@ public class Request : MonoBehaviour
     {
         
     }
-    public void NewRequest(float l)
+    public void NewRequest(float l, float b)
     {
         var level = Random.Range(-2, l+1);
         level = Mathf.RoundToInt(Mathf.Clamp(level, 1, 9999));
         Level = level;
-        Reward = (Random.Range(5,11) + Level * 2) * 4;
+        Reward = ((Random.Range(5,11) + Level * 2) * 4) * b;
+        Reward = Mathf.CeilToInt(Reward);
         TypeIndex = Random.Range(0, 6);
         if(TypeIndex == 0)
         {

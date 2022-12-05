@@ -300,7 +300,7 @@ public class HeroManager : MonoBehaviour
 
     public void UpdateQuestMenu(Stats s)
     {
-        AllHeroes = GameObject.FindObjectsOfType<Stats>().Where( h => h.State != Stats.HeroState.NotHired).ToArray();
+        AllHeroes = GameObject.FindObjectsOfType<Stats>().Where( h => h.State != Stats.HeroState.NotHired && h.State != Stats.HeroState.Training).ToArray();
         for (var i = 0; i < AllHeroes.Length; i++)
         {
             if (AllHeroes[i] == s)
@@ -329,7 +329,15 @@ public class HeroManager : MonoBehaviour
                 TrainBlocker.SetActive(false);
             }
         }
-        
+        if (Stock.Gold < AllHeroes[CurrentHero].TrainCost)
+        {
+            TrainButton.interactable = false;
+        }
+        else
+        {
+            TrainButton.interactable = true;
+        }
+        TrainCostText.text = s.TrainCost + "G";
         HeroNameText.text = s.HeroName;
         QuestText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;
         HeroSprite.sprite = s.HeroSprite;

@@ -12,6 +12,7 @@ public class StockManager : MonoBehaviour
     public float Gold;
     public float MaxProfit;
     public float MerchantDiscount = 1;
+    public float RequestBonus = 1;
     public float SellSpeed = 1;
     public ItemGenerator Generator;
     public Transform ItemBox;

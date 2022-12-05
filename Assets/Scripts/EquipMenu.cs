@@ -16,6 +16,7 @@ public class EquipMenu : MonoBehaviour
     public TextMeshProUGUI HeroInfoText;
     public EquipmentSlot WeaponSlot;
     public GameObject EquipBlock;
+    public GameObject TrainBlock;
     public Stats[] AllHeroes;
     public Transform WeaponItemSlot;
     public Transform HelmSlot;
@@ -39,6 +40,18 @@ public class EquipMenu : MonoBehaviour
         {
             EquipBlock.SetActive(false);
         }
+        if (!Stock.SurvivalMode)
+        {
+            if (AllHeroes[CurrentHero].State == Stats.HeroState.Training)
+            {
+                TrainBlock.SetActive(true);
+            }
+            else
+            {
+                TrainBlock.SetActive(false);
+            }
+        }
+        
         WeaponImage.sprite = WeaponSprites[s.DamageType];
         WeaponSlot.DamageType = s.DamageType;
         if(s.DamageType == 0)

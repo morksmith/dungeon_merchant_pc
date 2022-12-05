@@ -45476,6 +45476,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1723861587}
     - target: {fileID: 6723141200646924899, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: TrainBlock
+      value: 
+      objectReference: {fileID: 818546450}
+    - target: {fileID: 6723141200646924899, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: ConsumableSlot
       value: 
       objectReference: {fileID: 1723861586}
@@ -45845,7 +45849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -388
+      value: -388.00006
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
