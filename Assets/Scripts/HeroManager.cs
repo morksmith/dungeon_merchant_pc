@@ -89,15 +89,19 @@ public class HeroManager : MonoBehaviour
 
             HeroInfoText.text = s.HeroName + "\n"+ s.Class + "\n HP:" + s.MaxHP + "\n DMG:" + s.Damage + "\n RNG:" + Mathf.FloorToInt(s.Range) + "\n GOLD:x" + s.Discovery;
         }
-        if(Stock.Gold < SelectedHero.TrainCost)
+        if (!Stock.SurvivalMode)
         {
-            TrainButton.interactable = false;
+            if (Stock.Gold < SelectedHero.TrainCost)
+            {
+                TrainButton.interactable = false;
+            }
+            else
+            {
+                TrainButton.interactable = true;
+            }
+            TrainCostText.text = SelectedHero.TrainCost + "G";
         }
-        else
-        {
-            TrainButton.interactable = true;
-        }
-        TrainCostText.text = SelectedHero.TrainCost + "G";
+        
 
         UpdateQuestMenu(SelectedHero);
         var heroes = GameObject.FindObjectsOfType<Stats>();
@@ -314,14 +318,18 @@ public class HeroManager : MonoBehaviour
         {
             QuestBlocker.SetActive(false);
         }
-        if (AllHeroes[CurrentHero].State == Stats.HeroState.Training)
+        if (!Stock.SurvivalMode)
         {
-            TrainBlocker.SetActive(true);
+            if (AllHeroes[CurrentHero].State == Stats.HeroState.Training)
+            {
+                TrainBlocker.SetActive(true);
+            }
+            else
+            {
+                TrainBlocker.SetActive(false);
+            }
         }
-        else
-        {
-            TrainBlocker.SetActive(false);
-        }
+        
         HeroNameText.text = s.HeroName;
         QuestText.text = "Level " + s.Level + " " + s.Class + "\n HP:" + s.MaxHP + "\n XP:" + s.XP + "/" + s.MaxXP + "\n Damage:" + s.Damage + "\n Range:" + Mathf.FloorToInt(s.Range) + "\n Gold Drop:x" + s.Discovery;
         HeroSprite.sprite = s.HeroSprite;

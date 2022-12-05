@@ -63,7 +63,7 @@ public class Stats : MonoBehaviour
     {
         Manager = GameObject.FindObjectOfType<HeroManager>();
         LevelText.text = Level.ToString();
-        TrainCost = 50 * Level;
+        TrainCost = 100 * Level;
         StoreData();
        
     }
@@ -82,6 +82,10 @@ public class Stats : MonoBehaviour
             if(Timer < TrainingTime)
             {
                 Timer += Time.deltaTime;
+            }
+            else
+            {
+                FinishTraining();
             }
             
 
@@ -370,7 +374,7 @@ public class Stats : MonoBehaviour
         State = HeroState.Idle;
         Timer = 0;
         TrainUI.SetActive(false);
-        GameObject.FindObjectOfType<DungeonManager>().TopContent.NewHeroIcon();
+        GameObject.FindObjectOfType<DungeonManager>().TopContent.NewItemIcon();
         StoreData();
 
     }
