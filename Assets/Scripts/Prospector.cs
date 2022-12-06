@@ -152,7 +152,7 @@ public class Prospector : MonoBehaviour
 
     public void HireProspector()
     {
-        Stock.CollectGold(-2000);
+        Stock.CollectGold(-5000);
         IsHired = true;
         HireMenu.SetActive(false);
         Save.SaveGame();
@@ -160,7 +160,7 @@ public class Prospector : MonoBehaviour
 
     public void CollectGold()
     {
-        Stock.CollectGold(UpgradeLevels[CurrentLevel-1].y);
+        Stock.CollectGold(UpgradeLevels[CurrentLevel].y);
         Timer = 0;
         CollectMenu.SetActive(false);
         ReturnedFromMining = false;
@@ -170,7 +170,7 @@ public class Prospector : MonoBehaviour
 
     public void UpgradeMiner()
     {
-        Stock.CollectGold(-UpgradeLevels[CurrentLevel-1].x);
+        Stock.CollectGold(-UpgradeLevels[CurrentLevel].x);
         CurrentLevel++;
         ProspectTime += 300;
         UpdateUI();
@@ -181,9 +181,9 @@ public class Prospector : MonoBehaviour
     {
         if (CurrentLevel < UpgradeLevels.Count - 1)
         {
-            UpgradeText.text = UpgradeLevels[CurrentLevel - 1].y + "G > " + UpgradeLevels[CurrentLevel].y + "G";
-            UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "UPGRADE (" + UpgradeLevels[CurrentLevel - 1].x + "G)";
-            if(Stock.Gold >= UpgradeLevels[CurrentLevel - 1].y)
+            UpgradeText.text = UpgradeLevels[CurrentLevel].y + "G > " + UpgradeLevels[CurrentLevel+1].y + "G";
+            UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "UPGRADE (" + UpgradeLevels[CurrentLevel].x + "G)";
+            if(Stock.Gold >= UpgradeLevels[CurrentLevel].y)
             {
                 UpgradeButton.interactable = true;
             }
@@ -194,6 +194,6 @@ public class Prospector : MonoBehaviour
             UpgradeButton.interactable = false;
             UpgradeText.gameObject.SetActive(false);
         }
-        ExpeditionText.text = Mathf.CeilToInt(ProspectTime / 60) + "m - " + UpgradeLevels[CurrentLevel-1].y + "G";
+        ExpeditionText.text = Mathf.CeilToInt(ProspectTime / 60) + "m - " + UpgradeLevels[CurrentLevel].y + "G";
     }
 }

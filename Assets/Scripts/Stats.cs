@@ -63,7 +63,7 @@ public class Stats : MonoBehaviour
     {
         Manager = GameObject.FindObjectOfType<HeroManager>();
         LevelText.text = Level.ToString();
-        TrainCost = 100 * Level;
+        TrainCost = 50 * Level;
         StoreData();
        
     }
@@ -142,7 +142,7 @@ public class Stats : MonoBehaviour
             DeadText.SetActive(false);
             QuestText.SetActive(false);
             LevelUI.SetActive(true);
-            TrainCost = 100 * Level;
+            TrainCost = 50 * Level;
         }
         StoreData();
     }
@@ -365,7 +365,6 @@ public class Stats : MonoBehaviour
     public void FinishTraining()
     {
         Level++;
-        XP = XP - MaxXP;
         MaxXP *= 1.5f;
         MaxXP = Mathf.CeilToInt(MaxXP);
         MaxHP += 10;
@@ -376,7 +375,7 @@ public class Stats : MonoBehaviour
         Timer = 0;
         TrainUI.SetActive(false);
         GameObject.FindObjectOfType<DungeonManager>().TopContent.NewItemIcon();
-        TrainCost = 100 * Level;
+        TrainCost = 50 * Level;
         StoreData();
 
     }
