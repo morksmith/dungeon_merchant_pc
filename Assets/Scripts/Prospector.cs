@@ -62,21 +62,21 @@ public class Prospector : MonoBehaviour
                 ReturnFromMining();
             }
         }
-        if(CurrentLevel < UpgradeLevels.Count)
-        {
-            if(Stock.Gold >= UpgradeLevels[CurrentLevel].x)
-            {
-                UpgradeButton.interactable = true;
-            }
-            else
-            {
-                UpgradeButton.interactable = false;
-            }            
-        }
-        else
-        {
-            UpgradeButton.interactable = false;
-        }
+        //if(CurrentLevel < UpgradeLevels.Count - 1)
+        //{
+        //    if(Stock.Gold >= UpgradeLevels[CurrentLevel].x)
+        //    {
+        //        UpgradeButton.interactable = true;
+        //    }
+        //    else
+        //    {
+        //        UpgradeButton.interactable = false;
+        //    }            
+        //}
+        //else
+        //{
+        //    UpgradeButton.interactable = false;
+        //}
 
 
     }
@@ -121,6 +121,7 @@ public class Prospector : MonoBehaviour
         Inn.BottomContent.NewHeroIcon();
         CollectMenu.SetActive(true);
         CollectButton.GetComponentInChildren<TextMeshProUGUI>().text = "COLLECT (" + UpgradeLevels[CurrentLevel].y + "G)";
+        UpdateUI();
     }
 
     public void SendToMine()
@@ -165,7 +166,9 @@ public class Prospector : MonoBehaviour
         CollectMenu.SetActive(false);
         ReturnedFromMining = false;
         Mining = false;
+        UpdateUI();
         Save.SaveGame();
+
     }
 
     public void UpgradeMiner()
@@ -185,7 +188,16 @@ public class Prospector : MonoBehaviour
             UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "UPGRADE (" + UpgradeLevels[CurrentLevel].x + "G)";
             if(Stock.Gold >= UpgradeLevels[CurrentLevel].y)
             {
-                UpgradeButton.interactable = true;
+                if(CurrentLevel < (UpgradeLevels.Count - 1))
+                {
+                    UpgradeButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "FULLY UPGRADED";
+                    UpgradeButton.interactable = false;
+                    UpgradeText.gameObject.SetActive(false);
+                }
             }
         }
         else
@@ -194,6 +206,7 @@ public class Prospector : MonoBehaviour
             UpgradeButton.interactable = false;
             UpgradeText.gameObject.SetActive(false);
         }
+        Debug.Log(CurrentLevel + " " + (UpgradeLevels.Count - 1));
         ExpeditionText.text = Mathf.CeilToInt(ProspectTime / 60) + "m - " + UpgradeLevels[CurrentLevel].y + "G";
     }
 }
