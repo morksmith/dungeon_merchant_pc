@@ -20,6 +20,7 @@ public class SaveManager : MonoBehaviour
     public RequestManager Requests;
     public Menu WarningMenu;
     public Prospector Prospector;
+    public MagicChest MagicChest;
 
     public bool ItemsSaved = false;
     public bool HeroesSaved = false;
@@ -79,6 +80,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetFloat("Music Volume", musicVol);
         PlayerPrefs.SetFloat("SFX Volume", sfxVol);
         PlayerPrefs.SetFloat("Survival Mode", survivalMode);
+        
 
 
     }
@@ -164,6 +166,10 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetString("DateTime", currentDateTime.ToString("G"));
         Prospector.StoreData();
         newSave.ProspectorData = Prospector.Data;
+
+        //Save Magic Chest Data
+        MagicChest.StoreData();
+        newSave.MagicChestData = MagicChest.Data;
         
 
         //Save to file
@@ -269,13 +275,28 @@ public class SaveManager : MonoBehaviour
             Requests.CreateSpecificRequests(loadedRequests.ToArray());
 
             //Load Prospector
-            Prospector.Timer = loadedData.ProspectorData.Timer;
-            Prospector.Mining = loadedData.ProspectorData.Mining;
-            Prospector.ReturnedFromMining = loadedData.ProspectorData.ReturnedFromMining;
-            Prospector.IsHired = loadedData.ProspectorData.IsHired;
-            Prospector.CurrentLevel = loadedData.ProspectorData.CurrentLevel;
-            Prospector.ProspectTime = loadedData.ProspectorData.ProspectTime;
-            Prospector.CheckTimePassed();
+            if(Prospector!= null)
+            {
+                Prospector.Timer = loadedData.ProspectorData.Timer;
+                Prospector.Mining = loadedData.ProspectorData.Mining;
+                Prospector.ReturnedFromMining = loadedData.ProspectorData.ReturnedFromMining;
+                Prospector.IsHired = loadedData.ProspectorData.IsHired;
+                Prospector.CurrentLevel = loadedData.ProspectorData.CurrentLevel;
+                Prospector.ProspectTime = loadedData.ProspectorData.ProspectTime;
+                Prospector.CheckTimePassed();
+            }
+            
+
+            //Load Magic Chest
+            if(MagicChest != null)
+            {
+                MagicChest.Timer = loadedData.MagicChestData.Timer;
+                MagicChest.Restocking = loadedData.MagicChestData.Restocking;
+                MagicChest.ReadyToCollect = loadedData.MagicChestData.ReadyToCollect;
+                MagicChest.RestockTime = loadedData.MagicChestData.RestockTime;
+                MagicChest.CheckTimePassed();
+            }
+           
 
 
             PlayerPrefs.SetInt("Closed Correctly", 0);

@@ -16,4 +16,5 @@ public class SaveData
     public InnData InnSaveData;
     public HeroData HireHero;
     public ProspectorData ProspectorData;
+    public MagicChestData MagicChestData;
 }

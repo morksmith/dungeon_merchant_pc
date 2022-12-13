@@ -375,6 +375,7 @@ public class Stats : MonoBehaviour
         Timer = 0;
         TrainUI.SetActive(false);
         GameObject.FindObjectOfType<DungeonManager>().TopContent.NewItemIcon();
+        GameObject.FindObjectOfType<StockManager>().PlayLevelUpSound();
         TrainCost = 50 * Level;
         StoreData();
 

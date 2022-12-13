@@ -15,7 +15,8 @@ public class Upgrade : MonoBehaviour
         Shelves,
         Speed,
         Speed2,
-        RequestPrice
+        RequestPrice,
+        MagicChest
 
     }
     public UpgradeType Type;
@@ -80,6 +81,15 @@ public class Upgrade : MonoBehaviour
             if (PlayerPrefs.GetInt("Request Bonus") == 1)
             {
                 Stock.RequestBonus = 1.5f;
+                CompleteObject.SetActive(true);
+                Complete = true;
+                PurchaseButton.interactable = false;
+            }
+        }
+        else if (Type == UpgradeType.MagicChest)
+        {
+            if (PlayerPrefs.GetInt("MagicChestUnlocked") == 1)
+            {
                 CompleteObject.SetActive(true);
                 Complete = true;
                 PurchaseButton.interactable = false;
@@ -167,6 +177,15 @@ public class Upgrade : MonoBehaviour
         PurchaseButton.interactable = false;
         PlayerPrefs.SetInt("Request Bonus", 1);
     }
+    public void BuyMagicChest()
+    {
+        Stock.BuyMagicChest();
+        Stock.CollectGold(-Price);
+        CompleteObject.SetActive(true);
+        Complete = true;
+        PurchaseButton.interactable = false;
+        PlayerPrefs.SetInt("MagicChestUnlocked", 1);
+    }
 
 
     public void BuyUpgrade()
@@ -193,6 +212,11 @@ public class Upgrade : MonoBehaviour
         {
             BuyRequest();
         }
+        else if (Type == UpgradeType.MagicChest)
+        {
+            BuyMagicChest();
+        }
     }
+   
 
 }

@@ -43,8 +43,10 @@ public class StockManager : MonoBehaviour
     public AudioClip EquipSound;
     public AudioClip CollectSound;
     public AudioClip ChestSound;
+    public AudioClip LevelUpSound;
     public GameObject InfoPanel;
     public GameObject Prospector;
+    public GameObject MagicChest;
     public SaveManager Save;
 
     private SFXManager sfx;
@@ -553,6 +555,7 @@ public class StockManager : MonoBehaviour
             }
             
         }
+        Gold = Mathf.Clamp(Gold, 0, 9999999);
         if (Gold > MaxProfit)
         {
             MaxProfit = Gold;
@@ -782,6 +785,21 @@ public class StockManager : MonoBehaviour
 
     }
 
+    public void BuyMagicChest()
+    {
+        Debug.Log("Bought Magic Chest");
+        if(MagicChest != null)
+        {
+            MagicChest.SetActive(true);
+            var mc = MagicChest.GetComponent<MagicChest>();
+            mc.RestockTime = 300;
+            mc.Restock();
+        }
+        
+
+
+    }
+
     public void NewSale()
     {
         BottomContent.NewSaleIcon();
@@ -804,6 +822,10 @@ public class StockManager : MonoBehaviour
     public void PlayChestSound()
     {
         sfx.PlaySound(ChestSound);
+    }
+    public void PlayLevelUpSound()
+    {
+        sfx.PlaySound(LevelUpSound);
     }
 
 
