@@ -1208,6 +1208,7 @@ MonoBehaviour:
   StockList: {fileID: 1952709735}
   PotionPrefab: {fileID: 482068941977069903, guid: 3a3b258a5b5129747a9645b3510668f7, type: 3}
   PortalPrefab: {fileID: 7138182019659374265, guid: 6832729f06e7a424fb8c06f7d6e29d81, type: 3}
+  DamagePrefab: {fileID: 7138182019659374265, guid: c797da2be1cf1944ca084a1a1677feb2, type: 3}
   ItemSprites:
   - {fileID: 21300000, guid: fccfa3c42dd2ae74c8f719d0198a26b4, type: 3}
   - {fileID: 21300000, guid: 6a6eb7e0a3f40d24b93ebfd187c8fd43, type: 3}
@@ -1283,6 +1284,7 @@ MonoBehaviour:
   - {fileID: -1182473873, guid: 2044cdb64225f0f4094cad1f98fcb812, type: 3}
   - {fileID: 385543915, guid: a49d8f19ffc7a3d45aca68aee9163777, type: 3}
   - {fileID: 604352201, guid: a49d8f19ffc7a3d45aca68aee9163777, type: 3}
+  - {fileID: 21300000, guid: 3a53d64db96b3e54a85d9d2eb08ad356, type: 3}
   SwordPrefabs:
   - {fileID: 7011517433748354625, guid: 54d872a4fc70eca4d9c1541a87898f61, type: 3}
   - {fileID: 5816604433435212801, guid: f501e28143506c849b073a2595ce894b, type: 3}
@@ -1361,8 +1363,6 @@ MonoBehaviour:
   - {fileID: 1284364046780681595, guid: 1e9901c9238a68d4a814a2b44a1ec118, type: 3}
   - {fileID: 7676707783266425198, guid: 7a9c8f680ebf3e643a986de201042d4c, type: 3}
   - {fileID: 8080259857534657875, guid: 2a2ce581ff07e884ba8cf82920105b1c, type: 3}
-  BootsPrefabs: []
-  ConsumablePrefabs: []
 --- !u!1 &73254072
 GameObject:
   m_ObjectHideFlags: 0
@@ -33392,6 +33392,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054456723}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2057853889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6965447952975741032, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+  m_PrefabInstance: {fileID: 6723141201573289124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2060876957
 GameObject:
   m_ObjectHideFlags: 0
@@ -33460,6 +33471,7 @@ MonoBehaviour:
   HeroImage: {fileID: 1843292679}
   HandSprite: {fileID: 617925880, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   ConsumableIcon: {fileID: 26355603}
+  ConsumableText: {fileID: 2057853889}
   HeroSprite: {fileID: 1890352696}
   TimeText: {fileID: 1977850525}
   DungeonText: {fileID: 1904855440}
@@ -37182,15 +37194,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -37198,11 +37210,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 98
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -388.00006
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y

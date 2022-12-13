@@ -187,6 +187,12 @@ public class Item : MonoBehaviour
                 BasePrice = 100;
                 LevelText.text = "";
             }
+            else if (con.Type == Consumable.ConsumableType.Damage)
+            {
+                con.Value = con.Level + 1;
+                BasePrice = 20 * con.Value;
+                LevelText.text = con.Value.ToString();
+            }
         }
         else
         {
@@ -228,9 +234,13 @@ public class Item : MonoBehaviour
             {
                 LevelText.text = con.Value.ToString();
             }
-            else
+            else if(con.Type == Consumable.ConsumableType.Portal)
             {
                 LevelText.text = " ";
+            }
+            else if (con.Type == Consumable.ConsumableType.Damage)
+            {
+                LevelText.text = con.Value.ToString();
             }
 
         }
@@ -270,9 +280,13 @@ public class Item : MonoBehaviour
             {
                 newItemData.ConsumableType = 1;
             }
-            else
+            else if (GetComponent<Consumable>().Type == Consumable.ConsumableType.Portal)
             {
                 newItemData.ConsumableType = 2;
+            }
+            else if (GetComponent<Consumable>().Type == Consumable.ConsumableType.Damage)
+            {
+                newItemData.ConsumableType = 3;
             }
         }
         newItemData.BasePrice = BasePrice;

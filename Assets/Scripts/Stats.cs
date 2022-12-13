@@ -63,7 +63,7 @@ public class Stats : MonoBehaviour
     {
         Manager = GameObject.FindObjectOfType<HeroManager>();
         LevelText.text = Level.ToString();
-        TrainCost = 50 * Level;
+        TrainCost = 20 * Level;
         StoreData();
        
     }
@@ -142,7 +142,7 @@ public class Stats : MonoBehaviour
             DeadText.SetActive(false);
             QuestText.SetActive(false);
             LevelUI.SetActive(true);
-            TrainCost = 50 * Level;
+            TrainCost = 20 * Level;
         }
         StoreData();
     }
@@ -376,7 +376,7 @@ public class Stats : MonoBehaviour
         TrainUI.SetActive(false);
         GameObject.FindObjectOfType<DungeonManager>().TopContent.NewItemIcon();
         GameObject.FindObjectOfType<StockManager>().PlayLevelUpSound();
-        TrainCost = 50 * Level;
+        TrainCost = 20 * Level;
         StoreData();
 
     }

@@ -524,6 +524,10 @@ public class StockManager : MonoBehaviour
                 {
                     ItemInfoText.text = i.ItemName + "\n Returns hero safely" + "\n" + i.Price + "G";
                 }
+                else if (i.GetComponent<Consumable>().Type == Consumable.ConsumableType.Damage)
+                {
+                    ItemInfoText.text = i.ItemName + "\n 2x Damage" + "\n" + i.GetComponent<Consumable>().Value + " Hits" + "\n" + i.Price + "G";
+                }
 
 
             }

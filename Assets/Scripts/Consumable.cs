@@ -8,6 +8,7 @@ public class Consumable : MonoBehaviour
     {
         Potion,
         Portal,
+        Damage
     }
     public ConsumableType Type;
     public float Level;

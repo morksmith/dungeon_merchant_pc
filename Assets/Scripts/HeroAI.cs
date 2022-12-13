@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.SceneTemplate;
+using UnityEditorInternal;
 
 public class HeroAI : MonoBehaviour
 {
@@ -42,6 +44,7 @@ public class HeroAI : MonoBehaviour
     public bool PortalOut = false;
     public float PortalTime = 1;
     private float portalTimer;
+    private float bonusDamage = 1;
     
 
     private float activeTimer;
@@ -269,9 +272,18 @@ public class HeroAI : MonoBehaviour
         {
             return;
         }
+        if(Stats.ConsumableItem != null)
+        {
+            var con = Stats.ConsumableItem.GetComponent<Consumable>();
+            if(con.Type == Consumable.ConsumableType.Damage)
+            {
+                bonusDamage = 2;
+                
+            }
+        }
         if (Stats.DamageType == CurrentTarget.GetComponent<Enemy>().DamageWeakness)
         {
-            var dmg = Mathf.CeilToInt(Stats.Damage * 1.5f);
+            var dmg = Mathf.CeilToInt(Stats.Damage * 1.5f) * bonusDamage;
             CurrentTarget.GetComponent<Enemy>().TakeDamage(dmg);
             var newNumber = Instantiate(FloatingNumber, CurrentTarget.position, Quaternion.Euler(Vector3.forward));
             Color orangePlease = new Color(1, 0.5f, 0);
@@ -280,11 +292,34 @@ public class HeroAI : MonoBehaviour
         }
         else
         {
-            var dmg = Stats.Damage;
+            var dmg = Stats.Damage * bonusDamage;
             CurrentTarget.GetComponent<Enemy>().TakeDamage(dmg);
             var newNumber = Instantiate(FloatingNumber, CurrentTarget.position, Quaternion.Euler(Vector3.forward));
             newNumber.GetComponentInChildren<TextMeshProUGUI>().text = dmg.ToString();
         }
+        if(Stats.ConsumableItem != null)
+        {
+            var con = Stats.ConsumableItem.GetComponent<Consumable>();
+            if (con.Type == Consumable.ConsumableType.Damage)
+            {
+                if (con.Value > 1)
+                {
+                    con.Value--;
+                    DM.ConsumableText.text = con.Value.ToString();
+                    Stats.ConsumableItem.GetComponent<Item>().LevelText.text = con.Value.ToString();
+                }
+                else
+                {
+                    Destroy(Stats.ConsumableItem.gameObject);
+                    Stats.ConsumableItem = null;
+                    DM.ConsumableIcon.sprite = DM.HandSprite;
+                    DM.ConsumableText.gameObject.SetActive(false);
+                    bonusDamage = 1;
+                }
+            }
+            
+        }
+        
 
         step = 0;
 
@@ -371,6 +406,7 @@ public class HeroAI : MonoBehaviour
                         Destroy(Stats.ConsumableItem.gameObject);
                         Stats.ConsumableItem = null;
                         DM.ConsumableIcon.sprite = DM.HandSprite;
+                        DM.ConsumableText.gameObject.SetActive(false);
                         var healNumber = Instantiate(FloatingNumber, transform.position + new Vector3(0,0,1), Quaternion.Euler(Vector3.forward));
                         healNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + con.Value;
                         healNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
@@ -400,6 +436,7 @@ public class HeroAI : MonoBehaviour
                     Destroy(Stats.ConsumableItem.gameObject);
                     Stats.ConsumableItem = null;
                     DM.ConsumableIcon.sprite = DM.HandSprite;
+                    DM.ConsumableText.gameObject.SetActive(false);
                     Waiting = true;
                     Active = false;
                     LevelCleared = false;
@@ -418,6 +455,7 @@ public class HeroAI : MonoBehaviour
                     Destroy(Stats.ConsumableItem.gameObject);
                     Stats.ConsumableItem = null;
                     DM.ConsumableIcon.sprite = DM.HandSprite;
+                    DM.ConsumableText.gameObject.SetActive(false);
                     var healNumber = Instantiate(FloatingNumber, transform.position + new Vector3(0, 0, 1), Quaternion.Euler(Vector3.forward));
                     healNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + con.Value;
                     healNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.green;

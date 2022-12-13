@@ -37,6 +37,7 @@ public class DungeonManager : MonoBehaviour
     public Image HeroImage;
     public Sprite HandSprite;
     public Image ConsumableIcon;
+    public TextMeshProUGUI ConsumableText;
     public SpriteRenderer HeroSprite;
     public TextMeshProUGUI TimeText;
     public TextMeshProUGUI DungeonText;
@@ -430,10 +431,25 @@ public class DungeonManager : MonoBehaviour
             if (CurrentHeroStats.ConsumableItem != null)
             {
                 ConsumableIcon.sprite = CurrentHeroStats.ConsumableItem.ItemSprite.sprite;
+                if(CurrentHeroStats.ConsumableItem.GetComponent<Consumable>().Type == Consumable.ConsumableType.Damage)
+                {
+                    ConsumableText.gameObject.SetActive(true);
+                    ConsumableText.text = CurrentHeroStats.ConsumableItem.GetComponent<Consumable>().Value.ToString();
+                }
+                else if (CurrentHeroStats.ConsumableItem.GetComponent<Consumable>().Type == Consumable.ConsumableType.Potion)
+                {
+                    ConsumableText.gameObject.SetActive(true);
+                    ConsumableText.text = CurrentHeroStats.ConsumableItem.GetComponent<Consumable>().Value.ToString();
+                }
+                else
+                {
+                    ConsumableText.gameObject.SetActive(false);
+                }
             }
             else
             {
                 ConsumableIcon.sprite = HandSprite;
+                ConsumableText.gameObject.SetActive(false);
             }
         }
         

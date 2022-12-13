@@ -9,6 +9,7 @@ public class ItemGenerator : MonoBehaviour
     public Transform StockList;
     public GameObject PotionPrefab;
     public GameObject PortalPrefab;
+    public GameObject DamagePrefab;
     public List<Sprite> ItemSprites;
     public List<GameObject> SwordPrefabs;
     public List<GameObject> ClubPrefabs;
@@ -16,8 +17,6 @@ public class ItemGenerator : MonoBehaviour
     public List<GameObject> WandPrefabs;
     public List<GameObject> ArmourPrefabs;
     public List<GameObject> HelmPrefabs;
-    public List<GameObject> BootsPrefabs;
-    public List<GameObject> ConsumablePrefabs;
 
     public void GenerateWeapon(int l, bool merch)
     {
@@ -58,14 +57,18 @@ public class ItemGenerator : MonoBehaviour
 
     public void GenerateConsumable(int l, bool merch)
     {
-        var pick = Random.Range(0, 2);
+        var pick = Random.Range(0, 3);
         if (pick == 0)
         {
             CreatePotion(l, merch);
         }
-        else
+        else if (pick == 1)
         {
             CreatePortal(l, merch);
+        }
+        else if (pick == 2)
+        {
+            CreateDamage(l, merch);
         }
     }
 
@@ -189,6 +192,20 @@ public class ItemGenerator : MonoBehaviour
             newPortal.GetComponent<Item>().Merchant = true;
         }
         newPortal.GetComponent<Item>().SetStats();
+
+    }
+
+    public void CreateDamage(int l, bool merch)
+    {
+        Debug.Log("Created New Damage Scroll");
+        var newDamage = Instantiate(DamagePrefab, StockList);
+        newDamage.GetComponent<Consumable>().Level = l;
+        if (merch)
+        {
+            newDamage.transform.SetParent(MerchList);
+            newDamage.GetComponent<Item>().Merchant = true;
+        }
+        newDamage.GetComponent<Item>().SetStats();
 
     }
 
@@ -354,6 +371,11 @@ public class ItemGenerator : MonoBehaviour
                 var portal = Instantiate(PortalPrefab);
                 newConsumableItem = portal;
             }
+            else if (id.ConsumableType == 3)
+            {
+                var damage = Instantiate(DamagePrefab);
+                newConsumableItem = damage;
+            }
             var newItem = newConsumableItem.GetComponent<Item>();
             var newConsumable = newConsumableItem.GetComponent<Consumable>();
             newItem.ItemName = id.ItemName;
@@ -502,6 +524,12 @@ public class ItemGenerator : MonoBehaviour
                 var portal = Instantiate(PortalPrefab);
                 newConsumableItem = portal;
             }
+            else if (id.ConsumableType == 3)
+            {
+                var damage = Instantiate(DamagePrefab);
+                newConsumableItem = damage;
+            }
+
             var newItem = newConsumableItem.GetComponent<Item>();
             var newConsumable = newConsumableItem.GetComponent<Consumable>();
             newItem.ItemName = id.ItemName;
