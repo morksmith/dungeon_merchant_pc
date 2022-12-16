@@ -15,6 +15,7 @@ public class Prospector : MonoBehaviour
     public Button ProspectorButton;
     public Button CollectButton;
     public Button UpgradeButton;
+    public Button HireButton;
     public TextMeshProUGUI UpgradeText;
     public TextMeshProUGUI ExpeditionText;
     public Image ProspectorSprite;
@@ -177,32 +178,46 @@ public class Prospector : MonoBehaviour
         CurrentLevel++;
         ProspectTime += 300;
         UpdateUI();
-        Save.SaveGame();
+        
     }
 
     public void UpdateUI()
     {
-        if (CurrentLevel < UpgradeLevels.Count - 1)
+        if (IsHired)
         {
-            UpgradeText.text = UpgradeLevels[CurrentLevel].y + "G > " + UpgradeLevels[CurrentLevel+1].y + "G";
-            UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "UPGRADE (" + UpgradeLevels[CurrentLevel].x + "G)";
-            if(Stock.Gold >= UpgradeLevels[CurrentLevel+1].y)
+            HireMenu.SetActive(false);
+            if (Mining)
             {
-                if(CurrentLevel < (UpgradeLevels.Count - 1))
-                {
-                    
-                }
-                else
-                {
-                    UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "FULLY UPGRADED";
-                    UpgradeButton.interactable = false;
-                    UpgradeText.gameObject.SetActive(false);
-                }
+                CollectMenu.SetActive(false);
+            }
+        }
+        else
+        {
+            HireMenu.SetActive(true);
+            if(Stock.Gold < 5000)
+            {
+                HireButton.interactable = false;
+            }
+            else
+            {
+                HireButton.interactable = true;
+            }
+        }
+        Debug.Log(CurrentLevel + " - " + UpgradeLevels.Count);
+        if (CurrentLevel < UpgradeLevels.Count-1)
+        {
+            if (Stock.Gold >= UpgradeLevels[CurrentLevel].x)
+            {
+                UpgradeButton.interactable = true;
             }
             else
             {
                 UpgradeButton.interactable = false;
             }
+            UpgradeText.gameObject.SetActive(true);
+            UpgradeText.text = UpgradeLevels[CurrentLevel].y + "G > " + UpgradeLevels[CurrentLevel+1].y + "G";
+            UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "UPGRADE (" + UpgradeLevels[CurrentLevel].x + "G)";
+            
         }
         else
         {
@@ -211,12 +226,14 @@ public class Prospector : MonoBehaviour
             UpgradeText.gameObject.SetActive(false);
         }
 
-        if (Stock.Gold < UpgradeLevels[CurrentLevel+1].y)
-        {
-            UpgradeButton.interactable = false;
-        }
-
-        Debug.Log(CurrentLevel + " " + (UpgradeLevels.Count - 1));
         ExpeditionText.text = Mathf.CeilToInt(ProspectTime / 60) + "m - " + UpgradeLevels[CurrentLevel].y + "G";
+        Save.SaveGame();
+    }
+
+    public void OpenProspectorMenu()
+    {
+        ProspectorMenu.Activate();
+        UpdateUI();
+        NewIcon.SetActive(false);
     }
 }

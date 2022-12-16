@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 using UnityEngine.UI;
-using UnityEditor.SceneTemplate;
-using UnityEditorInternal;
 
 public class HeroAI : MonoBehaviour
 {
