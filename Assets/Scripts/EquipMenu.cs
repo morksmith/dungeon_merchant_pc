@@ -71,7 +71,7 @@ public class EquipMenu : MonoBehaviour
             WeaponItemSlot.GetComponent<ItemType>().Type = ItemType.ItemTypes.Club;
         }
         var weaponBonus = CalculateWeaponBonus(s);
-        HeroInfoText.text = s.HeroName + "\nLevel " + s.Level + " " + s.Class + "\nHP:" + s.MaxHP + "\nXP:" + s.XP + "/" + s.MaxXP + "\nDamage:" + Mathf.CeilToInt(s.Damage * weaponBonus) + "\nRange:" + Mathf.FloorToInt(s.Range) + "\nGold Drop:x" + s.Discovery;
+        HeroInfoText.text = s.HeroName + "\nLevel " + s.Level + " " + s.Class + "\nHP:" + s.MaxHP + "\nXP:" + s.XP + "/" + s.MaxXP + "\nDamage:" + Mathf.CeilToInt(s.Damage * weaponBonus) + "\nRange:" + (s.Range) + "\nGold Drop:x" + s.Discovery;
         HeroImage.sprite = s.HeroSprite;
     }
 
@@ -209,6 +209,7 @@ public class EquipMenu : MonoBehaviour
 
         return (WeaponBonus);
     }
+
 
 
 }

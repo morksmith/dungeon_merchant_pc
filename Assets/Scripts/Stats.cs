@@ -55,6 +55,7 @@ public class Stats : MonoBehaviour
     public float TrainingTime = 300;
     public float TrainCost;
     public float Timer;
+    public float XPBonus = 1;
     public List<int> ChestLevels;
     public HeroData Data;
     
@@ -160,6 +161,26 @@ public class Stats : MonoBehaviour
     {
         Damage += w.Damage;
         WeaponItem = w.gameObject.GetComponent<Item>();
+        if (WeaponItem.Special)
+        {
+            if(WeaponItem.WeaponBonus == Item.WeaponBonusType.Range)
+            {
+                Range += WeaponItem.RangeBonus;
+            }
+            else if(WeaponItem.WeaponBonus == Item.WeaponBonusType.Gold)
+            {
+                Discovery *= WeaponItem.GoldBonus;
+            }
+            else if (WeaponItem.WeaponBonus == Item.WeaponBonusType.HP)
+            {
+                MaxHP += WeaponItem.HPBonus;
+                HP = MaxHP;
+            }
+            else if (WeaponItem.WeaponBonus == Item.WeaponBonusType.XP)
+            {
+                XPBonus = WeaponItem.XPBonus;
+            }
+        }
         StoreData();
     }
 
@@ -202,7 +223,28 @@ public class Stats : MonoBehaviour
     public void UnequipWeapon(Weapon w)
     {
         Damage -= w.Damage;
+        if (WeaponItem.Special)
+        {
+            if (WeaponItem.WeaponBonus == Item.WeaponBonusType.Range)
+            {
+                Range -= WeaponItem.RangeBonus;
+            }
+            else if (WeaponItem.WeaponBonus == Item.WeaponBonusType.Gold)
+            {
+                Discovery /= WeaponItem.GoldBonus;
+            }
+            else if (WeaponItem.WeaponBonus == Item.WeaponBonusType.HP)
+            {
+                MaxHP -= WeaponItem.HPBonus;
+                HP = MaxHP;
+            }
+            else if (WeaponItem.WeaponBonus == Item.WeaponBonusType.XP)
+            {
+                XPBonus = 1;
+            }
+        }
         WeaponItem = null;
+
         StoreData();
 
     }

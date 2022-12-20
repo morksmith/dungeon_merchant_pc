@@ -337,7 +337,7 @@ public class HeroAI : MonoBehaviour
                 var newCoin = Instantiate(CoinPrefab, CurrentTarget.position, Quaternion.Euler(90, 0, 0));
             }
             Stats.GoldHeld += GoldFound;
-            if (CurrentTarget.GetComponent<Enemy>().XP + Stats.XP > Stats.MaxXP)
+            if (CurrentTarget.GetComponent<Enemy>().XP + (Stats.XP * Stats.XPBonus) > Stats.MaxXP)
             {
                 var newNumber = Instantiate(FloatingNumber, CurrentTarget.position - Vector3.forward * 0.5f, Quaternion.Euler(Vector3.forward));
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
@@ -351,7 +351,7 @@ public class HeroAI : MonoBehaviour
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
                 newNumber.GetComponentInChildren<TextMeshProUGUI>().text = "+" + GoldFound +"G";
             }
-            Stats.XP += CurrentTarget.GetComponent<Enemy>().XP;
+            Stats.XP += CurrentTarget.GetComponent<Enemy>().XP * Stats.XPBonus;
             var lootChance = Random.Range(0, 21);
             if(lootChance <= Stats.LootFind)
             {

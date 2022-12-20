@@ -205,25 +205,25 @@ public class Item : MonoBehaviour
                 {
                     WeaponBonus = WeaponBonusType.XP;
                     XPBonus = BonusStat;
-                    BonusString = "XP x" + BonusStat;
+                    BonusString = "XP x" + XPBonus;
                 }
                 else if(bonusPick == 1)
                 {
                     WeaponBonus = WeaponBonusType.HP;
                     HPBonus = BonusStat * 20;
-                    BonusString = "+ " + BonusStat * 20 + "HP";
+                    BonusString = "+ " + HPBonus + "HP";
                 }
                 else if (bonusPick == 2)
                 {
                     WeaponBonus = WeaponBonusType.Range;
-                    RangeBonus = BonusStat;
-                    BonusString = "+ " + BonusStat + " Range";
+                    RangeBonus = BonusStat - 1;
+                    BonusString = "+ " + RangeBonus + " Range";
                 }
                 else if (bonusPick == 3)
                 {
                     WeaponBonus = WeaponBonusType.Gold;
                     GoldBonus = BonusStat;
-                    BonusString = "Gold x" + BonusStat;
+                    BonusString = "Gold x" + GoldBonus;
                 }
             }
         }
