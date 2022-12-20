@@ -70,8 +70,8 @@ public class EquipMenu : MonoBehaviour
         {
             WeaponItemSlot.GetComponent<ItemType>().Type = ItemType.ItemTypes.Club;
         }
-
-        HeroInfoText.text = s.HeroName + "\nLevel " + s.Level + " " + s.Class + "\nHP:" + s.MaxHP + "\nXP:" + s.XP + "/" + s.MaxXP + "\nDamage:" + s.Damage + "\nRange:" + Mathf.FloorToInt(s.Range) + "\nGold Drop:x" + s.Discovery;
+        var weaponBonus = CalculateWeaponBonus(s);
+        HeroInfoText.text = s.HeroName + "\nLevel " + s.Level + " " + s.Class + "\nHP:" + s.MaxHP + "\nXP:" + s.XP + "/" + s.MaxXP + "\nDamage:" + Mathf.CeilToInt(s.Damage * weaponBonus) + "\nRange:" + Mathf.FloorToInt(s.Range) + "\nGold Drop:x" + s.Discovery;
         HeroImage.sprite = s.HeroSprite;
     }
 
@@ -125,6 +125,89 @@ public class EquipMenu : MonoBehaviour
         UpdateEquipMenu(AllHeroes[CurrentHero]);
         
 
+    }
+
+    public float CalculateWeaponBonus(Stats s)
+    {
+        var WeaponBonus = 0f;
+        if (s.ArmourItem != null)
+        {
+            if (s.ArmourItem.Special)
+            {
+                if (s.Class == Stats.HeroClass.Ranger)
+                {
+                    if (s.ArmourItem.ArmourBonus == Item.ArmourBonusType.Bow)
+                    {
+                        WeaponBonus = s.ArmourItem.BonusStat;
+                    }
+                }
+                else if (s.Class == Stats.HeroClass.Warrior)
+                {
+                    if (s.ArmourItem.ArmourBonus == Item.ArmourBonusType.Club)
+                    {
+                        WeaponBonus = s.ArmourItem.BonusStat;
+                    }
+                }
+                else if (s.Class == Stats.HeroClass.Knight)
+                {
+                    if (s.ArmourItem.ArmourBonus == Item.ArmourBonusType.Sword)
+                    {
+                        WeaponBonus = s.ArmourItem.BonusStat;
+                    }
+                }
+                else if (s.Class == Stats.HeroClass.Mage)
+                {
+                    if (s.ArmourItem.ArmourBonus == Item.ArmourBonusType.Wand)
+                    {
+                        WeaponBonus = s.ArmourItem.BonusStat;
+                    }
+                }
+            }
+        }
+        var HelmBonus = 0f;
+        if (s.HelmItem != null)
+        {
+            
+            if (s.HelmItem.Special)
+            {
+                if (s.Class == Stats.HeroClass.Ranger)
+                {
+                    if (s.HelmItem.ArmourBonus == Item.ArmourBonusType.Bow)
+                    {
+                        HelmBonus = s.HelmItem.BonusStat;
+                    }
+                }
+                else if (s.Class == Stats.HeroClass.Warrior)
+                {
+                    if (s.HelmItem.ArmourBonus == Item.ArmourBonusType.Club)
+                    {
+                        HelmBonus = s.HelmItem.BonusStat;
+                    }
+                }
+                else if (s.Class == Stats.HeroClass.Knight)
+                {
+                    if (s.HelmItem.ArmourBonus == Item.ArmourBonusType.Sword)
+                    {
+                        HelmBonus = s.HelmItem.BonusStat;
+                    }
+                }
+                else if (s.Class == Stats.HeroClass.Mage)
+                {
+                    if (s.HelmItem.ArmourBonus == Item.ArmourBonusType.Wand)
+                    {
+                        HelmBonus = s.HelmItem.BonusStat;
+                    }
+                }
+            }
+            WeaponBonus += HelmBonus;
+            
+        }
+        if (WeaponBonus + HelmBonus == 0)
+        {
+            WeaponBonus = 1;
+        }
+
+        return (WeaponBonus);
     }
 
 

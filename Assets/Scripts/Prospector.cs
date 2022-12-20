@@ -91,6 +91,7 @@ public class Prospector : MonoBehaviour
         if (!IsHired)
         {
             HireMenu.SetActive(true);
+            UpdateUI();
             return;
         }
         else
@@ -157,6 +158,7 @@ public class Prospector : MonoBehaviour
         Stock.CollectGold(-5000);
         IsHired = true;
         HireMenu.SetActive(false);
+        UpdateUI();
         Save.SaveGame();
     }
 

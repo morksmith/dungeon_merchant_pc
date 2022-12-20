@@ -6,6 +6,8 @@ using TMPro;
 
 public class Item : MonoBehaviour
 {
+    public Color NormalColour;
+    public Color SpecialColour;
     public string ItemName;    
     public Image ItemSprite;
     public int SpriteIndex;
@@ -28,6 +30,33 @@ public class Item : MonoBehaviour
     public bool Selling;
     public bool Sold;
     public bool Merchant;
+    public bool Special;
+    public string BonusString = " ";
+    public enum WeaponBonusType
+    {
+        XP,
+        Range,
+        HP,
+        Gold
+    }
+    public WeaponBonusType WeaponBonus;
+    public float XPBonus;
+    public float RangeBonus;
+    public float HPBonus;
+    public float GoldBonus;
+    public enum ArmourBonusType
+    {
+        Wand,
+        Sword,
+        Bow,
+        Club
+    }
+    public ArmourBonusType ArmourBonus;
+    public float WandBonus;
+    public float SwordBonus;
+    public float ClubBonus;
+    public float BowBonus;
+    public float BonusStat;
     public Slider SellSlider;
     public TextMeshProUGUI LevelText;
     public ItemData Data;
@@ -165,12 +194,76 @@ public class Item : MonoBehaviour
             gameObject.GetComponent<Weapon>().Damage += (gameObject.GetComponent<Weapon>().Level * 2);
             BasePrice = gameObject.GetComponent<Weapon>().Damage * 3;
             LevelText.text = gameObject.GetComponent<Weapon>().Level.ToString();
+            var specialPick = Random.Range(0, 10);
+            if(specialPick == 1)
+            {
+                Special = true;
+                var specialStat = Random.Range(1, 10) * 0.1f;
+                BonusStat = 1 + specialStat;
+                var bonusPick = Random.Range(0, 3);
+                if(bonusPick == 0)
+                {
+                    WeaponBonus = WeaponBonusType.XP;
+                    XPBonus = BonusStat;
+                    BonusString = "XP x" + BonusStat;
+                }
+                else if(bonusPick == 1)
+                {
+                    WeaponBonus = WeaponBonusType.HP;
+                    HPBonus = BonusStat * 20;
+                    BonusString = "+ " + BonusStat * 20 + "HP";
+                }
+                else if (bonusPick == 2)
+                {
+                    WeaponBonus = WeaponBonusType.Range;
+                    RangeBonus = BonusStat;
+                    BonusString = "+ " + BonusStat + " Range";
+                }
+                else if (bonusPick == 3)
+                {
+                    WeaponBonus = WeaponBonusType.Gold;
+                    GoldBonus = BonusStat;
+                    BonusString = "Gold x" + BonusStat;
+                }
+            }
         }
         else if (gameObject.GetComponent<Armour>())
         {
             gameObject.GetComponent<Armour>().HP += (gameObject.GetComponent<Armour>().Level * 2);
             BasePrice = gameObject.GetComponent<Armour>().HP * 3;
             LevelText.text = gameObject.GetComponent<Armour>().Level.ToString();
+            var specialPick = Random.Range(0, 10);
+            if (specialPick == 1)
+            {
+                Special = true;
+                var specialStat = Random.Range(1, 10) * 0.1f;
+                BonusStat = 1 + specialStat;
+                var bonusPick = Random.Range(0, 3);
+                if (bonusPick == 0)
+                {
+                    ArmourBonus = ArmourBonusType.Wand;
+                    WandBonus = BonusStat;
+                    BonusString = "Wand DMG x" + BonusStat;
+                }
+                else if (bonusPick == 1)
+                {
+                    ArmourBonus = ArmourBonusType.Bow;
+                    BowBonus = BonusStat;
+                    BonusString = "Bow DMG x" + BonusStat;
+                }
+                else if (bonusPick == 2)
+                {
+                    ArmourBonus = ArmourBonusType.Sword;
+                    SwordBonus = BonusStat;
+                    BonusString = "Sword DMG x" + BonusStat;
+                }
+                else if (bonusPick == 3)
+                {
+                    ArmourBonus = ArmourBonusType.Club;
+                    ClubBonus = BonusStat;
+                    BonusString = "Club DMG x" + BonusStat;
+                }
+            }
         }
         else if (gameObject.GetComponent<Consumable>())
         {
@@ -204,6 +297,19 @@ public class Item : MonoBehaviour
         PriceText.text = Price + "G";
         SellTime = Price;
         stockMan.UpdatePrices();
+        var button = GetComponent<Button>();
+        ColorBlock cb = button.colors;
+        if (!Special)
+        {
+            cb.normalColor = NormalColour;
+        }
+        else
+        {
+            cb.normalColor = SpecialColour;
+        }
+        button.colors = cb;
+
+        
     
 }
     public void ReadyToSell()
@@ -259,6 +365,19 @@ public class Item : MonoBehaviour
         newItemData.Selling = Selling;
         newItemData.Sold = Sold;
         newItemData.SellTimer = SellTimer;
+        newItemData.Special = Special;
+        newItemData.XPBonus = XPBonus;
+        newItemData.RangeBonus = RangeBonus;
+        newItemData.HPBonus = HPBonus;
+        newItemData.GoldBonus = GoldBonus;
+        newItemData.WandBonus = WandBonus;
+        newItemData.SwordBonus = SwordBonus;
+        newItemData.ClubBonus = ClubBonus;
+        newItemData.BowBonus = BowBonus;
+        newItemData.BonusStat = BonusStat;
+        newItemData.ArmourBonus = (int)ArmourBonus;
+        newItemData.WeaponBonus = (int)WeaponBonus;
+
         if(GetComponent<Weapon>() != null)
         {
             newItemData.ItemName = GetComponent<Weapon>().WeaponName;
@@ -295,6 +414,12 @@ public class Item : MonoBehaviour
             newItemData.BasePrice = Price;
         }
         Data = newItemData;
+    }
+
+    public void SetBonusTypes(int w, int a)
+    {
+        ArmourBonus = (ArmourBonusType)a;
+        WeaponBonus = (WeaponBonusType)w;
     }
 
     

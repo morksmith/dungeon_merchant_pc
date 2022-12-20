@@ -145,6 +145,8 @@ public class StockManager : MonoBehaviour
                                             Hero.SelectHero(Hero.SelectedHero);
                                             CurrentItem = null;
                                             ItemInfoText.text = "SELECT AN ITEM";
+                                            ItemInfoText.color = Color.white;
+
                                             InfoPanel.SetActive(false);
                                             ItemInfoText.color = Color.white;
                                             if(Tutorial != null)
@@ -201,6 +203,8 @@ public class StockManager : MonoBehaviour
                                     Hero.SelectHero(Hero.SelectedHero);
                                     CurrentItem = null;
                                     ItemInfoText.text = "SELECT AN ITEM";
+                                    ItemInfoText.color = Color.white;
+
                                     InfoPanel.SetActive(false);
 
                                     ItemInfoText.color = Color.white;
@@ -274,6 +278,8 @@ public class StockManager : MonoBehaviour
                                         Hero.SelectHero(Hero.SelectedHero);
                                         CurrentItem = null;
                                         ItemInfoText.text = "SELECT AN ITEM";
+                                        ItemInfoText.color = Color.white;
+
                                         InfoPanel.SetActive(false);
 
                                         UpdatePrices();
@@ -309,6 +315,8 @@ public class StockManager : MonoBehaviour
                                     Hero.SelectHero(Hero.SelectedHero);
                                     CurrentItem = null;
                                     ItemInfoText.text = "SELECT AN ITEM";
+                                    ItemInfoText.color = Color.white;
+
                                     InfoPanel.SetActive(false);
 
                                     UpdatePrices();
@@ -330,6 +338,8 @@ public class StockManager : MonoBehaviour
                                     Hero.SelectHero(Hero.SelectedHero);
                                     CurrentItem = null;
                                     ItemInfoText.text = "SELECT AN ITEM";
+                                    ItemInfoText.color = Color.white;
+
                                     InfoPanel.SetActive(false);
 
                                     UpdatePrices();
@@ -456,9 +466,9 @@ public class StockManager : MonoBehaviour
                     CurrentItem.Selling = true;
                     CurrentItem = null;
                     ItemInfoText.text = "SELECT AN ITEM";
+                    ItemInfoText.color = Color.white;
                     InfoPanel.SetActive(false);
 
-                    ItemInfoText.color = Color.white;
                 }
                 else
                 {
@@ -481,6 +491,7 @@ public class StockManager : MonoBehaviour
             Debug.Log("No Item selected");
             CurrentItem = null;
             ItemInfoText.text = "SELECT AN ITEM";
+            ItemInfoText.color = Color.white;
             InfoPanel.SetActive(false);
 
             ItemInfoText.color = Color.white;
@@ -500,7 +511,7 @@ public class StockManager : MonoBehaviour
         if (i.GetComponent<Weapon>() != null)
         {
             {
-                ItemInfoText.text = i.GetComponent<Weapon>().WeaponName + " (" + i.GetComponent<Weapon>().Level + ")" + "\nDMG: " + i.GetComponent<Weapon>().Damage + "\n" + i.Price + "G";
+                ItemInfoText.text = i.GetComponent<Weapon>().WeaponName + " (" + i.GetComponent<Weapon>().Level + ")" + "\nDMG: " + i.GetComponent<Weapon>().Damage + "\n" + i.BonusString + "\n" + i.Price + "G";
                 
 
             }
@@ -508,7 +519,7 @@ public class StockManager : MonoBehaviour
         else if (i.GetComponent<Armour>() != null)
         {
             {
-                ItemInfoText.text = i.ItemName + " (" + i.GetComponent<Armour>().Level + ")" + "\n+HP: " + i.GetComponent<Armour>().HP + "\n" + i.Price + "G";
+                ItemInfoText.text = i.ItemName + " (" + i.GetComponent<Armour>().Level + ")" + "\n+HP: " + i.GetComponent<Armour>().HP + "\n" + i.BonusString + "\n" + i.Price + "G";
 
 
             }
@@ -532,6 +543,14 @@ public class StockManager : MonoBehaviour
 
             }
         }
+        if (i.Special)
+        {
+            ItemInfoText.color = i.SpecialColour;
+        }
+        else
+        {
+            ItemInfoText.color = Color.white;
+        }
 
 
     }
@@ -540,6 +559,7 @@ public class StockManager : MonoBehaviour
     {
         CurrentItem = null;
         ItemInfoText.text = "SELECT AN ITEM";
+        ItemInfoText.color = Color.white;
         InfoPanel.SetActive(false);
 
 

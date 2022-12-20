@@ -281,7 +281,9 @@ public class HeroAI : MonoBehaviour
         }
         if (Stats.DamageType == CurrentTarget.GetComponent<Enemy>().DamageWeakness)
         {
-            var dmg = Mathf.CeilToInt(Stats.Damage * 1.5f) * bonusDamage;
+            var WeaponBonus = CalculateWeaponBonus();            
+            var dmg = Mathf.CeilToInt(Stats.Damage * 1.5f) * bonusDamage * WeaponBonus;
+            dmg = Mathf.CeilToInt(dmg);
             CurrentTarget.GetComponent<Enemy>().TakeDamage(dmg);
             var newNumber = Instantiate(FloatingNumber, CurrentTarget.position, Quaternion.Euler(Vector3.forward));
             Color orangePlease = new Color(1, 0.5f, 0);
@@ -290,7 +292,10 @@ public class HeroAI : MonoBehaviour
         }
         else
         {
-            var dmg = Stats.Damage * bonusDamage;
+            var WeaponBonus = CalculateWeaponBonus();
+            var dmg = Stats.Damage * bonusDamage * WeaponBonus;
+            dmg = Mathf.CeilToInt(dmg);
+
             CurrentTarget.GetComponent<Enemy>().TakeDamage(dmg);
             var newNumber = Instantiate(FloatingNumber, CurrentTarget.position, Quaternion.Euler(Vector3.forward));
             newNumber.GetComponentInChildren<TextMeshProUGUI>().text = dmg.ToString();
@@ -552,6 +557,89 @@ public class HeroAI : MonoBehaviour
         {
             CompletedLevel();
         }
+    }
+
+    public float CalculateWeaponBonus()
+    {
+        var WeaponBonus = 0f;
+        if (Stats.ArmourItem != null)
+        {
+            if (Stats.ArmourItem.Special)
+            {
+                if (Stats.Class == Stats.HeroClass.Ranger)
+                {
+                    if (Stats.ArmourItem.ArmourBonus == Item.ArmourBonusType.Bow)
+                    {
+                        WeaponBonus = Stats.ArmourItem.BonusStat;
+                    }
+                }
+                else if(Stats.Class == Stats.HeroClass.Warrior)
+                {
+                    if (Stats.ArmourItem.ArmourBonus == Item.ArmourBonusType.Club)
+                    {
+                        WeaponBonus = Stats.ArmourItem.BonusStat;
+                    }
+                }
+                else if (Stats.Class == Stats.HeroClass.Knight)
+                {
+                    if (Stats.ArmourItem.ArmourBonus == Item.ArmourBonusType.Sword)
+                    {
+                        WeaponBonus = Stats.ArmourItem.BonusStat;
+                    }
+                }
+                else if (Stats.Class == Stats.HeroClass.Mage)
+                {
+                    if (Stats.ArmourItem.ArmourBonus == Item.ArmourBonusType.Wand)
+                    {
+                        WeaponBonus = Stats.ArmourItem.BonusStat;
+                    }
+                }
+            }
+        }
+        var HelmBonus = 0f;
+        if (Stats.HelmItem != null)
+        {
+            
+            if (Stats.HelmItem.Special)
+            {
+                if (Stats.Class == Stats.HeroClass.Ranger)
+                {
+                    if (Stats.HelmItem.ArmourBonus == Item.ArmourBonusType.Bow)
+                    {
+                        HelmBonus = Stats.HelmItem.BonusStat;
+                    }
+                }
+                else if (Stats.Class == Stats.HeroClass.Warrior)
+                {
+                    if (Stats.HelmItem.ArmourBonus == Item.ArmourBonusType.Club)
+                    {
+                        HelmBonus = Stats.HelmItem.BonusStat;
+                    }
+                }
+                else if (Stats.Class == Stats.HeroClass.Knight)
+                {
+                    if (Stats.HelmItem.ArmourBonus == Item.ArmourBonusType.Sword)
+                    {
+                        HelmBonus = Stats.HelmItem.BonusStat;
+                    }
+                }
+                else if (Stats.Class == Stats.HeroClass.Mage)
+                {
+                    if (Stats.HelmItem.ArmourBonus == Item.ArmourBonusType.Wand)
+                    {
+                        HelmBonus = Stats.HelmItem.BonusStat;
+                    }
+                }
+                WeaponBonus += HelmBonus;
+            }
+
+        }
+        if (WeaponBonus + HelmBonus == 0)
+        {
+            WeaponBonus = 1;
+        }
+
+        return (WeaponBonus);
     }
 
 

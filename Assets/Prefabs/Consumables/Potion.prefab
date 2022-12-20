@@ -301,6 +301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc68f544f26d2aa48a5e04a4491404eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NormalColour: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+  SpecialColour: {r: 0.015686275, g: 0.54901963, b: 1, a: 1}
   ItemName: Potion
   ItemSprite: {fileID: 482068943526014970}
   SpriteIndex: 72
@@ -323,6 +325,18 @@ MonoBehaviour:
   Selling: 0
   Sold: 0
   Merchant: 0
+  Special: 0
+  WeaponBonus: 0
+  XPBonus: 0
+  RangeBonus: 0
+  HPBonus: 0
+  GoldBonus: 0
+  ArmourBonus: 0
+  WandBonus: 0
+  SwordBonus: 0
+  ClubBonus: 0
+  BowBonus: 0
+  BonusStat: 0
   SellSlider: {fileID: 1588897763926455689}
   LevelText: {fileID: 7788574840769382137}
   Data:
@@ -339,6 +353,18 @@ MonoBehaviour:
     Selling: 0
     Sold: 0
     SellTimer: 0
+    Special: 0
+    XPBonus: 0
+    RangeBonus: 0
+    HPBonus: 0
+    GoldBonus: 0
+    WandBonus: 0
+    SwordBonus: 0
+    ClubBonus: 0
+    BowBonus: 0
+    BonusStat: 0
+    ArmourBonus: 0
+    WeaponBonus: 0
   SellTimer: 0
 --- !u!114 &8713154654205602205
 MonoBehaviour:

@@ -167,6 +167,7 @@ public class Stats : MonoBehaviour
     {
         MaxHP += a.HP;
         HP = MaxHP;
+        
         ArmourItem = a.gameObject.GetComponent<Item>();
         StoreData();
 

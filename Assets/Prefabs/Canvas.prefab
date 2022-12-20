@@ -762,6 +762,7 @@ MonoBehaviour:
   ProspectorButton: {fileID: 2504730824050156942}
   CollectButton: {fileID: 0}
   UpgradeButton: {fileID: 0}
+  HireButton: {fileID: 0}
   UpgradeText: {fileID: 0}
   ExpeditionText: {fileID: 0}
   ProspectorSprite: {fileID: 4134599595098414424}
@@ -22134,7 +22135,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 40
+  m_lineSpacing: 20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -22508,7 +22509,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 40
+  m_lineSpacing: 20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -28075,6 +28076,18 @@ MonoBehaviour:
       Selling: 0
       Sold: 0
       SellTimer: 0
+      Special: 0
+      XPBonus: 0
+      RangeBonus: 0
+      HPBonus: 0
+      GoldBonus: 0
+      WandBonus: 0
+      SwordBonus: 0
+      ClubBonus: 0
+      BowBonus: 0
+      BonusStat: 0
+      ArmourBonus: 0
+      WeaponBonus: 0
     HelmData:
       ItemName: 
       SpriteIndex: 0
@@ -28089,6 +28102,18 @@ MonoBehaviour:
       Selling: 0
       Sold: 0
       SellTimer: 0
+      Special: 0
+      XPBonus: 0
+      RangeBonus: 0
+      HPBonus: 0
+      GoldBonus: 0
+      WandBonus: 0
+      SwordBonus: 0
+      ClubBonus: 0
+      BowBonus: 0
+      BonusStat: 0
+      ArmourBonus: 0
+      WeaponBonus: 0
     ArmourData:
       ItemName: 
       SpriteIndex: 0
@@ -28103,6 +28128,18 @@ MonoBehaviour:
       Selling: 0
       Sold: 0
       SellTimer: 0
+      Special: 0
+      XPBonus: 0
+      RangeBonus: 0
+      HPBonus: 0
+      GoldBonus: 0
+      WandBonus: 0
+      SwordBonus: 0
+      ClubBonus: 0
+      BowBonus: 0
+      BonusStat: 0
+      ArmourBonus: 0
+      WeaponBonus: 0
     ConsumableData:
       ItemName: 
       SpriteIndex: 0
@@ -28117,6 +28154,18 @@ MonoBehaviour:
       Selling: 0
       Sold: 0
       SellTimer: 0
+      Special: 0
+      XPBonus: 0
+      RangeBonus: 0
+      HPBonus: 0
+      GoldBonus: 0
+      WandBonus: 0
+      SwordBonus: 0
+      ClubBonus: 0
+      BowBonus: 0
+      BonusStat: 0
+      ArmourBonus: 0
+      WeaponBonus: 0
     DamageType: 0
     SpriteIndex: 0
     Level: 0

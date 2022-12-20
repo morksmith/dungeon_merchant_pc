@@ -249,6 +249,16 @@ public class ItemGenerator : MonoBehaviour
             newWeapon.Damage = id.StatPoint;
             newItem.Selling = id.Selling;
             newItem.SellTimer = id.SellTimer;
+            newItem.Special = id.Special;
+            newItem.XPBonus = id.XPBonus;
+            newItem.RangeBonus = id.RangeBonus;
+            newItem.HPBonus = id.HPBonus;
+            newItem.GoldBonus = id.GoldBonus;
+            newItem.WandBonus = id.WandBonus;
+            newItem.BowBonus = id.BowBonus;
+            newItem.ClubBonus = id.ClubBonus;
+            newItem.SwordBonus = id.SwordBonus;
+            newItem.SetBonusTypes(id.WeaponBonus, id.ArmourBonus);
             newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
             if (id.Merchant)
             {
@@ -316,6 +326,16 @@ public class ItemGenerator : MonoBehaviour
             newArmour.HP = id.StatPoint;
             newItem.Selling = id.Selling;
             newItem.SellTimer = id.SellTimer;
+            newItem.Special = id.Special;
+            newItem.XPBonus = id.XPBonus;
+            newItem.RangeBonus = id.RangeBonus;
+            newItem.HPBonus = id.HPBonus;
+            newItem.GoldBonus = id.GoldBonus;
+            newItem.WandBonus = id.WandBonus;
+            newItem.BowBonus = id.BowBonus;
+            newItem.ClubBonus = id.ClubBonus;
+            newItem.SwordBonus = id.SwordBonus;
+            newItem.SetBonusTypes(id.WeaponBonus, id.ArmourBonus);
             newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
             if (id.Merchant)
             {
@@ -386,6 +406,7 @@ public class ItemGenerator : MonoBehaviour
             newConsumable.Value = id.StatPoint;
             newItem.Selling = id.Selling;
             newItem.SellTimer = id.SellTimer;
+            newItem.Special = false;
             newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
             if (id.Merchant)
             {
@@ -467,6 +488,16 @@ public class ItemGenerator : MonoBehaviour
             newWeapon.Damage = id.StatPoint;
             newItem.Selling = id.Selling;
             newItem.SellTimer = id.SellTimer;
+            newItem.Special = id.Special;
+            newItem.XPBonus = id.XPBonus;
+            newItem.RangeBonus = id.RangeBonus;
+            newItem.HPBonus = id.HPBonus;
+            newItem.GoldBonus = id.GoldBonus;
+            newItem.WandBonus = id.WandBonus;
+            newItem.BowBonus = id.BowBonus;
+            newItem.ClubBonus = id.ClubBonus;
+            newItem.SwordBonus = id.SwordBonus;
+            newItem.SetBonusTypes(id.WeaponBonus, id.ArmourBonus);
             newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
             newItem.transform.SetParent(parent);
             newItem.transform.position = parent.position;
@@ -501,6 +532,16 @@ public class ItemGenerator : MonoBehaviour
             newArmour.HP = id.StatPoint;
             newItem.Selling = id.Selling;
             newItem.SellTimer = id.SellTimer;
+            newItem.Special = id.Special;
+            newItem.XPBonus = id.XPBonus;
+            newItem.RangeBonus = id.RangeBonus;
+            newItem.HPBonus = id.HPBonus;
+            newItem.GoldBonus = id.GoldBonus;
+            newItem.WandBonus = id.WandBonus;
+            newItem.BowBonus = id.BowBonus;
+            newItem.ClubBonus = id.ClubBonus;
+            newItem.SwordBonus = id.SwordBonus;
+            newItem.SetBonusTypes(id.WeaponBonus, id.ArmourBonus);
             newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
             newItem.transform.SetParent(parent);
             newItem.transform.position = parent.position;
@@ -540,13 +581,14 @@ public class ItemGenerator : MonoBehaviour
             newConsumable.Value = id.StatPoint;
             newItem.Selling = id.Selling;
             newItem.SellTimer = id.SellTimer;
+            newItem.Special = false;
             newItem.ItemSprite.sprite = ItemSprites[newItem.SpriteIndex];
             newItem.transform.SetParent(parent);
             newItem.transform.position = parent.position;
             newItem.transform.localScale = Vector3.one;
             newItem.Equipped = true;
             newItem.PriceInfo.SetActive(false);
-
+            
             hero.ConsumableItem = newItem;
             newItem.PriceUI();
         }

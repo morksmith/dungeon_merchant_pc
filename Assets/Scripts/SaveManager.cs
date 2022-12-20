@@ -296,9 +296,9 @@ public class SaveManager : MonoBehaviour
                 MagicChest.RestockTime = loadedData.MagicChestData.RestockTime;
                 MagicChest.CheckTimePassed();
             }
-           
 
 
+            Debug.Log("Loaded Successfully");
             PlayerPrefs.SetInt("Closed Correctly", 0);
             Stock.UpdatePrices();
         }

@@ -377,6 +377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc68f544f26d2aa48a5e04a4491404eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NormalColour: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+  SpecialColour: {r: 0.015686275, g: 0.54901963, b: 1, a: 1}
   ItemName: Headband
   ItemSprite: {fileID: 156281573040425079}
   SpriteIndex: 0
@@ -399,6 +401,18 @@ MonoBehaviour:
   Selling: 0
   Sold: 0
   Merchant: 0
+  Special: 0
+  WeaponBonus: 0
+  XPBonus: 0
+  RangeBonus: 0
+  HPBonus: 0
+  GoldBonus: 0
+  ArmourBonus: 0
+  WandBonus: 0
+  SwordBonus: 0
+  ClubBonus: 0
+  BowBonus: 0
+  BonusStat: 0
   SellSlider: {fileID: 1339671889297117700}
   LevelText: {fileID: 7533693041820082548}
   Data:
@@ -415,6 +429,18 @@ MonoBehaviour:
     Selling: 0
     Sold: 0
     SellTimer: 0
+    Special: 0
+    XPBonus: 0
+    RangeBonus: 0
+    HPBonus: 0
+    GoldBonus: 0
+    WandBonus: 0
+    SwordBonus: 0
+    ClubBonus: 0
+    BowBonus: 0
+    BonusStat: 0
+    ArmourBonus: 0
+    WeaponBonus: 0
   SellTimer: 0
 --- !u!114 &8966888526505922064
 MonoBehaviour:

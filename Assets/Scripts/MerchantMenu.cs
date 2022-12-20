@@ -18,11 +18,11 @@ public class MerchantMenu : MonoBehaviour
         
         if(i.GetComponent<Weapon>() != null)
         {
-            ItemInfo.text = i.GetComponent<Weapon>().WeaponName + " (" + i.GetComponent<Weapon>().Level + ")" + "\nDMG: " + i.GetComponent<Weapon>().Damage + "\n" + i.Price + "G";
+            ItemInfo.text = i.GetComponent<Weapon>().WeaponName + " (" + i.GetComponent<Weapon>().Level + ")" + "\nDMG: " + i.GetComponent<Weapon>().Damage + "\n" + i.BonusString + "\n" + i.Price + "G" ;
         }
         if (i.GetComponent<Armour>() != null)
         {
-            ItemInfo.text = i.ItemName + " (" + i.GetComponent<Armour>().Level + ")" + "\n+HP: " + i.GetComponent<Armour>().HP + "\n" + i.Price + "G";
+            ItemInfo.text = i.ItemName + " (" + i.GetComponent<Armour>().Level + ")" + "\n+HP: " + i.GetComponent<Armour>().HP + "\n" + i.BonusString + "\n" + i.Price + "G";
         }
         if (i.GetComponent<Consumable>() != null)
         {
@@ -44,6 +44,14 @@ public class MerchantMenu : MonoBehaviour
             }
         }
         SelectedItem = i;
+        if (i.Special)
+        {
+            ItemInfo.color = i.SpecialColour;
+        }
+        else
+        {
+            ItemInfo.color = Color.white;
+        }
     }
 
     public void BuyItem()
@@ -59,12 +67,14 @@ public class MerchantMenu : MonoBehaviour
             Stock.CollectGold(-SelectedItem.Price);
             SelectedItem = null;
             ItemInfo.text = "SELECT AN ITEM";
+            ItemInfo.color = Color.white;
             Stock.UpdatePrices();
             Stock.PlaySellSound();
         }
         else 
         {
             ItemInfo.text = "YOU DON'T HAVE ENOUGH GOLD!";
+            ItemInfo.color = Color.white;
         }
         
     }
