@@ -194,7 +194,7 @@ public class Item : MonoBehaviour
             gameObject.GetComponent<Weapon>().Damage += (gameObject.GetComponent<Weapon>().Level * 2);
             BasePrice = gameObject.GetComponent<Weapon>().Damage * 3;
             LevelText.text = gameObject.GetComponent<Weapon>().Level.ToString();
-            var specialPick = Random.Range(0, 10);
+            var specialPick = Random.Range(0, 8);
             if(specialPick == 1)
             {
                 Special = true;
@@ -350,13 +350,25 @@ public class Item : MonoBehaviour
             }
 
         }
-        
+        var button = GetComponent<Button>();
+        ColorBlock cb = button.colors;
+        if (!Special)
+        {
+            cb.normalColor = NormalColour;
+        }
+        else
+        {
+            cb.normalColor = SpecialColour;
+        }
+        button.colors = cb;
+
     }
 
     public void StoreData()
     {
         var newItemData = new ItemData();
         newItemData.ItemName = ItemName;
+        newItemData.BonusString = BonusString;
         newItemData.SpriteIndex = SpriteIndex;
         newItemData.TypeIndex = TypeIndex;
         newItemData.DamageType = DamageType;

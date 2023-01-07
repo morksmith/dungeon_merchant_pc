@@ -62,13 +62,13 @@ public class SaveManager : MonoBehaviour
 
     }
 
-    private void OnApplicationFocus(bool focus)
-    {
-        if (!focus)
-        {
-            SaveGame();
-        }
-    }
+    //private void OnApplicationFocus(bool focus)
+    //{
+    //    if (!focus)
+    //    {
+    //        SaveGame();
+    //    }
+    //}
 
     public void ResetProgress()
     {
@@ -87,6 +87,7 @@ public class SaveManager : MonoBehaviour
     
     public void SaveGame()
     {
+
         //Set all save checks to false
         ItemsSaved = false;
         HeroesSaved = false;

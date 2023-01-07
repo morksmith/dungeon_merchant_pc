@@ -4,6 +4,7 @@ using System;
 public class ItemData
 {
     public string ItemName;
+    public string BonusString;
     public int SpriteIndex;
     public float BasePrice;
     public int TypeIndex;

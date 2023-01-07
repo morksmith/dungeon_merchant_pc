@@ -58,6 +58,10 @@ public class MagicChest : MonoBehaviour
 
     public void CheckTimePassed()
     {
+        if (Stock.Tutorial)
+        {
+            return;
+        }
         var lastDateChecked = System.DateTime.Parse(PlayerPrefs.GetString("DateTime"));
         var elapsedSeconds = (int)System.DateTime.Now.Subtract(lastDateChecked).TotalSeconds;
         Timer += elapsedSeconds;
@@ -85,7 +89,11 @@ public class MagicChest : MonoBehaviour
         MagicChestSprite.color = new Color(1, 1, 1, 1);
         TimeSlider.gameObject.SetActive(false);
         Inn.BottomContent.NewSaleIcon();
-        Save.SaveGame();
+        if (isActiveAndEnabled)
+        {
+            Debug.Log("Chest called Save");
+            Save.SaveGame();
+        }
     }
 
     public void CollectChest()

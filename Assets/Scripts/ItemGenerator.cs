@@ -240,7 +240,10 @@ public class ItemGenerator : MonoBehaviour
             newWeaponItem.name = id.ItemName;
             var newItem = newWeaponItem.GetComponent<Item>();
             var newWeapon = newWeaponItem.GetComponent<Weapon>();
+            newItem.Special = id.Special;
             newItem.ItemName = id.ItemName;
+            newItem.BonusString = id.BonusString;
+            newItem.BonusStat = id.BonusStat;
             newItem.SpriteIndex = id.SpriteIndex;
             newItem.TypeIndex = id.TypeIndex;
             newItem.BasePrice = id.BasePrice;
@@ -318,7 +321,10 @@ public class ItemGenerator : MonoBehaviour
             }
             var newItem = newArmourItem.GetComponent<Item>();
             var newArmour = newArmourItem.GetComponent<Armour>();
+            newItem.Special = id.Special;
             newItem.ItemName = id.ItemName;
+            newItem.BonusString = id.BonusString;
+            newItem.BonusStat = id.BonusStat;
             newItem.SpriteIndex = id.SpriteIndex;
             newItem.BasePrice = id.BasePrice;
             newItem.TypeIndex = id.TypeIndex;
@@ -398,6 +404,7 @@ public class ItemGenerator : MonoBehaviour
             }
             var newItem = newConsumableItem.GetComponent<Item>();
             var newConsumable = newConsumableItem.GetComponent<Consumable>();
+            newItem.Special = id.Special;
             newItem.ItemName = id.ItemName;
             newItem.SpriteIndex = id.SpriteIndex;
             newItem.BasePrice = id.BasePrice;
@@ -480,6 +487,8 @@ public class ItemGenerator : MonoBehaviour
             var newItem = newWeaponItem.GetComponent<Item>();
             var newWeapon = newWeaponItem.GetComponent<Weapon>();
             newItem.ItemName = id.ItemName;
+            newItem.BonusString = id.BonusString;
+            newItem.BonusStat = id.BonusStat;
             newItem.SpriteIndex = id.SpriteIndex;
             newItem.BasePrice = id.BasePrice;
             newItem.TypeIndex = id.TypeIndex;
@@ -525,6 +534,8 @@ public class ItemGenerator : MonoBehaviour
             var newItem = newArmourItem.GetComponent<Item>();
             var newArmour = newArmourItem.GetComponent<Armour>();
             newItem.ItemName = id.ItemName;
+            newItem.BonusString = id.BonusString;
+            newItem.BonusStat = id.BonusStat;
             newItem.SpriteIndex = id.SpriteIndex;
             newItem.BasePrice = id.BasePrice;
             newItem.TypeIndex = id.TypeIndex;

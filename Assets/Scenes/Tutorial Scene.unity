@@ -1463,6 +1463,7 @@ MonoBehaviour:
   Gold: 95
   MaxProfit: 0
   MerchantDiscount: 1
+  RequestBonus: 1
   SellSpeed: 1
   Generator: {fileID: 70214548}
   ItemBox: {fileID: 1964457204}
@@ -1493,8 +1494,10 @@ MonoBehaviour:
   EquipSound: {fileID: 8300000, guid: 6fd244606355e814f9c56e20ee65d31f, type: 3}
   CollectSound: {fileID: 8300000, guid: 5cc41b14d3bf9544e919793d5fcc62e9, type: 3}
   ChestSound: {fileID: 8300000, guid: f3cc1b354ffb1f5468067b27ac508a55, type: 3}
+  LevelUpSound: {fileID: 0}
   InfoPanel: {fileID: 6723141201573289129}
   Prospector: {fileID: 0}
+  MagicChest: {fileID: 0}
   Save: {fileID: 0}
 --- !u!4 &70214547
 Transform:
@@ -1528,6 +1531,7 @@ MonoBehaviour:
   StockList: {fileID: 1952709735}
   PotionPrefab: {fileID: 482068941977069903, guid: 3a3b258a5b5129747a9645b3510668f7, type: 3}
   PortalPrefab: {fileID: 7138182019659374265, guid: 6832729f06e7a424fb8c06f7d6e29d81, type: 3}
+  DamagePrefab: {fileID: 0}
   ItemSprites: []
   SwordPrefabs:
   - {fileID: 7011517433748354625, guid: 54d872a4fc70eca4d9c1541a87898f61, type: 3}
@@ -1595,8 +1599,6 @@ MonoBehaviour:
   - {fileID: 1284364046780681595, guid: 1e9901c9238a68d4a814a2b44a1ec118, type: 3}
   - {fileID: 7676707783266425198, guid: 7a9c8f680ebf3e643a986de201042d4c, type: 3}
   - {fileID: 8080259857534657875, guid: 2a2ce581ff07e884ba8cf82920105b1c, type: 3}
-  BootsPrefabs: []
-  ConsumablePrefabs: []
 --- !u!1 &73254072
 GameObject:
   m_ObjectHideFlags: 0
@@ -9262,6 +9264,17 @@ Tilemap:
 --- !u!114 &393453355 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6723141201226236815, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+  m_PrefabInstance: {fileID: 6723141201573289124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &393531641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6965447952975741032, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
   m_PrefabInstance: {fileID: 6723141201573289124}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -19251,6 +19264,7 @@ MonoBehaviour:
       hasConsumable: 0
       WeaponData:
         ItemName: 
+        BonusString: 
         SpriteIndex: 0
         BasePrice: 0
         TypeIndex: 0
@@ -19263,8 +19277,21 @@ MonoBehaviour:
         Selling: 0
         Sold: 0
         SellTimer: 0
+        Special: 0
+        XPBonus: 0
+        RangeBonus: 0
+        HPBonus: 0
+        GoldBonus: 0
+        WandBonus: 0
+        SwordBonus: 0
+        ClubBonus: 0
+        BowBonus: 0
+        BonusStat: 0
+        ArmourBonus: 0
+        WeaponBonus: 0
       HelmData:
         ItemName: 
+        BonusString: 
         SpriteIndex: 0
         BasePrice: 0
         TypeIndex: 0
@@ -19277,8 +19304,21 @@ MonoBehaviour:
         Selling: 0
         Sold: 0
         SellTimer: 0
+        Special: 0
+        XPBonus: 0
+        RangeBonus: 0
+        HPBonus: 0
+        GoldBonus: 0
+        WandBonus: 0
+        SwordBonus: 0
+        ClubBonus: 0
+        BowBonus: 0
+        BonusStat: 0
+        ArmourBonus: 0
+        WeaponBonus: 0
       ArmourData:
         ItemName: 
+        BonusString: 
         SpriteIndex: 0
         BasePrice: 0
         TypeIndex: 0
@@ -19291,8 +19331,21 @@ MonoBehaviour:
         Selling: 0
         Sold: 0
         SellTimer: 0
+        Special: 0
+        XPBonus: 0
+        RangeBonus: 0
+        HPBonus: 0
+        GoldBonus: 0
+        WandBonus: 0
+        SwordBonus: 0
+        ClubBonus: 0
+        BowBonus: 0
+        BonusStat: 0
+        ArmourBonus: 0
+        WeaponBonus: 0
       ConsumableData:
         ItemName: 
+        BonusString: 
         SpriteIndex: 0
         BasePrice: 0
         TypeIndex: 0
@@ -19305,6 +19358,18 @@ MonoBehaviour:
         Selling: 0
         Sold: 0
         SellTimer: 0
+        Special: 0
+        XPBonus: 0
+        RangeBonus: 0
+        HPBonus: 0
+        GoldBonus: 0
+        WandBonus: 0
+        SwordBonus: 0
+        ClubBonus: 0
+        BowBonus: 0
+        BonusStat: 0
+        ArmourBonus: 0
+        WeaponBonus: 0
       DamageType: 0
       SpriteIndex: 0
       Level: 0
@@ -34112,6 +34177,7 @@ MonoBehaviour:
   Requests: {fileID: 0}
   WarningMenu: {fileID: 0}
   Prospector: {fileID: 0}
+  MagicChest: {fileID: 0}
   ItemsSaved: 0
   HeroesSaved: 0
   StockSaved: 0
@@ -42711,6 +42777,7 @@ MonoBehaviour:
   HeroImage: {fileID: 1843292679}
   HandSprite: {fileID: 617925880, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
   ConsumableIcon: {fileID: 26355603}
+  ConsumableText: {fileID: 393531641}
   HeroSprite: {fileID: 1890352696}
   TimeText: {fileID: 1977850525}
   DungeonText: {fileID: 1904855440}
@@ -45099,6 +45166,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3314168667977814782, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3741060780698634302, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -46047,6 +46118,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7203814402499676003, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: Inn
+      value: 
+      objectReference: {fileID: 791159073}
+    - target: {fileID: 7203814402499676003, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: Save
+      value: 
+      objectReference: {fileID: 1533505316}
+    - target: {fileID: 7203814402499676003, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: Stock
+      value: 
+      objectReference: {fileID: 70214546}
     - target: {fileID: 7214029706631789108, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -46304,6 +46387,10 @@ PrefabInstance:
       propertyPath: Manager
       value: 
       objectReference: {fileID: 2116422485}
+    - target: {fileID: 8905352363506978956, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9166227980007379055, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
