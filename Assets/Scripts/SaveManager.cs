@@ -278,10 +278,10 @@ public class SaveManager : MonoBehaviour
             //Load Prospector
             if(Prospector!= null)
             {
+                Prospector.IsHired = loadedData.ProspectorData.IsHired;
                 Prospector.Timer = loadedData.ProspectorData.Timer;
                 Prospector.Mining = loadedData.ProspectorData.Mining;
-                Prospector.ReturnedFromMining = loadedData.ProspectorData.ReturnedFromMining;
-                Prospector.IsHired = loadedData.ProspectorData.IsHired;
+                Prospector.ReturnedFromMining = loadedData.ProspectorData.ReturnedFromMining;               
                 Prospector.CurrentLevel = loadedData.ProspectorData.CurrentLevel;
                 Prospector.ProspectTime = loadedData.ProspectorData.ProspectTime;
                 Prospector.CheckTimePassed();

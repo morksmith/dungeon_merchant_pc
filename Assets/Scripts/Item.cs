@@ -205,25 +205,25 @@ public class Item : MonoBehaviour
                 {
                     WeaponBonus = WeaponBonusType.XP;
                     XPBonus = BonusStat;
-                    BonusString = "XP x" + XPBonus;
+                    BonusString = "XP x" + XPBonus.ToString("F1");
                 }
                 else if(bonusPick == 1)
                 {
                     WeaponBonus = WeaponBonusType.HP;
                     HPBonus = BonusStat * 20;
-                    BonusString = "+ " + HPBonus + "HP";
+                    BonusString = "+ " + HPBonus.ToString("F1") + "HP";
                 }
                 else if (bonusPick == 2)
                 {
                     WeaponBonus = WeaponBonusType.Range;
                     RangeBonus = BonusStat - 1;
-                    BonusString = "+ " + RangeBonus + " Range";
+                    BonusString = "+ " + RangeBonus.ToString("F1") + " Range";
                 }
                 else if (bonusPick == 3)
                 {
                     WeaponBonus = WeaponBonusType.Gold;
                     GoldBonus = BonusStat;
-                    BonusString = "Gold x" + GoldBonus;
+                    BonusString = "Gold x" + GoldBonus.ToString("F1");
                 }
             }
         }
@@ -243,25 +243,25 @@ public class Item : MonoBehaviour
                 {
                     ArmourBonus = ArmourBonusType.Wand;
                     WandBonus = BonusStat;
-                    BonusString = "Wand DMG x" + BonusStat;
+                    BonusString = "Wand DMG x" + BonusStat.ToString("F1");
                 }
                 else if (bonusPick == 1)
                 {
                     ArmourBonus = ArmourBonusType.Bow;
                     BowBonus = BonusStat;
-                    BonusString = "Bow DMG x" + BonusStat;
+                    BonusString = "Bow DMG x" + BonusStat.ToString("F1");
                 }
                 else if (bonusPick == 2)
                 {
                     ArmourBonus = ArmourBonusType.Sword;
                     SwordBonus = BonusStat;
-                    BonusString = "Sword DMG x" + BonusStat;
+                    BonusString = "Sword DMG x" + BonusStat.ToString("F1");
                 }
                 else if (bonusPick == 3)
                 {
                     ArmourBonus = ArmourBonusType.Club;
                     ClubBonus = BonusStat;
-                    BonusString = "Club DMG x" + BonusStat;
+                    BonusString = "Club DMG x" + BonusStat.ToString("F1");
                 }
             }
         }

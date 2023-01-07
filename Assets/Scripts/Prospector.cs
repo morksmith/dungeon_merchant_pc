@@ -39,6 +39,15 @@ public class Prospector : MonoBehaviour
         if (PlayerPrefs.GetInt("ProspectorUnlocked") == 1)
         {
             gameObject.SetActive(true);
+            if (IsHired)
+            {
+                HireMenu.SetActive(false);
+            }
+            else
+            {
+                HireMenu.SetActive(true);
+            }
+
         }
         else
         {
@@ -123,6 +132,14 @@ public class Prospector : MonoBehaviour
         Inn.BottomContent.NewHeroIcon();
         CollectMenu.SetActive(true);
         CollectButton.GetComponentInChildren<TextMeshProUGUI>().text = "COLLECT (" + UpgradeLevels[CurrentLevel].y + "G)";
+        if (IsHired)
+        {
+            HireMenu.SetActive(false);
+        }
+        else
+        {
+            HireMenu.SetActive(true);
+        }
         UpdateUI();
     }
 
