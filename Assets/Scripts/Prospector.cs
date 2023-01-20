@@ -175,6 +175,7 @@ public class Prospector : MonoBehaviour
         Stock.CollectGold(-5000);
         IsHired = true;
         HireMenu.SetActive(false);
+        PlayerPrefs.SetFloat("ProspectorHired", 1);
         UpdateUI();
         Save.SaveGame();
     }
@@ -182,6 +183,7 @@ public class Prospector : MonoBehaviour
     public void CollectGold()
     {
         Stock.CollectGold(UpgradeLevels[CurrentLevel].y);
+        Stock.PlayCollectSound();
         Timer = 0;
         CollectMenu.SetActive(false);
         ReturnedFromMining = false;
@@ -253,7 +255,12 @@ public class Prospector : MonoBehaviour
 
     public void OpenProspectorMenu()
     {
+
         ProspectorMenu.Activate();
+        if(PlayerPrefs.GetFloat("ProspectorHired") == 1)
+        {
+            IsHired = true;
+        }
         UpdateUI();
         NewIcon.SetActive(false);
     }

@@ -279,6 +279,10 @@ public class SaveManager : MonoBehaviour
             if(Prospector!= null)
             {
                 Prospector.IsHired = loadedData.ProspectorData.IsHired;
+                if (loadedData.ProspectorData.IsHired)
+                {
+                    PlayerPrefs.SetFloat("ProspectorHired", 1);
+                }
                 Prospector.Timer = loadedData.ProspectorData.Timer;
                 Prospector.Mining = loadedData.ProspectorData.Mining;
                 Prospector.ReturnedFromMining = loadedData.ProspectorData.ReturnedFromMining;               
