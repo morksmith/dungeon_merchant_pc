@@ -4138,6 +4138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339f2b1dff61ea4488e39bcff0cd9d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Loading: 1
   Level: {fileID: 1806575200}
   ContinueButton: {fileID: 1608404226}
   Stock: {fileID: 0}
@@ -4152,7 +4153,9 @@ MonoBehaviour:
   WarningMenu: {fileID: 0}
   Prospector: {fileID: 0}
   MagicChest: {fileID: 0}
+  Themes: {fileID: 0}
   ItemsSaved: 0
+  ThemesSaved: 0
   HeroesSaved: 0
   StockSaved: 0
   DungeonSaved: 0
@@ -4478,7 +4481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v2.8 Monster Shop Games 2023
+  m_text: v2.9 Monster Shop Games 2023
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afbf014436d404d40a6ca6d180265424, type: 2}
   m_sharedMaterial: {fileID: 3596085694989975384, guid: afbf014436d404d40a6ca6d180265424, type: 2}

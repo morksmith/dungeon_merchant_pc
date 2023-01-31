@@ -89,11 +89,7 @@ public class MagicChest : MonoBehaviour
         MagicChestSprite.color = new Color(1, 1, 1, 1);
         TimeSlider.gameObject.SetActive(false);
         Inn.BottomContent.NewSaleIcon();
-        if (isActiveAndEnabled)
-        {
-            Debug.Log("Chest called Save");
-            Save.SaveGame();
-        }
+        
     }
 
     public void CollectChest()

@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 
 public class SaveManager : MonoBehaviour
 {
+    public bool Loading = true;
     public LevelManager Level;
     public Button ContinueButton;
     public StockManager Stock;
@@ -21,8 +24,10 @@ public class SaveManager : MonoBehaviour
     public Menu WarningMenu;
     public Prospector Prospector;
     public MagicChest MagicChest;
+    public ThemeManager Themes;
 
     public bool ItemsSaved = false;
+    public bool ThemesSaved = false;
     public bool HeroesSaved = false;
     public bool StockSaved = false;
     public bool DungeonSaved = false;
@@ -85,11 +90,17 @@ public class SaveManager : MonoBehaviour
 
     }
     
-    public void SaveGame()
+    
+    public async void SaveGame()
     {
-
+        while(Loading)
+        {
+            await Task.Delay(1000);
+        }
+        
         //Set all save checks to false
         ItemsSaved = false;
+        ThemesSaved = false;
         HeroesSaved = false;
         DungeonSaved = false;
         InnSaved = false;
@@ -125,6 +136,21 @@ public class SaveManager : MonoBehaviour
         }
         newSave.AllItems = allItemsData;
         ItemsSaved = true;
+
+        //Save Themes
+        var tm = GameObject.FindObjectOfType<ThemeManager>();
+        var allThemes = tm.Themes;
+        var allThemesData = new List<ThemeData>();
+        for (var i = 0; i < allThemes.Count; i++)
+        {
+            allThemes[i].StoreData();
+            allThemesData.Add(allThemes[i].Data);
+            Debug.Log(allThemes[i]);
+        }
+        
+        newSave.AllThemes = allThemesData;
+        ThemesSaved = true;
+
 
         //Save current requests
         var allRequests = GameObject.FindObjectsOfType<Request>();
@@ -185,6 +211,8 @@ public class SaveManager : MonoBehaviour
 
     public void LoadGame()
     {
+        Loading = true;
+
         if(PlayerPrefs.GetInt("Closed Correctly") != 1)
         {
             WarningMenu.Activate();
@@ -225,9 +253,26 @@ public class SaveManager : MonoBehaviour
                     ItemGen.CreateSpecificItem(id);
                 }
             }
+            //Load Themes
+            
+            for(var i = 0; i < loadedData.AllThemes.Count; i++)
+            {
+                if (loadedData.AllThemes[i].Purchased)
+                {
+                    Themes.Themes[i].Purchased = true;
+                }
+                if (loadedData.AllThemes[i].Applied)
+                {
+                    Themes.Themes[i].Applied = true;
+                }
+                
+            }
+            Themes.UpdateThemeUI();
+            Debug.Log(loadedData.AllThemes);
+
 
             //Load Dungeon State
-            if(loadedData.DungeonSaveData != null)
+            if (loadedData.DungeonSaveData != null)
             {
                 Dungeon.CurrentTime = loadedData.DungeonSaveData.Time;
                 Dungeon.EnemyCount = Mathf.Clamp(loadedData.DungeonSaveData.EnemyCount, 1, 3);
@@ -307,6 +352,8 @@ public class SaveManager : MonoBehaviour
             PlayerPrefs.SetInt("Closed Correctly", 0);
             Stock.UpdatePrices();
         }
+
+        Loading = false;
        
         
 
