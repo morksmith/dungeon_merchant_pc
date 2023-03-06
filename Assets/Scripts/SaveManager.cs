@@ -213,10 +213,10 @@ public class SaveManager : MonoBehaviour
     {
         Loading = true;
 
-        if(PlayerPrefs.GetInt("Closed Correctly") != 1)
-        {
-            WarningMenu.Activate();
-        }
+        //if(PlayerPrefs.GetInt("Closed Correctly") != 1)
+        //{
+        //    WarningMenu.Activate();
+        //}
       
         string savePath;
         savePath = Application.persistentDataPath + "/SaveGame.json";

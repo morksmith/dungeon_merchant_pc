@@ -16,6 +16,7 @@ public class ThemeManager : MonoBehaviour
         }
         t.ApplyTheme();
         UpdateThemeUI();
+        Stock.Save.SaveGame();
     }
     public void UpdateThemeUI()
     {

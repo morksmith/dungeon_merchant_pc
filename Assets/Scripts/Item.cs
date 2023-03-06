@@ -238,7 +238,7 @@ public class Item : MonoBehaviour
                 Special = true;
                 var specialStat = Random.Range(1, 10) * 0.1f;
                 BonusStat = 1 + specialStat;
-                var bonusPick = Random.Range(0, 3);
+                var bonusPick = Random.Range(0, 4);
                 if (bonusPick == 0)
                 {
                     ArmourBonus = ArmourBonusType.Wand;
