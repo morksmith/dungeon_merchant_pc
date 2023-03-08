@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Unity.Burst.CompilerServices;
 
 public class StockManager : MonoBehaviour
 {
@@ -67,7 +68,38 @@ public class StockManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButton(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.gameObject.GetComponent<Item>() != null && !hit.transform.gameObject.GetComponent<Item>().Merchant && !hit.transform.gameObject.GetComponent<Item>().Selling)
+                {
+                    DraggedItem = hit.transform.gameObject.GetComponent<Item>();
+                    SelectItem(hit.transform.gameObject.GetComponent<Item>());
+                }
+                else
+                {
+                    DraggedItem = null;
+                    StockDropZone.SetActive(false);
+                    ItemBox.gameObject.SetActive(false);
+                }
+            }
+        }
+        if (Input.GetMouseButton(0))
+        {
+            if (Input.GetAxis("Mouse X") > 0 || Input.GetAxis("Mouse Y") > 0)
+            {
+                if (DraggedItem != null)
+                {
+                    StockDropZone.SetActive(true);
+                    ItemBox.gameObject.SetActive(true);
+                    ItemBox.position = Input.mousePosition;
+                    ItemBox.GetComponent<Image>().sprite = DraggedItem.ItemSprite.sprite;
+                }
+            }
+        }
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);

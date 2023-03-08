@@ -4564,7 +4564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 575, y: 1022}
+  m_AnchoredPosition: {x: 1500, y: 1022}
   m_SizeDelta: {x: 2000, y: 2044}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8403458826437532918
@@ -17440,7 +17440,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -575, y: 1022}
+  m_AnchoredPosition: {x: -1500, y: 1022}
   m_SizeDelta: {x: 2000, y: 2044}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &3856615079161215692
@@ -29902,7 +29902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6723141200668913116
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30563,8 +30563,8 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 90
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1600, y: 1920}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1080, y: 2000}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0.6
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -37291,7 +37291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6723141201250220721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39674,7 +39674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6723141201527513104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44464,7 +44464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6723141202003978129
 RectTransform:
   m_ObjectHideFlags: 0

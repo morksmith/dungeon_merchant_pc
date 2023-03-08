@@ -1321,7 +1321,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64783457}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 16.850876}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9391304, y: 0.9391304, z: 0.9391304}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1331,8 +1331,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -430.82086, y: -443.60614}
-  m_SizeDelta: {x: 180, y: 180}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &64783459
 MonoBehaviour:
@@ -1975,8 +1975,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0000381, y: 16.393875}
-  m_SizeDelta: {x: 1024, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82778658
 MonoBehaviour:
@@ -2109,8 +2109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0000381, y: 16.393845}
-  m_SizeDelta: {x: 1024, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &85164689
 MonoBehaviour:
@@ -2266,18 +2266,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1334123462}
-        m_TargetAssemblyTypeName: ScrollingWindow, Assembly-CSharp
-        m_MethodName: SetWindow
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1295311175}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: DeActivate
@@ -2291,7 +2279,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   StepText: The bow is now in stock but you should wait for the demand for bows to
-    go up so you can sell it for more money. Tap to continue.
+    go up so you can sell it for more money. Click to continue.
   NextButton: {fileID: 1416630929}
   TextboxPosition: 300
 --- !u!1 &90959034
@@ -2354,7 +2342,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  StepText: Tap on the BUY button to purchase the bow.
+  StepText: Click on the BUY button to purchase the bow.
   NextButton: {fileID: 1300292837}
   TextboxPosition: 300
 --- !u!1 &99899514
@@ -2881,7 +2869,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289.00003, y: -625.60614}
+  m_AnchoredPosition: {x: -682, y: -625.60614}
   m_SizeDelta: {x: 300, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &129627194
@@ -4444,7 +4432,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1354426912}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -4639,7 +4627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1739, y: 747}
+  m_AnchoredPosition: {x: 477, y: 726}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &201426688
@@ -4745,7 +4733,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
   StepText: This icon shows the next type of monster type appearing in the dungeon.
-    Tap the sleep button to cycle the dungeon and start the next day.
+    Click the sleep button to cycle the dungeon and start the next day.
   NextButton: {fileID: 1492936016}
   TextboxPosition: -300
 --- !u!1 &210950603
@@ -5310,7 +5298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &243526064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5569,7 +5557,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1354426912}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -6596,12 +6584,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1347715840}
+  - {fileID: 748463396}
   m_Father: {fileID: 1833503779}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -304.99997, y: -208.60612}
+  m_AnchoredPosition: {x: -1294, y: -208.60612}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &311092769
@@ -7041,6 +7030,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347969431}
   m_CullTransparentMesh: 1
+--- !u!1 &349777435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 349777436}
+  - component: {fileID: 349777439}
+  - component: {fileID: 349777438}
+  m_Layer: 0
+  m_Name: Blocker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &349777436
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349777435}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1184366333}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 1860}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &349777438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349777435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 46fb9c392fea9cf41b5790be692b92ed, type: 2}
+  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1146225180, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &349777439
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349777435}
+  m_CullTransparentMesh: 1
 --- !u!1 &356214362
 GameObject:
   m_ObjectHideFlags: 0
@@ -7192,7 +7257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -304.99997, y: -385.60614}
+  m_AnchoredPosition: {x: 681, y: -385.60614}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &357246448
@@ -7336,21 +7401,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StepEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1334123462}
-        m_TargetAssemblyTypeName: ScrollingWindow, Assembly-CSharp
-        m_MethodName: ScrollRight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  StepText: Here is what you have in stock. Tap on an item to select it and view
-    its stats. Tap SELL to put it on the shelf.
+      m_Calls: []
+  StepText: Here is what you have in stock. Click on an item to select it and view
+    its stats. Click SELL to put it on the shelf.
   NextButton: {fileID: 64783457}
   TextboxPosition: 300
 --- !u!1 &362049867
@@ -9446,7 +9499,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
   StepText: These icons indicate whether the strength or number of monsters is going
-    to go up, down or stay the same next cycle. Tap to continue.
+    to go up, down or stay the same next cycle. Click to continue.
   NextButton: {fileID: 839152639}
   TextboxPosition: -300
 --- !u!1 &407555885
@@ -9562,8 +9615,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0000381, y: 16.393875}
-  m_SizeDelta: {x: 1024, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421865291
 MonoBehaviour:
@@ -9789,8 +9842,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0000381, y: 16.393875}
-  m_SizeDelta: {x: 1024, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438374299
 MonoBehaviour:
@@ -9924,7 +9977,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 2000}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &441328424
 MonoBehaviour:
@@ -10080,8 +10133,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  StepText: A hero has arrived at your inn! Tap the right button to return to the
-    inn.
+      - m_Target: {fileID: 2100283535}
+        m_TargetAssemblyTypeName: HireMenu, Assembly-CSharp
+        m_MethodName: CreateTutorialHero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  StepText: A hero has arrived at your inn! Click to continue.
   NextButton: {fileID: 1151698563}
   TextboxPosition: 300
 --- !u!1 &443547366
@@ -10613,6 +10677,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AppearTime: 1.5
+--- !u!1 &461230833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 461230834}
+  - component: {fileID: 461230836}
+  - component: {fileID: 461230835}
+  m_Layer: 0
+  m_Name: Blocker 02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &461230834
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461230833}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1184366333}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 463.26004, y: 0.76013184}
+  m_SizeDelta: {x: 957.48004, y: -83.519684}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &461230835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461230833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 46fb9c392fea9cf41b5790be692b92ed, type: 2}
+  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1146225180, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &461230836
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461230833}
+  m_CullTransparentMesh: 1
 --- !u!1 &462262445
 GameObject:
   m_ObjectHideFlags: 0
@@ -10795,7 +10935,7 @@ MonoBehaviour:
   StepEvents:
   - m_PersistentCalls:
       m_Calls: []
-  StepText: More demons affects the demand for swords. Tap to continue.
+  StepText: More demons affects the demand for swords. Click to continue.
   NextButton: {fileID: 2123551307}
   TextboxPosition: -300
 --- !u!1 &472513522
@@ -10874,7 +11014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &485740548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11015,7 +11155,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
   StepText: This is how many monsters are occupying the dungeon. This affects the
-    demand for armour. The more monsters, the higher the price of armour. Tap to
+    demand for armour. The more monsters, the higher the price of armour. Click to
     continue.
   NextButton: {fileID: 85164687}
   TextboxPosition: -300
@@ -11069,7 +11209,7 @@ MonoBehaviour:
       m_Calls: []
   StepText: This is the current time of the day. At the end of 24 hours the dungeon
     will cycle and change, determining the demand for certain weapons and items.
-    Tap to continue.
+    Click to continue.
   NextButton: {fileID: 595300354}
   TextboxPosition: -300
 --- !u!1 &518839011
@@ -11234,7 +11374,7 @@ MonoBehaviour:
   StepEvents:
   - m_PersistentCalls:
       m_Calls: []
-  StepText: More skeletons affects the demand for clubs. Tap to continue.
+  StepText: More skeletons affects the demand for clubs. Click to continue.
   NextButton: {fileID: 1397801245}
   TextboxPosition: -300
 --- !u!1 &530916916
@@ -11805,7 +11945,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1511, y: -200.60616}
+  m_AnchoredPosition: {x: -1293, y: -200.60616}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &587816014
@@ -11851,19 +11991,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 587816015}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1860016358}
-        m_TargetAssemblyTypeName: TutorialSequence, Assembly-CSharp
-        m_MethodName: NextStep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &587816015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11939,8 +12067,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0000381, y: 16.393875}
-  m_SizeDelta: {x: 1024, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &595300356
 MonoBehaviour:
@@ -12438,7 +12566,7 @@ MonoBehaviour:
   StepEvents:
   - m_PersistentCalls:
       m_Calls: []
-  StepText: More ghosts affects the demand for wands and staves. Tap to continue.
+  StepText: More ghosts affects the demand for wands and staves. Click to continue.
   NextButton: {fileID: 1093862761}
   TextboxPosition: -300
 --- !u!1 &667605455
@@ -12491,7 +12619,7 @@ MonoBehaviour:
       m_Calls: []
   StepText: This is how strong the monsters are in the dungeon. This affects the
     demand for potions and scrolls. The stronger the monsters, the higher the price
-    of potions and scrolls. Tap to continue.
+    of potions and scrolls. Click to continue.
   NextButton: {fileID: 438374297}
   TextboxPosition: -300
 --- !u!1 &668600737
@@ -12566,7 +12694,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  StepText: Tap HIRE to add them to your roster.
+  StepText: Click HIRE to add them to your roster.
   NextButton: {fileID: 1264928163}
   TextboxPosition: 300
 --- !u!1 &672850602
@@ -12719,8 +12847,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.000038, y: 5.3938446}
-  m_SizeDelta: {x: 1080, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &680334095
 MonoBehaviour:
@@ -13857,8 +13985,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.000038, y: 5.3938446}
-  m_SizeDelta: {x: 1080, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691393882
 MonoBehaviour:
@@ -14707,6 +14835,99 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738721266}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &748463395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748463396}
+  - component: {fileID: 748463399}
+  - component: {fileID: 748463398}
+  - component: {fileID: 748463397}
+  m_Layer: 0
+  m_Name: Highlight Box (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &748463396
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748463395}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -17.943062}
+  m_LocalScale: {x: 1.0648149, y: 1.0648149, z: 1.0648149}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 311092768}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 327.9629, y: -288.9842}
+  m_SizeDelta: {x: 793.6672, y: 729.4388}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &748463397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748463395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061486245c9a91841bccdc73e58558ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Highlight: {fileID: 748463398}
+  LowColour: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+  HighColour: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  Frequency: 5
+--- !u!114 &748463398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748463395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 46fb9c392fea9cf41b5790be692b92ed, type: 2}
+  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1146225180, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &748463399
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748463395}
+  m_CullTransparentMesh: 1
 --- !u!1 &749536790
 GameObject:
   m_ObjectHideFlags: 0
@@ -18474,12 +18695,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1036900997}
+  - {fileID: 932441939}
   m_Father: {fileID: 2045158301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -142.99997, y: -424}
+  m_AnchoredPosition: {x: 832, y: -424}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &762693401
@@ -18814,7 +19036,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   StepText: Now that the dungeon has cycled, the demand for bows has increased and
-    you can sell the bow for more money than you bought it for. Tap the bow to continue.
+    you can sell the bow for more money than you bought it for. Click the bow to
+    continue.
   NextButton: {fileID: 1876892604}
   TextboxPosition: 300
 --- !u!1 &771929476
@@ -18959,7 +19182,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
   StepText: This is the dungeon entrance. Using your crystal ball, you can see how
-    the dungeon is going to change from day to day. Tap to continue.
+    the dungeon is going to change from day to day. Click to continue.
   NextButton: {fileID: 1850562150}
   TextboxPosition: -300
 --- !u!1 &787007854
@@ -19776,8 +19999,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.000038, y: 5.3938446}
-  m_SizeDelta: {x: 1080, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &817463823
 MonoBehaviour:
@@ -20376,8 +20599,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0000381, y: 16.393875}
-  m_SizeDelta: {x: 1024, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839152641
 MonoBehaviour:
@@ -21388,8 +21611,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is your humble shop. There are currently no items on the shelf. Tap
-    on the left button to view your stock.
+  m_text: This is your humble shop. There are currently no items on the shelf. Click
+    to continue.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afbf014436d404d40a6ca6d180265424, type: 2}
   m_sharedMaterial: {fileID: 3596085694989975384, guid: afbf014436d404d40a6ca6d180265424, type: 2}
@@ -21628,8 +21851,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.000038, y: 5.3938446}
-  m_SizeDelta: {x: 1080, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &899754522
 MonoBehaviour:
@@ -22028,7 +22251,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911226343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 16.850876}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9391304, y: 0.9391304, z: 0.9391304}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22038,8 +22261,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 435.00003, y: -437.60614}
-  m_SizeDelta: {x: 180, y: 180}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &911226345
 MonoBehaviour:
@@ -22400,8 +22623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.000038, y: 5.3938446}
-  m_SizeDelta: {x: 1080, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &924934560
 MonoBehaviour:
@@ -22534,6 +22757,99 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -32}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &932441938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932441939}
+  - component: {fileID: 932441942}
+  - component: {fileID: 932441941}
+  - component: {fileID: 932441940}
+  m_Layer: 0
+  m_Name: Highlight Box (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &932441939
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932441938}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -17.943062}
+  m_LocalScale: {x: 1.064815, y: 1.064815, z: 1.064815}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 762693400}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 151, y: -59.629623}
+  m_SizeDelta: {x: 793.6672, y: 729.4388}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &932441940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932441938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061486245c9a91841bccdc73e58558ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Highlight: {fileID: 932441941}
+  LowColour: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+  HighColour: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  Frequency: 5
+--- !u!114 &932441941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932441938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 46fb9c392fea9cf41b5790be692b92ed, type: 2}
+  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1146225180, guid: 62c3850ca9745c64780885770e6b9fdc, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &932441942
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932441938}
+  m_CullTransparentMesh: 1
 --- !u!1 &933160026
 GameObject:
   m_ObjectHideFlags: 0
@@ -22667,7 +22983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &937310103
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25034,7 +25350,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  StepText: Tap SELL to put it on the shelf.
+  StepText: Click SELL to put it on the shelf.
   NextButton: {fileID: 129627192}
   TextboxPosition: 300
 --- !u!1 &1005000132
@@ -26200,8 +26516,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0000381, y: 16.393875}
-  m_SizeDelta: {x: 1024, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1093862763
 MonoBehaviour:
@@ -26456,8 +26772,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.000038, y: 5.3938446}
-  m_SizeDelta: {x: 1080, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103771493
 MonoBehaviour:
@@ -26715,7 +27031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -135.99997, y: -621.60614}
+  m_AnchoredPosition: {x: 834, y: -621.60614}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1125857596
@@ -27150,8 +27466,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 437.00003, y: -439.60614}
-  m_SizeDelta: {x: 180, y: 180}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1151698565
 MonoBehaviour:
@@ -27495,6 +27811,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 349777436}
+  - {fileID: 461230834}
   - {fileID: 1911484482}
   - {fileID: 1860016359}
   m_Father: {fileID: 1840417377}
@@ -29364,7 +29682,7 @@ MonoBehaviour:
   StepEvents:
   - m_PersistentCalls:
       m_Calls: []
-  StepText: More beasts affects the demand for bows. Tap to continue.
+  StepText: More beasts affects the demand for bows. Click to continue.
   NextButton: {fileID: 82778656}
   TextboxPosition: -300
 --- !u!1 &1253370816
@@ -29629,7 +29947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 156, y: -771.60614}
+  m_AnchoredPosition: {x: 1114, y: -771.60614}
   m_SizeDelta: {x: 300, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1264928165
@@ -30286,7 +30604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -303.99997, y: 411.39386}
+  m_AnchoredPosition: {x: -1241, y: 432}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1277906884
@@ -30678,7 +30996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 274.00003, y: -773.60614}
+  m_AnchoredPosition: {x: 1256, y: -773.60614}
   m_SizeDelta: {x: 300, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1300292839
@@ -31633,7 +31951,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   StepText: This merchant is selling a bow for lower than the average price. This
-    is indicated by the 'down' icon on the item. Tap the bow to select it.
+    is indicated by the 'down' icon on the item. Click the bow to select it.
   NextButton: {fileID: 357246446}
   TextboxPosition: 300
 --- !u!1 &1387216043
@@ -31949,8 +32267,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0000381, y: 16.393875}
-  m_SizeDelta: {x: 1024, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397801247
 MonoBehaviour:
@@ -32371,7 +32689,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2.0000381, y: 16.393875}
-  m_SizeDelta: {x: 1024, y: 2000}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1416630931
 MonoBehaviour:
@@ -33492,7 +33810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0000381, y: 141}
+  m_AnchoredPosition: {x: 0, y: 123}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492936018
@@ -34164,6 +34482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339f2b1dff61ea4488e39bcff0cd9d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Loading: 1
   Level: {fileID: 1860016360}
   ContinueButton: {fileID: 0}
   Stock: {fileID: 70214546}
@@ -34178,7 +34497,9 @@ MonoBehaviour:
   WarningMenu: {fileID: 0}
   Prospector: {fileID: 0}
   MagicChest: {fileID: 0}
+  Themes: {fileID: 0}
   ItemsSaved: 0
+  ThemesSaved: 0
   HeroesSaved: 0
   StockSaved: 0
   DungeonSaved: 0
@@ -34805,7 +35126,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
   StepText: Items on the shelf will sell automatically. The more expensive the item,
-    the longer it will take to sell. Tap on the right button to view the Inn.
+    the longer it will take to sell. Click to continue.
   NextButton: {fileID: 911226343}
   TextboxPosition: 300
 --- !u!1 &1588425705
@@ -34844,8 +35165,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.000038, y: 5.3938446}
-  m_SizeDelta: {x: 1080, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588425707
 MonoBehaviour:
@@ -34989,18 +35310,6 @@ MonoBehaviour:
   StepEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334123462}
-        m_TargetAssemblyTypeName: ScrollingWindow, Assembly-CSharp
-        m_MethodName: ScrollLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 70214546}
         m_TargetAssemblyTypeName: StockManager, Assembly-CSharp
         m_MethodName: SellItem
@@ -35014,7 +35323,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   StepText: Here is your total gold. Buy and sell items to increase your gold and
-    reach the final goal of 100,000G. Tap to continue.
+    reach the final goal of 100,000G. Click to continue.
   NextButton: {fileID: 1683494151}
   TextboxPosition: 300
 --- !u!1 &1607674022
@@ -35324,8 +35633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.000038, y: 5.3938446}
-  m_SizeDelta: {x: 1080, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1644641240
 MonoBehaviour:
@@ -35801,7 +36110,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683494151}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 16.850876}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9391304, y: 0.9391304, z: 0.9391304}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35812,7 +36121,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 2000}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1683494153
 MonoBehaviour:
@@ -36916,17 +37225,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1334123462}
-        m_TargetAssemblyTypeName: ScrollingWindow, Assembly-CSharp
-        m_MethodName: SetWindow
-        m_Mode: 3
+      - m_Target: {fileID: 349777435}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   StepText: Drag an item from your stock to the respective item slot to equip it
     to a hero.
@@ -37468,7 +37777,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
   StepText: This is what types of monsters appear in the dungeon. This affects the
-    demand for different types of weapons. Tap to continue.
+    demand for different types of weapons. Click to continue.
   NextButton: {fileID: 421865289}
   TextboxPosition: -300
 --- !u!1 &1755794530
@@ -38951,18 +39260,6 @@ MonoBehaviour:
   StepEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334123462}
-        m_TargetAssemblyTypeName: ScrollingWindow, Assembly-CSharp
-        m_MethodName: ScrollRight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 211338849}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -38975,7 +39272,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  StepText: Here is what you have in stock. Tap on an item to select it and view
+  StepText: Here is what you have in stock. Click on an item to select it and view
     its stats.
   NextButton: {fileID: 311092767}
   TextboxPosition: 300
@@ -39039,7 +39336,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  StepText: Tap EQUIP to view their equipment.
+  StepText: Click EQUIP to view their equipment.
   NextButton: {fileID: 2055897464}
   TextboxPosition: -300
 --- !u!224 &1840417377 stripped
@@ -39315,8 +39612,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.000038, y: 5.3938446}
-  m_SizeDelta: {x: 1080, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1848396257
 MonoBehaviour:
@@ -39449,8 +39746,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0000381, y: 16.393875}
-  m_SizeDelta: {x: 1024, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1850562152
 MonoBehaviour:
@@ -39754,7 +40051,7 @@ Transform:
   m_Children:
   - {fileID: 166709262}
   m_Father: {fileID: 1184366333}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1860016360
 MonoBehaviour:
@@ -40145,7 +40442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -303.99997, y: -210.60616}
+  m_AnchoredPosition: {x: -1293, y: -210.60616}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1876892606
@@ -40694,7 +40991,7 @@ RectTransform:
   m_Children:
   - {fileID: 887925300}
   m_Father: {fileID: 1184366333}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -41566,18 +41863,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 992900714}
-        m_TargetAssemblyTypeName: ScrollingWindow, Assembly-CSharp
-        m_MethodName: ScrollRight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1314113925}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -41590,7 +41875,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  StepText: Now that the hero is in your roster, tap on them to select them.
+  StepText: Now that the hero is in your roster, click on them to select them.
   NextButton: {fileID: 1277906882}
   TextboxPosition: -300
 --- !u!114 &1977850525 stripped
@@ -42087,18 +42372,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1334123462}
-        m_TargetAssemblyTypeName: ScrollingWindow, Assembly-CSharp
-        m_MethodName: ScrollLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 70214546}
         m_TargetAssemblyTypeName: StockManager, Assembly-CSharp
         m_MethodName: SellItem
@@ -42112,7 +42385,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   StepText: When items have sold, you need to tap on them to claim the gold they
-    were sold for. Your old staff has sold. Tap it to sell it.
+    were sold for. Your old staff has sold. Click it to sell it.
   NextButton: {fileID: 812152004}
   TextboxPosition: 300
 --- !u!1 &2045158300
@@ -42162,21 +42435,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StepEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1334123462}
-        m_TargetAssemblyTypeName: ScrollingWindow, Assembly-CSharp
-        m_MethodName: ScrollLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   StepText: This is the inn attached to your shop. Here travellers will come and
-    visit to offer their wares or services. Tap on the merchant to view their items.
+    visit to offer their wares or services. Click on the merchant to view their items.
   NextButton: {fileID: 762693399}
   TextboxPosition: 300
 --- !u!1 &2047583903
@@ -42612,7 +42873,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 218, y: 108}
+  m_AnchoredPosition: {x: -744, y: 108}
   m_SizeDelta: {x: 300, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055897466
@@ -43002,7 +43263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 290.00003, y: -621.60614}
+  m_AnchoredPosition: {x: -685, y: -621.60614}
   m_SizeDelta: {x: 300, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2085720391
@@ -43572,32 +43833,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StepEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1334123462}
-        m_TargetAssemblyTypeName: ScrollingWindow, Assembly-CSharp
-        m_MethodName: ScrollLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2100283535}
-        m_TargetAssemblyTypeName: HireMenu, Assembly-CSharp
-        m_MethodName: CreateTutorialHero
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  StepText: Tap on the hero to view their stats.
+      m_Calls: []
+  StepText: Click on the hero to view their stats.
   NextButton: {fileID: 1125857594}
   TextboxPosition: 300
 --- !u!1 &2108840351
@@ -44132,8 +44369,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0000381, y: 16.393875}
-  m_SizeDelta: {x: 1024, y: 2000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 3000, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2123551309
 MonoBehaviour:
@@ -45170,6 +45407,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3331140652421002740, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331140652421002740, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331140652421002740, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331140652421002740, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331140652421002740, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331140652421002740, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3741060780698634302, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -45185,6 +45446,30 @@ PrefabInstance:
     - target: {fileID: 4133059230641426540, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMin.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491842304690890744, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491842304690890744, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491842304690890744, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491842304690890744, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491842304690890744, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491842304690890744, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4499949865047753897, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -45920,7 +46205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -388.00006
+      value: -388
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -46118,6 +46403,30 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7192439749537173619, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192439749537173619, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192439749537173619, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192439749537173619, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192439749537173619, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192439749537173619, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7203814402499676003, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: Inn
       value: 
@@ -46214,6 +46523,30 @@ PrefabInstance:
       propertyPath: Stock
       value: 
       objectReference: {fileID: 70214546}
+    - target: {fileID: 7825321618027214265, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825321618027214265, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825321618027214265, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825321618027214265, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825321618027214265, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825321618027214265, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7950448998258361607, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
