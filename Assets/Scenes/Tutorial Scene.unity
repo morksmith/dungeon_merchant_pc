@@ -1102,7 +1102,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
   StepText: Consumable items like potions and scrolls will activate automatically
-    in the dungeon when equipped. Tap to continue.
+    in the dungeon when equipped. Click to continue.
   NextButton: {fileID: 441328422}
   TextboxPosition: -600
 --- !u!1 &62872842
@@ -1458,6 +1458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e909ba78f00cddc45a1fa1da041d7e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Events: {fileID: 565322655}
+  RayCaster: {fileID: 565322656}
   Tutorial: {fileID: 1860016358}
   SurvivalMode: 0
   Gold: 95
@@ -11507,6 +11509,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &565322655 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6723141201187561898, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+  m_PrefabInstance: {fileID: 6723141201573289124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &565322656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6723141200716725255, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+  m_PrefabInstance: {fileID: 6723141201573289124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &565824643
 GameObject:
   m_ObjectHideFlags: 0
@@ -11926,7 +11950,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &587816013
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11999,14 +12023,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587816012}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -26065,7 +26089,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
   StepText: Warriors wield clubs and are effective against skeletons. They are more
-    likely to bring back weapons. Tap to continue.
+    likely to bring back weapons. Click to continue.
   NextButton: {fileID: 924934558}
   TextboxPosition: -300
 --- !u!1 &1049199436
@@ -27599,7 +27623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 330, y: 334}
+  m_AnchoredPosition: {x: -730, y: 334}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1164824666
@@ -41565,7 +41589,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   StepText: Heroes can also be sent into the dungeon to collect gold and new items
-    for you. Each hero class has their own strengths. Tap to continue.
+    for you. Each hero class has their own strengths. Click to continue.
   NextButton: {fileID: 1588425705}
   TextboxPosition: -300
 --- !u!224 &1952709735 stripped

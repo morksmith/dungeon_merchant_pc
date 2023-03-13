@@ -1135,6 +1135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e909ba78f00cddc45a1fa1da041d7e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Events: {fileID: 814345159}
+  RayCaster: {fileID: 1811375651}
   Tutorial: {fileID: 0}
   SurvivalMode: 0
   Gold: 400
@@ -15620,6 +15622,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fed556a0e789504d9102c87a05366a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &814345159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6723141201187561898, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+  m_PrefabInstance: {fileID: 6723141201573289124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &817854048
@@ -30623,6 +30636,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794560311}
   m_CullTransparentMesh: 1
+--- !u!114 &1811375651 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6723141200716725255, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
+  m_PrefabInstance: {fileID: 6723141201573289124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1817116254
 GameObject:
   m_ObjectHideFlags: 0
@@ -37364,7 +37388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201361989818, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -388.00006
+      value: -388
       objectReference: {fileID: 0}
     - target: {fileID: 6723141201370494481, guid: a08115af3846d1f4f9c3d1b32f118d9c, type: 3}
       propertyPath: m_SizeDelta.y

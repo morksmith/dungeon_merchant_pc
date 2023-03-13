@@ -5,9 +5,14 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Unity.Burst.CompilerServices;
+using static UnityEngine.Networking.UnityWebRequest;
+using UnityEngine.EventSystems;
 
 public class StockManager : MonoBehaviour
 {
+    public EventSystem Events;
+    public PointerEventData PointerEvents;
+    public GraphicRaycaster RayCaster;
     public TutorialSequence Tutorial;
     public bool SurvivalMode = false;
     public float Gold;
@@ -49,8 +54,11 @@ public class StockManager : MonoBehaviour
     public GameObject Prospector;
     public GameObject MagicChest;
     public SaveManager Save;
+    
 
     private SFXManager sfx;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -65,19 +73,29 @@ public class StockManager : MonoBehaviour
         
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+
+
+        if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if(Physics.Raycast(ray, out hit))
+            PointerEvents = new PointerEventData(Events);
+            PointerEvents.position = Input.mousePosition;
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            RayCaster.Raycast(PointerEvents, results);
+
+
+            if (results.Count > 0)
             {
-                if (hit.transform.gameObject.GetComponent<Item>() != null && !hit.transform.gameObject.GetComponent<Item>().Merchant && !hit.transform.gameObject.GetComponent<Item>().Selling)
+                if (results[0].gameObject.GetComponent<Item>() != null && !results[0].gameObject.GetComponent<Item>().Merchant && !results[0].gameObject.GetComponent<Item>().Selling)
                 {
-                    DraggedItem = hit.transform.gameObject.GetComponent<Item>();
-                    SelectItem(hit.transform.gameObject.GetComponent<Item>());
+                    DraggedItem = results[0].gameObject.GetComponent<Item>();
+                    SelectItem(results[0].gameObject.GetComponent<Item>());
+                    return;
                 }
                 else
                 {
@@ -89,147 +107,50 @@ public class StockManager : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-            if (Input.GetAxis("Mouse X") > 0 || Input.GetAxis("Mouse Y") > 0)
+            PointerEvents = new PointerEventData(Events);
+            PointerEvents.position = Input.mousePosition;
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            RayCaster.Raycast(PointerEvents, results);
+            if (DraggedItem != null)
             {
-                if (DraggedItem != null)
-                {
-                    StockDropZone.SetActive(true);
-                    ItemBox.gameObject.SetActive(true);
-                    ItemBox.position = Input.mousePosition;
-                    ItemBox.GetComponent<Image>().sprite = DraggedItem.ItemSprite.sprite;
-                }
+                StockDropZone.SetActive(true);
+                ItemBox.gameObject.SetActive(true);
+                ItemBox.position = PointerEvents.position;
+                ItemBox.GetComponent<Image>().sprite = DraggedItem.ItemSprite.sprite;
             }
+            return;
         }
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButtonUp(0))
         {
-            Touch touch = Input.GetTouch(0);
-
-            switch (touch.phase)
+            if (DraggedItem == null)
             {
-                case TouchPhase.Began:
+                return;
+            }
+            PointerEvents = new PointerEventData(Events);
+            PointerEvents.position = Input.mousePosition;
+            List<RaycastResult> results = new List<RaycastResult>();
+            RayCaster.Raycast(PointerEvents, results);
+            EventSystem.current.RaycastAll(PointerEvents, results);
+            if (results.Count > 0)
+            {
 
-                    PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-                    eventDataCurrentPosition.position = touch.position;
-                    List<RaycastResult> results = new List<RaycastResult>();
-                    EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-                    if (results.Count > 0)
+                if (results[0].gameObject.GetComponent<EquipmentSlot>() != null)
+                {
+                    if (results[0].gameObject.GetComponent<EquipmentSlot>().Type.Type == DraggedItem.Type.Type)
                     {
-                        if (results[0].gameObject.GetComponent<Item>() != null && !results[0].gameObject.GetComponent<Item>().Merchant && !results[0].gameObject.GetComponent<Item>().Selling)
+                        if (results[0].gameObject.GetComponent<EquipmentSlot>().WeaponSlot)
                         {
-                            DraggedItem = results[0].gameObject.GetComponent<Item>();
-                            SelectItem(results[0].gameObject.GetComponent<Item>());
-                        }
-                        else
-                        {
-                            DraggedItem = null;
-                            StockDropZone.SetActive(false);
-                            ItemBox.gameObject.SetActive(false);
-                            break;
-                        }
-                    }
-                    break;
-
-                case TouchPhase.Moved:
-                    
-                    
-
-                    
-                    if (DraggedItem != null)
-                    {
-                        StockDropZone.SetActive(true);
-                        ItemBox.gameObject.SetActive(true);
-                        ItemBox.position = touch.position;
-                        ItemBox.GetComponent<Image>().sprite = DraggedItem.ItemSprite.sprite;
-                        break;
-                    }
-                    break;
-
-                case TouchPhase.Ended:
-                    if(DraggedItem == null)
-                    {
-                        break;
-                    }
-                    eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-                    eventDataCurrentPosition.position = touch.position;
-                    results = new List<RaycastResult>();
-                    EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-                    if (results.Count > 0)
-                    {
-
-                        if (results[0].gameObject.GetComponent<EquipmentSlot>() != null)
-                        {
-                            if (results[0].gameObject.GetComponent<EquipmentSlot>().Type.Type == DraggedItem.Type.Type)
+                            if (DraggedItem.GetComponent<Weapon>() != null)
                             {
-                                if (results[0].gameObject.GetComponent<EquipmentSlot>().WeaponSlot)
+                                if (DraggedItem.DamageType == results[0].gameObject.GetComponent<EquipmentSlot>().DamageType)
                                 {
-                                    if (DraggedItem.GetComponent<Weapon>()!= null)
-                                    {
-                                        if(DraggedItem.DamageType == results[0].gameObject.GetComponent<EquipmentSlot>().DamageType)
-                                        {
-                                            Debug.Log("Dropped on Equipment Slot");
-                                            sfx.PlaySound(EquipSound);
-                                            DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform);
-                                            DraggedItem.transform.position = results[0].gameObject.transform.position;
-                                            DraggedItem.EquipItem();
-                                            Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
-                                            Hero.OpenEquipMenu();
-                                            Hero.SelectedHero.SelectHero();
-                                            Hero.SelectHero(Hero.SelectedHero);
-                                            CurrentItem = null;
-                                            ItemInfoText.text = "SELECT AN ITEM";
-                                            ItemInfoText.color = Color.white;
-
-                                            InfoPanel.SetActive(false);
-                                            ItemInfoText.color = Color.white;
-                                            if(Tutorial != null)
-                                            {
-                                                Tutorial.NextStep();
-                                            }
-
-                                        }
-                                        else
-                                        {
-                                            Debug.Log("Wrong Weapon Type");
-                                        }
-                                    }
-                                }
-                                else
-                                {
+                                    Debug.Log("Dropped on Equipment Slot");
+                                    sfx.PlaySound(EquipSound);
                                     DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform);
                                     DraggedItem.transform.position = results[0].gameObject.transform.position;
                                     DraggedItem.EquipItem();
-                                    if(DraggedItem.GetComponent<Weapon>()!= null)
-                                    {
-                                        Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
-                                        Debug.Log("Equipped Weapon");
-                                        sfx.PlaySound(EquipSound);
-
-                                    }
-                                    if (DraggedItem.GetComponent<Armour>() != null)
-                                    {
-                                        if(DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
-                                        {
-                                            Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
-                                            Debug.Log("Equipped Armour");
-                                            sfx.PlaySound(EquipSound);
-
-                                        }
-                                        else if(DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
-                                        {
-                                            Hero.SelectedHero.EquipHelm(DraggedItem.GetComponent<Armour>());
-                                            Debug.Log("Equipped Helm");
-                                            sfx.PlaySound(EquipSound);
-
-                                        }
-
-                                    }
-                                    if (DraggedItem.GetComponent<Consumable>() != null)
-                                    {
-                                        Hero.SelectedHero.EquipConsumable(DraggedItem.GetComponent<Consumable>());
-                                        Debug.Log("Equipped Consumable");
-                                        sfx.PlaySound(EquipSound);
-
-                                    }
+                                    Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
                                     Hero.OpenEquipMenu();
                                     Hero.SelectedHero.SelectHero();
                                     Hero.SelectHero(Hero.SelectedHero);
@@ -238,250 +159,310 @@ public class StockManager : MonoBehaviour
                                     ItemInfoText.color = Color.white;
 
                                     InfoPanel.SetActive(false);
-
                                     ItemInfoText.color = Color.white;
+                                    if (Tutorial != null)
+                                    {
+                                        Tutorial.NextStep();
+                                    }
 
+                                }
+                                else
+                                {
+                                    Debug.Log("Wrong Weapon Type");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform);
+                            DraggedItem.transform.position = results[0].gameObject.transform.position;
+                            DraggedItem.EquipItem();
+                            if (DraggedItem.GetComponent<Weapon>() != null)
+                            {
+                                Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
+                                Debug.Log("Equipped Weapon");
+                                sfx.PlaySound(EquipSound);
+
+                            }
+                            if (DraggedItem.GetComponent<Armour>() != null)
+                            {
+                                if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
+                                {
+                                    Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
+                                    Debug.Log("Equipped Armour");
+                                    sfx.PlaySound(EquipSound);
+
+                                }
+                                else if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
+                                {
+                                    Hero.SelectedHero.EquipHelm(DraggedItem.GetComponent<Armour>());
+                                    Debug.Log("Equipped Helm");
+                                    sfx.PlaySound(EquipSound);
 
                                 }
 
+                            }
+                            if (DraggedItem.GetComponent<Consumable>() != null)
+                            {
+                                Hero.SelectedHero.EquipConsumable(DraggedItem.GetComponent<Consumable>());
+                                Debug.Log("Equipped Consumable");
+                                sfx.PlaySound(EquipSound);
+
+                            }
+                            Hero.OpenEquipMenu();
+                            Hero.SelectedHero.SelectHero();
+                            Hero.SelectHero(Hero.SelectedHero);
+                            CurrentItem = null;
+                            ItemInfoText.text = "SELECT AN ITEM";
+                            ItemInfoText.color = Color.white;
+
+                            InfoPanel.SetActive(false);
+
+                            ItemInfoText.color = Color.white;
+
+
+                        }
+
+                    }
+                    else
+                    {
+                        Debug.Log("Wrong Item Type");
+                    }
+                }
+                if (results[0].gameObject.GetComponent<DropZone>() != null)
+                {
+                    if (DraggedItem.Equipped)
+                    {
+                        if (DraggedItem.GetComponent<Weapon>())
+                        {
+                            Hero.SelectedHero.UnequipWeapon(DraggedItem.GetComponent<Weapon>());
+                        }
+                        if (DraggedItem.GetComponent<Armour>())
+                        {
+                            if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
+                            {
+                                Hero.SelectedHero.UneQuipArmour(DraggedItem.GetComponent<Armour>());
+                            }
+                            else if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
+                            {
+                                Hero.SelectedHero.UnequipHelm(DraggedItem.GetComponent<Armour>());
+                            }
+                        }
+                        if (DraggedItem.GetComponent<Consumable>())
+                        {
+                            Hero.SelectedHero.UnequipConsumable(DraggedItem.GetComponent<Consumable>());
+                        }
+                        Hero.SelectHero(Hero.SelectedHero);
+                        Hero.OpenEquipMenu();
+                    }
+                    Debug.Log("Item Returned to Stock");
+                    DraggedItem.gameObject.transform.SetParent(StockList);
+                    DraggedItem.transform.position = new Vector3(0, 0, 0);
+                    DraggedItem.StockItem();
+                    if (Hero.SelectedHero != null)
+                    {
+                        Hero.SelectedHero.SelectHero();
+                    }
+                    UpdatePrices();
+                }
+                if (results[0].gameObject.GetComponent<Item>() != null)
+                {
+                    if ((results[0].gameObject.GetComponent<Item>().Equipped && results[0].gameObject.GetComponent<Item>().Type.Type == DraggedItem.Type.Type) && results[0].gameObject.GetComponent<Item>() != DraggedItem)
+                    {
+
+                        if (DraggedItem.GetComponent<Weapon>())
+                        {
+                            if (DraggedItem.DamageType == results[0].gameObject.GetComponent<Item>().DamageType)
+                            {
+                                Debug.Log("Replaced Item");
+                                sfx.PlaySound(EquipSound);
+
+                                DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
+                                DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
+                                DraggedItem.EquipItem();
+                                results[0].gameObject.GetComponent<Item>().StockItem();
+                                results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
+                                Hero.SelectedHero.UnequipWeapon(results[0].gameObject.GetComponent<Weapon>());
+                                Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
+                                Hero.OpenEquipMenu();
+                                Hero.SelectedHero.SelectHero();
+                                Hero.SelectHero(Hero.SelectedHero);
+                                CurrentItem = null;
+                                ItemInfoText.text = "SELECT AN ITEM";
+                                ItemInfoText.color = Color.white;
+
+                                InfoPanel.SetActive(false);
+
+                                UpdatePrices();
                             }
                             else
                             {
-                                Debug.Log("Wrong Item Type");
+                                Debug.Log("Wrong Weapon Type");
                             }
                         }
-                        if (results[0].gameObject.GetComponent<DropZone>() != null)
+                        else if (DraggedItem.GetComponent<Armour>())
                         {
-                            if (DraggedItem.Equipped)
+                            Debug.Log("Replaced Item");
+                            sfx.PlaySound(EquipSound);
+
+                            DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
+                            DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
+                            DraggedItem.EquipItem();
+                            results[0].gameObject.GetComponent<Item>().StockItem();
+                            results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
+                            if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
                             {
-                                if (DraggedItem.GetComponent<Weapon>())
-                                {
-                                    Hero.SelectedHero.UnequipWeapon(DraggedItem.GetComponent<Weapon>());
-                                }
-                                if (DraggedItem.GetComponent<Armour>())
-                                {
-                                    if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
-                                    {
-                                        Hero.SelectedHero.UneQuipArmour(DraggedItem.GetComponent<Armour>());
-                                    }
-                                    else if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
-                                    {
-                                        Hero.SelectedHero.UnequipHelm(DraggedItem.GetComponent<Armour>());
-                                    }
-                                }
-                                if (DraggedItem.GetComponent<Consumable>())
-                                {
-                                    Hero.SelectedHero.UnequipConsumable(DraggedItem.GetComponent<Consumable>());
-                                }
-                                Hero.SelectHero(Hero.SelectedHero);
-                                Hero.OpenEquipMenu();
+                                Hero.SelectedHero.UnequipHelm(results[0].gameObject.GetComponent<Armour>());
+                                Hero.SelectedHero.EquipHelm(DraggedItem.GetComponent<Armour>());
                             }
-                            Debug.Log("Item Returned to Stock");
-                            DraggedItem.gameObject.transform.SetParent(StockList);
-                            DraggedItem.transform.position = new Vector3(0, 0, 0);
-                            DraggedItem.StockItem();
-                            if(Hero.SelectedHero != null)
+                            else if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
                             {
-                                Hero.SelectedHero.SelectHero();
+                                Hero.SelectedHero.UneQuipArmour(results[0].gameObject.GetComponent<Armour>());
+                                Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
                             }
+
+                            Hero.OpenEquipMenu();
+                            Hero.SelectedHero.SelectHero();
+                            Hero.SelectHero(Hero.SelectedHero);
+                            CurrentItem = null;
+                            ItemInfoText.text = "SELECT AN ITEM";
+                            ItemInfoText.color = Color.white;
+
+                            InfoPanel.SetActive(false);
+
                             UpdatePrices();
                         }
-                        if (results[0].gameObject.GetComponent<Item>() != null)
+                        else if (DraggedItem.GetComponent<Consumable>())
                         {
-                            if((results[0].gameObject.GetComponent<Item>().Equipped && results[0].gameObject.GetComponent<Item>().Type.Type == DraggedItem.Type.Type) && results[0].gameObject.GetComponent<Item>() != DraggedItem)
-                            {
-                                
-                                if (DraggedItem.GetComponent<Weapon>())
-                                {
-                                    if (DraggedItem.DamageType == results[0].gameObject.GetComponent<Item>().DamageType)
-                                    {
-                                        Debug.Log("Replaced Item");
-                                        sfx.PlaySound(EquipSound);
+                            Debug.Log("Replaced Item");
+                            sfx.PlaySound(EquipSound);
 
-                                        DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
-                                        DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
-                                        DraggedItem.EquipItem();
-                                        results[0].gameObject.GetComponent<Item>().StockItem();
-                                        results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
-                                        Hero.SelectedHero.UnequipWeapon(results[0].gameObject.GetComponent<Weapon>());
-                                        Hero.SelectedHero.EquipWeapon(DraggedItem.GetComponent<Weapon>());
-                                        Hero.OpenEquipMenu();
-                                        Hero.SelectedHero.SelectHero();
-                                        Hero.SelectHero(Hero.SelectedHero);
-                                        CurrentItem = null;
-                                        ItemInfoText.text = "SELECT AN ITEM";
-                                        ItemInfoText.color = Color.white;
+                            DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
+                            DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
+                            DraggedItem.EquipItem();
+                            results[0].gameObject.GetComponent<Item>().StockItem();
+                            results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
+                            Hero.SelectedHero.UnequipConsumable(results[0].gameObject.GetComponent<Consumable>());
+                            Hero.SelectedHero.EquipConsumable(DraggedItem.GetComponent<Consumable>());
+                            Hero.OpenEquipMenu();
+                            Hero.SelectedHero.SelectHero();
+                            Hero.SelectHero(Hero.SelectedHero);
+                            CurrentItem = null;
+                            ItemInfoText.text = "SELECT AN ITEM";
+                            ItemInfoText.color = Color.white;
 
-                                        InfoPanel.SetActive(false);
+                            InfoPanel.SetActive(false);
 
-                                        UpdatePrices();
-                                    }
-                                    else
-                                    {
-                                        Debug.Log("Wrong Weapon Type");
-                                    }
-                                }
-                                else if (DraggedItem.GetComponent<Armour>())
-                                {
-                                    Debug.Log("Replaced Item");
-                                    sfx.PlaySound(EquipSound);
-
-                                    DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
-                                    DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
-                                    DraggedItem.EquipItem();
-                                    results[0].gameObject.GetComponent<Item>().StockItem();
-                                    results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
-                                    if(DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
-                                    {
-                                        Hero.SelectedHero.UnequipHelm(results[0].gameObject.GetComponent<Armour>());
-                                        Hero.SelectedHero.EquipHelm(DraggedItem.GetComponent<Armour>());
-                                    }
-                                    else if (DraggedItem.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
-                                    {
-                                        Hero.SelectedHero.UneQuipArmour(results[0].gameObject.GetComponent<Armour>());
-                                        Hero.SelectedHero.EquipArmour(DraggedItem.GetComponent<Armour>());
-                                    }
-                                    
-                                    Hero.OpenEquipMenu();
-                                    Hero.SelectedHero.SelectHero();
-                                    Hero.SelectHero(Hero.SelectedHero);
-                                    CurrentItem = null;
-                                    ItemInfoText.text = "SELECT AN ITEM";
-                                    ItemInfoText.color = Color.white;
-
-                                    InfoPanel.SetActive(false);
-
-                                    UpdatePrices();
-                                }
-                                else if (DraggedItem.GetComponent<Consumable>())
-                                {
-                                    Debug.Log("Replaced Item");
-                                    sfx.PlaySound(EquipSound);
-
-                                    DraggedItem.gameObject.transform.SetParent(results[0].gameObject.transform.parent);
-                                    DraggedItem.transform.position = results[0].gameObject.transform.parent.position;
-                                    DraggedItem.EquipItem();
-                                    results[0].gameObject.GetComponent<Item>().StockItem();
-                                    results[0].gameObject.GetComponent<Item>().transform.SetParent(StockList);
-                                    Hero.SelectedHero.UnequipConsumable(results[0].gameObject.GetComponent<Consumable>());
-                                    Hero.SelectedHero.EquipConsumable(DraggedItem.GetComponent<Consumable>());
-                                    Hero.OpenEquipMenu();
-                                    Hero.SelectedHero.SelectHero();
-                                    Hero.SelectHero(Hero.SelectedHero);
-                                    CurrentItem = null;
-                                    ItemInfoText.text = "SELECT AN ITEM";
-                                    ItemInfoText.color = Color.white;
-
-                                    InfoPanel.SetActive(false);
-
-                                    UpdatePrices();
-                                }
-
-                            }                  
-
-                        }
-                        if (results[0].gameObject.GetComponent<Request>() != null)
-                        {
-                            Debug.Log("Dropped on request");
-                            
-
-                            var r = results[0].gameObject.GetComponent<Request>();
-                            if(DraggedItem.GetComponent<Weapon>() != null)
-                            {
-                                var w = DraggedItem.GetComponent<Weapon>();
-                                if(w.Level >= r.Level)
-                                {
-                                    if (r.Type == Request.RequestType.Sword)
-                                    {
-                                        if (DraggedItem.DamageType == 0)
-                                        {
-                                            Requests.CompleteRequest(r);
-
-                                        }
-                                        Debug.Log("Wrong Weapon Type");
-                                    }
-                                    if (r.Type == Request.RequestType.Wand)
-                                    {
-                                        if (DraggedItem.DamageType == 1)
-                                        {
-                                            Requests.CompleteRequest(r);
-                                        }
-                                        Debug.Log("Wrong Weapon Type");
-                                    }
-                                    if (r.Type == Request.RequestType.Bow)
-                                    {
-                                        if (DraggedItem.DamageType == 2)
-                                        {
-                                            Requests.CompleteRequest(r);
-                                        }
-                                        Debug.Log("Wrong Weapon Type");
-                                    }
-                                    if (r.Type == Request.RequestType.Club)
-                                    {
-                                        if (DraggedItem.DamageType == 3)
-                                        {
-                                            Requests.CompleteRequest(r);
-                                        }
-                                        Debug.Log("Wrong Weapon Type");
-                                    }
-                                }
-                                else
-                                {
-                                    Debug.Log("Not high enough level");
-                                }
-
-                            }
-                            if (DraggedItem != null && DraggedItem.GetComponent<Armour>() != null)
-                            {
-                                var a = DraggedItem.GetComponent<Armour>();
-                                if (a.Level >= r.Level)
-                                {
-                                    if (r.Type == Request.RequestType.Helm)
-                                    {
-                                        if (a.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
-                                        {
-                                            Requests.CompleteRequest(r);
-                                        }
-                                        else
-                                        {
-                                            Debug.Log("Wrong Armour Type");
-                                        }
-                                    }
-                                    if (r.Type == Request.RequestType.Armour)
-                                    {
-                                        if (a.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
-                                        {
-                                            Requests.CompleteRequest(r);
-                                        }
-                                        else
-                                        {
-                                            Debug.Log("Wrong Armour Type");
-                                        }
-                                    }
-
-
-                                }
-                                else
-                                {
-                                    Debug.Log("Not high enough level");
-                                }
-
-                            }
-                            
+                            UpdatePrices();
                         }
 
                     }
-                    DraggedItem = null;
-                    ItemBox.gameObject.SetActive(false);
-                    StockDropZone.SetActive(false);
-                    if (!Tutorial)
+
+                }
+                if (results[0].gameObject.GetComponent<Request>() != null)
+                {
+                    Debug.Log("Dropped on request");
+
+
+                    var r = results[0].gameObject.GetComponent<Request>();
+                    if (DraggedItem.GetComponent<Weapon>() != null)
                     {
-                        Save.SaveGame();
+                        var w = DraggedItem.GetComponent<Weapon>();
+                        if (w.Level >= r.Level)
+                        {
+                            if (r.Type == Request.RequestType.Sword)
+                            {
+                                if (DraggedItem.DamageType == 0)
+                                {
+                                    Requests.CompleteRequest(r);
+
+                                }
+                                Debug.Log("Wrong Weapon Type");
+                            }
+                            if (r.Type == Request.RequestType.Wand)
+                            {
+                                if (DraggedItem.DamageType == 1)
+                                {
+                                    Requests.CompleteRequest(r);
+                                }
+                                Debug.Log("Wrong Weapon Type");
+                            }
+                            if (r.Type == Request.RequestType.Bow)
+                            {
+                                if (DraggedItem.DamageType == 2)
+                                {
+                                    Requests.CompleteRequest(r);
+                                }
+                                Debug.Log("Wrong Weapon Type");
+                            }
+                            if (r.Type == Request.RequestType.Club)
+                            {
+                                if (DraggedItem.DamageType == 3)
+                                {
+                                    Requests.CompleteRequest(r);
+                                }
+                                Debug.Log("Wrong Weapon Type");
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log("Not high enough level");
+                        }
+
                     }
-                    break;
+                    if (DraggedItem != null && DraggedItem.GetComponent<Armour>() != null)
+                    {
+                        var a = DraggedItem.GetComponent<Armour>();
+                        if (a.Level >= r.Level)
+                        {
+                            if (r.Type == Request.RequestType.Helm)
+                            {
+                                if (a.GetComponent<ItemType>().Type == ItemType.ItemTypes.Helm)
+                                {
+                                    Requests.CompleteRequest(r);
+                                }
+                                else
+                                {
+                                    Debug.Log("Wrong Armour Type");
+                                }
+                            }
+                            if (r.Type == Request.RequestType.Armour)
+                            {
+                                if (a.GetComponent<ItemType>().Type == ItemType.ItemTypes.Armour)
+                                {
+                                    Requests.CompleteRequest(r);
+                                }
+                                else
+                                {
+                                    Debug.Log("Wrong Armour Type");
+                                }
+                            }
+
+
+                        }
+                        else
+                        {
+                            Debug.Log("Not high enough level");
+                        }
+
+                    }
+
+                }
+               
+
             }
+            DraggedItem = null;
+            ItemBox.gameObject.SetActive(false);
+            StockDropZone.SetActive(false);
+            if (!Tutorial)
+            {
+                Save.SaveGame();
+            }
+            return;
+
         }
         
+
     }
 
     public void SellItem()
