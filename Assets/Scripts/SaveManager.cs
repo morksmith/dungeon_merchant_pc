@@ -93,11 +93,11 @@ public class SaveManager : MonoBehaviour
     
     public void SaveGame()
     {
-        //while(Loading)
-        //{
-        //    await Task.Delay(1000);
-        //}
-        
+        while (Loading)
+        {
+            await Task.Delay(1000);
+        }
+
         //Set all save checks to false
         ItemsSaved = false;
         ThemesSaved = false;

@@ -199,6 +199,7 @@ public class Prospector : MonoBehaviour
         CurrentLevel++;
         ProspectTime += 300;
         UpdateUI();
+        Save.SaveGame();
         
     }
 
