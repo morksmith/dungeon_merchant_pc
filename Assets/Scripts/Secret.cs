@@ -39,6 +39,8 @@ public class Secret : MonoBehaviour
             return;
         }
         CatCount++;
+        var stat = new Steamworks.Data.Stat("cat_pets");
+        stat.Add(1);
         timer = 0;
         if(CatCount > 7)
         {

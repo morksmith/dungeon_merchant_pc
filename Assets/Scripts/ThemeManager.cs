@@ -6,6 +6,8 @@ public class ThemeManager : MonoBehaviour
 {
     public List<ShopTheme> Themes;
     public StockManager Stock;
+    public ShopTheme[] AllThemes;
+    private float completeThemes;
 
 
     public void SetTheme(ShopTheme t)
@@ -28,5 +30,22 @@ public class ThemeManager : MonoBehaviour
     public void PurchaseTheme(float c)
     {
         Stock.CollectGold(-c);
+        completeThemes = 0;
+        AllThemes = null;
+        AllThemes = GameObject.FindObjectsOfType<ShopTheme>();
+        Debug.Log(AllThemes.Length);
+        for(var i = 0; i < AllThemes.Length; i++)
+        {
+            if (AllThemes[i].Purchased)
+            {
+                completeThemes++;
+            }
+        }
+        if(completeThemes >= AllThemes.Length)
+        {
+            var ach = new Steamworks.Data.Achievement("decked_out");
+            ach.Trigger();
+        }
+        completeThemes = 0;
     }
 }

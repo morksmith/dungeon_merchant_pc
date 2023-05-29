@@ -328,6 +328,26 @@ public class HeroAI : MonoBehaviour
 
         if (CurrentTarget.GetComponent<Enemy>().HP <= 0)
         {
+            if(CurrentTarget.GetComponent<Enemy>().Type == Enemy.EnemyType.Skeleton)
+            {
+                var stat = new Steamworks.Data.Stat("skeletons_killed");
+                stat.Add(1);
+            }
+            else if(CurrentTarget.GetComponent<Enemy>().Type == Enemy.EnemyType.Demon)
+            {
+                var stat = new Steamworks.Data.Stat("demons_killed");
+                stat.Add(1);
+            }
+            else if (CurrentTarget.GetComponent<Enemy>().Type == Enemy.EnemyType.Beast)
+            {
+                var stat = new Steamworks.Data.Stat("beasts_killed");
+                stat.Add(1);
+            }
+            else if (CurrentTarget.GetComponent<Enemy>().Type == Enemy.EnemyType.Ghost)
+            {
+                var stat = new Steamworks.Data.Stat("ghosts_killed");
+                stat.Add(1);
+            }
             Instantiate(BonesPrefab, CurrentTarget.position + new Vector3(0,0,0.8f), Quaternion.Euler(90, 0, 0));
             var GoldFound = Mathf.CeilToInt(CurrentTarget.GetComponent<Enemy>().Gold * Stats.Discovery * DM.GoldBonus);
             var coinDrops = Mathf.CeilToInt(GoldFound / 4);

@@ -6,6 +6,14 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    public enum EnemyType
+    {
+        Beast,
+        Skeleton,
+        Ghost,
+        Demon
+    }
+    public EnemyType Type;
     public bool Survival = false;
     public int Level = 1;
     public float MaxHP;

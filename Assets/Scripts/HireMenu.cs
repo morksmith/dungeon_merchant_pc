@@ -26,6 +26,7 @@ public class HireMenu : MonoBehaviour
     public HeroData HiredHero;
     public AudioClip HireHeroSound;
     private SFXManager sfx;
+    public Stats[] HiredHeroes;
 
     private void Start()
     {
@@ -50,6 +51,36 @@ public class HireMenu : MonoBehaviour
             if (!Tutorial)
             {
                 Save.SaveGame();
+            }
+            HiredHeroes = null;
+            HiredHeroes = GameObject.FindObjectsOfType<Stats>();
+            var RangerCount = 0;
+            var MageCount = 0;
+            var WarriorCount = 0;
+            var KnightCount = 0;
+            for(var i = 0; i < HiredHeroes.Length; i++)
+            {
+                if (HiredHeroes[i].Class == Stats.HeroClass.Knight)
+                {
+                    KnightCount = 1;
+                }
+                if (HiredHeroes[i].Class == Stats.HeroClass.Warrior)
+                {
+                    WarriorCount = 1;
+                }
+                if (HiredHeroes[i].Class == Stats.HeroClass.Mage)
+                {
+                    MageCount = 1;
+                }
+                if (HiredHeroes[i].Class == Stats.HeroClass.Ranger)
+                {
+                    RangerCount = 1;
+                }
+            }
+            if(RangerCount == 1 && MageCount == 1 && WarriorCount == 1 && KnightCount == 1)
+            {
+                var ach = new Steamworks.Data.Achievement("full_house");
+                ach.Trigger();
             }
         }
         else

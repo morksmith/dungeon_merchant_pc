@@ -7,6 +7,8 @@ public class RequestManager : MonoBehaviour
     public StockManager Stock;
     public List<Request> CurrentRequests;
     public List<Sprite> TypeSprites;
+    public Request[] AllRequests;
+    private float completedTasks;
 
     public void RequestCompleted(Request r)
     {
@@ -22,6 +24,22 @@ public class RequestManager : MonoBehaviour
         Stock.CollectGold(r.Reward);
         r.Complete();
         Stock.DeselectItems();
+        AllRequests = null;
+        AllRequests = GameObject.FindObjectsOfType<Request>();
+        completedTasks = 0;
+        for(var i = 0; i < AllRequests.Length; i++)
+        {
+            if (AllRequests[i].TaskComplete)
+            {
+                completedTasks++;
+            }
+        }
+        if(completedTasks >= 4)
+        {
+            var ach = new Steamworks.Data.Achievement("happy_customer");
+            ach.Trigger();
+        }
+        completedTasks = 0;
     }
 
     public void NewRequests()

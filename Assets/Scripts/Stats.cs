@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using TMPro;
+using Steamworks.Data;
 
 public class Stats : MonoBehaviour
 {
@@ -115,6 +116,11 @@ public class Stats : MonoBehaviour
             MaxXP *= 1.5f;
             MaxXP = Mathf.CeilToInt(MaxXP);
             LevelText.text = Level.ToString();
+        }
+        if(Level >= 10)
+        {
+            var ach = new Steamworks.Data.Achievement("legendary_hero");
+            ach.Trigger();
         }
         
     }

@@ -129,6 +129,8 @@ public class Item : MonoBehaviour
         Destroyed = true;
         stockMan.CollectGold(Price);
         stockMan.PlayCollectSound();
+        var stat = new Steamworks.Data.Stat("items_sold");
+        stat.Add(1);
         if (!stockMan.Tutorial)
         {
             stockMan.Save.SaveGame();

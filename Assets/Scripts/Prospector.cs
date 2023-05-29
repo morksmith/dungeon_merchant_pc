@@ -242,6 +242,8 @@ public class Prospector : MonoBehaviour
         }
         else
         {
+            var ach = new Steamworks.Data.Achievement("miner_convenience");
+            ach.Trigger();
             UpgradeButton.GetComponentInChildren<TextMeshProUGUI>().text = "FULLY UPGRADED";
             UpgradeButton.interactable = false;
             UpgradeText.gameObject.SetActive(false);

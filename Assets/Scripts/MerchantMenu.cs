@@ -12,7 +12,12 @@ public class MerchantMenu : MonoBehaviour
     public GameObject NewIcon;
     public bool Tutorial = false;
 
-   
+    private void Start()
+    {
+        
+
+
+    }
     public void SelectItem(Item i)
     {
         
@@ -65,11 +70,16 @@ public class MerchantMenu : MonoBehaviour
             SelectedItem.transform.SetParent(Stock.StockList);
             SelectedItem.Merchant = false;
             Stock.CollectGold(-SelectedItem.Price);
+            var stat = new Steamworks.Data.Stat("gold_spent");
+            int spend = (int)SelectedItem.Price;
+            Debug.Log(spend);
+            stat.Add(spend);
             SelectedItem = null;
             ItemInfo.text = "SELECT AN ITEM";
             ItemInfo.color = Color.white;
             Stock.UpdatePrices();
             Stock.PlaySellSound();
+            
         }
         else 
         {

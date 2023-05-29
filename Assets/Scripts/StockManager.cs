@@ -54,7 +54,10 @@ public class StockManager : MonoBehaviour
     public GameObject Prospector;
     public GameObject MagicChest;
     public SaveManager Save;
-    
+    public Upgrade[] AllUpgrades;
+    private float completedUpgrades;
+
+
 
     private SFXManager sfx;
 
@@ -580,6 +583,7 @@ public class StockManager : MonoBehaviour
 
     public void CollectGold(float i)
     {
+        
         Gold += i;
         GoldText.text = Gold + "G";
         if (Gold > 10000)
@@ -863,6 +867,27 @@ public class StockManager : MonoBehaviour
     public void PlayLevelUpSound()
     {
         sfx.PlaySound(LevelUpSound);
+    }
+
+    public void CheckUpgrades()
+    {
+        completedUpgrades = 0;
+        AllUpgrades = null;
+        AllUpgrades = GameObject.FindObjectsOfType<Upgrade>();
+        Debug.Log(AllUpgrades.Length);
+        for(var i = 0; i < AllUpgrades.Length; i++)
+        {
+            if (AllUpgrades[i].Complete)
+            {
+                completedUpgrades++;
+            }
+        }
+        if(completedUpgrades >= AllUpgrades.Length)
+        {
+            var ach = new Steamworks.Data.Achievement("master_merchant");
+            ach.Trigger();
+        }
+        completedUpgrades = 0;
     }
 
 

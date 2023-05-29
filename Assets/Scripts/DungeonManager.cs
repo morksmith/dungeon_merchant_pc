@@ -488,6 +488,11 @@ public class DungeonManager : MonoBehaviour
         {
             CurrentHeroAI.Manager.MaxDungeonFloor++;
             CurrentHeroAI.Manager.CheckFloorButtons();
+            if(Level >= 20)
+            {
+                var ach = new Steamworks.Data.Achievement("dungeon_master");
+                ach.Trigger();
+            }
         }
         DungeonCompleted = false;
         GoldBonus += 0.4f;
